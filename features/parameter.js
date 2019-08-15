@@ -17,6 +17,8 @@ window.scenes = {
 window.gravity = 0.32;
 window.ySpeedMax = 4.8;
 
+window.worldCenter = [0, 0];
+
 
 
 

@@ -6,7 +6,7 @@ map.de = {
       'g2': { src: 'map/de/g2.png', w: 69, h: 69 },
       's1': { src: 'map/de/s1.png', w: 215, h: 71 },
     },
-    limit: { x: 750, y: 340, },
+    limit: { x: 1320, y: 340, },
     scale: 1,
   },
   // 物件

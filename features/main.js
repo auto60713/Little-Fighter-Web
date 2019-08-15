@@ -96,6 +96,9 @@ function draw(type) {
 
         // 計時器
         counter(Setting, frame, type);
+
+        // 攝影機
+        camera();
       });
 
     } else {
@@ -142,9 +145,33 @@ function counter(Setting, frame, type) {
     }
   }
 
-
   // 銷毀偵測
   if (type == 'derivative' && (Setting.x < -200 || Setting.x > mainMap.limit.x + 200)) Setting.destroy = true;
+}
+
+
+// ===========================================================
+// 攝影機
+// ===========================================================
+
+function camera() {
+
+  // 右邊拖動攝影機
+  var fix1 = 600;
+  // 左邊拖動攝影機
+  var fix2 = 100;
+  var mx = mainCharacter.x;
+  var cx = window.worldCenter[0];
+
+
+  if (mx - cx >= fix1 && mx < mainMap.limit.x - 135) {
+    window.worldCenter[0] = mx - fix1;
+  }
+  if (mx - cx < fix2 && mx > 95) {
+    window.worldCenter[0] = mx - fix2;
+  }
+
+
 }
 
 // ===========================================================
@@ -185,8 +212,8 @@ function show(Setting, frame, type, thing) {
   var sy = frame.pic[2] * file.h;
   var sWidth = file.w;
   var sHeight = file.h;
-  var dx = Setting.x;
-  var dy = Setting.y;
+  var dx = Setting.x - worldCenter[0];
+  var dy = Setting.y - worldCenter[1];
   var dWidth = sWidth;
   var dHeight = sHeight;
   var ct = frame.center;
