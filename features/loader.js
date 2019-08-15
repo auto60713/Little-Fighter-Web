@@ -17,10 +17,10 @@ lf2.loader = () => {
         lf2.imageNum++;
 
         img.onload = function () {
-    
+
           lf2.imageOnload++;
           if (lf2.imageOnload == lf2.imageNum) {
-            lf2.sceneSwitching('Entrance');
+            lf2.sceneSwitching('entrance');
             lf2.eachFrame();
           }
         }
@@ -29,6 +29,7 @@ lf2.loader = () => {
         lf2.imageCenter[name + '_' + key] = img;
       });
 
+      // 設定選角大頭照
       if (type == 'character') {
         const tt = name + 'face';
         lf2.UI[tt] = {
@@ -77,10 +78,10 @@ lf2.loader = () => {
 
       if (type === 'map') {
 
-        const arrange = [];
+        const decorate = [];
 
         // 展開重複布置
-        template.arrange.forEach(element => {
+        template.decorate.forEach(element => {
 
           if (element.repeat) {
 
@@ -91,15 +92,15 @@ lf2.loader = () => {
             for (let i = 0; i < element.repeat.times; i++) {
               var clone = JSON.parse(JSON.stringify(element));
               clone[clone.repeat.attr] = start + (clone.repeat.numer * i);
-              arrange.push(clone);
+              decorate.push(clone);
             }
           }
-          else arrange.push(element);
+          else decorate.push(element);
 
         });
 
-        // 覆蓋回arrange
-        template.arrange = arrange;
+        // 覆蓋回decorate
+        template.decorate = decorate;
       }
 
     });
@@ -113,3 +114,4 @@ lf2.loader = () => {
   document.addEventListener('keyup', lf2.logKey);
   document.addEventListener('keydown', lf2.logKey);
 }
+

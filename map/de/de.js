@@ -18,7 +18,7 @@ lf2.map.de = {
     }
   },
   // 擺設
-  arrange: [
+  decorate: [
     {
       component: 'g1', x: 0, y: 400, nowwait: 0, nowframe: 0,
       repeat: { attr: 'x', numer: 69, times: 20, },

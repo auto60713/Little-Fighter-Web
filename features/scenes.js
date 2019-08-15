@@ -1,28 +1,28 @@
 
-// 場景切換
-lf2.sceneSwitching = (TTTNAME) => {
+// 切換場景
+lf2.sceneSwitching = (state) => {
 
   lf2.Clearance();
+
   // 準備該場景需要的東西
-  switch (TTTNAME) {
+  switch (state) {
     // 入口畫面
-    case 'Entrance': lf2.appppEntrance(); break;
+    case 'entrance': lf2.prepareEntrance(); break;
     // 選擇模式
-    case 'SelectionMode': break;
+    case 'modeSelection': lf2.prepareModeSelection(); break;
     // 選擇角色
-    case 'SelectedRole': lf2.apppSelectedRoledee(); break;
+    case 'roleSelection': lf2.prepareRoleSelection(); break;
     // 格鬥模式
-    case 'battle': lf2.appppbattle(); break;
+    case 'battleMode': lf2.prepareBattleMode(); break;
     // 闖關模式
-    case 'Shaoguan': break;
+    case 'shaoguanMode': lf2.prepareShaoguanMode(); break;
   }
 
-  lf2.QPRESS = false;
-  lf2.state = TTTNAME;
+  lf2.state = state;
 }
 
 // 準備入口畫面的東西
-lf2.appppEntrance = () => {
+lf2.prepareEntrance = () => {
 
   lf2.adjunction('UI', 'startgame', {
     x: 290,
@@ -36,8 +36,8 @@ lf2.appppEntrance = () => {
 
 }
 
-// 準備選角畫面
-lf2.apppSelectedRoledee = () => {
+// 準備選角畫面的東西
+lf2.prepareRoleSelection = () => {
 
   Object.keys(lf2.character).forEach((name, i) => {
     lf2.adjunction('UI', name + 'face', {
@@ -55,7 +55,8 @@ lf2.apppSelectedRoledee = () => {
 }
 
 // 準備格鬥模式的東西
-lf2.appppbattle = () => {
+lf2.prepareBattleMode = () => {
+
   // 地圖
   lf2.adjunction('map', 'de', {
   });
@@ -79,7 +80,7 @@ lf2.appppbattle = () => {
   lf2.mainCharacter = lf2.scenes.character[0].Setting;
 }
 
-// 
+// 將物件加到場景中
 lf2.adjunction = (type, name, data) => {
   name = name.toLowerCase();
   var template = JSON.parse(JSON.stringify(lf2[type][name]));
@@ -93,8 +94,9 @@ lf2.adjunction = (type, name, data) => {
   lf2.scenes[type].push(template);
 }
 
-// 
+// 清空場景
 lf2.Clearance = () => {
+  lf2.scenesIndex = 0;
   lf2.scenes = {
     map: [],
     character: [],
@@ -102,4 +104,3 @@ lf2.Clearance = () => {
     UI: [],
   };
 }
-

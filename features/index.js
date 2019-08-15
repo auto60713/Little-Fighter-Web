@@ -9,8 +9,6 @@ window.lf2 = {
 
   state: '',
 
-  QPRESS: false,
-
   mainMap: null,
   mainCharacter: null,
 
@@ -35,5 +33,3 @@ window.lf2 = {
 };
 
 window.onload = () => { lf2.loader() };
-
-

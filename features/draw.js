@@ -1,6 +1,6 @@
 
-// 畫
-lf2.show = (Setting, frame, type, thing) => {
+// 將物件畫在上canvas上
+lf2.draw = (Setting, frame, type, thing) => {
   var file = thing.Setting.file[frame.pic[0]];
   // FIXME: 有計畫將name拿掉 直接是類別名稱
   var name = thing.Setting.name.toLowerCase();

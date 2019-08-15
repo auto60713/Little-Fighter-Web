@@ -15,27 +15,24 @@ lf2.logKey = (e) => {
 
   if (lf2.mainCharacter) lf2.mainCharacter.keypress[keymap[event.keyCode]] = pressing;
 
-  if (lf2.state == 'Entrance') {
+  if (lf2.state == 'entrance') {
 
   }
 
   // 給UI的溫馨案件觸發
-  if (pressing && keymap[event.keyCode] == 'Q' && (lf2.state == 'Entrance' || lf2.state == 'SelectedRole')) {
+  if (pressing && keymap[event.keyCode] == 'Q' && (lf2.state == 'entrance' || lf2.state == 'roleSelection')) {
     var ertet = '';
     // 每個模式要跑的畫面
     switch (lf2.state) {
       // 入口畫面
-      case 'Entrance': ertet = 'SelectedRole'; break;
+      case 'entrance': ertet = 'roleSelection'; break;
       // 選擇模式
-      case 'SelectionMode': ertet = ''; break;
+      case 'modeSelection': ertet = ''; break;
       // 選擇角色
-      case 'SelectedRole': ertet = 'battle'; break;
+      case 'roleSelection': ertet = 'battleMode'; break;
     }
     lf2.sceneSwitching(ertet);
-
-
   }
-
 
 }
 
