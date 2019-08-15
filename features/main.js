@@ -24,9 +24,9 @@ function appppEntrance() {
 // 準備選角畫面
 function apppSelectedRoledee() {
 
-  Object.keys(window.character).forEach(character => {
-    adjunction('UI', window.character[character].Setting.name + 'face', {
-      x: 100,
+  Object.keys(window.character).forEach((name, i) => {
+    adjunction('UI', name + 'face', {
+      x: 100 + (50 * i),
       y: 100,
       scale: 0.5,
     });
@@ -371,6 +371,7 @@ function skillll(Setting, frame, type, hhhh, thing) {
 
 function show(Setting, frame, type, thing) {
   var file = thing.Setting.file[frame.pic[0]];
+  // FIXME: 有計畫將name拿掉 直接是類別名稱
   var name = thing.Setting.name.toLowerCase();
   var image = window.imageCenter[name + '_' + frame.pic[0]];
   var sx = frame.pic[1] * file.w;

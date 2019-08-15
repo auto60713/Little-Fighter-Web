@@ -1,8 +1,10 @@
-character.rock = {
+character.firen = {
   Setting: {
-    name: 'Rock',
+    name: 'Firen',
     file: {
-      'action': { src: 'character/rock/0.png', w: 64, h: 64 },
+      '0': { src: 'character/firen/firen_0.png', w: 80, h: 80 },
+      '1': { src: 'character/firen/firen_1.png', w: 80, h: 80 },
+      '2': { src: 'character/firen/firen_2.png', w: 80, h: 80 },
     },
     walkingSpeed: 8,
     jumpPower: 4.5,
@@ -89,33 +91,6 @@ character.rock = {
       hitHold: {},
       hit: {},
     },
-  }
-};
-
-
-
-derivative.rcball = {
-  Setting: {
-    name: 'rcball',
-    file: {
-      'action': { src: 'character/rock/rcball.png', w: 1280, h: 1280 },
-    },
-    scale: 0.05,
-  },
-  frame: {
-    0: {
-      pic: ['action', 0, 0], center: [0, 0], next: 1, wait: 1, move: [4, 0],
-      itr: {
-        x: 0, y: 0, w: 80, h: 1, move: [1, -3], fall: 70, cd: 100, bdefend: 30, injury: 45,
-      }
-    },
-    1: {
-      pic: ['action', 0, 0], center: [0, 0], next: 0, wait: 1, move: [4, 0],
-      itr: {
-        x: 0, y: 0, w: 80, h: 1, move: [1, -3], fall: 70, cd: 100, bdefend: 30, injury: 45,
-      }
-    },
-
   }
 };
 
