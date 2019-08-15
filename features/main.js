@@ -157,20 +157,18 @@ function counter(Setting, frame, type) {
 function camera() {
 
   // 右邊拖動攝影機
-  var fix1 = 600;
+  var rightDistance = 550;
   // 左邊拖動攝影機
-  var fix2 = 100;
+  var leftDistance = 170;
   var mx = mainCharacter.x;
-  var cx = window.worldCenter[0];
+  var cx = window.cameraPos[0];
 
-
-  if (mx - cx >= fix1 && mx < mainMap.limit.x - 135) {
-    window.worldCenter[0] = mx - fix1;
+  if (mx - cx >= rightDistance && mx < mainMap.limit.x - (730 - rightDistance)) {
+    window.cameraPos[0] = mx - rightDistance;
   }
-  if (mx - cx < fix2 && mx > 95) {
-    window.worldCenter[0] = mx - fix2;
+  if (mx - cx < leftDistance && mx > leftDistance) {
+    window.cameraPos[0] = mx - leftDistance;
   }
-
 
 }
 
@@ -212,8 +210,8 @@ function show(Setting, frame, type, thing) {
   var sy = frame.pic[2] * file.h;
   var sWidth = file.w;
   var sHeight = file.h;
-  var dx = Setting.x - worldCenter[0];
-  var dy = Setting.y - worldCenter[1];
+  var dx = Setting.x - cameraPos[0];
+  var dy = Setting.y - cameraPos[1];
   var dWidth = sWidth;
   var dHeight = sHeight;
   var ct = frame.center;
