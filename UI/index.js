@@ -1,6 +1,6 @@
 
 // 開始按鈕
-UI.startgame = {
+lf2.UI.startgame = {
   Setting: {
     name: 'startgame',
     file: { 'main': { src: 'UI/start.png', w: 227, h: 74 }, },
@@ -13,7 +13,7 @@ UI.startgame = {
 
 
 // LOGO
-UI.logo = {
+lf2.UI.logo = {
   Setting: {
     name: 'logo',
     file: { 'main': { src: 'UI/logo.png', w: 356, h: 84 }, },
@@ -26,7 +26,7 @@ UI.logo = {
 
 
 // 選角手
-UI.point = {
+lf2.UI.point = {
   Setting: {
     name: 'point',
     file: { 'main': { src: 'UI/point.png', w: 288, h: 360 }, },

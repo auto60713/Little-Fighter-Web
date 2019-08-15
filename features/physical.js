@@ -1,17 +1,17 @@
 
 // 物理行為
-function physical(Setting, frame, type, thing) {
+lf2.physical = (Setting, frame, type, thing) => {
 
   // 地上無慣性 / 空中有慣性
   if (!Setting.inSky) Setting.xSpeed = 0;
 
-  move(Setting, frame, type);
-  walk(Setting, frame, type);
+  lf2.move(Setting, frame, type);
+  lf2.walk(Setting, frame, type);
 
   if (type == 'derivative') Setting.x += Setting.xSpeed;
   if (type == 'character') {
     // 邊界
-    if ((Setting.x >= 0 && Setting.xSpeed < 0) || (Setting.x < mainMap.limit.x && Setting.xSpeed > 0)) {
+    if ((Setting.x >= 0 && Setting.xSpeed < 0) || (Setting.x < lf2.mainMap.limit.x && Setting.xSpeed > 0)) {
       Setting.x += Setting.xSpeed;
     }
   }
@@ -25,24 +25,24 @@ function physical(Setting, frame, type, thing) {
     // 自由落體
     Setting.y += Setting.ySpeed;
     // 重力加速度
-    if (Setting.ySpeed < window.ySpeedMax && Setting.inSky) Setting.ySpeed += window.gravity;
+    if (Setting.ySpeed < lf2.ySpeedMax && Setting.inSky) Setting.ySpeed += lf2.gravity;
 
     // 落地偵測
-    if (Setting.y > mainMap.limit.y && Setting.inSky) {
+    if (Setting.y > lf2.mainMap.limit.y && Setting.inSky) {
       Setting.ySpeed = 0;
       Setting.xSpeed = 0;
       Setting.inSky = false;
-      nextframe(thing, Setting, type, 0)
+      lf2.nextframe(thing, Setting, type, 0)
     }
   }
 }
 
 // move移動
-function move(Setting, frame, type) {
+lf2.move = (Setting, frame, type) => {
   if (frame.move) {
     var m = Setting.mirror ? -1 : 1;
     // 邊界消速度
-    if ((type == 'character' && Setting.x >= 0 || Setting.x < mainMap.limit.x) || type == 'derivative') {
+    if ((type == 'character' && Setting.x >= 0 || Setting.x < lf2.mainMap.limit.x) || type == 'derivative') {
       Setting.xSpeed = frame.move[0] * m;
     }
 
@@ -51,7 +51,7 @@ function move(Setting, frame, type) {
 }
 
 // 走路移動
-function walk(Setting, frame, type) {
+lf2.walk = (Setting, frame, type) => {
   if (frame.walk) {
     if (Setting.keypress.right) {
       Setting.xSpeed = Setting.walkingSpeed;

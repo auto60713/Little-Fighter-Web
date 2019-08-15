@@ -1,10 +1,11 @@
 
 // 事前準備
-function loader() {
-  ['map', 'character', 'derivative', 'UI'].forEach(type => {
-    Object.keys(window[type]).forEach(name => {
+lf2.loader = () => {
 
-      const template = window[type][name];
+  ['map', 'character', 'derivative', 'UI'].forEach(type => {
+    Object.keys(lf2[type]).forEach(name => {
+
+      const template = lf2[type][name];
 
       // 根據路徑將圖檔匯入圖檔中心
       Object.keys(template.Setting.file).forEach(key => {
@@ -12,22 +13,25 @@ function loader() {
         var file = template.Setting.file[key];
 
         var img = new Image();
-        window.loaderG++;
+
+        lf2.imageNum++;
+
         img.onload = function () {
-          window.loader++;
-          if (window.loader == window.loaderG) {
-            sceneSwitching('Entrance');
-            eachFrame();
+    
+          lf2.imageOnload++;
+          if (lf2.imageOnload == lf2.imageNum) {
+            lf2.sceneSwitching('Entrance');
+            lf2.eachFrame();
           }
         }
         img.src = file.src;
 
-        window.imageCenter[name + '_' + key] = img;
+        lf2.imageCenter[name + '_' + key] = img;
       });
 
       if (type == 'character') {
         const tt = name + 'face';
-        UI[tt] = {
+        lf2.UI[tt] = {
           Setting: {
             name: tt,
             file: {
@@ -100,50 +104,12 @@ function loader() {
 
     });
   });
-}
-
-// 
-function rfewfwef() {
 
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
+  lf2.canvas = canvas;
+  lf2.ctx = ctx;
 
-  window.lf2 = {
-
-    canvas: canvas,
-    ctx = ctx,
-
-    scenesIndex: 0,
-
-    loader: 0,
-    loaderG: 0,
-    imageCenter: {},
-    waitMagnification: 5,
-
-    state: '',
-
-    QPRESS: false,
-
-    mainMap: null,
-    mainCharacter: null,
-
-    UI: {},
-    map: {},
-    character: {},
-    derivative: {},
-
-    scenes: {
-      map: [],
-      character: [],
-      derivative: [],
-      UI: [],
-    },
-
-    // 重力
-    gravity: 0.32,
-    ySpeedMax: 4.8,
-
-    cameraPos: [0, 0],
-  };
-
+  document.addEventListener('keyup', lf2.logKey);
+  document.addEventListener('keydown', lf2.logKey);
 }

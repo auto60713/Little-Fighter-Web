@@ -1,4 +1,4 @@
-character.freeze = {
+lf2.character.freeze = {
   Setting: {
     name: 'Freeze',
     file: {

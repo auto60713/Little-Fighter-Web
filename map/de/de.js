@@ -1,4 +1,4 @@
-map.de = {
+lf2.map.de = {
   Setting: {
     name: 'de',
     file: {

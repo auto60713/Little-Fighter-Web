@@ -1,19 +1,19 @@
 
 // 攝影機
-function camera() {
+lf2.camera = () => {
 
   // 右邊拖動攝影機
   var rightDistance = 550;
   // 左邊拖動攝影機
   var leftDistance = 170;
-  var mx = mainCharacter.x;
-  var cx = window.cameraPos[0];
+  var mx = lf2.mainCharacter.x;
+  var cx = lf2.cameraPos[0];
 
-  if (mx - cx >= rightDistance && mx < mainMap.limit.x - (730 - rightDistance)) {
-    window.cameraPos[0] = mx - rightDistance;
+  if (mx - cx >= rightDistance && mx < lf2.mainMap.limit.x - (730 - rightDistance)) {
+    lf2.cameraPos[0] = mx - rightDistance;
   }
   if (mx - cx < leftDistance && mx > leftDistance) {
-    window.cameraPos[0] = mx - leftDistance;
+    lf2.cameraPos[0] = mx - leftDistance;
   }
 
 }

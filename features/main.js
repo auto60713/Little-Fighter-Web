@@ -1,25 +1,21 @@
 
-
-var scenesIndex = 0;
-
-// ===========================================================
-// 入口畫面
-// ===========================================================
-
-function SelectedRole() {
+// 
+lf2.SelectedRole = () => {
   // 畫地圖
-  draw2('UI');
+  lf2.draw2('UI');
 }
 
-function Entrance() {
+// 
+lf2.Entrance = () => {
   // 畫地圖
-  draw2('UI');
+  lf2.draw2('UI');
 }
 
-function draw2(type) {
+// 
+lf2.draw2 = (type) => {
 
   // 每個對象
-  window.scenes[type].forEach((thing, index, object) => {
+  lf2.scenes[type].forEach((thing, index, object) => {
 
     if (!thing.Setting.destroy) {
 
@@ -37,14 +33,14 @@ function draw2(type) {
 
         // 自然換幀
         if (Setting.nowwait <= 0) {
-          nextframe(thing, Setting, type, frame.next);
+          lf2.nextframe(thing, Setting, type, frame.next);
         }
 
         // 呈現
-        show(Setting, frame, type, thing);
+        lf2.show(Setting, frame, type, thing);
 
         // 計時器
-        counter(Setting, frame, type);
+        lf2.counter(Setting, frame, type);
 
       });
 
@@ -57,20 +53,21 @@ function draw2(type) {
 
 }
 
-function battle() {
+// 
+lf2.battle = () => {
   // 畫地圖
-  draw('map');
+  lf2.draw('map');
   // 畫角色
-  draw('character');
+  lf2.draw('character');
   // 畫衍生物
-  draw('derivative');
+  lf2.draw('derivative');
 }
 
 // 繪製項目
-function draw(type) {
+lf2.draw = (type) => {
 
   // 每個對象
-  window.scenes[type].forEach((thing, index, object) => {
+  lf2.scenes[type].forEach((thing, index, object) => {
 
     if (!thing.Setting.destroy) {
 
@@ -91,33 +88,33 @@ function draw(type) {
         var frame = type === 'map' ? thing.component[Setting.component].frame[Setting.nowframe] : thing.frame[Setting.nowframe];
 
         // 衍生物檢測
-        produceDerivative(Setting, frame);
+        lf2.produceDerivative(Setting, frame);
 
         // 被打偵測
-        if (amIBeingBeaten(Setting, frame, thing)) {
-          nextframe(thing, Setting, type, 20);
+        if (lf2.amIBeingBeaten(Setting, frame, thing)) {
+          lf2.nextframe(thing, Setting, type, 20);
         }
         // 自然換幀
         else if (Setting.nowwait <= 0) {
-          nextframe(thing, Setting, type, frame.next);
-          skillll(Setting, frame, type, 'hitHold', thing);
+          lf2.nextframe(thing, Setting, type, frame.next);
+          lf2.skillll(Setting, frame, type, 'hitHold', thing);
         }
         // 技能換幀
         else {
-          skillll(Setting, frame, type, 'hit', thing);
+          lf2.skillll(Setting, frame, type, 'hit', thing);
         }
 
         // 物理行為
-        physical(Setting, frame, type, thing);
+        lf2.physical(Setting, frame, type, thing);
 
         // 呈現
-        show(Setting, frame, type, thing);
+        lf2.show(Setting, frame, type, thing);
 
         // 計時器
-        counter(Setting, frame, type);
+        lf2.counter(Setting, frame, type);
 
         // 攝影機
-        camera();
+        lf2.camera();
       });
 
     } else {
@@ -129,16 +126,13 @@ function draw(type) {
 
 }
 
-// ===========================================================
 // 衍生物
-// ===========================================================
-
-function produceDerivative(Setting, frame) {
+lf2.produceDerivative = (Setting, frame) => {
   if (frame.produce && !Setting.alreadyProduced) {
 
     var direction = Setting.mirror ? -1 : 1;
 
-    adjunction('derivative', frame.produce.name,
+    lf2.adjunction('derivative', frame.produce.name,
       {
         x: Setting.x + (frame.produce.x * direction),
         y: Setting.y + frame.produce.y,
@@ -151,15 +145,12 @@ function produceDerivative(Setting, frame) {
   }
 }
 
-// ===========================================================
 // 被打偵測
-// ===========================================================
-
-function amIBeingBeaten(Setting, frame, thing) {
+lf2.amIBeingBeaten = (Setting, frame, thing) => {
   var isHit = false;
   if (frame.bdy) {
     // 問全部的衍生物
-    window.scenes.derivative.forEach(det => {
+    lf2.scenes.derivative.forEach(det => {
       var detFrame = det.frame[det.Setting.nowframe];
       if (detFrame.itr && (!det.Setting.hitCD[Setting.scenesIndex] || det.Setting.hitCD[Setting.scenesIndex] <= 0)) {
         if (Setting.team !== det.Setting.team) {
@@ -180,3 +171,26 @@ function amIBeingBeaten(Setting, frame, thing) {
   }
   return isHit;
 }
+
+// 技能
+lf2.skillll = (Setting, frame, type, hhhh, thing) => {
+
+  // 跳出換幀(技能)
+  var breakFlag2 = false;
+
+  if (frame[hhhh]) {
+    var hit = Object.keys(frame[hhhh]);
+    if (hit.length > 0) {
+      hit.forEach(key => {
+
+        if (Setting.keypress[key] && !breakFlag2) {
+          lf2.nextframe(thing, Setting, type, frame[hhhh][key]);
+          breakFlag2 = true;
+        }
+
+      });
+    }
+  }
+
+}
+

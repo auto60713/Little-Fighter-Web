@@ -1,4 +1,4 @@
-character.firen = {
+lf2.character.firen = {
   Setting: {
     name: 'Firen',
     file: {

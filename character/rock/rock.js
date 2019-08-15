@@ -1,4 +1,4 @@
-character.rock = {
+lf2.character.rock = {
   Setting: {
     name: 'Rock',
     file: {
@@ -94,7 +94,7 @@ character.rock = {
 
 
 
-derivative.rcball = {
+lf2.derivative.rcball = {
   Setting: {
     name: 'rcball',
     file: {
