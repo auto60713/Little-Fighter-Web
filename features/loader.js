@@ -22,6 +22,24 @@
       window.imageCenter[name + '_' + key] = img;
     });
 
+    if (type == 'character') {
+      const tt = name + 'face';
+      UI[tt] = {
+        Setting: {
+          name: tt,
+          file: {
+            'main': { src: 'character/' + name + '/face.png', w: 100, h: 100 },
+          },
+          scale: 1,
+        },
+        frame: {
+          0: {
+            pic: ['main', 0, 0], center: [0, 0], next: 0, wait: 1,
+          },
+        }
+      };
+    }
+
     // 填入背景資訊(不需要特別設定的)
     if (type !== 'map') {
 

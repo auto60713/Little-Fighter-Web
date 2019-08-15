@@ -21,10 +21,21 @@ function appppEntrance() {
 
 }
 
-// 準備入口畫面的東西
+// 準備選角畫面
 function apppSelectedRoledee() {
 
+  Object.keys(window.character).forEach(character => {
+    adjunction('UI', window.character[character].Setting.name + 'face', {
+      x: 100,
+      y: 100,
+      scale: 0.5,
+    });
+  });
 
+  adjunction('UI', 'point', {
+    x: 110,
+    y: 130,
+  });
 
 }
 
@@ -93,7 +104,6 @@ function eachFrame() {
     }
     stateChange = false;
     QPRESS = false;
-
   }
 
   // 每個模式要跑的畫面
@@ -410,6 +420,7 @@ function produceDerivative(Setting, frame) {
 // ===========================================================
 
 function adjunction(type, name, data) {
+  name = name.toLowerCase();
   var template = JSON.parse(JSON.stringify(window[type][name]));
   template.Setting.scenesIndex = scenesIndex;
   scenesIndex++;
