@@ -62,16 +62,16 @@ lf2.prepareBattleMode = () => {
   });
 
   // 主角(即第一個加入的角色)
-  lf2.adjunction('character', 'rock', {
+  lf2.adjunction('character', 'freeze', {
     x: 100,
-    y: 340,
+    y: 400,
     team: 0,
   });
 
   // 另一個角色
-  lf2.adjunction('character', 'rock', {
+  lf2.adjunction('character', 'freeze', {
     x: 600,
-    y: 340,
+    y: 400,
     team: 1,
     mirror: true,
   });

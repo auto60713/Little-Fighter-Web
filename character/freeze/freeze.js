@@ -12,62 +12,123 @@ lf2.character.freeze = {
   },
   frame: {
     // standing
-    0: {
-      pertain: 'idle', pic: ['0', 0, 0], center: [0, 0], next: 1, wait: 2, flip: true, walk: true,
-      hitHold: {},
-      hit: { up: 6, right: 3, left: 3, },
+    standing: {
+      next: 'standing2', pic: ['0', 0, 0], center: [40, 80], wait: 4, flip: true, walk: true,
+      hit: { C: 'attack1', A: 'iceBall1', up: 'jumpPre', right: 'walking1', left: 'walking1', },
     },
     // standing
-    1: {
-      pertain: 'idle', pic: ['0', 1, 0], center: [0, 0], next: 2, wait: 2, flip: true, walk: true,
-      hitHold: {},
-      hit: { up: 6, right: 3, left: 3, },
+    standing2: {
+      next: 'standing3', pic: ['0', 1, 0], center: [40, 80], wait: 4, flip: true, walk: true,
+      hit: { C: 'attack1', A: 'iceBall1', up: 'jumpPre', right: 'walking1', left: 'walking1', },
     },
     // standing
-    2: {
-      pertain: 'idle', pic: ['0', 2, 0], center: [0, 0], next: 0, wait: 2, flip: true, walk: true,
-      hitHold: {},
-      hit: { up: 6, right: 3, left: 3, },
+    standing3: {
+      next: 'standing4', pic: ['0', 2, 0], center: [40, 80], wait: 4, flip: true, walk: true,
+      hit: { C: 'attack1', A: 'iceBall1', up: 'jumpPre', right: 'walking1', left: 'walking1', },
+    },
+    // standing
+    standing4: {
+      next: 999, pic: ['0', 3, 0], center: [40, 80], wait: 4, flip: true, walk: true,
+      hit: { C: 'attack1', A: 'iceBall1', up: 'jumpPre', right: 'walking1', left: 'walking1', },
     },
 
+
     // walking
-    3: {
-      pertain: 'idle', pic: ['0', 3, 0], center: [0, 0], next: 999, wait: 2, flip: true, walk: true,
-      hitHold: { right: 4, left: 4, },
-      hit: { up: 6, },
+    walking1: {
+      next: 999, pic: ['0', 4, 0], center: [40, 80], wait: 4, flip: true, walk: true,
+      hitHold: { right: 'walking2', left: 'walking2', },
+      hit: { C: 'attack1', A: 'iceBall1', up: 'jumpPre', },
     },
     // walking
-    4: {
-      pertain: 'idle', pic: ['0', 4, 0], center: [0, 0], next: 999, wait: 2, flip: true, walk: true,
-      hitHold: { right: 5, left: 5, },
-      hit: { up: 6, },
+    walking2: {
+      next: 999, pic: ['0', 5, 0], center: [40, 80], wait: 4, flip: true, walk: true,
+      hitHold: { right: 'walking3', left: 'walking3', },
+      hit: { C: 'attack1', A: 'iceBall1', up: 'jumpPre', },
     },
     // walking
-    5: {
-      pertain: 'idle', pic: ['0', 5, 0], center: [0, 0], next: 999, wait: 2, flip: true, walk: true,
-      hitHold: { right: 3, left: 3, },
-      hit: { up: 6, },
+    walking3: {
+      next: 999, pic: ['0', 6, 0], center: [40, 80], wait: 4, flip: true, walk: true,
+      hitHold: { right: 'walking4', left: 'walking4', },
+      hit: { C: 'attack1', A: 'iceBall1', up: 'jumpPre', },
     },
+    // walking
+    walking4: {
+      next: 999, pic: ['0', 7, 0], center: [40, 80], wait: 4, flip: true, walk: true,
+      hitHold: { right: 'walking1', left: 'walking1', },
+      hit: { C: 'attack1', A: 'iceBall1', up: 'jumpPre', },
+    },
+
+
 
     // jump-pre
-    6: {
-      pertain: 'jump', pic: ['0', 4, 1], center: [0, 0], next: 8, wait: 0, move: [0, -8], flip: true, walk: true,
+    jumpPre: {
+      next: 'jumping', pic: ['0', 0, 6], center: [40, 80], wait: 0, move: [0, -8], flip: true, walk: true,
     },
-
     // jumping
-    8: {
-      pertain: 'idle', pic: ['0', 4, 1], center: [0, 0], next: 8, wait: 1, flip: true,
+    jumping: {
+      next: 'jumping', pic: ['0', 2, 6], center: [40, 80], wait: 1, flip: true,
     },
 
 
 
+    // 普攻
+    attack1: {
+      next: 'attack2', pic: ['0', 0, 1], center: [40, 80], wait: 1, move: [1, 0],
+    },
+    // 普攻
+    attack2: {
+      next: 'attack3', pic: ['0', 1, 1], center: [40, 80], wait: 1,
+    },
+    // 普攻
+    attack3: {
+      next: 999, pic: ['0', 0, 1], center: [40, 80], wait: 1,
+    },
+
+
+    // 防禦
+    defense: {
+      next: 999, pic: ['0', 6, 5], center: [40, 80], wait: 3,
+    },
 
     // 受傷
-    20: {
-      pertain: 'skill', pic: ['0', 6, 0], center: [0, 0], next: 999, wait: 2,
-      hitHold: {},
-      hit: {},
+    injured: {
+      next: 999, pic: ['0', 6, 0], center: [0, 0], wait: 2,
     },
+
+    // 冰彈
+    iceBall1: {
+      next: 'iceBall2', pic: ['2', 0, 0], center: [40, 80], wait: 1,
+    },
+    // 冰彈
+    iceBall2: {
+      next: 'iceBall3', pic: ['2', 1, 0], center: [40, 80], wait: 1,
+    },
+    // 冰彈
+    iceBall3: {
+      next: 'iceBall4', pic: ['2', 2, 0], center: [40, 80], wait: 1,
+    },
+    // 冰彈
+    iceBall4: {
+      next: 'iceBall5', pic: ['2', 3, 0], center: [40, 80], wait: 1,
+    },
+    // 冰彈
+    iceBall5: {
+      next: 'iceBall6', pic: ['2', 4, 0], center: [40, 80], wait: 1,
+    },
+    // 冰彈
+    iceBall6: {
+      next: 999, pic: ['2', 5, 0], center: [40, 80], wait: 1,
+    },
+
+
+
+
+
+
+
+
+
+
   }
 };
 

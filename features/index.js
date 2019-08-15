@@ -1,11 +1,13 @@
 window.lf2 = {
 
+  // 背景數據
   scenesIndex: 0,
 
   imageOnload: 0,
   imageNum: 0,
   imageCenter: {},
-  waitMagnification: 5,
+
+  cameraPos: [0, 0],
 
   state: '',
 
@@ -24,11 +26,14 @@ window.lf2 = {
     UI: [],
   },
 
+  // 設定有意思的值
+
+  // wait等於幾幀
+  waitMagnification: 2,
   // 重力
   gravity: 0.32,
-  ySpeedMax: 4.8,
-
-  cameraPos: [0, 0],
+  // 落下最大速度
+  maxFallingSpeed: 4.8,
 
 };
 

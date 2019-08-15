@@ -123,11 +123,11 @@ lf2.arrange = (type) => {
         // 自然換幀
         else if (Setting.nowwait <= 0) {
           lf2.nextframe(thing, Setting, type, frame.next);
-          lf2.skillll(Setting, frame, type, 'hitHold', thing);
+          lf2.skill(Setting, frame, type, 'hitHold', thing);
         }
         // 技能換幀
         else {
-          lf2.skillll(Setting, frame, type, 'hit', thing);
+          lf2.skill(Setting, frame, type, 'hit', thing);
         }
 
         // 物理行為

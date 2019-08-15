@@ -31,20 +31,14 @@ lf2.loader = () => {
 
       // 設定選角大頭照
       if (type == 'character') {
-        const tt = name + 'face';
-        lf2.UI[tt] = {
+        const UIname = name + 'face';
+        lf2.UI[UIname] = {
           Setting: {
-            name: tt,
-            file: {
-              'main': { src: 'character/' + name + '/face.png', w: 100, h: 100 },
-            },
+            name: UIname,
+            file: { 'main': { src: 'character/' + name + '/face.png', w: 100, h: 100 }, },
             scale: 1,
           },
-          frame: {
-            0: {
-              pic: ['main', 0, 0], center: [0, 0], next: 0, wait: 1,
-            },
-          }
+          frame: { 'standing': { next: 999, pic: ['main', 0, 0], center: [0, 0], wait: 1, }, }
         };
       }
 
@@ -53,8 +47,10 @@ lf2.loader = () => {
 
         const data = {
 
-          nowframe: 0,
-          nowwait: template.frame[0].wait,
+          nowframe: 'standing',
+          // FIXME: 飛彈也要standing嗎?
+          // nowwait: template.frame['standing'].wait,
+          nowwait: 0,
 
           ySpeed: 0,
           xSpeed: 0,

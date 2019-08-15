@@ -7,7 +7,7 @@ lf2.UI.startgame = {
     scale: 1,
   },
   frame: {
-    0: { pic: ['main', 0, 0], center: [0, 0], next: 0, wait: 1, },
+    'standing': { next: 999, pic: ['main', 0, 0], center: [0, 0], wait: 1, },
   }
 };
 
@@ -20,7 +20,7 @@ lf2.UI.logo = {
     scale: 2,
   },
   frame: {
-    0: { pic: ['main', 0, 0], center: [0, 0], next: 0, wait: 1, },
+    'standing': { next: 999, pic: ['main', 0, 0], center: [0, 0], wait: 1, },
   }
 };
 
@@ -33,7 +33,7 @@ lf2.UI.point = {
     scale: 0.1,
   },
   frame: {
-    0: { pic: ['main', 0, 0], center: [0, 0], next: 0, wait: 1, },
+    'standing': { next: 999, pic: ['main', 0, 0], center: [0, 0], wait: 1, },
   }
 };
 

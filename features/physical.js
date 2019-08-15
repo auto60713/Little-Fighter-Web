@@ -25,14 +25,14 @@ lf2.physical = (Setting, frame, type, thing) => {
     // 自由落體
     Setting.y += Setting.ySpeed;
     // 重力加速度
-    if (Setting.ySpeed < lf2.ySpeedMax && Setting.inSky) Setting.ySpeed += lf2.gravity;
+    if (Setting.ySpeed < lf2.maxFallingSpeed && Setting.inSky) Setting.ySpeed += lf2.gravity;
 
     // 落地偵測
     if (Setting.y > lf2.mainMap.limit.y && Setting.inSky) {
       Setting.ySpeed = 0;
       Setting.xSpeed = 0;
       Setting.inSky = false;
-      lf2.nextframe(thing, Setting, type, 0)
+      lf2.nextframe(thing, Setting, type, 'standing')
     }
   }
 }

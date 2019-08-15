@@ -34,7 +34,7 @@ lf2.amIBeingBeaten = (Setting, frame, thing) => {
             // 這個衍生物下次打我多久後
             det.Setting.hitCD[Setting.scenesIndex] = detFrame.itr.cd;
             const m = Setting.mirror ? -1 : 1;
-            thing.frame[20].move = [detFrame.itr.move[0] * m, detFrame.itr.move[1]];
+            thing.frame['injured'].move = [detFrame.itr.move[0] * m, detFrame.itr.move[1]];
             isHit = true;
           }
         }
@@ -46,18 +46,18 @@ lf2.amIBeingBeaten = (Setting, frame, thing) => {
 }
 
 // 技能
-lf2.skillll = (Setting, frame, type, hhhh, thing) => {
+lf2.skill = (Setting, frame, type, hitset, thing) => {
 
   // 跳出換幀(技能)
   var breakFlag2 = false;
 
-  if (frame[hhhh]) {
-    var hit = Object.keys(frame[hhhh]);
+  if (frame[hitset]) {
+    var hit = Object.keys(frame[hitset]);
     if (hit.length > 0) {
       hit.forEach(key => {
 
         if (Setting.keypress[key] && !breakFlag2) {
-          lf2.nextframe(thing, Setting, type, frame[hhhh][key]);
+          lf2.nextframe(thing, Setting, type, frame[hitset][key]);
           breakFlag2 = true;
         }
 
@@ -71,10 +71,11 @@ lf2.skillll = (Setting, frame, type, hhhh, thing) => {
 lf2.nextframe = (thing, Setting, type, next) => {
   if (type !== 'map') {
     if (next == 999) {
-      if (Setting.inSky) next = 8;
-      else next = 0;
+      if (Setting.inSky) next = 'jumping';
+      else next = 'standing';
     }
     Setting.nowframe = next;
+    console.log(Setting.nowframe);
     Setting.nowwait = thing.frame[Setting.nowframe].wait * lf2.waitMagnification;
     Setting.alreadyProduced = false;
   }
