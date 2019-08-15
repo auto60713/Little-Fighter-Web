@@ -26,7 +26,7 @@ lf2.physical = (Setting, frame, type, thing) => {
     Setting.y += Setting.ySpeed;
     // 重力加速度
     if (Setting.ySpeed < lf2.maxFallingSpeed && Setting.inSky) Setting.ySpeed += lf2.gravity;
-    console.log(Setting.ySpeed);
+
     // 落地偵測
     if (Setting.y > lf2.mainMap.limit.y && Setting.inSky && Setting.ySpeed > 0) {
       Setting.ySpeed = 0;

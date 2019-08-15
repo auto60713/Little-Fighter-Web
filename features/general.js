@@ -33,8 +33,9 @@ lf2.amIBeingBeaten = (Setting, frame, thing) => {
             && Setting.y + frame.bdy.y < det.Setting.y + detFrame.itr.y + detFrame.itr.h) {
             // 下次打我多久後
             det.Setting.hitCD[Setting.scenesIndex] = detFrame.itr.cd;
-            const m = det.Setting.mirror ? 1 : -1;
-            thing.frame['injured'].move = [detFrame.itr.move[0] * m, detFrame.itr.move[1]];
+            const m = det.Setting.mirror ? -1 : 1;
+            const m2 = Setting.mirror ? -1 : 1;
+            thing.frame['injured'].move = [detFrame.itr.move[0] * m * m2, detFrame.itr.move[1]];
             isHit = true;
           }
         }
@@ -51,8 +52,9 @@ lf2.amIBeingBeaten = (Setting, frame, thing) => {
             && Setting.y + frame.bdy.y < det.Setting.y + detFrame.itr.y + detFrame.itr.h) {
             // 下次打我多久後
             det.Setting.hitCD[Setting.scenesIndex] = detFrame.itr.cd;
-            const m = det.Setting.mirror ? 1 : -1;
-            thing.frame['injured'].move = [detFrame.itr.move[0] * m, detFrame.itr.move[1]];
+            const m = det.Setting.mirror ? -1 : 1;
+            const m2 = Setting.mirror ? -1 : 1;
+            thing.frame['injured'].move = [detFrame.itr.move[0] * m * m2, detFrame.itr.move[1]];
             isHit = true;
           }
         }

@@ -6,7 +6,7 @@ lf2.character.Freeze = {
       '1': { src: 'character/freeze/freeze_1.png', w: 80, h: 80 },
       '2': { src: 'character/freeze/freeze_2.png', w: 80, h: 80 },
     },
-    walkingSpeed: 8,
+    walkingSpeed: 4,
     jumpPower: 4.5,
     scale: 1,
   },

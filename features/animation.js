@@ -141,6 +141,9 @@ lf2.arrange = (type) => {
 
         // 攝影機
         lf2.camera();
+
+        // 我是機器人
+        lf2.bot(Setting, frame, type, thing);
       });
 
     } else {
