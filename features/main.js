@@ -51,48 +51,48 @@ function animate() {
 function draw(type) {
 
   // 每個對象
-  window.scenes[type].forEach((dada, index, object) => {
+  window.scenes[type].forEach((thing, index, object) => {
 
-    if (!dada.Setting.destroy) {
+    if (!thing.Setting.destroy) {
 
-      let theElement;
+      let series;
       switch (type) {
         case 'map':
-          theElement = dada.arrange;
+          series = thing.arrange;
           break;
         case 'character':
         case 'derivative':
-          theElement = [dada.Setting];
+          series = [thing.Setting];
           break;
       }
 
       // 當中的每個元件 (其實就只有地圖是一對象多元件)
-      theElement.forEach(Setting => {
+      series.forEach(Setting => {
 
-        var frame = type === 'map' ? dada.component[Setting.component].frame[Setting.nowframe] : dada.frame[Setting.nowframe];
+        var frame = type === 'map' ? thing.component[Setting.component].frame[Setting.nowframe] : thing.frame[Setting.nowframe];
 
         // 衍生物檢測
         produceDerivative(Setting, frame);
 
         // 被打偵測
-        if (amIBeingBeaten(Setting, frame, dada)) {
-          nextframe(dada, Setting, type, 20);
+        if (amIBeingBeaten(Setting, frame, thing)) {
+          nextframe(thing, Setting, type, 20);
         }
         // 自然換幀
         else if (Setting.nowwait <= 0) {
-          nextframe(dada, Setting, type, frame.next);
-          skillll(Setting, frame, type, 'hitHold', dada);
+          nextframe(thing, Setting, type, frame.next);
+          skillll(Setting, frame, type, 'hitHold', thing);
         }
         // 技能換幀
         else {
-          skillll(Setting, frame, type, 'hit', dada);
+          skillll(Setting, frame, type, 'hit', thing);
         }
 
         // 物理行為
-        physical(Setting, frame, type, dada);
+        physical(Setting, frame, type, thing);
 
         // 呈現
-        show(Setting, frame, type, dada);
+        show(Setting, frame, type, thing);
 
         // 計時器
         counter(Setting, frame, type);
@@ -108,14 +108,14 @@ function draw(type) {
 }
 
 
-function nextframe(dada, Setting, type, next) {
+function nextframe(thing, Setting, type, next) {
   if (type !== 'map') {
     if (next == 999) {
-      if (Setting.jumping) next = 8;
+      if (Setting.inSky) next = 8;
       else next = 0;
     }
     Setting.nowframe = next;
-    Setting.nowwait = dada.frame[Setting.nowframe].wait * window.waitMagnification;
+    Setting.nowwait = thing.frame[Setting.nowframe].wait * window.waitMagnification;
     Setting.alreadyProduced = false;
   }
 }
@@ -128,8 +128,8 @@ function counter(Setting, frame, type) {
   // 幀等待
   Setting.nowwait--;
   // 被打等待
-  if (Setting.hitCD) Object.keys(Setting.hitCD).forEach(oo => {
-    Setting.hitCD[oo]--;
+  if (Setting.hitCD) Object.keys(Setting.hitCD).forEach(k => {
+    Setting.hitCD[k]--;
   });
 
   // 翻轉允許
@@ -151,7 +151,7 @@ function counter(Setting, frame, type) {
 // 技能
 // ===========================================================
 
-function skillll(Setting, frame, type, hhhh, dada) {
+function skillll(Setting, frame, type, hhhh, thing) {
 
   // 跳出換幀(技能)
   var breakFlag2 = false;
@@ -162,7 +162,7 @@ function skillll(Setting, frame, type, hhhh, dada) {
       hit.forEach(key => {
 
         if (Setting.keypress[key] && !breakFlag2) {
-          nextframe(dada, Setting, type, frame[hhhh][key]);
+          nextframe(thing, Setting, type, frame[hhhh][key]);
           breakFlag2 = true;
         }
 
@@ -176,10 +176,10 @@ function skillll(Setting, frame, type, hhhh, dada) {
 // 畫
 // ===========================================================
 
-function show(Setting, frame, type, dada) {
+function show(Setting, frame, type, thing) {
 
-  var file = dada.Setting.file[frame.pic[0]];
-  var name = dada.Setting.name.toLowerCase();
+  var file = thing.Setting.file[frame.pic[0]];
+  var name = thing.Setting.name.toLowerCase();
   var image = window.imageCenter[name + '_' + frame.pic[0]];
   var sx = frame.pic[1] * file.w;
   var sy = frame.pic[2] * file.h;
@@ -190,7 +190,7 @@ function show(Setting, frame, type, dada) {
   var dWidth = sWidth;
   var dHeight = sHeight;
   var ct = frame.center;
-  var scale = dada.Setting.scale;
+  var scale = thing.Setting.scale;
 
   var m = Setting.mirror ? -1 : 1;
   // if (Setting.scenesIndex == 1) console.log(m, Setting.nowframe);
@@ -228,25 +228,25 @@ function produceDerivative(Setting, frame) {
 // ===========================================================
 
 function adjunction(type, name, data) {
-  var wwww = JSON.parse(JSON.stringify(window[type][name]));
-  wwww.Setting.scenesIndex = scenesIndex;
+  var template = JSON.parse(JSON.stringify(window[type][name]));
+  template.Setting.scenesIndex = scenesIndex;
   scenesIndex++;
 
   Object.keys(data).forEach(key => {
-    wwww.Setting[key] = data[key];
+    template.Setting[key] = data[key];
   });
 
-  window.scenes[type].push(wwww);
+  window.scenes[type].push(template);
 }
 
 // ===========================================================
 // 物理行為
 // ===========================================================
 
-function physical(Setting, frame, type, dada) {
+function physical(Setting, frame, type, thing) {
 
   // 地上無慣性 / 空中有慣性
-  if (!Setting.jumping) Setting.xSpeed = 0;
+  if (!Setting.inSky) Setting.xSpeed = 0;
 
   move(Setting, frame, type);
   walk(Setting, frame, type);
@@ -263,19 +263,19 @@ function physical(Setting, frame, type, dada) {
   if (type == 'character') {
 
     // 滯空偵測
-    if (Setting.ySpeed < 0) Setting.jumping = true;
+    if (Setting.ySpeed < 0) Setting.inSky = true;
 
     // 自由落體
     Setting.y += Setting.ySpeed;
     // 重力加速度
-    if (Setting.ySpeed < window.ySpeedMax && Setting.jumping) Setting.ySpeed += window.gravity;
+    if (Setting.ySpeed < window.ySpeedMax && Setting.inSky) Setting.ySpeed += window.gravity;
 
     // 落地偵測
-    if (Setting.y > mainMap.limit.y && Setting.jumping) {
+    if (Setting.y > mainMap.limit.y && Setting.inSky) {
       Setting.ySpeed = 0;
       Setting.xSpeed = 0;
-      Setting.jumping = false;
-      nextframe(dada, Setting, type, 0)
+      Setting.inSky = false;
+      nextframe(thing, Setting, type, 0)
     }
   }
 }
@@ -311,7 +311,7 @@ function walk(Setting, frame, type) {
 // 被打偵測
 // ===========================================================
 
-function amIBeingBeaten(Setting, frame, dada) {
+function amIBeingBeaten(Setting, frame, thing) {
   var isHit = false;
   if (frame.bdy) {
     // 問全部的衍生物
@@ -326,7 +326,7 @@ function amIBeingBeaten(Setting, frame, dada) {
             // 這個衍生物下次打我多久後
             det.Setting.hitCD[Setting.scenesIndex] = detFrame.itr.cd;
             const m = Setting.mirror ? -1 : 1;
-            dada.frame[20].move = [detFrame.itr.move[0] * m, detFrame.itr.move[1]];
+            thing.frame[20].move = [detFrame.itr.move[0] * m, detFrame.itr.move[1]];
             isHit = true;
           }
         }

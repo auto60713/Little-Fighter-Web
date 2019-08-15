@@ -31,8 +31,7 @@
         ySpeed: 0,
         xSpeed: 0,
 
-        uceDe: false,
-        jumping: false,
+        inSky: false,
         mirror: false,
 
         team: 0,
