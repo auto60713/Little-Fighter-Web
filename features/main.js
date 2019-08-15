@@ -6,27 +6,48 @@ var scenesIndex = 0;
 // 加入場景
 // ===========================================================
 
-// 地圖
-adjunction('map', 'de', {
-});
+// 準備入口畫面的東西
+function appppEntrance() {
 
-// 主角(即第一個加入的角色)
-adjunction('character', 'rock', {
-  x: 100,
-  y: 340,
-  team: 0,
-});
+  adjunction('UI', 'startgame', {
+    x: 290,
+    y: 400,
+  });
 
-// 另一個角色
-adjunction('character', 'rock', {
-  x: 600,
-  y: 340,
-  team: 1,
-  mirror: true,
-});
+  adjunction('UI', 'logo', {
+    x: 50,
+    y: 100,
+  });
 
-const mainMap = window.scenes.map[0].Setting;
-const mainCharacter = window.scenes.character[0].Setting;
+}
+
+// 準備格鬥模式的東西
+function appppbattle() {
+  // 地圖
+  adjunction('map', 'de', {
+  });
+
+  // 主角(即第一個加入的角色)
+  adjunction('character', 'rock', {
+    x: 100,
+    y: 340,
+    team: 0,
+  });
+
+  // 另一個角色
+  adjunction('character', 'rock', {
+    x: 600,
+    y: 340,
+    team: 1,
+    mirror: true,
+  });
+
+
+  window.mainMap = window.scenes.map[0].Setting;
+  window.mainCharacter = window.scenes.character[0].Setting;
+}
+
+
 
 // ===========================================================
 // 每幀動畫
@@ -36,16 +57,130 @@ function animate() {
   // 清空畫布
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  // 場景切換
+  if (stateChange) {
+    // 準備該場景需要的東西
+    switch (window.state) {
+      // 入口畫面
+      case 'Entrance':
+        appppEntrance();
+        break;
+      // 選擇模式
+      case 'SelectionMode':
+
+        break;
+      // 選擇角色
+      case 'SelectedRole':
+
+        break;
+      // 格鬥模式
+      case 'battle':
+        appppbattle()
+        break;
+      // 闖關模式
+      case 'Shaoguan':
+
+        break;
+    }
+    stateChange = false;
+  }
+
+  // 每個模式要跑的畫面
+  switch (window.state) {
+    // 入口畫面
+    case 'Entrance':
+      Entrance();
+      break;
+    // 選擇模式
+    case 'SelectionMode':
+
+      break;
+    // 選擇角色
+    case 'SelectedRole':
+
+      break;
+    // 格鬥模式
+    case 'battle':
+      battle();
+      break;
+    // 闖關模式
+    case 'Shaoguan':
+
+      break;
+  }
+
+  // FPS60
+  setTimeout(animate, 1000 / 60);
+};
+
+// ===========================================================
+// 入口畫面
+// ===========================================================
+
+function Entrance() {
+  // 畫地圖
+  draw2('UI');
+
+  if (QPRESS) {
+    stateChange = true;
+    window.state = 'battle';
+  }
+}
+
+
+function draw2(type) {
+
+  // 每個對象
+  window.scenes[type].forEach((thing, index, object) => {
+
+    if (!thing.Setting.destroy) {
+
+      let series;
+      switch (type) {
+        case 'UI':
+          series = [thing.Setting];
+          break;
+      }
+
+      // 當中的每個元件
+      series.forEach(Setting => {
+
+        var frame = thing.frame[Setting.nowframe];
+
+        // 自然換幀
+        if (Setting.nowwait <= 0) {
+          nextframe(thing, Setting, type, frame.next);
+        }
+
+        // 呈現
+        show(Setting, frame, type, thing);
+
+        // 計時器
+        counter(Setting, frame, type);
+
+      });
+
+    } else {
+      // 從群組中移除
+      object.splice(index, 1);
+    }
+  });
+
+
+}
+// ===========================================================
+// 格鬥
+// ===========================================================
+function battle() {
   // 畫地圖
   draw('map');
   // 畫角色
   draw('character');
   // 畫衍生物
   draw('derivative');
+}
 
-  // FPS60
-  setTimeout(animate, 1000 / 60);
-};
+
 
 // 繪製項目
 function draw(type) {
@@ -145,6 +280,8 @@ function counter(Setting, frame, type) {
     }
   }
 
+
+
   // 銷毀偵測
   if (type == 'derivative' && (Setting.x < -200 || Setting.x > mainMap.limit.x + 200)) Setting.destroy = true;
 }
@@ -202,7 +339,6 @@ function skillll(Setting, frame, type, hhhh, thing) {
 // ===========================================================
 
 function show(Setting, frame, type, thing) {
-
   var file = thing.Setting.file[frame.pic[0]];
   var name = thing.Setting.name.toLowerCase();
   var image = window.imageCenter[name + '_' + frame.pic[0]];
@@ -218,7 +354,7 @@ function show(Setting, frame, type, thing) {
   var scale = thing.Setting.scale;
 
   var m = Setting.mirror ? -1 : 1;
-  // if (Setting.scenesIndex == 1) console.log(m, Setting.nowframe);
+
   ctx.save();
   ctx.scale(m * scale, 1 * scale);
   ctx.drawImage(image, sx, sy, sWidth, sHeight, ((dx - ct[0]) * m) / scale, (dy - ct[1]) / scale, dWidth * m, dHeight);
@@ -378,10 +514,20 @@ const keymap = {
   82: 'R',
 }
 
+var llll = false;
+
 function logKey(e) {
   const event = window.event ? window.event : e;
   const pressing = event.type === 'keydown';
 
-  mainCharacter.keypress[keymap[event.keyCode]] = pressing;
+  if (mainCharacter) mainCharacter.keypress[keymap[event.keyCode]] = pressing;
+
+  // 給UI的溫馨案件觸發
+  if (pressing && keymap[event.keyCode] == 'Q' && !llll) {
+    QPRESS = true;
+    llll = true;
+  }
+  else if (!pressing && keymap[event.keyCode] == 'Q') llll = false;
+
 }
 

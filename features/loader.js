@@ -1,7 +1,7 @@
 
 
 
-['map', 'character', 'derivative'].forEach(type => {
+['map', 'character', 'derivative', 'UI'].forEach(type => {
   Object.keys(window[type]).forEach(name => {
 
     const template = window[type][name];
@@ -23,7 +23,7 @@
     });
 
     // 填入背景資訊(不需要特別設定的)
-    if (type === 'character' || type === 'derivative') {
+    if (type !== 'map') {
 
       const data = {
 
