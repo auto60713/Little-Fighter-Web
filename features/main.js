@@ -115,7 +115,7 @@ function nextframe(dada, Setting, type, next) {
       else next = 0;
     }
     Setting.nowframe = next;
-    Setting.nowwait = dada.frame[Setting.nowframe].wait * 10;
+    Setting.nowwait = dada.frame[Setting.nowframe].wait * window.waitMagnification;
     Setting.alreadyProduced = false;
   }
 }
@@ -124,7 +124,7 @@ function nextframe(dada, Setting, type, next) {
 // 計時器
 // ===========================================================
 
-function counter(Setting, frame) {
+function counter(Setting, frame, type) {
   // 幀等待
   Setting.nowwait--;
   // 被打等待
@@ -132,7 +132,8 @@ function counter(Setting, frame) {
     Setting.hitCD[oo]--;
   });
 
-  if (frame.pertain == 'idle') {
+  // 翻轉允許
+  if (frame.flip) {
     if (Setting.keypress.right) {
       Setting.mirror = false;
     }
@@ -140,6 +141,10 @@ function counter(Setting, frame) {
       Setting.mirror = true;
     }
   }
+
+
+  // 銷毀偵測
+  if (type == 'derivative' && (Setting.x < -200 || Setting.x > mainMap.limit.x + 200)) Setting.destroy = true;
 }
 
 // ===========================================================
@@ -240,32 +245,35 @@ function adjunction(type, name, data) {
 
 function physical(Setting, frame, type, dada) {
 
-  if (!Setting.jumping) Setting.moveSpeed = 0;
+  // 地上無慣性 / 空中有慣性
+  if (!Setting.jumping) Setting.xSpeed = 0;
 
   move(Setting, frame, type);
   walk(Setting, frame, type);
 
-  if (type == 'derivative') Setting.x += Setting.moveSpeed;
-  if (type == 'character' && (frame.pertain == 'idle' || Setting.jumping)) {
+  if (type == 'derivative') Setting.x += Setting.xSpeed;
+  if (type == 'character') {
     // 邊界
-    if ((Setting.x >= 0 && Setting.moveSpeed < 0) || (Setting.x < mainMap.limit.x && Setting.moveSpeed > 0)) {
-      Setting.x += Setting.moveSpeed;
+    if ((Setting.x >= 0 && Setting.xSpeed < 0) || (Setting.x < mainMap.limit.x && Setting.xSpeed > 0)) {
+      Setting.x += Setting.xSpeed;
     }
   }
 
-
-
+  // 重力影響與落地
   if (type == 'character') {
 
-    // 落下速度
-    Setting.y += Setting.fallingSpeed;
-    // 重力加速度
-    if (Setting.fallingSpeed < window.fallingSpeedMax && Setting.jumping) Setting.fallingSpeed += window.gravity;
+    // 滯空偵測
+    if (Setting.ySpeed < 0) Setting.jumping = true;
 
-    // 落地
+    // 自由落體
+    Setting.y += Setting.ySpeed;
+    // 重力加速度
+    if (Setting.ySpeed < window.ySpeedMax && Setting.jumping) Setting.ySpeed += window.gravity;
+
+    // 落地偵測
     if (Setting.y > mainMap.limit.y && Setting.jumping) {
-      Setting.fallingSpeed = 0;
-      Setting.moveSpeed = 0;
+      Setting.ySpeed = 0;
+      Setting.xSpeed = 0;
       Setting.jumping = false;
       nextframe(dada, Setting, type, 0)
     }
@@ -273,30 +281,27 @@ function physical(Setting, frame, type, dada) {
 }
 
 
-// 物體移動
+// move移動
 function move(Setting, frame, type) {
   if (frame.move) {
-    var direction = Setting.mirror ? -1 : 1;
+    var m = Setting.mirror ? -1 : 1;
+    // 邊界消速度
     if ((type == 'character' && Setting.x >= 0 || Setting.x < mainMap.limit.x) || type == 'derivative') {
-      Setting.moveSpeed = frame.move[0] * direction;
+      Setting.xSpeed = frame.move[0] * m;
     }
-    if (type == 'derivative' && Setting.x < -200 || Setting.x > mainMap.limit.x + 200) Setting.destroy = true;
 
-    if (type == 'character' && frame.move[1] < 0) Setting.jumping = true;
-    Setting.fallingSpeed = frame.move[1];
+    Setting.ySpeed = frame.move[1];
   }
 }
 
-// 角色走路移動
+// 走路移動
 function walk(Setting, frame, type) {
-  if (type == 'character') {
-    if (frame.pertain == 'jump' || !Setting.jumping) {
-      if (Setting.keypress.right) {
-        Setting.moveSpeed = Setting.walkingSpeed;
-      }
-      else if (Setting.keypress.left) {
-        Setting.moveSpeed = Setting.walkingSpeed * -1;
-      }
+  if (frame.walk) {
+    if (Setting.keypress.right) {
+      Setting.xSpeed = Setting.walkingSpeed;
+    }
+    else if (Setting.keypress.left) {
+      Setting.xSpeed = Setting.walkingSpeed * -1;
     }
   }
 }

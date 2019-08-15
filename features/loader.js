@@ -28,8 +28,8 @@
         nowframe: 0,
         nowwait: window[type][name].frame[0].wait,
 
-        fallingSpeed: 0,
-        moveSpeed: 0,
+        ySpeed: 0,
+        xSpeed: 0,
 
         uceDe: false,
         jumping: false,
