@@ -118,7 +118,7 @@ lf2.arrange = (type) => {
 
         // 被打偵測
         if (lf2.amIBeingBeaten(Setting, frame, thing)) {
-          lf2.nextframe(thing, Setting, type, 20);
+          lf2.nextframe(thing, Setting, type, 'injured');
         }
         // 自然換幀
         else if (Setting.nowwait <= 0) {

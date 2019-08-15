@@ -62,14 +62,14 @@ lf2.prepareBattleMode = () => {
   });
 
   // 主角(即第一個加入的角色)
-  lf2.adjunction('character', 'freeze', {
+  lf2.adjunction('character', 'Freeze', {
     x: 100,
     y: 400,
     team: 0,
   });
 
   // 另一個角色
-  lf2.adjunction('character', 'freeze', {
+  lf2.adjunction('character', 'Freeze', {
     x: 600,
     y: 400,
     team: 1,
@@ -82,7 +82,9 @@ lf2.prepareBattleMode = () => {
 
 // 將物件加到場景中
 lf2.adjunction = (type, name, data) => {
-  name = name.toLowerCase();
+
+  // name = name.toLowerCase();
+
   var template = JSON.parse(JSON.stringify(lf2[type][name]));
   template.Setting.scenesIndex = lf2.scenesIndex;
   lf2.scenesIndex++;

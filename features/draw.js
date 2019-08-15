@@ -3,7 +3,7 @@
 lf2.draw = (Setting, frame, type, thing) => {
   var file = thing.Setting.file[frame.pic[0]];
   // FIXME: 有計畫將name拿掉 直接是類別名稱
-  var name = thing.Setting.name.toLowerCase();
+  var name = thing.Setting.name/*.toLowerCase()*/;
   var image = lf2.imageCenter[name + '_' + frame.pic[0]];
   var sx = frame.pic[1] * file.w;
   var sy = frame.pic[2] * file.h;
