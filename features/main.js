@@ -21,6 +21,14 @@ function appppEntrance() {
 
 }
 
+// 準備入口畫面的東西
+function apppSelectedRoledee() {
+
+
+
+}
+
+
 // 準備格鬥模式的東西
 function appppbattle() {
   // 地圖
@@ -53,12 +61,13 @@ function appppbattle() {
 // 每幀動畫
 // ===========================================================
 
-function animate() {
+function eachFrame() {
   // 清空畫布
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   // 場景切換
   if (stateChange) {
+    Clearance();
     // 準備該場景需要的東西
     switch (window.state) {
       // 入口畫面
@@ -71,7 +80,7 @@ function animate() {
         break;
       // 選擇角色
       case 'SelectedRole':
-
+        apppSelectedRoledee();
         break;
       // 格鬥模式
       case 'battle':
@@ -83,6 +92,8 @@ function animate() {
         break;
     }
     stateChange = false;
+    QPRESS = false;
+
   }
 
   // 每個模式要跑的畫面
@@ -97,7 +108,7 @@ function animate() {
       break;
     // 選擇角色
     case 'SelectedRole':
-
+      SelectedRole();
       break;
     // 格鬥模式
     case 'battle':
@@ -110,12 +121,22 @@ function animate() {
   }
 
   // FPS60
-  setTimeout(animate, 1000 / 60);
+  setTimeout(eachFrame, 1000 / 60);
 };
 
 // ===========================================================
 // 入口畫面
 // ===========================================================
+
+function SelectedRole() {
+  // 畫地圖
+  draw2('UI');
+
+  if (QPRESS) {
+    stateChange = true;
+    window.state = 'battle';
+  }
+}
 
 function Entrance() {
   // 畫地圖
@@ -123,7 +144,7 @@ function Entrance() {
 
   if (QPRESS) {
     stateChange = true;
-    window.state = 'battle';
+    window.state = 'SelectedRole';
   }
 }
 
@@ -398,6 +419,16 @@ function adjunction(type, name, data) {
   });
 
   window.scenes[type].push(template);
+}
+
+
+function Clearance() {
+  window.scenes = {
+    map: [],
+    character: [],
+    derivative: [],
+    UI: [],
+  };
 }
 
 // ===========================================================

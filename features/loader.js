@@ -15,7 +15,7 @@
       window.loaderG++;
       img.onload = function () {
         window.loader++;
-        if (window.loader == window.loaderG) animate();
+        if (window.loader == window.loaderG) eachFrame();
       }
       img.src = file.src;
 

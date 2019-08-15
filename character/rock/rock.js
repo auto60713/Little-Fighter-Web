@@ -4,7 +4,6 @@ character.rock = {
     name: 'Rock',
     file: {
       'face': { src: 'character/rock/f.jpg' },
-      'small': { src: 'character/rock/s.jpg' },
       'action': { src: 'character/rock/0.png', w: 64, h: 64 },
     },
     walkingSpeed: 8,
