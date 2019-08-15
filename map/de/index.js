@@ -20,42 +20,9 @@ map.de = {
   // 擺設
   arrange: [
     {
-      component: 'g1', x: 69 * 0, y: 400, nowwait: 0, nowframe: 0,
+      component: 'g1', x: 0, y: 400, nowwait: 0, nowframe: 0,
+      repeat: { attr: 'x', numer: 69, times: 20, },
     },
-    {
-      component: 'g1', x: 69 * 1, y: 400, nowwait: 0, nowframe: 0,
-    },
-    {
-      component: 'g1', x: 69 * 2, y: 400, nowwait: 0, nowframe: 0,
-    },
-    {
-      component: 'g1', x: 69 * 3, y: 400, nowwait: 0, nowframe: 0,
-    },
-    {
-      component: 'g1', x: 69 * 4, y: 400, nowwait: 0, nowframe: 0,
-    },
-    {
-      component: 'g1', x: 69 * 5, y: 400, nowwait: 0, nowframe: 0,
-    },
-    {
-      component: 'g1', x: 69 * 6, y: 400, nowwait: 0, nowframe: 0,
-    },
-    {
-      component: 'g1', x: 69 * 7, y: 400, nowwait: 0, nowframe: 0,
-    },
-    {
-      component: 'g1', x: 69 * 8, y: 400, nowwait: 0, nowframe: 0,
-    },
-    {
-      component: 'g1', x: 69 * 9, y: 400, nowwait: 0, nowframe: 0,
-    },
-    {
-      component: 'g1', x: 69 * 10, y: 400, nowwait: 0, nowframe: 0,
-    },
-    {
-      component: 'g1', x: 69 * 11, y: 400, nowwait: 0, nowframe: 0,
-    },
-
-
   ],
 }
+

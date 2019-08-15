@@ -4,10 +4,12 @@
 ['map', 'character', 'derivative'].forEach(type => {
   Object.keys(window[type]).forEach(name => {
 
-    // 根據路徑將圖檔匯入圖檔中心
-    Object.keys(window[type][name].Setting.file).forEach(key => {
+    const template = window[type][name];
 
-      var file = window[type][name].Setting.file[key];
+    // 根據路徑將圖檔匯入圖檔中心
+    Object.keys(template.Setting.file).forEach(key => {
+
+      var file = template.Setting.file[key];
 
       var img = new Image();
       window.loaderG++;
@@ -26,7 +28,7 @@
       const data = {
 
         nowframe: 0,
-        nowwait: window[type][name].frame[0].wait,
+        nowwait: template.frame[0].wait,
 
         ySpeed: 0,
         xSpeed: 0,
@@ -44,8 +46,35 @@
       };
 
       Object.keys(data).forEach(key => {
-        window[type][name].Setting[key] = data[key];
+        template.Setting[key] = data[key];
       });
+    }
+
+    if (type === 'map') {
+
+      const arrange = [];
+
+      // 展開重複布置
+      template.arrange.forEach(element => {
+
+        if (element.repeat) {
+
+          // 從該屬性的初始值開始
+          const start = element[element.repeat.attr];
+
+          // 每一次加上repeat.numer
+          for (let i = 0; i < element.repeat.times; i++) {
+            var clone = JSON.parse(JSON.stringify(element));
+            clone[clone.repeat.attr] = start + (clone.repeat.numer * i);
+            arrange.push(clone);
+          }
+        }
+        else arrange.push(element);
+
+      });
+
+      // 覆蓋回arrange
+      template.arrange = arrange;
     }
 
   });
