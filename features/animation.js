@@ -26,13 +26,13 @@ lf2.eachFrame = () => {
 // 這一幀的入口畫面
 lf2.ThisFrameEntrance = () => {
   // 畫介面
-  lf2.arrange2('UI');
+  lf2.arrange('UI');
 }
 
 // 這一幀的選擇角色
 lf2.ThisFrameRoleSelection = () => {
   // 畫介面
-  lf2.arrange2('UI');
+  lf2.arrange('UI');
 }
 
 // 這一幀的格鬥模式
@@ -45,47 +45,6 @@ lf2.ThisFrameBattleMode = () => {
   lf2.arrange('derivative');
   // 畫介面
   lf2.arrange('UI');
-}
-
-// 特地畫UI
-lf2.arrange2 = (type) => {
-
-  // 這個場景的每個物件
-  lf2.scenes[type].forEach((thing, index, object) => {
-
-    if (!thing.Setting.destroy) {
-
-      let series;
-      switch (type) {
-        case 'UI':
-          series = [thing.Setting];
-          break;
-      }
-
-      series.forEach(Setting => {
-
-        // 目前的幀
-        var frame = thing.frame[Setting.nowframe];
-
-        // 等待到了 自然換幀
-        if (Setting.nowwait <= 0) {
-          lf2.nextframe(thing, Setting, type, frame.next);
-        }
-
-        // 秀在畫面上
-        lf2.draw(Setting, frame, type, thing);
-
-        // 計算器
-        lf2.counter(Setting, frame, type);
-
-      });
-
-    } else {
-      // 從場景中移除
-      object.splice(index, 1);
-    }
-  });
-
 }
 
 // 什麼都畫
@@ -149,6 +108,9 @@ lf2.arrange = (type) => {
 
         // 攝影機
         lf2.camera();
+
+        // 血量
+        // lf2.HPsystem(Setting, frame, type);
 
         // 我是機器人
         lf2.bot(Setting, frame, type, thing);

@@ -51,6 +51,7 @@ lf2.loader = () => {
           // FIXME: 飛彈也要standing嗎?
           // nowwait: template.frame['standing'].wait,
           nowwait: 0,
+          nowHP: template.Setting.HP,
           botThinking: 0,
 
           ySpeed: 0,

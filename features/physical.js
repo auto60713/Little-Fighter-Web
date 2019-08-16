@@ -7,6 +7,7 @@ lf2.physical = (Setting, frame, type, thing) => {
 
   lf2.move(Setting, frame, type);
   lf2.walk(Setting, frame, type);
+  lf2.FixedPosition(Setting, frame, type);
 
   if (type == 'derivative') Setting.x += Setting.xSpeed;
   if (type == 'character') {
@@ -59,5 +60,13 @@ lf2.walk = (Setting, frame, type) => {
     else if (Setting.keypress.left) {
       Setting.xSpeed = Setting.walkingSpeed * -1;
     }
+  }
+}
+
+// 固定在畫面某處
+lf2.FixedPosition = (Setting, frame, type) => {
+  if (Setting.fixedPosition) {
+    Setting.x = Setting.originalPosition[0] + lf2.cameraPos[0];
+    Setting.y = Setting.originalPosition[1] + lf2.cameraPos[1];
   }
 }

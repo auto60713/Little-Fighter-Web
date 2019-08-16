@@ -33,7 +33,7 @@ window.lf2 = {
   // 重力
   gravity: 0.32,
   // 落下最大速度
-  maxFallingSpeed: 4.8,
+  maxFallingSpeed: 5,
 
 };
 

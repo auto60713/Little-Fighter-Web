@@ -83,6 +83,13 @@ lf2.nextframe = (thing, Setting, type, next) => {
   }
 }
 
+// 血量系統
+lf2.HPsystem = (Setting, frame, type) => {
+  if (Setting !== 'map') {
+ 
+  }
+}
+
 // 計算器
 lf2.counter = (Setting, frame, type) => {
 

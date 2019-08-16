@@ -9,6 +9,7 @@ lf2.character.Freeze = {
     walkingSpeed: 4,
     jumpPower: 4.5,
     scale: 1,
+    HP: 500,
   },
   frame: {
     // 站立

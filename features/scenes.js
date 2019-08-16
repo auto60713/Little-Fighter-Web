@@ -76,6 +76,19 @@ lf2.prepareBattleMode = () => {
     mirror: true,
   });
 
+  lf2.adjunction('UI', 'hpbar2', {
+    x: 50,
+    y: 100,
+    originalPosition: [50, 100],
+  });
+  lf2.adjunction('UI', 'hpbar', {
+    x: 50,
+    y: 100,
+    originalPosition: [50, 100],
+  });
+
+
+
   lf2.mainMap = lf2.scenes.map[0].Setting;
   lf2.mainCharacter = lf2.scenes.character[0].Setting;
 }

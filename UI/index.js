@@ -56,3 +56,31 @@ lf2.UI.hit = {
   }
 };
 
+
+
+// 選角手
+lf2.UI.hpbar = {
+  Setting: {
+    name: 'hpbar',
+    file: { 'main': { src: 'UI/hpbar.png', w: 820, h: 258 }, },
+    scale: 0.1,
+    fixedPosition: true,
+  },
+  frame: {
+    'standing': { next: 999, pic: ['main', 0, 0], center: [0, 258], wait: 1, },
+  }
+};
+
+
+// 選角手
+lf2.UI.hpbar2 = {
+  Setting: {
+    name: 'hpbar2',
+    file: { 'main': { src: 'UI/hpbar2.png', w: 820, h: 258 }, },
+    scale: 0.1,
+    fixedPosition: true,
+  },
+  frame: {
+    'standing': { next: 999, pic: ['main', 0, 0], center: [0, 258], wait: 1, },
+  }
+};
