@@ -13,7 +13,7 @@ lf2.map.de = {
   component: {
     'g1': {
       frame: {
-        'standing': { pic: ['g1', 0, 0], center: [0, 0], next: 999, wait: 1, },
+        'standing': { pic: ['g1', 0, 0], center: [0, 0], next: 999, wait: 1, move: [0, 0], },
       }
     }
   },

@@ -17,14 +17,15 @@ lf2.physical = (Setting, frame, type, thing) => {
     }
   }
 
+  Setting.y += Setting.ySpeed;
+
   // 重力影響與落地
   if (type == 'character') {
 
     // 滯空偵測
     if (Setting.ySpeed < 0) Setting.inSky = true;
 
-    // 自由落體
-    Setting.y += Setting.ySpeed;
+
     // 重力加速度
     if (Setting.ySpeed < lf2.maxFallingSpeed && Setting.inSky) Setting.ySpeed += lf2.gravity;
 
@@ -32,8 +33,15 @@ lf2.physical = (Setting, frame, type, thing) => {
     if (Setting.y > lf2.mainMap.limit.y && Setting.inSky && Setting.ySpeed > 0) {
       Setting.ySpeed = 0;
       Setting.xSpeed = 0;
+      Setting.y = lf2.mainMap.limit.y;
       Setting.inSky = false;
-      lf2.nextframe(thing, Setting, type, 'standing')
+      if (frame.falling) {
+        lf2.nextframe(thing, Setting, type, 'lyingDown');
+      }
+      else {
+        lf2.nextframe(thing, Setting, type, 'standing');
+      }
+
     }
   }
 }

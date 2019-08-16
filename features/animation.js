@@ -85,7 +85,7 @@ lf2.arrange = (type) => {
               y: Setting.y,
             }
           );
-          lf2.nextframe(thing, Setting, type, 'injured');
+          lf2.nextframe(thing, Setting, type, 'falling');
         }
         // 自然換幀
         else if (Setting.nowwait <= 0) {
@@ -110,7 +110,7 @@ lf2.arrange = (type) => {
         lf2.camera();
 
         // 血量
-        // lf2.HPsystem(Setting, frame, type);
+        lf2.HPsystem(Setting, frame, type);
 
         // 我是機器人
         lf2.bot(Setting, frame, type, thing);

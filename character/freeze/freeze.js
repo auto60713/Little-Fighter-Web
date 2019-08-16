@@ -81,7 +81,7 @@ lf2.character.Freeze = {
     },
     attack2: {
       next: 'attack3', pic: ['0', 1, 1], center: [40, 80], wait: 1,
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, -2], cd: 5, },
+      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, -2], cd: 5, injury: 40, },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     attack3: {
@@ -131,9 +131,28 @@ lf2.character.Freeze = {
     },
 
 
+    // 被打飛
+    falling: {
+      next: 'falling2', pic: ['0', 0, 3], center: [40, 80], wait: 2, falling: true,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    falling2: {
+      next: 'falling3', pic: ['0', 1, 3], center: [40, 80], wait: 2, falling: true,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    falling3: {
+      next: 'falling4', pic: ['0', 2, 3], center: [40, 80], wait: 2, falling: true,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    falling4: {
+      next: 'falling4', pic: ['0', 3, 3], center: [40, 80], wait: 2, falling: true,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
 
-
-
+    // 躺地
+    lyingDown: {
+      next: 999, pic: ['0', 4, 3], center: [40, 75], wait: 10, lyingDown: true,
+    },
 
 
 
@@ -158,19 +177,19 @@ lf2.derivative.freezeBall = {
   frame: {
     standing: {
       next: 'fly2', pic: ['0', 0, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, move: [1, -3], cd: 100, }
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], }
     },
     fly2: {
       next: 'fly3', pic: ['0', 1, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, move: [1, -3], cd: 100, }
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], }
     },
     fly3: {
       next: 'fly4', pic: ['0', 2, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, move: [1, -3], cd: 100, }
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], }
     },
     fly4: {
       next: 'standing', pic: ['0', 3, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, move: [1, -3], cd: 100, }
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], }
     },
   }
 };

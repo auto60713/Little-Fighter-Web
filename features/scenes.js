@@ -91,6 +91,7 @@ lf2.prepareBattleMode = () => {
 
   lf2.mainMap = lf2.scenes.map[0].Setting;
   lf2.mainCharacter = lf2.scenes.character[0].Setting;
+  lf2.mainHpbar2 = lf2.scenes.UI[0].Setting;
 }
 
 // 將物件加到場景中
@@ -118,4 +119,23 @@ lf2.Clearance = () => {
     derivative: [],
     UI: [],
   };
+}
+
+// 衍生物
+lf2.produceDerivative = (Setting, frame) => {
+  if (frame.produce && !Setting.alreadyProduced) {
+
+    var direction = Setting.mirror ? -1 : 1;
+
+    lf2.adjunction('derivative', frame.produce.name,
+      {
+        x: Setting.x + (frame.produce.x * direction),
+        y: Setting.y + frame.produce.y,
+        team: Setting.team,
+        mirror: Setting.mirror,
+      }
+    );
+
+    Setting.alreadyProduced = true;
+  }
 }

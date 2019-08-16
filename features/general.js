@@ -1,23 +1,4 @@
 
-// 衍生物
-lf2.produceDerivative = (Setting, frame) => {
-  if (frame.produce && !Setting.alreadyProduced) {
-
-    var direction = Setting.mirror ? -1 : 1;
-
-    lf2.adjunction('derivative', frame.produce.name,
-      {
-        x: Setting.x + (frame.produce.x * direction),
-        y: Setting.y + frame.produce.y,
-        team: Setting.team,
-        mirror: Setting.mirror,
-      }
-    );
-
-    Setting.alreadyProduced = true;
-  }
-}
-
 // 被打偵測
 lf2.amIBeingBeaten = (Setting, frame, type, thing) => {
   var isHit = false;
@@ -34,7 +15,8 @@ lf2.amIBeingBeaten = (Setting, frame, type, thing) => {
             det.Setting.hitCD[Setting.scenesIndex] = detFrame.itr.cd;
             const m = det.Setting.mirror ? -1 : 1;
             const m2 = Setting.mirror ? -1 : 1;
-            thing.frame['injured'].move = [detFrame.itr.move[0] * m * m2, detFrame.itr.move[1]];
+            Setting.nowHP -= detFrame.itr.injury;
+            thing.frame['falling'].move = [detFrame.itr.move[0] * m * m2, detFrame.itr.move[1]];
             isHit = true;
           }
         }
@@ -70,7 +52,8 @@ lf2.skill = (Setting, frame, type, hitset, thing) => {
 lf2.nextframe = (thing, Setting, type, next) => {
   if (type !== 'map') {
     if (next == 999) {
-      if (Setting.inSky) next = 'jumping';
+      if (Setting.nowHP <= 0) next = 'lyingDown';
+      else if (Setting.inSky) next = 'jumping';
       else next = 'standing';
     }
     else if (next == 1000) {
@@ -85,8 +68,13 @@ lf2.nextframe = (thing, Setting, type, next) => {
 
 // 血量系統
 lf2.HPsystem = (Setting, frame, type) => {
-  if (Setting !== 'map') {
- 
+  if (lf2.mainCharacter) {
+    var pp = lf2.mainCharacter.nowHP / lf2.mainCharacter.HP;
+    if (pp <= 0) pp = -1;
+    lf2.mainHpbar2.file['main'].w = 820 * pp;
+  }
+  else {
+
   }
 }
 
