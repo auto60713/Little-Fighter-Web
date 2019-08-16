@@ -89,7 +89,7 @@ lf2.arrange = (type) => {
       series.forEach(Setting => {
 
         // 目前的幀
-        var frame = type === 'map' ? thing.component[Setting.component].frame[Setting.nowframe] : thing.frame[Setting.nowframe];
+        var frame = type === 'map' ? thing.component[Setting.component][Setting.nowframe] : thing.frame[Setting.nowframe];
 
         // 衍生物檢測
         lf2.produceDerivative(Setting, frame);

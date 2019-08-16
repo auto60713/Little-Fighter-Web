@@ -1,9 +1,9 @@
 
 // 將物件畫在上canvas上
 lf2.draw = (Setting, frame, type, thing) => {
-  var file = thing.Setting.file[frame.pic[0]];
+  var file = type == 'map' ? thing.Setting.file[frame.pic[0]] : Setting.file[frame.pic[0]];
   // FIXME: 有計畫將name拿掉 直接是類別名稱
-  var name = thing.Setting.name/*.toLowerCase()*/;
+  var name = type == 'map' ? thing.Setting.name : Setting.name;
   var image = lf2.imageCenter[name + '_' + frame.pic[0]];
   var sx = frame.pic[1] * file.w;
   var sy = frame.pic[2] * file.h;
@@ -14,7 +14,8 @@ lf2.draw = (Setting, frame, type, thing) => {
   var dWidth = sWidth;
   var dHeight = sHeight;
 
-  var scale = thing.Setting.scale;
+  var scale = Setting.scale;
+
   var ct = [frame.center[0] * scale, frame.center[1] * scale];
 
   var m = Setting.mirror ? -1 : 1;

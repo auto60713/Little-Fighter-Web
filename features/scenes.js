@@ -79,7 +79,7 @@ lf2.prepareRoleSelection = () => {
 lf2.prepareBattleMode = () => {
 
   // 地圖
-  lf2.adjunction('map', 'de', {
+  lf2.adjunction('map', 'hkc', {
   });
 
   // 主角(即第一個加入的角色)
@@ -109,10 +109,11 @@ lf2.prepareBattleMode = () => {
   });
 
 
-
   lf2.mainMap = lf2.scenes.map[0].Setting;
   lf2.mainCharacter = lf2.scenes.character[0].Setting;
   lf2.mainHpbar2 = lf2.scenes.UI[0].Setting;
+
+  lf2.canvas.style.backgroundColor = lf2.mainMap.backgroundColor;
 }
 
 // 準備闖關模式的東西

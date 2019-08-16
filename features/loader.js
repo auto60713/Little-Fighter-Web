@@ -81,6 +81,9 @@ lf2.loader = () => {
         // 展開重複布置
         template.decorate.forEach(element => {
 
+          element.nowframe = 'standing';
+          element.nowwait = 0;
+
           if (element.repeat) {
 
             // 從該屬性的初始值開始

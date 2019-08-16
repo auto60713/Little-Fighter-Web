@@ -17,7 +17,7 @@ lf2.physical = (Setting, frame, type, thing) => {
     }
   }
 
-  Setting.y += Setting.ySpeed;
+  if (type != 'map') Setting.y += Setting.ySpeed;
 
   // 重力影響與落地
   if (type == 'character') {
