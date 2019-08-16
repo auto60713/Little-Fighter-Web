@@ -24,16 +24,37 @@ lf2.sceneSwitching = (state) => {
 // 準備入口畫面的東西
 lf2.prepareEntrance = () => {
 
+
+  lf2.adjunction('UI', 'logo', {
+    x: 400,
+    y: 150,
+  });
+
+
   lf2.adjunction('UI', 'startgame', {
-    x: 290,
+    x: 400,
     y: 400,
   });
 
-  lf2.adjunction('UI', 'logo', {
-    x: 50,
-    y: 100,
+}
+
+// 準備選擇模式的東西
+lf2.prepareModeSelection = () => {
+
+  lf2.adjunction('UI', 'point', {
+    x: 400,
+    y: 250,
   });
 
+  lf2.adjunction('UI', 'battleModeButton', {
+    x: 400,
+    y: 200,
+  });
+
+  lf2.adjunction('UI', 'shaoguanModeButton', {
+    x: 400,
+    y: 400,
+  });
 }
 
 // 準備選角畫面的東西
@@ -77,16 +98,55 @@ lf2.prepareBattleMode = () => {
   });
 
   lf2.adjunction('UI', 'hpbar2', {
-    x: 50,
+    x: 100,
     y: 100,
-    originalPosition: [50, 100],
+    originalPosition: [100, 100],
   });
   lf2.adjunction('UI', 'hpbar', {
-    x: 50,
+    x: 100,
     y: 100,
-    originalPosition: [50, 100],
+    originalPosition: [100, 100],
   });
 
+
+
+  lf2.mainMap = lf2.scenes.map[0].Setting;
+  lf2.mainCharacter = lf2.scenes.character[0].Setting;
+  lf2.mainHpbar2 = lf2.scenes.UI[0].Setting;
+}
+
+// 準備闖關模式的東西
+lf2.prepareShaoguanMode = () => {
+
+  // 地圖
+  lf2.adjunction('map', 'de', {
+  });
+
+  // 主角(即第一個加入的角色)
+  lf2.adjunction('character', 'Freeze', {
+    x: 100,
+    y: 400,
+    team: 0,
+  });
+
+  // 另一個角色
+  lf2.adjunction('character', 'Freeze', {
+    x: 600,
+    y: 400,
+    team: 1,
+    mirror: true,
+  });
+
+  lf2.adjunction('UI', 'hpbar2', {
+    x: 100,
+    y: 100,
+    originalPosition: [100, 100],
+  });
+  lf2.adjunction('UI', 'hpbar', {
+    x: 100,
+    y: 100,
+    originalPosition: [100, 100],
+  });
 
 
   lf2.mainMap = lf2.scenes.map[0].Setting;
@@ -138,4 +198,24 @@ lf2.produceDerivative = (Setting, frame) => {
 
     Setting.alreadyProduced = true;
   }
+}
+
+
+lf2.sceneGOTO = (type, name, data) => {
+
+  var ertet = '';
+  // 每個模式要跑的畫面
+  switch (lf2.state) {
+    // 入口畫面
+    case 'entrance': ertet = 'modeSelection'; break;
+    // 選擇模式
+    case 'modeSelection': ertet = 'roleSelection'; break;
+    // 選擇角色
+    case 'roleSelection': ertet = 'shaoguanMode'; break;
+    // 格鬥模式
+    case 'battleMode': ertet = ''; break;
+    // 闖關模式
+    case 'shaoguanMode': ertet = ''; break;
+  }
+  if (ertet != '') lf2.sceneSwitching(ertet);
 }

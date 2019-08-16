@@ -7,7 +7,7 @@ lf2.UI.startgame = {
     scale: 1,
   },
   frame: {
-    'standing': { next: 999, pic: ['main', 0, 0], center: [0, 0], wait: 1, },
+    'standing': { next: 999, pic: ['main', 0, 0], center: [113, 37], wait: 1, },
   }
 };
 
@@ -20,7 +20,7 @@ lf2.UI.logo = {
     scale: 2,
   },
   frame: {
-    'standing': { next: 999, pic: ['main', 0, 0], center: [0, 0], wait: 1, },
+    'standing': { next: 999, pic: ['main', 0, 0], center: [178, 42], wait: 1, },
   }
 };
 
@@ -33,7 +33,7 @@ lf2.UI.point = {
     scale: 0.1,
   },
   frame: {
-    'standing': { next: 999, pic: ['main', 0, 0], center: [0, 0], wait: 1, },
+    'standing': { next: 999, pic: ['main', 0, 0], center: [144, 180], wait: 1, },
   }
 };
 
@@ -58,7 +58,7 @@ lf2.UI.hit = {
 
 
 
-// 選角手
+// 血條
 lf2.UI.hpbar = {
   Setting: {
     name: 'hpbar',
@@ -67,12 +67,11 @@ lf2.UI.hpbar = {
     fixedPosition: true,
   },
   frame: {
-    'standing': { next: 999, pic: ['main', 0, 0], center: [0, 258], wait: 1, },
+    'standing': { next: 999, pic: ['main', 0, 0], center: [410, 129], wait: 1, },
   }
 };
 
-
-// 選角手
+// 血條
 lf2.UI.hpbar2 = {
   Setting: {
     name: 'hpbar2',
@@ -81,6 +80,31 @@ lf2.UI.hpbar2 = {
     fixedPosition: true,
   },
   frame: {
-    'standing': { next: 999, pic: ['main', 0, 0], center: [0, 258], wait: 1, },
+    'standing': { next: 999, pic: ['main', 0, 0], center: [410, 129], wait: 1, },
+  }
+};
+
+
+
+lf2.UI.battleModeButton = {
+  Setting: {
+    name: 'battleModeButton',
+    file: { 'main': { src: 'UI/battleModeButton.png', w: 265, h: 59 }, },
+    scale: 0.5,
+  },
+  frame: {
+    'standing': { next: 999, pic: ['main', 0, 0], center: [132, 29], wait: 1, },
+  }
+};
+
+
+lf2.UI.shaoguanModeButton = {
+  Setting: {
+    name: 'shaoguanModeButton',
+    file: { 'main': { src: 'UI/shaoguanModeButton.png', w: 265, h: 59 }, },
+    scale: 0.5,
+  },
+  frame: {
+    'standing': { next: 999, pic: ['main', 0, 0], center: [132, 29], wait: 1, },
   }
 };

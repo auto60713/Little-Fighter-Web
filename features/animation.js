@@ -29,6 +29,12 @@ lf2.ThisFrameEntrance = () => {
   lf2.arrange('UI');
 }
 
+// 這一幀的選擇模式
+lf2.ThisFrameModeSelection = () => {
+  // 畫介面
+  lf2.arrange('UI');
+}
+
 // 這一幀的選擇角色
 lf2.ThisFrameRoleSelection = () => {
   // 畫介面
@@ -37,6 +43,18 @@ lf2.ThisFrameRoleSelection = () => {
 
 // 這一幀的格鬥模式
 lf2.ThisFrameBattleMode = () => {
+  // 畫地圖
+  lf2.arrange('map');
+  // 畫角色
+  lf2.arrange('character');
+  // 畫衍生物
+  lf2.arrange('derivative');
+  // 畫介面
+  lf2.arrange('UI');
+}
+
+// 這一幀的闖關模式
+lf2.ThisFrameShaoguanMode = () => {
   // 畫地圖
   lf2.arrange('map');
   // 畫角色
