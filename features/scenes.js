@@ -15,7 +15,7 @@ lf2.sceneSwitching = (state) => {
     // 格鬥模式
     case 'battleMode': lf2.prepareBattleMode(); break;
     // 闖關模式
-    case 'shaoguanMode': lf2.prepareShaoguanMode(); break;
+    case 'shaoguanMode': lf2.prepareShaoguanMode('stage1'); break;
   }
 
   lf2.state = state;
@@ -116,7 +116,7 @@ lf2.prepareBattleMode = () => {
 }
 
 // 準備闖關模式的東西
-lf2.prepareShaoguanMode = () => {
+lf2.prepareShaoguanMode = (stagename) => {
 
   // 地圖
   lf2.adjunction('map', 'de', {
@@ -127,14 +127,6 @@ lf2.prepareShaoguanMode = () => {
     x: 100,
     y: 400,
     team: 0,
-  });
-
-  // 另一個角色
-  lf2.adjunction('character', 'Freeze', {
-    x: 600,
-    y: 400,
-    team: 1,
-    mirror: true,
   });
 
   lf2.adjunction('UI', 'hpbar2', {
@@ -148,6 +140,7 @@ lf2.prepareShaoguanMode = () => {
     originalPosition: [100, 100],
   });
 
+  lf2.shaoguanBorn(stagename);
 
   lf2.mainMap = lf2.scenes.map[0].Setting;
   lf2.mainCharacter = lf2.scenes.character[0].Setting;
@@ -211,7 +204,7 @@ lf2.sceneGOTO = (type, name, data) => {
     // 選擇模式
     case 'modeSelection': ertet = 'roleSelection'; break;
     // 選擇角色
-    case 'roleSelection': ertet = 'shaoguanMode'; break;
+    case 'roleSelection': ertet = 'battleMode'; break;
     // 格鬥模式
     case 'battleMode': ertet = ''; break;
     // 闖關模式

@@ -18,6 +18,7 @@ window.lf2 = {
   map: {},
   character: {},
   derivative: {},
+  shaoguan: {},
 
   scenes: {
     map: [],
