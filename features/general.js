@@ -22,7 +22,6 @@ lf2.produceDerivative = (Setting, frame) => {
 lf2.amIBeingBeaten = (Setting, frame, type, thing) => {
   var isHit = false;
   if (frame.bdy) {
-    // 問全部的衍生物
     lf2.scenes[type].forEach(det => {
       var detFrame = det.frame[det.Setting.nowframe];
       if (detFrame.itr && (!det.Setting.hitCD[Setting.scenesIndex] || det.Setting.hitCD[Setting.scenesIndex] <= 0)) {
@@ -39,7 +38,6 @@ lf2.amIBeingBeaten = (Setting, frame, type, thing) => {
             isHit = true;
           }
         }
-
       }
     });
   }
@@ -74,6 +72,10 @@ lf2.nextframe = (thing, Setting, type, next) => {
     if (next == 999) {
       if (Setting.inSky) next = 'jumping';
       else next = 'standing';
+    }
+    else if (next == 1000) {
+      Setting.destroy = true;
+      next = 'standing';
     }
     Setting.nowframe = next;
     Setting.nowwait = thing.frame[Setting.nowframe].wait * lf2.waitMagnification;

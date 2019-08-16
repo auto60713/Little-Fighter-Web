@@ -103,6 +103,7 @@ lf2.arrange = (type) => {
           break;
         case 'character':
         case 'derivative':
+        case 'UI':
           series = [thing.Setting];
           break;
       }
@@ -117,8 +118,14 @@ lf2.arrange = (type) => {
         lf2.produceDerivative(Setting, frame);
 
         // 被打偵測
-        if (lf2.amIBeingBeaten(Setting, frame, thing, 'character')
-          || lf2.amIBeingBeaten(Setting, frame, thing, 'derivative')) {
+        if (lf2.amIBeingBeaten(Setting, frame, 'character', thing)
+          || lf2.amIBeingBeaten(Setting, frame, 'derivative', thing)) {
+          lf2.adjunction('UI', 'hit',
+            {
+              x: Setting.x,
+              y: Setting.y,
+            }
+          );
           lf2.nextframe(thing, Setting, type, 'injured');
         }
         // 自然換幀

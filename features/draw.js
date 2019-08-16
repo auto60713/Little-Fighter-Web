@@ -13,8 +13,9 @@ lf2.draw = (Setting, frame, type, thing) => {
   var dy = Setting.y - lf2.cameraPos[1];
   var dWidth = sWidth;
   var dHeight = sHeight;
-  var ct = frame.center;
+
   var scale = thing.Setting.scale;
+  var ct = [frame.center[0] * scale, frame.center[1] * scale];
 
   var m = Setting.mirror ? -1 : 1;
 
