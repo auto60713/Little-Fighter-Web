@@ -19,30 +19,11 @@ lf2.produceDerivative = (Setting, frame) => {
 }
 
 // 被打偵測
-lf2.amIBeingBeaten = (Setting, frame, thing) => {
+lf2.amIBeingBeaten = (Setting, frame, type, thing) => {
   var isHit = false;
   if (frame.bdy) {
     // 問全部的衍生物
-    lf2.scenes.derivative.forEach(det => {
-      var detFrame = det.frame[det.Setting.nowframe];
-      if (detFrame.itr && (!det.Setting.hitCD[Setting.scenesIndex] || det.Setting.hitCD[Setting.scenesIndex] <= 0)) {
-        if (Setting.team !== det.Setting.team) {
-          if (Setting.x + frame.bdy.x + frame.bdy.w >= det.Setting.x + detFrame.itr.x
-            && Setting.x + frame.bdy.x < det.Setting.x + detFrame.itr.x + detFrame.itr.w
-            && Setting.y + frame.bdy.y + frame.bdy.h >= det.Setting.y + detFrame.itr.y
-            && Setting.y + frame.bdy.y < det.Setting.y + detFrame.itr.y + detFrame.itr.h) {
-            // 下次打我多久後
-            det.Setting.hitCD[Setting.scenesIndex] = detFrame.itr.cd;
-            const m = det.Setting.mirror ? -1 : 1;
-            const m2 = Setting.mirror ? -1 : 1;
-            thing.frame['injured'].move = [detFrame.itr.move[0] * m * m2, detFrame.itr.move[1]];
-            isHit = true;
-          }
-        }
-
-      }
-    });
-    lf2.scenes.character.forEach(det => {
+    lf2.scenes[type].forEach(det => {
       var detFrame = det.frame[det.Setting.nowframe];
       if (detFrame.itr && (!det.Setting.hitCD[Setting.scenesIndex] || det.Setting.hitCD[Setting.scenesIndex] <= 0)) {
         if (Setting.team !== det.Setting.team) {

@@ -117,7 +117,8 @@ lf2.arrange = (type) => {
         lf2.produceDerivative(Setting, frame);
 
         // 被打偵測
-        if (lf2.amIBeingBeaten(Setting, frame, thing)) {
+        if (lf2.amIBeingBeaten(Setting, frame, thing, 'character')
+          || lf2.amIBeingBeaten(Setting, frame, thing, 'derivative')) {
           lf2.nextframe(thing, Setting, type, 'injured');
         }
         // 自然換幀
