@@ -61,7 +61,7 @@ lf2.prepareModeSelection = () => {
 lf2.prepareRoleSelection = () => {
 
   Object.keys(lf2.character).forEach((name, i) => {
-    lf2.adjunction('UI', name + 'face', {
+    lf2.adjunction('UI', name, {
       x: 100 + (50 * i),
       y: 100,
       scale: 0.5,

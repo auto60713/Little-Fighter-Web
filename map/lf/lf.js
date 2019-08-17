@@ -2,10 +2,9 @@ lf2.map.lf = {
   Setting: {
     name: 'lf',
     file: {
-      'forests': { src: 'map/lf/forests.bmp', w: 800, h: 70 },
-      'forestm1': { src: 'map/lf/forestm1.png', w: 800, h: 104 },
-      'forestt': { src: 'map/lf/forestt.png', w: 253, h: 162 },
-
+      'forests': { deputy: 'bmp', w: 800, h: 70 },
+      'forestm1': { deputy: 'png', w: 800, h: 104 },
+      'forestt': { deputy: 'png', w: 253, h: 162 },
     },
     limit: { x: 1600, y: 300, },
     backgroundColor: '#104F10',

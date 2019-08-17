@@ -2,9 +2,9 @@ lf2.character.Freeze = {
   Setting: {
     name: 'Freeze',
     file: {
-      '0': { src: 'character/freeze/freeze_0.png', w: 80, h: 80 },
-      '1': { src: 'character/freeze/freeze_1.png', w: 80, h: 80 },
-      '2': { src: 'character/freeze/freeze_2.png', w: 80, h: 80 },
+      '0': { deputy: 'png', w: 80, h: 80 },
+      '1': { deputy: 'png', w: 80, h: 80 },
+      '2': { deputy: 'png', w: 80, h: 80 },
     },
     walkingSpeed: 4,
     jumpPower: 4.5,
@@ -162,36 +162,5 @@ lf2.character.Freeze = {
 };
 
 
-
-
-
-
-lf2.derivative.freezeBall = {
-  Setting: {
-    name: 'freezeBall',
-    file: {
-      '0': { src: 'character/freeze/freeze_ball.png', w: 81, h: 82 },
-    },
-    scale: 1,
-  },
-  frame: {
-    standing: {
-      next: 'fly2', pic: ['0', 0, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], }
-    },
-    fly2: {
-      next: 'fly3', pic: ['0', 1, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], }
-    },
-    fly3: {
-      next: 'fly4', pic: ['0', 2, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], }
-    },
-    fly4: {
-      next: 'standing', pic: ['0', 3, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], }
-    },
-  }
-};
 
 

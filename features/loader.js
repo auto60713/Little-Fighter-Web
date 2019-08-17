@@ -24,21 +24,25 @@ lf2.loader = () => {
             lf2.eachFrame();
           }
         }
-        img.src = file.src;
+        var qwe = '';
+ 
+        if (type == 'UI' && key == 'face') {
+          qwe = `character/${name}`;
+        } else qwe = `${type}`
+        img.src = type == 'UI' ? `${qwe}/${key}.${file.deputy}` : `${type}/${name}/${key}.${file.deputy}`;
 
         lf2.imageCenter[name + '_' + key] = img;
       });
 
       // 設定選角大頭照
       if (type == 'character') {
-        const UIname = name + 'face';
-        lf2.UI[UIname] = {
+        lf2.UI[name] = {
           Setting: {
-            name: UIname,
-            file: { 'main': { src: 'character/' + name + '/face.png', w: 100, h: 100 }, },
+            name: name,
+            file: { 'face': { deputy: 'png', w: 100, h: 100 }, },
             scale: 1,
           },
-          frame: { 'standing': { next: 999, pic: ['main', 0, 0], center: [0, 0], wait: 1, }, }
+          frame: { 'standing': { next: 999, pic: ['face', 0, 0], center: [0, 0], wait: 1, }, }
         };
       }
 

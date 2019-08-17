@@ -71,7 +71,7 @@ lf2.HPsystem = (Setting, frame, type) => {
   if (lf2.mainCharacter) {
     var pp = lf2.mainCharacter.nowHP / lf2.mainCharacter.HP;
     if (pp <= 0) pp = -1;
-    lf2.mainHpbar2.file['main'].w = 820 * pp;
+    lf2.mainHpbar2.file['hpbar2'].w = 820 * pp;
   }
   else {
 
