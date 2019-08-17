@@ -25,33 +25,26 @@ lf2.eachFrame = () => {
 
 // 這一幀的入口畫面
 lf2.ThisFrameEntrance = () => {
-  // 畫介面
   lf2.arrange('UI');
 }
 
 // 這一幀的選擇模式
 lf2.ThisFrameModeSelection = () => {
-  // 畫介面
   lf2.arrange('UI');
 }
 
 // 這一幀的選擇角色
 lf2.ThisFrameRoleSelection = () => {
-  // 畫介面
   lf2.arrange('UI');
 }
 
 // 這一幀的格鬥模式
 lf2.ThisFrameBattleMode = () => {
-  // 畫地圖
   lf2.arrange('map');
-  // 畫角色
   lf2.arrange('character');
-  // 畫衍生物
   lf2.arrange('derivative');
-  // 畫介面
   lf2.arrange('UI');
-  // 攝影機
+
   lf2.camera();
 
   if (lf2.gameOver != null) lf2.gameOver--;
@@ -59,21 +52,17 @@ lf2.ThisFrameBattleMode = () => {
 
 // 這一幀的闖關模式
 lf2.ThisFrameShaoguanMode = () => {
-  // 畫地圖
   lf2.arrange('map');
-  // 畫角色
   lf2.arrange('character');
-  // 畫衍生物
   lf2.arrange('derivative');
-  // 畫介面
   lf2.arrange('UI');
-  // 攝影機
+
   lf2.camera();
 
   if (lf2.gameOver >= 0) lf2.gameOver--;
 }
 
-// 什麼都畫
+
 lf2.arrange = (type) => {
 
   // 這個場景的每個物件
@@ -99,18 +88,16 @@ lf2.arrange = (type) => {
         // 目前的幀
         var frame = type === 'map' ? thing.component[setting.component][setting.nowframe] : thing.frame[setting.nowframe];
 
-        // 衍生物檢測
+        // 製造衍生物
         lf2.produceDerivative(setting, frame);
 
         // 被打偵測
         if (lf2.amIBeingBeaten(setting, frame, 'character', thing)
           || lf2.amIBeingBeaten(setting, frame, 'derivative', thing)) {
-          lf2.adjunction('UI', 'hit',
-            {
-              x: setting.x,
-              y: setting.y,
-            }
-          );
+          lf2.adjunction('UI', 'hit', {
+            x: setting.x,
+            y: setting.y,
+          });
           lf2.nextframe(thing, setting, type, 'falling');
         }
         // 自然換幀
@@ -125,7 +112,7 @@ lf2.arrange = (type) => {
 
         // 物理行為
         lf2.physical(setting, frame, type, thing);
- 
+
         // 秀在畫面上
         lf2.draw(setting, frame, type, thing);
 

@@ -28,42 +28,33 @@ lf2.amIBeingBeaten = (setting, frame, type, thing) => {
 
 // 技能
 lf2.skill = (setting, frame, type, hitset, thing) => {
-
-  // 跳出換幀(技能)
-  var breakFlag2 = false;
-
   if (frame[hitset]) {
+    // 技能組
     var hit = Object.keys(frame[hitset]);
-    if (hit.length > 0) {
-      hit.forEach(key => {
 
-        if (setting.keypress[key] && !breakFlag2) {
-          lf2.nextframe(thing, setting, type, frame[hitset][key]);
-          breakFlag2 = true;
-        }
-
-      });
+    for (let i = 0; i < hit.length; i++) {
+      if (setting.keypress[hit[i]]) {
+        lf2.nextframe(thing, setting, type, frame[hitset][hit[i]]);
+        i = hit.length;
+      }
     }
   }
-
 }
 
 // 物件換影格
 lf2.nextframe = (thing, setting, type, next) => {
-  if (type !== 'map') {
-    if (next == 999) {
-      if (setting.nowHP <= 0) next = 'lyingDown';
-      else if (setting.inSky) next = 'jumping';
-      else next = 'standing';
-    }
-    else if (next == 1000) {
-      setting.destroy = true;
-      next = 'standing';
-    }
-    setting.nowframe = next;
-    setting.nowwait = thing.frame[setting.nowframe].wait * lf2.waitMagnification;
-    setting.alreadyProduced = false;
+  if (next == 999) {
+    if (setting.nowHP <= 0) next = 'lyingDown';
+    else if (setting.inSky) next = 'jumping';
+    else next = 'standing';
   }
+  else if (next == 1000) {
+    setting.destroy = true;
+    next = 'standing';
+  }
+  setting.nowframe = next;
+  setting.nowwait = thing.frame[setting.nowframe].wait * lf2.waitMagnification;
+  setting.alreadyProduced = false;
 }
 
 // 血量系統
@@ -102,33 +93,26 @@ lf2.counter = (setting, frame, type) => {
 
   // 翻轉允許
   if (frame.flip) {
-    if (setting.keypress.right) {
-      setting.mirror = false;
-    }
-    else if (setting.keypress.left) {
-      setting.mirror = true;
-    }
+    if (setting.keypress.right) setting.mirror = false;
+    else if (setting.keypress.left) setting.mirror = true;
   }
 
-  // 銷毀偵測
+  // 衍生物離場銷毀
   if (type == 'derivative' && (setting.x < -200 || setting.x > lf2.mainMap.limit.x + 200)) setting.destroy = true;
 }
 
-
-// 衍生物
+// 製造衍生物
 lf2.produceDerivative = (setting, frame) => {
   if (frame.produce && !setting.alreadyProduced) {
 
     var direction = setting.mirror ? -1 : 1;
 
-    lf2.adjunction('derivative', frame.produce.name,
-      {
-        x: setting.x + (frame.produce.x * direction),
-        y: setting.y + frame.produce.y,
-        team: setting.team,
-        mirror: setting.mirror,
-      }
-    );
+    lf2.adjunction('derivative', frame.produce.name, {
+      x: setting.x + (frame.produce.x * direction),
+      y: setting.y + frame.produce.y,
+      team: setting.team,
+      mirror: setting.mirror,
+    });
 
     setting.alreadyProduced = true;
   }
