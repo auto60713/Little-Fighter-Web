@@ -33,7 +33,7 @@ lf2.UI.point = {
     scale: 0.1,
   },
   frame: {
-    'standing': { next: 999, pic: ['point', 0, 0], center: [144, 180], wait: 1, },
+    'standing': { next: 999, pic: ['point', 0, 0], center: [0, 0], wait: 1, },
   }
 };
 

@@ -34,7 +34,7 @@ lf2.loader = () => {
         lf2.imageCenter[name + '_' + key] = img;
       });
 
-      // 設定選角大頭照
+      // 準備選角大頭照至UI
       if (type == 'character') {
         lf2.UI[name] = {
           Setting: {

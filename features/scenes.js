@@ -60,18 +60,24 @@ lf2.prepareModeSelection = () => {
 // 準備選角畫面的東西
 lf2.prepareRoleSelection = () => {
 
+  lf2.characterListIndex = 0;
+  lf2.characterList = [];
+
   Object.keys(lf2.character).forEach((name, i) => {
     lf2.adjunction('UI', name, {
       x: 100 + (50 * i),
       y: 100,
       scale: 0.5,
     });
+    lf2.characterList.push(name);
   });
 
   lf2.adjunction('UI', 'point', {
     x: 110,
     y: 130,
   });
+
+  lf2.mainPoint = lf2.scenes.UI[lf2.scenes.UI.length - 1].Setting;
 
 }
 
@@ -86,7 +92,7 @@ lf2.prepareBattleMode = () => {
   lf2.canvas.style.backgroundColor = lf2.mainMap.backgroundColor;
 
   // 主角(即第一個加入的角色)
-  lf2.adjunction('character', 'Freeze', {
+  lf2.adjunction('character', Object.keys(lf2.character)[lf2.characterListIndex], {
     x: 100,
     y: lf2.mainMap.limit.y,
     team: 0,
@@ -194,24 +200,4 @@ lf2.produceDerivative = (Setting, frame) => {
 
     Setting.alreadyProduced = true;
   }
-}
-
-
-lf2.sceneGOTO = (type, name, data) => {
-
-  var ertet = '';
-  // 每個模式要跑的畫面
-  switch (lf2.state) {
-    // 入口畫面
-    case 'entrance': ertet = 'modeSelection'; break;
-    // 選擇模式
-    case 'modeSelection': ertet = 'roleSelection'; break;
-    // 選擇角色
-    case 'roleSelection': ertet = 'battleMode'; break;
-    // 格鬥模式
-    case 'battleMode': ertet = ''; break;
-    // 闖關模式
-    case 'shaoguanMode': ertet = ''; break;
-  }
-  if (ertet != '') lf2.sceneSwitching(ertet);
 }
