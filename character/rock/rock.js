@@ -1,5 +1,5 @@
 lf2.character.rock = {
-  Setting: {
+  setting: {
     name: 'Rock',
     file: {
       'action': { src: 'character/rock/0.png', w: 64, h: 64 },
@@ -95,7 +95,7 @@ lf2.character.rock = {
 
 
 lf2.derivative.rcball = {
-  Setting: {
+  setting: {
     name: 'rcball',
     file: {
       'action': { src: 'character/rock/rcball.png', w: 1280, h: 1280 },

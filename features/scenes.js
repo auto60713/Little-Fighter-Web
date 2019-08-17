@@ -2,13 +2,7 @@
 // 切換場景
 lf2.sceneSwitching = (state) => {
 
-  lf2.Clearance();
-
-  // 拉回攝影機
-  if (lf2.mainCharacter) {
-    delete lf2.mainCharacter;
-    lf2.cameraPos[0] = 0;
-  }
+  lf2.initialization();
 
   // 準備該場景需要的東西
   switch (state) {
@@ -29,34 +23,26 @@ lf2.sceneSwitching = (state) => {
 
 // 準備入口畫面的東西
 lf2.prepareEntrance = () => {
-
-
   lf2.adjunction('UI', 'logo', {
     x: 400,
     y: 150,
   });
-
-
   lf2.adjunction('UI', 'startgame', {
     x: 400,
     y: 400,
   });
-
 }
 
 // 準備選擇模式的東西
 lf2.prepareModeSelection = () => {
-
   lf2.adjunction('UI', 'point', {
     x: 400,
     y: 250,
   });
-
   lf2.adjunction('UI', 'battleModeButton', {
     x: 400,
     y: 200,
   });
-
   lf2.adjunction('UI', 'shaoguanModeButton', {
     x: 400,
     y: 400,
@@ -83,8 +69,7 @@ lf2.prepareRoleSelection = () => {
     y: 130,
   });
 
-  lf2.mainPoint = lf2.scenes.UI[lf2.scenes.UI.length - 1].Setting;
-
+  lf2.mainPoint = lf2.scenes.UI[lf2.scenes.UI.length - 1].setting;
 }
 
 // 準備格鬥模式的東西
@@ -94,7 +79,7 @@ lf2.prepareBattleMode = () => {
   lf2.adjunction('map', 'lf', {
   });
 
-  lf2.mainMap = lf2.scenes.map[0].Setting;
+  lf2.mainMap = lf2.scenes.map[0].setting;
   lf2.canvas.style.backgroundColor = lf2.mainMap.backgroundColor;
 
   // 主角(即第一個加入的角色)
@@ -104,6 +89,8 @@ lf2.prepareBattleMode = () => {
     team: 0,
   });
 
+  lf2.mainCharacter = lf2.scenes.character[0].setting;
+
   // 另一個角色
   lf2.adjunction('character', 'Freeze', {
     x: 600,
@@ -112,9 +99,6 @@ lf2.prepareBattleMode = () => {
     mirror: true,
   });
 
-  lf2.mainCharacter = lf2.scenes.character[0].Setting;
-
-
   lf2.adjunction('UI', 'hpbar2', {
     fixedPosition: [100, 100],
   });
@@ -122,56 +106,34 @@ lf2.prepareBattleMode = () => {
     fixedPosition: [100, 100],
   });
 
-  lf2.mainHpbar2 = lf2.scenes.UI[0].Setting;
-
+  lf2.mainHpbar2 = lf2.scenes.UI[0].setting;
 }
 
 // 準備闖關模式的東西
 lf2.prepareShaoguanMode = (stagename) => {
 
-  // 地圖
-  lf2.adjunction('map', 'de', {
-  });
-
-  // 主角(即第一個加入的角色)
-  lf2.adjunction('character', 'Freeze', {
-    x: 100,
-    y: 400,
-    team: 0,
-  });
-
-  lf2.adjunction('UI', 'hpbar2', {
-    fixedPosition: [100, 100],
-  });
-  lf2.adjunction('UI', 'hpbar', {
-    fixedPosition: [100, 100],
-  });
-
   lf2.shaoguanBorn(stagename);
-
-  lf2.mainMap = lf2.scenes.map[0].Setting;
-  lf2.mainCharacter = lf2.scenes.character[0].Setting;
-  lf2.mainHpbar2 = lf2.scenes.UI[0].Setting;
 }
 
 // 將物件加到場景中
 lf2.adjunction = (type, name, data) => {
 
-  // name = name.toLowerCase();
-
   var template = JSON.parse(JSON.stringify(lf2[type][name]));
-  template.Setting.scenesIndex = lf2.scenesIndex;
+
+  template.setting.scenesIndex = lf2.scenesIndex;
   lf2.scenesIndex++;
 
+  // 將加入時的設定需求寫入物件中
   Object.keys(data).forEach(key => {
-    template.Setting[key] = data[key];
+    template.setting[key] = data[key];
   });
 
   lf2.scenes[type].push(template);
 }
 
-// 清空場景
-lf2.Clearance = () => {
+// 場景初始化
+lf2.initialization = () => {
+  lf2.cameraPos = [0, 0];
   lf2.scenesIndex = 0;
   lf2.scenes = {
     map: [],
@@ -179,23 +141,7 @@ lf2.Clearance = () => {
     derivative: [],
     UI: [],
   };
+
+  delete lf2.mainCharacter;
 }
 
-// 衍生物
-lf2.produceDerivative = (Setting, frame) => {
-  if (frame.produce && !Setting.alreadyProduced) {
-
-    var direction = Setting.mirror ? -1 : 1;
-
-    lf2.adjunction('derivative', frame.produce.name,
-      {
-        x: Setting.x + (frame.produce.x * direction),
-        y: Setting.y + frame.produce.y,
-        team: Setting.team,
-        mirror: Setting.mirror,
-      }
-    );
-
-    Setting.alreadyProduced = true;
-  }
-}

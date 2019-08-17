@@ -1,21 +1,21 @@
 
 // 被打偵測
-lf2.amIBeingBeaten = (Setting, frame, type, thing) => {
+lf2.amIBeingBeaten = (setting, frame, type, thing) => {
   var isHit = false;
   if (frame.bdy) {
     lf2.scenes[type].forEach(det => {
-      var detFrame = det.frame[det.Setting.nowframe];
-      if (detFrame.itr && (!det.Setting.hitCD[Setting.scenesIndex] || det.Setting.hitCD[Setting.scenesIndex] <= 0)) {
-        if (Setting.team !== det.Setting.team) {
-          if (Setting.x + frame.bdy.x + frame.bdy.w >= det.Setting.x + detFrame.itr.x
-            && Setting.x + frame.bdy.x < det.Setting.x + detFrame.itr.x + detFrame.itr.w
-            && Setting.y + frame.bdy.y + frame.bdy.h >= det.Setting.y + detFrame.itr.y
-            && Setting.y + frame.bdy.y < det.Setting.y + detFrame.itr.y + detFrame.itr.h) {
+      var detFrame = det.frame[det.setting.nowframe];
+      if (detFrame.itr && (!det.setting.hitCD[setting.scenesIndex] || det.setting.hitCD[setting.scenesIndex] <= 0)) {
+        if (setting.team !== det.setting.team) {
+          if (setting.x + frame.bdy.x + frame.bdy.w >= det.setting.x + detFrame.itr.x
+            && setting.x + frame.bdy.x < det.setting.x + detFrame.itr.x + detFrame.itr.w
+            && setting.y + frame.bdy.y + frame.bdy.h >= det.setting.y + detFrame.itr.y
+            && setting.y + frame.bdy.y < det.setting.y + detFrame.itr.y + detFrame.itr.h) {
             // 下次打我多久後
-            det.Setting.hitCD[Setting.scenesIndex] = detFrame.itr.cd;
-            const m = det.Setting.mirror ? -1 : 1;
-            const m2 = Setting.mirror ? -1 : 1;
-            Setting.nowHP -= detFrame.itr.injury;
+            det.setting.hitCD[setting.scenesIndex] = detFrame.itr.cd;
+            const m = det.setting.mirror ? -1 : 1;
+            const m2 = setting.mirror ? -1 : 1;
+            setting.nowHP -= detFrame.itr.injury;
             thing.frame['falling'].move = [detFrame.itr.move[0] * m * m2, detFrame.itr.move[1]];
             isHit = true;
           }
@@ -27,7 +27,7 @@ lf2.amIBeingBeaten = (Setting, frame, type, thing) => {
 }
 
 // 技能
-lf2.skill = (Setting, frame, type, hitset, thing) => {
+lf2.skill = (setting, frame, type, hitset, thing) => {
 
   // 跳出換幀(技能)
   var breakFlag2 = false;
@@ -37,8 +37,8 @@ lf2.skill = (Setting, frame, type, hitset, thing) => {
     if (hit.length > 0) {
       hit.forEach(key => {
 
-        if (Setting.keypress[key] && !breakFlag2) {
-          lf2.nextframe(thing, Setting, type, frame[hitset][key]);
+        if (setting.keypress[key] && !breakFlag2) {
+          lf2.nextframe(thing, setting, type, frame[hitset][key]);
           breakFlag2 = true;
         }
 
@@ -49,25 +49,25 @@ lf2.skill = (Setting, frame, type, hitset, thing) => {
 }
 
 // 物件換影格
-lf2.nextframe = (thing, Setting, type, next) => {
+lf2.nextframe = (thing, setting, type, next) => {
   if (type !== 'map') {
     if (next == 999) {
-      if (Setting.nowHP <= 0) next = 'lyingDown';
-      else if (Setting.inSky) next = 'jumping';
+      if (setting.nowHP <= 0) next = 'lyingDown';
+      else if (setting.inSky) next = 'jumping';
       else next = 'standing';
     }
     else if (next == 1000) {
-      Setting.destroy = true;
+      setting.destroy = true;
       next = 'standing';
     }
-    Setting.nowframe = next;
-    Setting.nowwait = thing.frame[Setting.nowframe].wait * lf2.waitMagnification;
-    Setting.alreadyProduced = false;
+    setting.nowframe = next;
+    setting.nowwait = thing.frame[setting.nowframe].wait * lf2.waitMagnification;
+    setting.alreadyProduced = false;
   }
 }
 
 // 血量系統
-lf2.HPsystem = (Setting, frame, type) => {
+lf2.HPsystem = (setting, frame, type) => {
   if (lf2.mainCharacter) {
     var pp = lf2.mainCharacter.nowHP / lf2.mainCharacter.HP;
     if (pp <= 0) pp = -1;
@@ -77,7 +77,7 @@ lf2.HPsystem = (Setting, frame, type) => {
 
   }
 
-  if (Setting.nowHP <= 0 && lf2.gameOver == null) {
+  if (setting.nowHP <= 0 && lf2.gameOver == null) {
 
     lf2.adjunction('UI', 'ko',
       {
@@ -90,26 +90,46 @@ lf2.HPsystem = (Setting, frame, type) => {
 }
 
 // 計算器
-lf2.counter = (Setting, frame, type) => {
+lf2.counter = (setting, frame, type) => {
 
   // 幀等待
-  Setting.nowwait--;
+  setting.nowwait--;
 
   // 被打等待
-  if (Setting.hitCD) Object.keys(Setting.hitCD).forEach(k => {
-    Setting.hitCD[k]--;
+  if (setting.hitCD) Object.keys(setting.hitCD).forEach(k => {
+    setting.hitCD[k]--;
   });
 
   // 翻轉允許
   if (frame.flip) {
-    if (Setting.keypress.right) {
-      Setting.mirror = false;
+    if (setting.keypress.right) {
+      setting.mirror = false;
     }
-    else if (Setting.keypress.left) {
-      Setting.mirror = true;
+    else if (setting.keypress.left) {
+      setting.mirror = true;
     }
   }
 
   // 銷毀偵測
-  if (type == 'derivative' && (Setting.x < -200 || Setting.x > lf2.mainMap.limit.x + 200)) Setting.destroy = true;
+  if (type == 'derivative' && (setting.x < -200 || setting.x > lf2.mainMap.limit.x + 200)) setting.destroy = true;
+}
+
+
+// 衍生物
+lf2.produceDerivative = (setting, frame) => {
+  if (frame.produce && !setting.alreadyProduced) {
+
+    var direction = setting.mirror ? -1 : 1;
+
+    lf2.adjunction('derivative', frame.produce.name,
+      {
+        x: setting.x + (frame.produce.x * direction),
+        y: setting.y + frame.produce.y,
+        team: setting.team,
+        mirror: setting.mirror,
+      }
+    );
+
+    setting.alreadyProduced = true;
+  }
 }

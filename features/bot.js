@@ -1,37 +1,35 @@
 
 // 打電腦
-lf2.bot = (Setting, frame, type, thing) => {
+lf2.bot = (setting, frame, type, thing) => {
   // 第一個是玩家 其他必為電腦
-  if (type == 'character' && Setting.scenesIndex > 1) {
-
-
+  if (type == 'character' && setting.scenesIndex > 1) {
 
     // 朝玩家的方向走
     if (lf2.doIt(20)) {
-      if (Setting.x > lf2.mainCharacter.x + 100) {
-        Setting.keypress['right'] = false;
-        Setting.keypress['left'] = true;
+      if (setting.x > lf2.mainCharacter.x + 100) {
+        setting.keypress['right'] = false;
+        setting.keypress['left'] = true;
       }
-      else if (Setting.x < lf2.mainCharacter.x - 100) {
-        Setting.keypress['left'] = false;
-        Setting.keypress['right'] = true;
+      else if (setting.x < lf2.mainCharacter.x - 100) {
+        setting.keypress['left'] = false;
+        setting.keypress['right'] = true;
       }
     }
 
     // 停下來(隨機) 或是靠近
-    if (lf2.doIt(20) || (Setting.x - lf2.mainCharacter.x > -100 && Setting.x - lf2.mainCharacter.x < 100)) {
-      Setting.keypress['left'] = false;
-      Setting.keypress['right'] = false;
+    if (lf2.doIt(20) || (setting.x - lf2.mainCharacter.x > -100 && setting.x - lf2.mainCharacter.x < 100)) {
+      setting.keypress['left'] = false;
+      setting.keypress['right'] = false;
     }
 
 
 
     // 丟冰球
-    if (Setting.keypress['A']) {
-      Setting.keypress['A'] = false;
+    if (setting.keypress['A']) {
+      setting.keypress['A'] = false;
     }
     if (lf2.doIt(10)) {
-      Setting.keypress['A'] = true;
+      setting.keypress['A'] = true;
     }
 
 

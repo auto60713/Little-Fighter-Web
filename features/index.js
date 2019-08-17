@@ -12,9 +12,6 @@ window.lf2 = {
   state: '',
   gameOver: null,
 
-  mainMap: null,
-  mainCharacter: null,
-
   UI: {},
   map: {},
   character: {},

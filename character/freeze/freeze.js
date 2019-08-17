@@ -1,5 +1,5 @@
 lf2.character.Freeze = {
-  Setting: {
+  setting: {
     name: 'Freeze',
     file: {
       '0': { deputy: 'png', w: 80, h: 80 },
@@ -34,6 +34,43 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
 
+    // 躺地
+    lyingDown: {
+      next: 999, pic: ['0', 4, 3], center: [40, 75], wait: 10, lyingDown: true,
+    },
+
+
+
+    // 被打飛
+    falling: {
+      next: 'falling2', pic: ['0', 0, 3], center: [40, 80], wait: 2, falling: true,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    falling2: {
+      next: 'falling3', pic: ['0', 1, 3], center: [40, 80], wait: 2, falling: true,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    falling3: {
+      next: 'falling4', pic: ['0', 2, 3], center: [40, 80], wait: 2, falling: true,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    falling4: {
+      next: 'falling4', pic: ['0', 3, 3], center: [40, 80], wait: 2, falling: true,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+
+
+
+    // 跳躍
+    jumpPre: {
+      next: 'jumping', pic: ['0', 0, 6], center: [40, 80], wait: 0, move: [0, -8], flip: true, walk: true,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    jumping: {
+      next: 'jumping', pic: ['0', 2, 6], center: [40, 80], wait: 1, flip: true,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+
 
     // 走路
     walking: {
@@ -63,15 +100,6 @@ lf2.character.Freeze = {
 
 
 
-    // 跳躍
-    jumpPre: {
-      next: 'jumping', pic: ['0', 0, 6], center: [40, 80], wait: 0, move: [0, -8], flip: true, walk: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
-    jumping: {
-      next: 'jumping', pic: ['0', 2, 6], center: [40, 80], wait: 1, flip: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
 
 
     // 普攻
@@ -129,31 +157,6 @@ lf2.character.Freeze = {
       next: 999, pic: ['2', 5, 0], center: [40, 80], wait: 3,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-
-
-    // 被打飛
-    falling: {
-      next: 'falling2', pic: ['0', 0, 3], center: [40, 80], wait: 2, falling: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
-    falling2: {
-      next: 'falling3', pic: ['0', 1, 3], center: [40, 80], wait: 2, falling: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
-    falling3: {
-      next: 'falling4', pic: ['0', 2, 3], center: [40, 80], wait: 2, falling: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
-    falling4: {
-      next: 'falling4', pic: ['0', 3, 3], center: [40, 80], wait: 2, falling: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
-
-    // 躺地
-    lyingDown: {
-      next: 999, pic: ['0', 4, 3], center: [40, 75], wait: 10, lyingDown: true,
-    },
-
 
 
 

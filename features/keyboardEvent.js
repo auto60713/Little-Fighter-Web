@@ -65,7 +65,7 @@ lf2.sceneKeyEvent = (keyname) => {
         lf2.characterListIndex--;
       }
 
-      lf2.mainPoint.x = lf2.scenes.UI[lf2.characterListIndex].Setting.x + 15;
+      lf2.mainPoint.x = lf2.scenes.UI[lf2.characterListIndex].setting.x + 15;
       break;
     // 格鬥模式
     case 'battleMode':

@@ -79,7 +79,7 @@ lf2.arrange = (type) => {
   // 這個場景的每個物件
   lf2.scenes[type].forEach((thing, index, object) => {
 
-    if (!thing.Setting.destroy) {
+    if (!thing.setting.destroy) {
 
       let series;
       switch (type) {
@@ -89,54 +89,54 @@ lf2.arrange = (type) => {
         case 'character':
         case 'derivative':
         case 'UI':
-          series = [thing.Setting];
+          series = [thing.setting];
           break;
       }
 
       // 此物件的每個元素 (其實就只有地圖是多元素)
-      series.forEach(Setting => {
+      series.forEach(setting => {
 
         // 目前的幀
-        var frame = type === 'map' ? thing.component[Setting.component][Setting.nowframe] : thing.frame[Setting.nowframe];
+        var frame = type === 'map' ? thing.component[setting.component][setting.nowframe] : thing.frame[setting.nowframe];
 
         // 衍生物檢測
-        lf2.produceDerivative(Setting, frame);
+        lf2.produceDerivative(setting, frame);
 
         // 被打偵測
-        if (lf2.amIBeingBeaten(Setting, frame, 'character', thing)
-          || lf2.amIBeingBeaten(Setting, frame, 'derivative', thing)) {
+        if (lf2.amIBeingBeaten(setting, frame, 'character', thing)
+          || lf2.amIBeingBeaten(setting, frame, 'derivative', thing)) {
           lf2.adjunction('UI', 'hit',
             {
-              x: Setting.x,
-              y: Setting.y,
+              x: setting.x,
+              y: setting.y,
             }
           );
-          lf2.nextframe(thing, Setting, type, 'falling');
+          lf2.nextframe(thing, setting, type, 'falling');
         }
         // 自然換幀
-        else if (Setting.nowwait <= 0) {
-          lf2.nextframe(thing, Setting, type, frame.next);
-          lf2.skill(Setting, frame, type, 'hitHold', thing);
+        else if (setting.nowwait <= 0) {
+          lf2.nextframe(thing, setting, type, frame.next);
+          lf2.skill(setting, frame, type, 'hitHold', thing);
         }
         // 技能換幀
         else {
-          lf2.skill(Setting, frame, type, 'hit', thing);
+          lf2.skill(setting, frame, type, 'hit', thing);
         }
 
         // 物理行為
-        lf2.physical(Setting, frame, type, thing);
+        lf2.physical(setting, frame, type, thing);
  
         // 秀在畫面上
-        lf2.draw(Setting, frame, type, thing);
+        lf2.draw(setting, frame, type, thing);
 
         // 計算器
-        lf2.counter(Setting, frame, type);
+        lf2.counter(setting, frame, type);
 
         // 血量
-        lf2.HPsystem(Setting, frame, type);
+        lf2.HPsystem(setting, frame, type);
 
         // 我是機器人
-        // lf2.bot(Setting, frame, type, thing);
+        // lf2.bot(setting, frame, type, thing);
       });
 
     } else {

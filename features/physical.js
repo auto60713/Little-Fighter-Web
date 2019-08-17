@@ -1,45 +1,45 @@
 
 // 物理行為
-lf2.physical = (Setting, frame, type, thing) => {
+lf2.physical = (setting, frame, type, thing) => {
 
   // 地上無慣性 / 空中有慣性
-  if (!Setting.inSky) Setting.xSpeed = 0;
+  if (!setting.inSky) setting.xSpeed = 0;
 
-  lf2.move(Setting, frame, type);
-  lf2.walk(Setting, frame, type);
-  lf2.FixedPosition(Setting, frame, type);
+  lf2.move(setting, frame, type);
+  lf2.walk(setting, frame, type);
+  lf2.FixedPosition(setting, frame, type);
 
-  if (type == 'derivative') Setting.x += Setting.xSpeed;
+  if (type == 'derivative') setting.x += setting.xSpeed;
   if (type == 'character') {
     // 邊界
-    if ((Setting.x >= 0 && Setting.xSpeed < 0) || (Setting.x < lf2.mainMap.limit.x && Setting.xSpeed > 0)) {
-      Setting.x += Setting.xSpeed;
+    if ((setting.x >= 0 && setting.xSpeed < 0) || (setting.x < lf2.mainMap.limit.x && setting.xSpeed > 0)) {
+      setting.x += setting.xSpeed;
     }
   }
 
-  if (type != 'map') Setting.y += Setting.ySpeed;
+  if (type != 'map') setting.y += setting.ySpeed;
 
   // 重力影響與落地
   if (type == 'character') {
 
     // 滯空偵測
-    if (Setting.ySpeed < 0) Setting.inSky = true;
+    if (setting.ySpeed < 0) setting.inSky = true;
 
 
     // 重力加速度
-    if (Setting.ySpeed < lf2.maxFallingSpeed && Setting.inSky) Setting.ySpeed += lf2.gravity;
+    if (setting.ySpeed < lf2.maxFallingSpeed && setting.inSky) setting.ySpeed += lf2.gravity;
 
     // 落地偵測
-    if (Setting.y > lf2.mainMap.limit.y && Setting.inSky && Setting.ySpeed > 0) {
-      Setting.ySpeed = 0;
-      Setting.xSpeed = 0;
-      Setting.y = lf2.mainMap.limit.y;
-      Setting.inSky = false;
+    if (setting.y > lf2.mainMap.limit.y && setting.inSky && setting.ySpeed > 0) {
+      setting.ySpeed = 0;
+      setting.xSpeed = 0;
+      setting.y = lf2.mainMap.limit.y;
+      setting.inSky = false;
       if (frame.falling) {
-        lf2.nextframe(thing, Setting, type, 'lyingDown');
+        lf2.nextframe(thing, setting, type, 'lyingDown');
       }
       else {
-        lf2.nextframe(thing, Setting, type, 'standing');
+        lf2.nextframe(thing, setting, type, 'standing');
       }
 
     }
@@ -47,35 +47,35 @@ lf2.physical = (Setting, frame, type, thing) => {
 }
 
 // move移動
-lf2.move = (Setting, frame, type) => {
+lf2.move = (setting, frame, type) => {
   if (frame.move) {
-    var m = Setting.mirror ? -1 : 1;
+    var m = setting.mirror ? -1 : 1;
     // 邊界消速度
-    if ((type == 'character' && Setting.x >= 0 || Setting.x < lf2.mainMap.limit.x) || type == 'derivative') {
-      Setting.xSpeed = frame.move[0] * m;
+    if ((type == 'character' && setting.x >= 0 || setting.x < lf2.mainMap.limit.x) || type == 'derivative') {
+      setting.xSpeed = frame.move[0] * m;
     }
 
-    Setting.ySpeed = frame.move[1];
+    setting.ySpeed = frame.move[1];
   }
 }
 
 // 走路移動
-lf2.walk = (Setting, frame, type) => {
+lf2.walk = (setting, frame, type) => {
   if (frame.walk) {
-    if (Setting.keypress.right) {
-      Setting.xSpeed = Setting.walkingSpeed;
+    if (setting.keypress.right) {
+      setting.xSpeed = setting.walkingSpeed;
     }
-    else if (Setting.keypress.left) {
-      Setting.xSpeed = Setting.walkingSpeed * -1;
+    else if (setting.keypress.left) {
+      setting.xSpeed = setting.walkingSpeed * -1;
     }
   }
 }
 
 // 固定在畫面某處
-lf2.FixedPosition = (Setting, frame, type) => {
+lf2.FixedPosition = (setting, frame, type) => {
 
-  if (Setting.fixedPosition) {
-    Setting.x = Setting.fixedPosition[0] + lf2.cameraPos[0];
-    Setting.y = Setting.fixedPosition[1] + lf2.cameraPos[1];
+  if (setting.fixedPosition) {
+    setting.x = setting.fixedPosition[0] + lf2.cameraPos[0];
+    setting.y = setting.fixedPosition[1] + lf2.cameraPos[1];
   }
 }

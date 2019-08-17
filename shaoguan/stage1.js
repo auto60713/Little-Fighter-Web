@@ -1,5 +1,5 @@
 lf2.shaoguan.stage1 = {
-  Setting: {
+  setting: {
     name: 'stage1',
     initmap: 'de',
   },

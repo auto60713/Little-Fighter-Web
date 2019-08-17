@@ -1,5 +1,5 @@
 lf2.map.lf = {
-  Setting: {
+  setting: {
     name: 'lf',
     file: {
       'forests': { deputy: 'bmp', w: 800, h: 70 },
@@ -24,7 +24,7 @@ lf2.map.lf = {
       'standing': { next: 999, pic: ['forestt', 0, 0], center: [0, 0], wait: 1, },
     },
   },
-  // 擺設 (相當於人物的Setting)
+  // 擺設 (相當於人物的setting)
   decorate: [
     { component: 'forests', scale: 1, x: 0, y: 0, repeat: { attr: 'x', numer: 800, times: 2, }, },
     { component: 'forestm1', scale: 1, x: 0, y: 18, repeat: { attr: 'x', numer: 800, times: 2, }, },

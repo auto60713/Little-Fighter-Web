@@ -1,7 +1,7 @@
 
 
 lf2.derivative.firenBall = {
-    Setting: {
+    setting: {
         name: 'firenBall',
         file: {
             'ball': { deputy: 'png', w: 81, h: 82 },

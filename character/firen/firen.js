@@ -1,5 +1,5 @@
 lf2.character.Firen = {
-  Setting: {
+  setting: {
     name: 'Firen',
     file: {
       '0': { deputy: 'png', w: 80, h: 80 },

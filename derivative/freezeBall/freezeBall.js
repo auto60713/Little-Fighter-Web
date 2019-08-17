@@ -1,7 +1,7 @@
 
 
 lf2.derivative.freezeBall = {
-    Setting: {
+    setting: {
         name: 'freezeBall',
         file: {
             'ball': { deputy: 'png', w: 81, h: 82 },

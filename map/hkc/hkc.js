@@ -1,5 +1,5 @@
 lf2.map.hkc = {
-  Setting: {
+  setting: {
     name: 'hkc',
     file: {
       'back1': { src: 'map/hkc/back1.bmp', w: 794, h: 101 },

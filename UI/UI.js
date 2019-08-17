@@ -1,7 +1,7 @@
 
 // 開始按鈕
 lf2.UI.startgame = {
-  Setting: {
+  setting: {
     name: 'startgame',
     file: { 'start': { deputy: 'png', w: 227, h: 74 }, },
     scale: 1,
@@ -14,7 +14,7 @@ lf2.UI.startgame = {
 
 // LOGO
 lf2.UI.logo = {
-  Setting: {
+  setting: {
     name: 'logo',
     file: { 'logo': { deputy: 'png', w: 356, h: 84 }, },
     scale: 2,
@@ -27,7 +27,7 @@ lf2.UI.logo = {
 
 // 選角手
 lf2.UI.point = {
-  Setting: {
+  setting: {
     name: 'point',
     file: { 'point': { deputy: 'png', w: 288, h: 360 }, },
     scale: 0.1,
@@ -40,7 +40,7 @@ lf2.UI.point = {
 
 // 打擊特效
 lf2.UI.hit = {
-  Setting: {
+  setting: {
     name: 'hit',
     file: { 'hit': { deputy: 'png', w: 192, h: 192 }, },
     scale: 0.5,
@@ -60,7 +60,7 @@ lf2.UI.hit = {
 
 // 血條
 lf2.UI.hpbar = {
-  Setting: {
+  setting: {
     name: 'hpbar',
     file: { 'hpbar': { deputy: 'png', w: 820, h: 258 }, },
     scale: 0.1,
@@ -72,7 +72,7 @@ lf2.UI.hpbar = {
 
 // 血條
 lf2.UI.hpbar2 = {
-  Setting: {
+  setting: {
     name: 'hpbar2',
     file: { 'hpbar2': { deputy: 'png', w: 820, h: 258 }, },
     scale: 0.1,
@@ -83,9 +83,9 @@ lf2.UI.hpbar2 = {
 };
 
 
-
+// 格鬥模式按鈕
 lf2.UI.battleModeButton = {
-  Setting: {
+  setting: {
     name: 'battleModeButton',
     file: { 'battleModeButton': { deputy: 'png', w: 265, h: 59 }, },
     scale: 0.5,
@@ -96,8 +96,9 @@ lf2.UI.battleModeButton = {
 };
 
 
+// 闖關模式按鈕
 lf2.UI.shaoguanModeButton = {
-  Setting: {
+  setting: {
     name: 'shaoguanModeButton',
     file: { 'shaoguanModeButton': { deputy: 'png', w: 265, h: 59 }, },
     scale: 0.5,
@@ -109,13 +110,12 @@ lf2.UI.shaoguanModeButton = {
 
 
 lf2.UI.ko = {
-  Setting: {
+  setting: {
     name: 'ko',
     file: { 'ko': { deputy: 'png', w: 590, h: 267 }, },
     scale: 1,
   },
   frame: {
     'standing': { next: 1000, pic: ['ko', 0, 0], center: [295, 133], wait: 300, },
-    // 'standing2': { next: 1000, pic: ['ko', 0, 0], center: [295, 133], wait: 300, },
   }
 };

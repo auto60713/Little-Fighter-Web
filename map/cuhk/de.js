@@ -1,5 +1,5 @@
 lf2.map.de = {
-  Setting: {
+  setting: {
     name: 'de',
     file: {
       'g1': { src: 'map/de/g1.png', w: 69, h: 69 },
@@ -15,7 +15,7 @@ lf2.map.de = {
       'standing': { next: 999, pic: ['g1', 0, 0], center: [0, 0], wait: 1, },
     }
   },
-  // 擺設 (相當於人物的Setting)
+  // 擺設 (相當於人物的setting)
   decorate: [
     { component: 'g1', scale: 1, x: 0, y: 400, repeat: { attr: 'x', numer: 69, times: 20, }, },
   ],
