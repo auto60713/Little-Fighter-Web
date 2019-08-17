@@ -131,7 +131,7 @@ lf2.arrange = (type) => {
         lf2.HPsystem(Setting, frame, type);
 
         // 我是機器人
-        lf2.bot(Setting, frame, type, thing);
+        // lf2.bot(Setting, frame, type, thing);
       });
 
     } else {
