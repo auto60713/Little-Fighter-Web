@@ -51,6 +51,10 @@ lf2.ThisFrameBattleMode = () => {
   lf2.arrange('derivative');
   // 畫介面
   lf2.arrange('UI');
+  // 攝影機
+  lf2.camera();
+
+  if (lf2.gameOver != null) lf2.gameOver--;
 }
 
 // 這一幀的闖關模式
@@ -63,6 +67,10 @@ lf2.ThisFrameShaoguanMode = () => {
   lf2.arrange('derivative');
   // 畫介面
   lf2.arrange('UI');
+  // 攝影機
+  lf2.camera();
+
+  if (lf2.gameOver >= 0) lf2.gameOver--;
 }
 
 // 什麼都畫
@@ -123,9 +131,6 @@ lf2.arrange = (type) => {
 
         // 計算器
         lf2.counter(Setting, frame, type);
-
-        // 攝影機
-        lf2.camera();
 
         // 血量
         lf2.HPsystem(Setting, frame, type);

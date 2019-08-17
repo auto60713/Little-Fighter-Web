@@ -4,6 +4,12 @@ lf2.sceneSwitching = (state) => {
 
   lf2.Clearance();
 
+  // 拉回攝影機
+  if (lf2.mainCharacter) {
+    delete lf2.mainCharacter;
+    lf2.cameraPos[0] = 0;
+  }
+
   // 準備該場景需要的東西
   switch (state) {
     // 入口畫面

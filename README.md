@@ -22,10 +22,11 @@
 還缺的功能 (重要排序)
 ========================================
 
-***originalPosition 就是fixedPosition 不須另設 x, y
+*** originalPosition 就是fixedPosition 不須另設 x, y
 *** 1000 不能第一格的bug (第二格以後正常)
 *** 為什麼KO會閃
-- 敵人死亡的瞬間出現KO (艾爾)
+
+
 - 結算畫面
 - 返回
 

@@ -77,8 +77,8 @@ lf2.HPsystem = (Setting, frame, type) => {
 
   }
 
-  if (Setting.nowHP <= 0 && !lf2.gameOver) {
-
+  if (Setting.nowHP <= 0 && lf2.gameOver == null) {
+console.log(444);
     lf2.adjunction('UI', 'ko',
       {
         x: 400,
@@ -86,7 +86,7 @@ lf2.HPsystem = (Setting, frame, type) => {
         originalPosition: [400, 300],
       }
     );
-    lf2.gameOver = true;
+    lf2.gameOver = 180;
   }
 
 }

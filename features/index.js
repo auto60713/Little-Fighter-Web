@@ -10,6 +10,7 @@ window.lf2 = {
   cameraPos: [0, 0],
 
   state: '',
+  gameOver: null,
 
   mainMap: null,
   mainCharacter: null,

@@ -9,6 +9,8 @@ lf2.logKey = (e) => {
     38: 'up',
     40: 'down',
 
+    27: 'esc',
+
     81: 'Q',
     87: 'W',
     69: 'E',
@@ -28,9 +30,12 @@ lf2.logKey = (e) => {
   if (lf2.mainCharacter) lf2.mainCharacter.keypress[keymap[event.keyCode]] = pressing;
 
 
-  if (pressing) {
+  if (pressing && !lf2.qweqwe) {
     lf2.sceneKeyEvent(keymap[event.keyCode]);
+    lf2.qweqwe = true;
   }
+
+  if (!pressing) lf2.qweqwe = false;
 
 }
 
@@ -46,10 +51,12 @@ lf2.sceneKeyEvent = (keyname) => {
     // 選擇模式
     case 'modeSelection':
       if (keyname == 'C') lf2.sceneSwitching('roleSelection');
+      if (keyname == 'X' || keyname == 'esc') lf2.sceneSwitching('entrance');
       break;
     // 選擇角色
     case 'roleSelection':
       if (keyname == 'C') lf2.sceneSwitching('battleMode');
+      if (keyname == 'X' || keyname == 'esc') lf2.sceneSwitching('modeSelection');
       if (keyname == 'right' && lf2.characterListIndex < lf2.characterList.length - 1) {
 
         lf2.characterListIndex++;
@@ -62,6 +69,11 @@ lf2.sceneKeyEvent = (keyname) => {
       break;
     // 格鬥模式
     case 'battleMode':
+      if (keyname == 'C' && lf2.gameOver < 0) {
+        lf2.sceneSwitching('roleSelection');
+        lf2.gameOver = null;
+      }
+      if (keyname == 'esc') lf2.sceneSwitching('roleSelection');
       break;
     // 闖關模式
     case 'shaoguanMode':
