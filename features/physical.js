@@ -75,7 +75,7 @@ lf2.walk = (Setting, frame, type) => {
 lf2.FixedPosition = (Setting, frame, type) => {
 
   if (Setting.fixedPosition) {
-    Setting.x = Setting.originalPosition[0] + lf2.cameraPos[0];
-    Setting.y = Setting.originalPosition[1] + lf2.cameraPos[1];
+    Setting.x = Setting.fixedPosition[0] + lf2.cameraPos[0];
+    Setting.y = Setting.fixedPosition[1] + lf2.cameraPos[1];
   }
 }

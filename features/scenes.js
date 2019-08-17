@@ -116,14 +116,10 @@ lf2.prepareBattleMode = () => {
 
 
   lf2.adjunction('UI', 'hpbar2', {
-    x: 100,
-    y: 100,
-    originalPosition: [100, 100],
+    fixedPosition: [100, 100],
   });
   lf2.adjunction('UI', 'hpbar', {
-    x: 100,
-    y: 100,
-    originalPosition: [100, 100],
+    fixedPosition: [100, 100],
   });
 
   lf2.mainHpbar2 = lf2.scenes.UI[0].Setting;
@@ -145,14 +141,10 @@ lf2.prepareShaoguanMode = (stagename) => {
   });
 
   lf2.adjunction('UI', 'hpbar2', {
-    x: 100,
-    y: 100,
-    originalPosition: [100, 100],
+    fixedPosition: [100, 100],
   });
   lf2.adjunction('UI', 'hpbar', {
-    x: 100,
-    y: 100,
-    originalPosition: [100, 100],
+    fixedPosition: [100, 100],
   });
 
   lf2.shaoguanBorn(stagename);

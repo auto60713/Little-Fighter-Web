@@ -19,7 +19,7 @@ lf2.draw = (Setting, frame, type, thing) => {
   var ct = [frame.center[0] * scale, frame.center[1] * scale];
 
   var m = Setting.mirror ? -1 : 1;
-
+  if (Setting.name == 'ko') console.log(Setting.nowframe);
   lf2.ctx.save();
   lf2.ctx.scale(m * scale, 1 * scale);
   lf2.ctx.drawImage(image, sx, sy, sWidth, sHeight, ((dx - ct[0]) * m) / scale, (dy - ct[1]) / scale, dWidth * m, dHeight);

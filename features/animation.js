@@ -125,7 +125,7 @@ lf2.arrange = (type) => {
 
         // 物理行為
         lf2.physical(Setting, frame, type, thing);
-
+ 
         // 秀在畫面上
         lf2.draw(Setting, frame, type, thing);
 

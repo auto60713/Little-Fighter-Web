@@ -64,7 +64,6 @@ lf2.UI.hpbar = {
     name: 'hpbar',
     file: { 'hpbar': { deputy: 'png', w: 820, h: 258 }, },
     scale: 0.1,
-    fixedPosition: true,
   },
   frame: {
     'standing': { next: 999, pic: ['hpbar', 0, 0], center: [410, 129], wait: 1, },
@@ -77,7 +76,6 @@ lf2.UI.hpbar2 = {
     name: 'hpbar2',
     file: { 'hpbar2': { deputy: 'png', w: 820, h: 258 }, },
     scale: 0.1,
-    fixedPosition: true,
   },
   frame: {
     'standing': { next: 999, pic: ['hpbar2', 0, 0], center: [410, 129], wait: 1, },
@@ -115,10 +113,9 @@ lf2.UI.ko = {
     name: 'ko',
     file: { 'ko': { deputy: 'png', w: 590, h: 267 }, },
     scale: 1,
-    fixedPosition: true,
   },
   frame: {
-    'standing': { next: 'standing2', pic: ['ko', 0, 0], center: [295, 133], wait: 0, },
-    'standing2': { next: 1000, pic: ['ko', 0, 0], center: [295, 133], wait: 300, },
+    'standing': { next: 1000, pic: ['ko', 0, 0], center: [295, 133], wait: 300, },
+    // 'standing2': { next: 1000, pic: ['ko', 0, 0], center: [295, 133], wait: 300, },
   }
 };

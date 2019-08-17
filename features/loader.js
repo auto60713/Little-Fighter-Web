@@ -25,7 +25,7 @@ lf2.loader = () => {
           }
         }
         var qwe = '';
- 
+
         if (type == 'UI' && key == 'face') {
           qwe = `character/${name}`;
         } else qwe = `${type}`
@@ -52,9 +52,7 @@ lf2.loader = () => {
         const data = {
 
           nowframe: 'standing',
-          // FIXME: 飛彈也要standing嗎?
-          // nowwait: template.frame['standing'].wait,
-          nowwait: 0,
+          nowwait: template.frame['standing'].wait,
           nowHP: template.Setting.HP,
           botThinking: 0,
 
@@ -76,6 +74,8 @@ lf2.loader = () => {
         Object.keys(data).forEach(key => {
           template.Setting[key] = data[key];
         });
+
+  
       }
 
       if (type === 'map') {
