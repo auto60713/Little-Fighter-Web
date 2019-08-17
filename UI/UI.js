@@ -108,3 +108,17 @@ lf2.UI.shaoguanModeButton = {
     'standing': { next: 999, pic: ['shaoguanModeButton', 0, 0], center: [132, 29], wait: 1, },
   }
 };
+
+
+lf2.UI.ko = {
+  Setting: {
+    name: 'ko',
+    file: { 'ko': { deputy: 'png', w: 590, h: 267 }, },
+    scale: 1,
+    fixedPosition: true,
+  },
+  frame: {
+    'standing': { next: 'standing2', pic: ['ko', 0, 0], center: [295, 133], wait: 0, },
+    'standing2': { next: 1000, pic: ['ko', 0, 0], center: [295, 133], wait: 300, },
+  }
+};

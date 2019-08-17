@@ -76,6 +76,19 @@ lf2.HPsystem = (Setting, frame, type) => {
   else {
 
   }
+
+  if (Setting.nowHP <= 0 && !lf2.gameOver) {
+
+    lf2.adjunction('UI', 'ko',
+      {
+        x: 400,
+        y: 300,
+        originalPosition: [400, 300],
+      }
+    );
+    lf2.gameOver = true;
+  }
+
 }
 
 // 計算器
