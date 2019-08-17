@@ -79,23 +79,29 @@ lf2.prepareRoleSelection = () => {
 lf2.prepareBattleMode = () => {
 
   // 地圖
-  lf2.adjunction('map', 'hkc', {
+  lf2.adjunction('map', 'lf', {
   });
+
+  lf2.mainMap = lf2.scenes.map[0].Setting;
+  lf2.canvas.style.backgroundColor = lf2.mainMap.backgroundColor;
 
   // 主角(即第一個加入的角色)
   lf2.adjunction('character', 'Freeze', {
     x: 100,
-    y: 400,
+    y: lf2.mainMap.limit.y,
     team: 0,
   });
 
   // 另一個角色
   lf2.adjunction('character', 'Freeze', {
     x: 600,
-    y: 400,
+    y: lf2.mainMap.limit.y,
     team: 1,
     mirror: true,
   });
+
+  lf2.mainCharacter = lf2.scenes.character[0].Setting;
+
 
   lf2.adjunction('UI', 'hpbar2', {
     x: 100,
@@ -108,12 +114,8 @@ lf2.prepareBattleMode = () => {
     originalPosition: [100, 100],
   });
 
-
-  lf2.mainMap = lf2.scenes.map[0].Setting;
-  lf2.mainCharacter = lf2.scenes.character[0].Setting;
   lf2.mainHpbar2 = lf2.scenes.UI[0].Setting;
 
-  lf2.canvas.style.backgroundColor = lf2.mainMap.backgroundColor;
 }
 
 // 準備闖關模式的東西
