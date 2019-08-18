@@ -110,8 +110,11 @@ lf2.mapTransform = (type, name, template) => {
     // 展開重複布置
     template.decorate.forEach(element => {
 
+      // 背景資訊
       element.nowframe = 'standing';
       element.nowwait = 0;
+      element.ySpeed = 0;
+      element.xSpeed = 0;
 
       if (element.repeat) {
         // 從該屬性的初始值開始

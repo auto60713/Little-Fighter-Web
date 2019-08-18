@@ -44,7 +44,7 @@ lf2.skill = (setting, frame, type, hitset, thing) => {
 // 物件換影格
 lf2.nextframe = (thing, setting, type, next) => {
   if (next == 999) {
-    if (setting.nowHP <= 0) next = 'lyingDown';
+    if (type == 'character' && setting.nowHP <= 0) next = 'lyingDown';
     else if (setting.inSky) next = 'jumping';
     else next = 'standing';
   }
@@ -52,8 +52,11 @@ lf2.nextframe = (thing, setting, type, next) => {
     setting.destroy = true;
     next = 'standing';
   }
+
+  var nextFrame = type === 'map' ? thing.component[setting.component][next] : thing.frame[next];
+
   setting.nowframe = next;
-  setting.nowwait = thing.frame[setting.nowframe].wait * lf2.waitMagnification;
+  setting.nowwait = nextFrame.wait * lf2.waitMagnification;
   setting.alreadyProduced = false;
 }
 

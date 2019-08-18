@@ -9,15 +9,13 @@ lf2.physical = (setting, frame, type, thing) => {
   lf2.walk(setting, frame, type);
   lf2.FixedPosition(setting, frame, type);
 
-  if (type == 'derivative') setting.x += setting.xSpeed;
-  if (type == 'character') {
+  if (type != 'character'
     // 邊界
-    if ((setting.x >= 0 && setting.xSpeed < 0) || (setting.x < lf2.mainMap.limit.x && setting.xSpeed > 0)) {
-      setting.x += setting.xSpeed;
-    }
+    || (setting.x >= 0 && setting.xSpeed < 0) || (setting.x < lf2.mainMap.limit.x && setting.xSpeed > 0)) {
+    setting.x += setting.xSpeed;
   }
+  setting.y += setting.ySpeed;
 
-  if (type != 'map') setting.y += setting.ySpeed;
 
   // 重力影響與落地
   if (type == 'character') {
