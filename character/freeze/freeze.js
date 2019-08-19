@@ -129,8 +129,7 @@ lf2.character.Freeze = {
 
     // 防禦
     defense: {
-      next: 999, pic: ['0', 6, 5], center: [40, 80], wait: 3, flip: true,
-      // hitHold: { X: 'defense', },
+      next: 999, pic: ['0', 6, 5], center: [40, 80], wait: 3, flip: true, hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
 
