@@ -28,28 +28,12 @@ lf2.logKey = (e) => {
   }
 
   if (lf2.mainCharacter) {
-    if (keymap[event.keyCode] == 'right') {
-      if ((!lf2.mainCharacter.keypress['right'] && pressing) && lf2.mainCharacter.runwait[1] > 0) {
-        console.log(88);
-        lf2.nextframe(lf2.scenes.character[0], lf2.mainCharacter, 'character', 'run', 'right');
-      }
-      // 如果原本沒按
-      else if ((!lf2.mainCharacter.keypress['right'] && pressing)) lf2.mainCharacter.runwait[1] = 20;
-    }
-    else if (keymap[event.keyCode] == 'left') {
-      if ((!lf2.mainCharacter.keypress['left'] && pressing) && lf2.mainCharacter.runwait[0] > 0) {
-        lf2.nextframe(lf2.scenes.character[0], lf2.mainCharacter, 'character', 'run', 'left');
-      }
-      // 如果原本沒按
-      else if ((!lf2.mainCharacter.keypress['left'] && pressing)) lf2.mainCharacter.runwait[0] = 20;
-    }
 
-
+    lf2.ContinuousKey('right', 'run');
+    lf2.ContinuousKey('left', 'run');
 
 
     lf2.mainCharacter.keypress[keymap[event.keyCode]] = pressing;
-
-
   }
 
 
@@ -62,6 +46,16 @@ lf2.logKey = (e) => {
 
 }
 
+// 連按技能
+lf2.ContinuousKey = (keyname, skillname) => {
+  if (keymap[event.keyCode] == keyname) {
+    if ((!lf2.mainCharacter.keypress[keyname] && pressing) && lf2.mainCharacter.keyReaction.keyname > 0) {
+      lf2.nextframe(lf2.scenes.character[0], lf2.mainCharacter, 'character', skillname, keyname);
+    }
+    // 如果原本沒按
+    else if ((!lf2.mainCharacter.keypress[keyname] && pressing)) lf2.mainCharacter.keyReaction.keyname = 20;
+  }
+}
 
 // 每個場景的按鍵控制
 lf2.sceneKeyEvent = (keyname) => {

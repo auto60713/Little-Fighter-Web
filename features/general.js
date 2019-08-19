@@ -97,8 +97,11 @@ lf2.counter = (setting, frame, type, thing) => {
   setting.nowwait--;
 
   if (type == 'character') {
-    if (setting.runwait[0] > 0) setting.runwait[0]--;
-    if (setting.runwait[1] > 0) setting.runwait[1]--;
+
+    Object.keys(setting.keyReaction).forEach(k => {
+      if (setting.keyReaction[k] > 0) setting.keyReaction[k]--;
+    });
+
 
 
   }

@@ -12,6 +12,7 @@ lf2.character.Freeze = {
     HP: 500,
   },
   frame: {
+
     // 站立
     standing: {
       next: 'standing2', pic: ['0', 0, 0], center: [40, 80], wait: 4, flip: true, walk: true,
@@ -34,11 +35,6 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
 
-    // 躺地
-    lyingDown: {
-      next: 999, pic: ['0', 4, 3], center: [40, 75], wait: 10, lyingDown: true,
-    },
-
 
 
     // 被打飛
@@ -59,6 +55,10 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
 
+    // 躺地
+    lyingDown: {
+      next: 999, pic: ['0', 4, 3], center: [40, 75], wait: 10, lyingDown: true,
+    },
 
 
     // 跳躍
@@ -68,6 +68,23 @@ lf2.character.Freeze = {
     },
     jumping: {
       next: 'jumping', pic: ['0', 2, 6], center: [40, 80], wait: 1, flip: true,
+      hit: { C: 'jumpAttack', },
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+
+
+    // 跳攻擊
+    jumpAttack: {
+      next: 'jumpAttack2', pic: ['0', 4, 1], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    jumpAttack2: {
+      next: 'jumpAttack3', pic: ['0', 5, 1], center: [40, 80], wait: 2,
+      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, 0], cd: 5, injury: 40, },
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    jumpAttack3: {
+      next: 999, pic: ['0', 6, 1], center: [40, 80], wait: 20,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
 
@@ -95,18 +112,65 @@ lf2.character.Freeze = {
     },
 
 
-
     // 跑步
     run: {
       next: 'run2', pic: ['0', 0, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
+      hit: { C: 'runAttack', },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     run2: {
       next: 'run3', pic: ['0', 1, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
+      hit: { C: 'runAttack', },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     run3: {
       next: 'run', pic: ['0', 2, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
+      hit: { C: 'runAttack', },
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+
+
+
+    // 跑步攻擊
+    runAttack: {
+      next: 'runAttack2', pic: ['1', 2, 3], center: [40, 80], wait: 2, move: [1, 0],
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    runAttack2: {
+      next: 'runAttack3', pic: ['1', 3, 3], center: [40, 80], wait: 2, move: [1, 0],
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    runAttack3: {
+      next: 'runAttack4', pic: ['1', 4, 3], center: [40, 80], wait: 2, move: [1, 0],
+      itr: { x: 0, y: 0, w: 80, h: 80, move: [10, -2], cd: 5, injury: 40, },
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    runAttack4: {
+      next: 'runAttack5', pic: ['1', 5, 3], center: [40, 80], wait: 2, move: [1, 0],
+      itr: { x: 0, y: 0, w: 80, h: 80, move: [10, -2], cd: 5, injury: 40, },
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    runAttack5: {
+      next: 999, pic: ['1', 6, 3], center: [40, 80], wait: 2, move: [1, 0],
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+
+
+
+
+
+
+
+
+    // 防禦
+    defense: {
+      next: 999, pic: ['0', 6, 5], center: [40, 80], wait: 3, flip: true, hitHold: true,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+
+    // 受傷
+    injured: {
+      next: 999, pic: ['0', 6, 0], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
 
@@ -127,17 +191,9 @@ lf2.character.Freeze = {
     },
 
 
-    // 防禦
-    defense: {
-      next: 999, pic: ['0', 6, 5], center: [40, 80], wait: 3, flip: true, hitHold: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
-
-    // 受傷
-    injured: {
-      next: 999, pic: ['0', 6, 0], center: [40, 80], wait: 2,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
+    // ==============================================================================
+    // 技能
+    // ==============================================================================
 
     // 冰彈
     iceBall: {
