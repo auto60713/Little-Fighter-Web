@@ -32,10 +32,20 @@ lf2.skill = (setting, frame, type, hitset, thing) => {
     // 技能組
     var hit = Object.keys(frame[hitset]);
 
-    for (let i = 0; i < hit.length; i++) {
+    dance: for (let i = 0; i < hit.length; i++) {
+      // 正在按
       if (setting.keypress[hit[i]]) {
         lf2.nextframe(thing, setting, type, frame[hitset][hit[i]], hit[i]);
-        i = hit.length;
+        break dance;
+      }
+      // 在反應表裡面有組合
+      if (setting.keyReaction.length >= 2) {
+        for (let y = 0; y < setting.keyReaction.length - 1; y++) {
+          if (setting.keyReaction[y][0] + setting.keyReaction[y + 1][0] == hit[i]) {
+            lf2.nextframe(thing, setting, type, frame[hitset][hit[i]], setting.keyReaction[y + 1][0]);
+            break dance;
+          }
+        }
       }
     }
   }
@@ -98,11 +108,10 @@ lf2.counter = (setting, frame, type, thing) => {
 
   if (type == 'character') {
 
-    Object.keys(setting.keyReaction).forEach(k => {
-      if (setting.keyReaction[k] > 0) setting.keyReaction[k]--;
+    setting.keyReaction.forEach((k, i, o) => {
+      k[1]--;
+      if (k[1] <= 0) o.splice(i, 1);
     });
-
-
 
   }
 

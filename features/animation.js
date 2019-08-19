@@ -115,11 +115,6 @@ lf2.arrange = (type) => {
           lf2.skill(setting, frame, type, 'hit', thing);
         }
 
-
-
-
-
-
         // 物理行為
         lf2.physical(setting, frame, type, thing);
 

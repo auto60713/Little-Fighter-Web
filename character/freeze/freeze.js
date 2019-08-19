@@ -16,22 +16,35 @@ lf2.character.Freeze = {
     // 站立
     standing: {
       next: 'standing2', pic: ['0', 0, 0], center: [40, 80], wait: 4, flip: true, walk: true,
-      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', right: 'walking', left: 'walking', },
+      hit: {
+        C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', right: 'walking', left: 'walking',
+        rightright: 'run', leftleft: 'run',
+      },
+      doublehit: {},
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     standing2: {
       next: 'standing3', pic: ['0', 1, 0], center: [40, 80], wait: 4, flip: true, walk: true,
-      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', right: 'walking', left: 'walking', },
+      hit: {
+        C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', right: 'walking', left: 'walking',
+        rightright: 'run', leftleft: 'run',
+      },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     standing3: {
       next: 'standing4', pic: ['0', 2, 0], center: [40, 80], wait: 4, flip: true, walk: true,
-      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', right: 'walking', left: 'walking', },
+      hit: {
+        C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', right: 'walking', left: 'walking',
+        rightright: 'run', leftleft: 'run',
+      },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     standing4: {
       next: 999, pic: ['0', 3, 0], center: [40, 80], wait: 4, flip: true, walk: true,
-      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', right: 'walking', left: 'walking', },
+      hit: {
+        C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', right: 'walking', left: 'walking',
+        rightright: 'run', leftleft: 'run',
+      },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
 
@@ -92,39 +105,39 @@ lf2.character.Freeze = {
     // 走路
     walking: {
       next: 'walking2', pic: ['0', 4, 0], center: [40, 80], wait: 4, flip: true, walk: true, hitHold: true,
-      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', },
+      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', rightright: 'run', leftleft: 'run', },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     walking2: {
       next: 'walking3', pic: ['0', 5, 0], center: [40, 80], wait: 4, flip: true, walk: true, hitHold: true,
-      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', },
+      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', rightright: 'run', leftleft: 'run', },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     walking3: {
       next: 'walking4', pic: ['0', 6, 0], center: [40, 80], wait: 4, flip: true, walk: true, hitHold: true,
-      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', },
+      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', rightright: 'run', leftleft: 'run', },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     walking4: {
       next: 'walking', pic: ['0', 7, 0], center: [40, 80], wait: 4, flip: true, walk: true, hitHold: true,
-      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', },
+      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', rightright: 'run', leftleft: 'run', },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
 
 
     // 跑步
     run: {
-      next: 'run2', pic: ['0', 0, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
+      next: 'run2', pic: ['0', 0, 2], center: [40, 80], wait: 4, move: [6, 0], flip: true, hitHold: true,
       hit: { C: 'runAttack', },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     run2: {
-      next: 'run3', pic: ['0', 1, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
+      next: 'run3', pic: ['0', 1, 2], center: [40, 80], wait: 4, move: [6, 0], flip: true, hitHold: true,
       hit: { C: 'runAttack', },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     run3: {
-      next: 'run', pic: ['0', 2, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
+      next: 'run', pic: ['0', 2, 2], center: [40, 80], wait: 4, move: [6, 0], flip: true, hitHold: true,
       hit: { C: 'runAttack', },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
@@ -164,7 +177,7 @@ lf2.character.Freeze = {
 
     // 防禦
     defense: {
-      next: 999, pic: ['0', 6, 5], center: [40, 80], wait: 3, flip: true, hitHold: true,
+      next: 'defense', pic: ['0', 6, 5], center: [40, 80], wait: 3, flip: true, hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
 

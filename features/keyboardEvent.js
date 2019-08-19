@@ -1,44 +1,41 @@
+lf2.keymap = {
+  39: 'right',
+  37: 'left',
+  38: 'up',
+  40: 'down',
+
+  27: 'esc',
+
+  81: 'Q',
+  87: 'W',
+  69: 'E',
+  82: 'R',
+
+  65: 'A',
+  83: 'S',
+  68: 'D',
+  70: 'F',
+
+  90: 'Z',
+  88: 'X',
+  67: 'C',
+  86: 'V',
+};
 
 // 鍵盤控制
 lf2.logKey = (e) => {
   const event = window.event || e;
   const pressing = event.type === 'keydown';
-  const keymap = {
-    39: 'right',
-    37: 'left',
-    38: 'up',
-    40: 'down',
-
-    27: 'esc',
-
-    81: 'Q',
-    87: 'W',
-    69: 'E',
-    82: 'R',
-
-    65: 'A',
-    83: 'S',
-    68: 'D',
-    70: 'F',
-
-    90: 'Z',
-    88: 'X',
-    67: 'C',
-    86: 'V',
-  }
 
   if (lf2.mainCharacter) {
 
-    lf2.ContinuousKey('right', 'run');
-    lf2.ContinuousKey('left', 'run');
-
-
-    lf2.mainCharacter.keypress[keymap[event.keyCode]] = pressing;
+    lf2.ContinuousKey(pressing, lf2.keymap[event.keyCode]);
+    lf2.mainCharacter.keypress[lf2.keymap[event.keyCode]] = pressing;
   }
 
 
   if (pressing && !lf2.qweqwe) {
-    lf2.sceneKeyEvent(keymap[event.keyCode]);
+    lf2.sceneKeyEvent(lf2.keymap[event.keyCode]);
     lf2.qweqwe = true;
   }
 
@@ -47,13 +44,9 @@ lf2.logKey = (e) => {
 }
 
 // 連按技能
-lf2.ContinuousKey = (keyname, skillname) => {
-  if (keymap[event.keyCode] == keyname) {
-    if ((!lf2.mainCharacter.keypress[keyname] && pressing) && lf2.mainCharacter.keyReaction.keyname > 0) {
-      lf2.nextframe(lf2.scenes.character[0], lf2.mainCharacter, 'character', skillname, keyname);
-    }
-    // 如果原本沒按
-    else if ((!lf2.mainCharacter.keypress[keyname] && pressing)) lf2.mainCharacter.keyReaction.keyname = 20;
+lf2.ContinuousKey = (pressing, keyname) => {
+  if ((!lf2.mainCharacter.keypress[keyname] && pressing)) {
+    lf2.mainCharacter.keyReaction.push([keyname, 20]);
   }
 }
 
