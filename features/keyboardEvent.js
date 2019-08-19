@@ -27,7 +27,25 @@ lf2.logKey = (e) => {
     86: 'V',
   }
 
-  if (lf2.mainCharacter) lf2.mainCharacter.keypress[keymap[event.keyCode]] = pressing;
+  if (lf2.mainCharacter) {
+    if ((!lf2.mainCharacter.keypress['right'] && pressing) && lf2.mainCharacter.runwait[1] > 0) {
+      lf2.nextframe(lf2.scenes.character[0], lf2.mainCharacter, 'character', 'run');
+    }
+    // 如果原本沒按
+    else if ((!lf2.mainCharacter.keypress['right'] && pressing)) lf2.mainCharacter.runwait[1] = 20;
+
+    if ((!lf2.mainCharacter.keypress['left'] && pressing) && lf2.mainCharacter.runwait[0] > 0) {
+      lf2.nextframe(lf2.scenes.character[0], lf2.mainCharacter, 'character', 'run');
+    }
+    // 如果原本沒按
+    else if ((!lf2.mainCharacter.keypress['left'] && pressing)) lf2.mainCharacter.runwait[0] = 20;
+
+
+
+    lf2.mainCharacter.keypress[keymap[event.keyCode]] = pressing;
+
+
+  }
 
 
   if (pressing && !lf2.qweqwe) {

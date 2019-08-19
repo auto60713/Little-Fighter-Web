@@ -100,6 +100,22 @@ lf2.character.Freeze = {
 
 
 
+    // 跑步
+    run: {
+      next: 999, pic: ['0', 0, 2], center: [40, 80], wait: 4, move: [6, 0],
+      hitHold: { right: 'run2', left: 'run2', },
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    run2: {
+      next: 999, pic: ['0', 1, 2], center: [40, 80], wait: 4, move: [6, 0],
+      hitHold: { right: 'run3', left: 'run3', },
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    run3: {
+      next: 999, pic: ['0', 2, 2], center: [40, 80], wait: 4, move: [6, 0],
+      hitHold: { right: 'run', left: 'run', },
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
 
 
     // 普攻

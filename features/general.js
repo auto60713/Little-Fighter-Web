@@ -89,6 +89,12 @@ lf2.counter = (setting, frame, type) => {
   // 幀等待
   setting.nowwait--;
 
+  if (type == 'character') {
+    if (setting.runwait[0] > 0) setting.runwait[0]--;
+    if (setting.runwait[1] > 0) setting.runwait[1]--;
+  }
+
+
   // 被打等待
   if (setting.hitCD) Object.keys(setting.hitCD).forEach(k => {
     setting.hitCD[k]--;

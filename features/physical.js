@@ -20,9 +20,10 @@ lf2.physical = (setting, frame, type, thing) => {
   // 重力影響與落地
   if (type == 'character') {
 
+    // if(setting.keypress['right'])
+
     // 滯空偵測
     if (setting.ySpeed < 0) setting.inSky = true;
-
 
     // 重力加速度
     if (setting.ySpeed < lf2.maxFallingSpeed && setting.inSky) setting.ySpeed += lf2.gravity;
