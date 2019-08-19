@@ -28,17 +28,22 @@ lf2.logKey = (e) => {
   }
 
   if (lf2.mainCharacter) {
-    if ((!lf2.mainCharacter.keypress['right'] && pressing) && lf2.mainCharacter.runwait[1] > 0) {
-      lf2.nextframe(lf2.scenes.character[0], lf2.mainCharacter, 'character', 'run');
+    if (keymap[event.keyCode] == 'right') {
+      if ((!lf2.mainCharacter.keypress['right'] && pressing) && lf2.mainCharacter.runwait[1] > 0) {
+        console.log(88);
+        lf2.nextframe(lf2.scenes.character[0], lf2.mainCharacter, 'character', 'run', 'right');
+      }
+      // 如果原本沒按
+      else if ((!lf2.mainCharacter.keypress['right'] && pressing)) lf2.mainCharacter.runwait[1] = 20;
     }
-    // 如果原本沒按
-    else if ((!lf2.mainCharacter.keypress['right'] && pressing)) lf2.mainCharacter.runwait[1] = 20;
+    else if (keymap[event.keyCode] == 'left') {
+      if ((!lf2.mainCharacter.keypress['left'] && pressing) && lf2.mainCharacter.runwait[0] > 0) {
+        lf2.nextframe(lf2.scenes.character[0], lf2.mainCharacter, 'character', 'run', 'left');
+      }
+      // 如果原本沒按
+      else if ((!lf2.mainCharacter.keypress['left'] && pressing)) lf2.mainCharacter.runwait[0] = 20;
+    }
 
-    if ((!lf2.mainCharacter.keypress['left'] && pressing) && lf2.mainCharacter.runwait[0] > 0) {
-      lf2.nextframe(lf2.scenes.character[0], lf2.mainCharacter, 'character', 'run');
-    }
-    // 如果原本沒按
-    else if ((!lf2.mainCharacter.keypress['left'] && pressing)) lf2.mainCharacter.runwait[0] = 20;
 
 
 

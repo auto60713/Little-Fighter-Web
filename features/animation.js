@@ -91,6 +91,8 @@ lf2.arrange = (type) => {
         // 製造衍生物
         lf2.produceDerivative(setting, frame);
 
+
+
         // 被打偵測
         if (lf2.amIBeingBeaten(setting, frame, 'character', thing)
           || lf2.amIBeingBeaten(setting, frame, 'derivative', thing)) {
@@ -103,12 +105,20 @@ lf2.arrange = (type) => {
         // 自然換幀
         else if (setting.nowwait <= 0) {
           lf2.nextframe(thing, setting, type, frame.next);
-          lf2.skill(setting, frame, type, 'hitHold', thing);
+        }
+        // 長壓保持動作
+        else if (type == 'character' && setting.hitHold != '-' && !setting.keypress[setting.hitHold]) {
+          lf2.nextframe(thing, setting, type, 999);
         }
         // 技能換幀
         else {
           lf2.skill(setting, frame, type, 'hit', thing);
         }
+
+
+
+
+
 
         // 物理行為
         lf2.physical(setting, frame, type, thing);
@@ -117,7 +127,7 @@ lf2.arrange = (type) => {
         lf2.draw(setting, frame, type, thing);
 
         // 計算器
-        lf2.counter(setting, frame, type);
+        lf2.counter(setting, frame, type, thing);
 
         // 血量
         lf2.HPsystem(setting, frame, type);
@@ -125,7 +135,8 @@ lf2.arrange = (type) => {
         // 我是機器人
         // lf2.bot(setting, frame, type, thing);
 
-      
+
+
       });
 
     } else {

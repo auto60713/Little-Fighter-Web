@@ -34,7 +34,7 @@ lf2.skill = (setting, frame, type, hitset, thing) => {
 
     for (let i = 0; i < hit.length; i++) {
       if (setting.keypress[hit[i]]) {
-        lf2.nextframe(thing, setting, type, frame[hitset][hit[i]]);
+        lf2.nextframe(thing, setting, type, frame[hitset][hit[i]], hit[i]);
         i = hit.length;
       }
     }
@@ -42,11 +42,14 @@ lf2.skill = (setting, frame, type, hitset, thing) => {
 }
 
 // 物件換影格
-lf2.nextframe = (thing, setting, type, next) => {
+lf2.nextframe = (thing, setting, type, next, hitHold) => {
+
   if (next == 999) {
     if (type == 'character' && setting.nowHP <= 0) next = 'lyingDown';
     else if (setting.inSky) next = 'jumping';
     else next = 'standing';
+
+    setting.hitHold = '-';
   }
   else if (next == 1000) {
     setting.destroy = true;
@@ -58,6 +61,10 @@ lf2.nextframe = (thing, setting, type, next) => {
   setting.nowframe = next;
   setting.nowwait = nextFrame.wait * lf2.waitMagnification;
   setting.alreadyProduced = false;
+
+  if (nextFrame.hitHold && hitHold) {
+    setting.hitHold = hitHold;
+  }
 }
 
 // 血量系統
@@ -84,7 +91,7 @@ lf2.HPsystem = (setting, frame, type) => {
 }
 
 // 計算器
-lf2.counter = (setting, frame, type) => {
+lf2.counter = (setting, frame, type, thing) => {
 
   // 幀等待
   setting.nowwait--;
@@ -92,7 +99,11 @@ lf2.counter = (setting, frame, type) => {
   if (type == 'character') {
     if (setting.runwait[0] > 0) setting.runwait[0]--;
     if (setting.runwait[1] > 0) setting.runwait[1]--;
+
+
   }
+
+
 
 
   // 被打等待
