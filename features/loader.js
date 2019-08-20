@@ -78,7 +78,7 @@ lf2.undergroundInformation = (type, name, template) => {
     const data = {
 
       nowframe: 'standing',
-      nowwait: template.frame['standing'].wait,
+      nowwait: template.frame['standing'].wait * lf2.waitMagnification,
       nowHP: template.setting.HP,
 
       ySpeed: 0,

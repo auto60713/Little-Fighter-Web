@@ -20,7 +20,7 @@ lf2.variousChangesFrame = (setting, frame, type, thing) => {
   }
   // 長壓保持動作
   else if (setting.hitHold != '-' && !setting.keypress[setting.hitHold]) {
-    lf2.gotoFrame(thing, setting, type, 999);
+    if (frame.hitHold) lf2.gotoFrame(thing, setting, type, 999);
   }
 
 }
@@ -175,7 +175,6 @@ lf2.counter = (setting, frame, type, thing) => {
   // 幀等待
   setting.nowwait--;
 
-
   if (type == 'character') {
 
     // 按鍵反應表
@@ -205,6 +204,8 @@ lf2.produceDerivative = (setting, frame) => {
       y: setting.y + frame.produce.y,
       team: setting.team,
       mirror: setting.mirror,
+      nowframe: frame.produce.frame,
+      nowwait: lf2.derivative[frame.produce.name].frame[frame.produce.frame].wait * lf2.waitMagnification,
     });
 
     setting.alreadyProduced = true;

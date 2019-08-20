@@ -18,7 +18,7 @@ lf2.character.Freeze = {
       next: 'standing2', pic: ['0', 0, 0], center: [40, 80], wait: 4, flip: true,
       hit: {
         C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', right: 'walking', left: 'walking',
-        rightright: 'run', leftleft: 'run',
+        rightright: 'run', leftleft: 'run', S: 'icePunch',
       },
       doublehit: {},
       bdy: { x: 0, y: 0, w: 80, h: 80 },
@@ -27,15 +27,15 @@ lf2.character.Freeze = {
       next: 'standing3', pic: ['0', 1, 0], center: [40, 80], wait: 4, flip: true,
       hit: {
         C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', right: 'walking', left: 'walking',
-        rightright: 'run', leftleft: 'run',
+        rightright: 'run', leftleft: 'run', S: 'icePunch',
       },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     standing3: {
-      next: 'standing4', pic: ['0', 2, 0], center: [40, 80], wait: 4, flip: true, 
+      next: 'standing4', pic: ['0', 2, 0], center: [40, 80], wait: 4, flip: true,
       hit: {
         C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', right: 'walking', left: 'walking',
-        rightright: 'run', leftleft: 'run',
+        rightright: 'run', leftleft: 'run', S: 'icePunch',
       },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
@@ -43,7 +43,7 @@ lf2.character.Freeze = {
       next: 999, pic: ['0', 3, 0], center: [40, 80], wait: 4, flip: true,
       hit: {
         C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', right: 'walking', left: 'walking',
-        rightright: 'run', leftleft: 'run',
+        rightright: 'run', leftleft: 'run', S: 'icePunch',
       },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
@@ -110,22 +110,22 @@ lf2.character.Freeze = {
     // 走路
     walking: {
       next: 'walking2', pic: ['0', 4, 0], center: [40, 80], wait: 4, move: [4, 0], flip: true, hitHold: true,
-      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', rightright: 'run', leftleft: 'run', },
+      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', rightright: 'run', leftleft: 'run', S: 'icePunch', },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     walking2: {
       next: 'walking3', pic: ['0', 5, 0], center: [40, 80], wait: 4, move: [4, 0], flip: true, hitHold: true,
-      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', rightright: 'run', leftleft: 'run', },
+      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', rightright: 'run', leftleft: 'run', S: 'icePunch', },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     walking3: {
       next: 'walking4', pic: ['0', 6, 0], center: [40, 80], wait: 4, move: [4, 0], flip: true, hitHold: true,
-      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', rightright: 'run', leftleft: 'run', },
+      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', rightright: 'run', leftleft: 'run', S: 'icePunch', },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     walking4: {
       next: 'walking', pic: ['0', 7, 0], center: [40, 80], wait: 4, move: [4, 0], flip: true, hitHold: true,
-      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', rightright: 'run', leftleft: 'run', },
+      hit: { C: 'attack', X: 'defense', A: 'iceBall', up: 'jumpPre', rightright: 'run', leftleft: 'run', S: 'icePunch', },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
 
@@ -133,17 +133,17 @@ lf2.character.Freeze = {
     // 跑步
     run: {
       next: 'run2', pic: ['0', 0, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
-      hit: { C: 'runAttack', up: 'runJumpPre', },
+      hit: { C: 'runAttack', up: 'runJumpPre', S: 'icePunch', },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     run2: {
       next: 'run3', pic: ['0', 1, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
-      hit: { C: 'runAttack', up: 'runJumpPre', },
+      hit: { C: 'runAttack', up: 'runJumpPre', S: 'icePunch', },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     run3: {
       next: 'run', pic: ['0', 2, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
-      hit: { C: 'runAttack', up: 'runJumpPre', },
+      hit: { C: 'runAttack', up: 'runJumpPre', S: 'icePunch', },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
 
@@ -238,7 +238,7 @@ lf2.character.Freeze = {
     iceBall4: {
       next: 'iceBall5', pic: ['2', 3, 0], center: [40, 80], wait: 3,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
-      produce: { name: 'freezeBall', x: 60, y: 7, }
+      produce: { name: 'freezeBall', frame: 'standing', x: 60, y: 7, },
     },
     iceBall5: {
       next: 'iceBall6', pic: ['2', 4, 0], center: [40, 80], wait: 3,
@@ -249,6 +249,40 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
 
+
+    icePunch: {
+      next: 'icePunch2', pic: ['1', 8, 0], center: [40, 80], wait: 1,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    icePunch2: {
+      next: 'icePunch3', pic: ['1', 9, 0], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    icePunch3: {
+      next: 'icePunch4', pic: ['1', 7, 1], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    icePunch4: {
+      next: 'icePunch5', pic: ['1', 8, 1], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    icePunch5: {
+      next: 'icePunch6', pic: ['1', 9, 1], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      produce: { name: 'freezeBall', frame: 'cm', x: 60, y: 7, },
+    },
+    icePunch6: {
+      next: 'icePunch7', pic: ['1', 5, 4], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    icePunch7: {
+      next: 'icePunch8', pic: ['1', 6, 4], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    icePunch8: {
+      next: 999, pic: ['1', 9, 4], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
 
 
 

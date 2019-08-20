@@ -75,10 +75,11 @@ lf2.arrange = (type) => {
 
       });
 
-    } else {
-      // 從場景中移除
-      object.splice(index, 1);
     }
   });
 
+  // 移除須銷毀的物件
+  lf2.scenes[type].forEach((thing, index, object) => {
+    if (thing.setting.destroy) object.splice(index, 1);
+  });
 }
