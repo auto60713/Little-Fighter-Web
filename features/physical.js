@@ -20,8 +20,6 @@ lf2.physical = (setting, frame, type, thing) => {
   // 重力影響與落地
   if (type == 'character') {
 
-    // if(setting.keypress['right'])
-
     // 滯空偵測
     if (setting.ySpeed < 0) setting.inSky = true;
 
@@ -42,7 +40,17 @@ lf2.physical = (setting, frame, type, thing) => {
       }
 
     }
+
+    // 翻轉允許
+    if (frame.flip) {
+      if (setting.keypress.right) setting.mirror = false;
+      else if (setting.keypress.left) setting.mirror = true;
+    }
   }
+
+
+  // 衍生物離場銷毀
+  if (type == 'derivative' && (setting.x < -200 || setting.x > lf2.mainMap.limit.x + 200)) setting.destroy = true;
 }
 
 // move移動

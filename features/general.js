@@ -1,4 +1,31 @@
 
+lf2.variousChangesFrame = (setting, frame, type, thing) => {
+
+  // 被打偵測
+  if (lf2.amIBeingBeaten(setting, frame, 'character', thing)
+    || lf2.amIBeingBeaten(setting, frame, 'derivative', thing)) {
+    lf2.adjunction('UI', 'hit', {
+      x: setting.x,
+      y: setting.y,
+    });
+    lf2.gotoFrame(thing, setting, type, 'falling');
+  }
+  // 自然換幀
+  else if (setting.nowwait <= 0) {
+    lf2.gotoFrame(thing, setting, type, frame.next);
+  }
+  // 長壓保持動作
+  else if (setting.hitHold != '-' && !setting.keypress[setting.hitHold]) {
+    lf2.gotoFrame(thing, setting, type, 999);
+  }
+  // 技能換幀
+  else {
+    lf2.skill(setting, frame, type, 'hit', thing);
+  }
+}
+
+
+
 // 被打偵測
 lf2.amIBeingBeaten = (setting, frame, type, thing) => {
   var isHit = false;
@@ -26,18 +53,22 @@ lf2.amIBeingBeaten = (setting, frame, type, thing) => {
   return isHit;
 }
 
+
+
 // 技能
 lf2.skill = (setting, frame, type, hitset, thing) => {
   if (frame[hitset]) {
     // 技能組
     var hit = Object.keys(frame[hitset]);
 
-
     dance: for (let i = 0; i < hit.length; i++) {
       var next = frame[hitset][hit[i]];
+      var nextFrame = lf2.theFrame(type, thing, setting, next);
+
       // 正在按
       if (setting.keypress[hit[i]]) {
-        lf2.gotoFrame(thing, setting, type, next, hit[i]);
+        if (nextFrame.hitHold) setting.hitHold = hit[i];
+        lf2.gotoFrame(thing, setting, type, next);
         break dance;
       }
       // 在反應表裡面有組合
@@ -47,7 +78,8 @@ lf2.skill = (setting, frame, type, hitset, thing) => {
           var key2 = setting.keyReaction[y + 1][0];
           if (key1 + key2 == hit[i]) {
             if (lf2.theFrame(type, thing, setting, next).hitHold && setting.keypress[key2]) {
-              lf2.gotoFrame(thing, setting, type, next, key2);
+              if (nextFrame.hitHold) setting.hitHold = key2;
+              lf2.gotoFrame(thing, setting, type, next);
               break dance;
             }
 
@@ -59,11 +91,11 @@ lf2.skill = (setting, frame, type, hitset, thing) => {
 }
 
 // 物件換影格
-lf2.gotoFrame = (thing, setting, type, next, hitHold) => {
+lf2.gotoFrame = (thing, setting, type, next) => {
 
   if (next == 999) {
     if (type == 'character' && setting.nowHP <= 0) next = 'lyingDown';
-    else if (setting.inSky) next = 'jumping';
+    else if (type == 'character' && setting.inSky) next = 'jumping';
     else next = 'standing';
 
     setting.hitHold = '-';
@@ -78,17 +110,9 @@ lf2.gotoFrame = (thing, setting, type, next, hitHold) => {
   setting.nowframe = next;
   setting.nowwait = nextFrame.wait * lf2.waitMagnification;
   setting.alreadyProduced = false;
-
-  if (nextFrame.hitHold && hitHold) {
-    setting.hitHold = hitHold;
-  }
 }
 
 
-lf2.theFrame = (type, thing, setting, frameName) => {
-  var frame = type === 'map' ? thing.component[setting.component][frameName] : thing.frame[frameName];
-  return frame;
-}
 
 // 血量系統
 lf2.HPsystem = (setting, frame, type) => {
@@ -119,32 +143,24 @@ lf2.counter = (setting, frame, type, thing) => {
   // 幀等待
   setting.nowwait--;
 
+
   if (type == 'character') {
 
+    // 按鍵反應表
     setting.keyReaction.forEach((k, i, o) => {
       k[1]--;
       if (k[1] <= 0) o.splice(i, 1);
     });
 
+    // 被打等待
+    Object.keys(setting.hitCD).forEach(k => {
+      setting.hitCD[k]--;
+    });
   }
 
-
-
-
-  // 被打等待
-  if (setting.hitCD) Object.keys(setting.hitCD).forEach(k => {
-    setting.hitCD[k]--;
-  });
-
-  // 翻轉允許
-  if (frame.flip) {
-    if (setting.keypress.right) setting.mirror = false;
-    else if (setting.keypress.left) setting.mirror = true;
-  }
-
-  // 衍生物離場銷毀
-  if (type == 'derivative' && (setting.x < -200 || setting.x > lf2.mainMap.limit.x + 200)) setting.destroy = true;
 }
+
+
 
 // 製造衍生物
 lf2.produceDerivative = (setting, frame) => {
@@ -161,4 +177,10 @@ lf2.produceDerivative = (setting, frame) => {
 
     setting.alreadyProduced = true;
   }
+}
+
+
+lf2.theFrame = (type, thing, setting, frameName) => {
+  var frame = type === 'map' ? thing.component[setting.component][frameName] : thing.frame[frameName];
+  return frame;
 }

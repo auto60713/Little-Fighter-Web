@@ -70,50 +70,19 @@ lf2.arrange = (type) => {
 
     if (!thing.setting.destroy) {
 
-      let series;
-      switch (type) {
-        case 'map':
-          series = thing.decorate;
-          break;
-        case 'character':
-        case 'derivative':
-        case 'UI':
-          series = [thing.setting];
-          break;
-      }
+      let series = type == 'map' ? thing.decorate : [thing.setting];
 
       // 此物件的每個元素 (其實就只有地圖是多元素)
       series.forEach(setting => {
 
         // 目前的幀
-        var frame = type === 'map' ? thing.component[setting.component][setting.nowframe] : thing.frame[setting.nowframe];
+        var frame = lf2.theFrame(type, thing, setting, setting.nowframe);
 
         // 製造衍生物
         lf2.produceDerivative(setting, frame);
 
-
-
-        // 被打偵測
-        if (lf2.amIBeingBeaten(setting, frame, 'character', thing)
-          || lf2.amIBeingBeaten(setting, frame, 'derivative', thing)) {
-          lf2.adjunction('UI', 'hit', {
-            x: setting.x,
-            y: setting.y,
-          });
-          lf2.gotoFrame(thing, setting, type, 'falling');
-        }
-        // 自然換幀
-        else if (setting.nowwait <= 0) {
-          lf2.gotoFrame(thing, setting, type, frame.next);
-        }
-        // 長壓保持動作
-        else if (type == 'character' && setting.hitHold != '-' && !setting.keypress[setting.hitHold]) {
-          lf2.gotoFrame(thing, setting, type, 999);
-        }
-        // 技能換幀
-        else {
-          lf2.skill(setting, frame, type, 'hit', thing);
-        }
+        // 換動作
+        lf2.variousChangesFrame(setting, frame, type, thing);
 
         // 物理行為
         lf2.physical(setting, frame, type, thing);
