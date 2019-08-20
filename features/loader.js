@@ -7,7 +7,7 @@ lf2.loader = () => {
 
       const template = lf2[type][name];
 
-      // 將每個角色的頭像匯入UI
+      // 將每個角色/地圖的頭像匯入UI
       lf2.portraitUI(type, name, template);
 
       // 根據路徑將圖檔匯入圖檔中心
@@ -40,7 +40,17 @@ lf2.portraitUI = (type, name, template) => {
         file: { 'face': { deputy: 'png', w: 100, h: 100 }, },
         scale: 1,
       },
-      frame: { 'standing': { next: 999, pic: ['face', 0, 0], center: [0, 0], wait: 1, }, }
+      frame: { 'standing': { next: 999, pic: ['face', 0, 0], center: [0, 0], wait: 100, }, }
+    };
+  }
+  else if (type == 'map') {
+    lf2.UI[name] = {
+      setting: {
+        name: name,
+        file: { 'mapface': { deputy: 'png', w: 200, h: 150 }, },
+        scale: 1,
+      },
+      frame: { 'standing': { next: 999, pic: ['mapface', 0, 0], center: [0, 0], wait: 100, }, }
     };
   }
 }
@@ -65,6 +75,7 @@ lf2.fileManager = (type, name, template) => {
     // UI類別裡的角色頭像 需要去角色資料夾找
     if (type == 'UI') {
       if (key == 'face') img.src = `character/${name}/${key}.${file.deputy}`;
+      else if (key == 'mapface') img.src = `map/${name}/${key}.${file.deputy}`;
       else img.src = `${type}/${key}.${file.deputy}`;
     } else img.src = `${type}/${name}/${key}.${file.deputy}`;
 

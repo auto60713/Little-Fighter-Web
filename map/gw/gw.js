@@ -1,6 +1,6 @@
-lf2.map.hkc = {
+lf2.map.gw = {
   setting: {
-    name: 'hkc',
+    name: 'gw',
     file: {
     
     },
@@ -9,7 +9,7 @@ lf2.map.hkc = {
   },
   // 物件 (相當於人物的frame)
   component: {
-  
+ 
   },
   // 擺設 (相當於人物的setting)
   decorate: [

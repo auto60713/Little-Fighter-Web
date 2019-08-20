@@ -1,6 +1,6 @@
-lf2.map.hkc = {
+lf2.map.qi = {
   setting: {
-    name: 'hkc',
+    name: 'qi',
     file: {
     
     },

@@ -1,8 +1,8 @@
-lf2.map.hkc = {
+lf2.map.thv = {
   setting: {
-    name: 'hkc',
+    name: 'thv',
     file: {
-    
+  
     },
     limit: { x: 1600, y: 300, },
     backgroundColor: '#104F10',
