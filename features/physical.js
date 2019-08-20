@@ -6,8 +6,8 @@ lf2.physical = (setting, frame, type, thing) => {
   if (!setting.inSky) setting.xSpeed = 0;
 
   lf2.move(setting, frame, type);
-  lf2.walk(setting, frame, type);
-  lf2.FixedPosition(setting, frame, type);
+  // lf2.walk(setting, frame, type);
+  if (type == 'UI') lf2.FixedPosition(setting, frame, type);
 
   if (type != 'character'
     // 邊界

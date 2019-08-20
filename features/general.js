@@ -10,21 +10,118 @@ lf2.variousChangesFrame = (setting, frame, type, thing) => {
     });
     lf2.gotoFrame(thing, setting, type, 'falling');
   }
+  // 技能換幀
+  else if (lf2.skill2(setting, frame, type, thing)) {
+    // if (setting.scenesIndex == 1) console.log(12);
+    lf2.skill(setting, frame, type, thing);
+  }
   // 自然換幀
   else if (setting.nowwait <= 0) {
     lf2.gotoFrame(thing, setting, type, frame.next);
   }
   // 長壓保持動作
   else if (setting.hitHold != '-' && !setting.keypress[setting.hitHold]) {
+    // if (setting.scenesIndex == 1) console.log(88);
+
     lf2.gotoFrame(thing, setting, type, 999);
   }
-  // 技能換幀
-  else {
-    lf2.skill(setting, frame, type, 'hit', thing);
+
+}
+
+// 技能
+lf2.skill = (setting, frame, type, thing) => {
+  if (type == 'character' && frame.hit) {
+    // 技能組
+    var hit = Object.keys(frame.hit);
+
+    dance: for (let i = 0; i < hit.length; i++) {
+      var next = frame.hit[hit[i]];
+      var nextFrame = lf2.theFrame(type, thing, setting, next);
+
+      // 正在按
+      if (setting.keypress[hit[i]]) {
+        if (nextFrame.hitHold) setting.hitHold = hit[i];
+        if (setting.scenesIndex == 1) console.log(next);
+        lf2.gotoFrame(thing, setting, type, next);
+        break dance;
+      }
+      // 在反應表裡面有組合
+      if (setting.keyReaction.length >= 2) {
+        for (let y = 0; y < setting.keyReaction.length - 1; y++) {
+          var key1 = setting.keyReaction[y][0];
+          var key2 = setting.keyReaction[y + 1][0];
+          if (key1 + key2 == hit[i]) {
+            if (lf2.theFrame(type, thing, setting, next).hitHold && setting.keypress[key2]) {
+              if (nextFrame.hitHold) setting.hitHold = key2;
+              lf2.gotoFrame(thing, setting, type, next);
+              break dance;
+            }
+
+          }
+        }
+      }
+    }
   }
 }
 
+lf2.skill2 = (setting, frame, type, thing) => {
+  var ddd = false;
+  if (type == 'character' && frame.hit) {
+    // 技能組
+    var hit = Object.keys(frame.hit);
 
+    dance: for (let i = 0; i < hit.length; i++) {
+      var next = frame.hit[hit[i]];
+      var nextFrame = lf2.theFrame(type, thing, setting, next);
+
+      // 正在按
+      if (setting.keypress[hit[i]]) {
+        if (nextFrame.hitHold) setting.hitHold = hit[i];
+        if (setting.scenesIndex == 1) console.log(next);
+        ddd = next;
+        break dance;
+      }
+      // 在反應表裡面有組合
+      if (setting.keyReaction.length >= 2) {
+        for (let y = 0; y < setting.keyReaction.length - 1; y++) {
+          var key1 = setting.keyReaction[y][0];
+          var key2 = setting.keyReaction[y + 1][0];
+          if (key1 + key2 == hit[i]) {
+            if (lf2.theFrame(type, thing, setting, next).hitHold && setting.keypress[key2]) {
+              if (nextFrame.hitHold) setting.hitHold = key2;
+              ddd = next;
+              break dance;
+            }
+
+          }
+        }
+      }
+    }
+  }
+  return ddd;
+}
+
+// 物件換影格
+lf2.gotoFrame = (thing, setting, type, next) => {
+
+  if (next == 999) {
+    if (type == 'character' && setting.nowHP <= 0) next = 'lyingDown';
+    else if (type == 'character' && setting.inSky) next = 'jumping';
+    else next = 'standing';
+
+    setting.hitHold = '-';
+  }
+  else if (next == 1000) {
+    setting.destroy = true;
+    next = 'standing';
+  }
+
+  var nextFrame = lf2.theFrame(type, thing, setting, next);
+
+  setting.nowframe = next;
+  setting.nowwait = nextFrame.wait * lf2.waitMagnification;
+  setting.alreadyProduced = false;
+}
 
 // 被打偵測
 lf2.amIBeingBeaten = (setting, frame, type, thing) => {
@@ -52,66 +149,6 @@ lf2.amIBeingBeaten = (setting, frame, type, thing) => {
   }
   return isHit;
 }
-
-
-
-// 技能
-lf2.skill = (setting, frame, type, hitset, thing) => {
-  if (frame[hitset]) {
-    // 技能組
-    var hit = Object.keys(frame[hitset]);
-
-    dance: for (let i = 0; i < hit.length; i++) {
-      var next = frame[hitset][hit[i]];
-      var nextFrame = lf2.theFrame(type, thing, setting, next);
-
-      // 正在按
-      if (setting.keypress[hit[i]]) {
-        if (nextFrame.hitHold) setting.hitHold = hit[i];
-        lf2.gotoFrame(thing, setting, type, next);
-        break dance;
-      }
-      // 在反應表裡面有組合
-      if (setting.keyReaction.length >= 2) {
-        for (let y = 0; y < setting.keyReaction.length - 1; y++) {
-          var key1 = setting.keyReaction[y][0];
-          var key2 = setting.keyReaction[y + 1][0];
-          if (key1 + key2 == hit[i]) {
-            if (lf2.theFrame(type, thing, setting, next).hitHold && setting.keypress[key2]) {
-              if (nextFrame.hitHold) setting.hitHold = key2;
-              lf2.gotoFrame(thing, setting, type, next);
-              break dance;
-            }
-
-          }
-        }
-      }
-    }
-  }
-}
-
-// 物件換影格
-lf2.gotoFrame = (thing, setting, type, next) => {
-
-  if (next == 999) {
-    if (type == 'character' && setting.nowHP <= 0) next = 'lyingDown';
-    else if (type == 'character' && setting.inSky) next = 'jumping';
-    else next = 'standing';
-
-    setting.hitHold = '-';
-  }
-  else if (next == 1000) {
-    setting.destroy = true;
-    next = 'standing';
-  }
-
-  var nextFrame = lf2.theFrame(type, thing, setting, next);
-
-  setting.nowframe = next;
-  setting.nowwait = nextFrame.wait * lf2.waitMagnification;
-  setting.alreadyProduced = false;
-}
-
 
 
 // 血量系統
