@@ -1,6 +1,6 @@
-lf2.character.Firen = {
+lf2.character.Davis = {
   setting: {
-    name: 'Firen',
+    name: 'Davis',
     file: {
       '0': { deputy: 'png', w: 80, h: 80 },
       '1': { deputy: 'png', w: 80, h: 80 },
@@ -222,6 +222,67 @@ lf2.character.Firen = {
     // 技能
     // ==============================================================================
 
+    // 冰彈
+    iceBall: {
+      next: 'iceBall2', pic: ['2', 0, 0], center: [40, 80], wait: 3,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    iceBall2: {
+      next: 'iceBall3', pic: ['2', 1, 0], center: [40, 80], wait: 3,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    iceBall3: {
+      next: 'iceBall4', pic: ['2', 2, 0], center: [40, 80], wait: 3,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    iceBall4: {
+      next: 'iceBall5', pic: ['2', 3, 0], center: [40, 80], wait: 3,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      produce: { name: 'freezeBall', frame: 'standing', x: 60, y: 7, },
+    },
+    iceBall5: {
+      next: 'iceBall6', pic: ['2', 4, 0], center: [40, 80], wait: 3,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    iceBall6: {
+      next: 999, pic: ['2', 5, 0], center: [40, 80], wait: 3,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+
+
+    icePunch: {
+      next: 'icePunch2', pic: ['1', 8, 0], center: [40, 80], wait: 1,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    icePunch2: {
+      next: 'icePunch3', pic: ['1', 9, 0], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    icePunch3: {
+      next: 'icePunch4', pic: ['1', 7, 1], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    icePunch4: {
+      next: 'icePunch5', pic: ['1', 8, 1], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    icePunch5: {
+      next: 'icePunch6', pic: ['1', 9, 1], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      produce: { name: 'freezeBall', frame: 'cm', x: 60, y: 7, },
+    },
+    icePunch6: {
+      next: 'icePunch7', pic: ['1', 5, 4], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    icePunch7: {
+      next: 'icePunch8', pic: ['1', 6, 4], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    icePunch8: {
+      next: 999, pic: ['1', 9, 4], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
 
 
 
