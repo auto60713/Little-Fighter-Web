@@ -35,10 +35,10 @@ lf2.physical = (setting, frame, type, thing) => {
       setting.y = lf2.mainMap.limit.y;
       setting.inSky = false;
       if (frame.falling) {
-        lf2.nextframe(thing, setting, type, 'lyingDown');
+        lf2.gotoFrame(thing, setting, type, 'lyingDown');
       }
       else {
-        lf2.nextframe(thing, setting, type, 'standing');
+        lf2.gotoFrame(thing, setting, type, 'standing');
       }
 
     }

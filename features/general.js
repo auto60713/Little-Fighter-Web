@@ -32,18 +32,25 @@ lf2.skill = (setting, frame, type, hitset, thing) => {
     // 技能組
     var hit = Object.keys(frame[hitset]);
 
+
     dance: for (let i = 0; i < hit.length; i++) {
+      var next = frame[hitset][hit[i]];
       // 正在按
       if (setting.keypress[hit[i]]) {
-        lf2.nextframe(thing, setting, type, frame[hitset][hit[i]], hit[i]);
+        lf2.gotoFrame(thing, setting, type, next, hit[i]);
         break dance;
       }
       // 在反應表裡面有組合
       if (setting.keyReaction.length >= 2) {
         for (let y = 0; y < setting.keyReaction.length - 1; y++) {
-          if (setting.keyReaction[y][0] + setting.keyReaction[y + 1][0] == hit[i]) {
-            lf2.nextframe(thing, setting, type, frame[hitset][hit[i]], setting.keyReaction[y + 1][0]);
-            break dance;
+          var key1 = setting.keyReaction[y][0];
+          var key2 = setting.keyReaction[y + 1][0];
+          if (key1 + key2 == hit[i]) {
+            if (lf2.theFrame(type, thing, setting, next).hitHold && setting.keypress[key2]) {
+              lf2.gotoFrame(thing, setting, type, next, key2);
+              break dance;
+            }
+
           }
         }
       }
@@ -52,7 +59,7 @@ lf2.skill = (setting, frame, type, hitset, thing) => {
 }
 
 // 物件換影格
-lf2.nextframe = (thing, setting, type, next, hitHold) => {
+lf2.gotoFrame = (thing, setting, type, next, hitHold) => {
 
   if (next == 999) {
     if (type == 'character' && setting.nowHP <= 0) next = 'lyingDown';
@@ -66,7 +73,7 @@ lf2.nextframe = (thing, setting, type, next, hitHold) => {
     next = 'standing';
   }
 
-  var nextFrame = type === 'map' ? thing.component[setting.component][next] : thing.frame[next];
+  var nextFrame = lf2.theFrame(type, thing, setting, next);
 
   setting.nowframe = next;
   setting.nowwait = nextFrame.wait * lf2.waitMagnification;
@@ -75,6 +82,12 @@ lf2.nextframe = (thing, setting, type, next, hitHold) => {
   if (nextFrame.hitHold && hitHold) {
     setting.hitHold = hitHold;
   }
+}
+
+
+lf2.theFrame = (type, thing, setting, frameName) => {
+  var frame = type === 'map' ? thing.component[setting.component][frameName] : thing.frame[frameName];
+  return frame;
 }
 
 // 血量系統

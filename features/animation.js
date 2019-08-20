@@ -100,15 +100,15 @@ lf2.arrange = (type) => {
             x: setting.x,
             y: setting.y,
           });
-          lf2.nextframe(thing, setting, type, 'falling');
+          lf2.gotoFrame(thing, setting, type, 'falling');
         }
         // 自然換幀
         else if (setting.nowwait <= 0) {
-          lf2.nextframe(thing, setting, type, frame.next);
+          lf2.gotoFrame(thing, setting, type, frame.next);
         }
         // 長壓保持動作
         else if (type == 'character' && setting.hitHold != '-' && !setting.keypress[setting.hitHold]) {
-          lf2.nextframe(thing, setting, type, 999);
+          lf2.gotoFrame(thing, setting, type, 999);
         }
         // 技能換幀
         else {

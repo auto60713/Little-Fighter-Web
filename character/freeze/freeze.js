@@ -127,17 +127,17 @@ lf2.character.Freeze = {
 
     // 跑步
     run: {
-      next: 'run2', pic: ['0', 0, 2], center: [40, 80], wait: 4, move: [6, 0], flip: true, hitHold: true,
+      next: 'run2', pic: ['0', 0, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
       hit: { C: 'runAttack', },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     run2: {
-      next: 'run3', pic: ['0', 1, 2], center: [40, 80], wait: 4, move: [6, 0], flip: true, hitHold: true,
+      next: 'run3', pic: ['0', 1, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
       hit: { C: 'runAttack', },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     run3: {
-      next: 'run', pic: ['0', 2, 2], center: [40, 80], wait: 4, move: [6, 0], flip: true, hitHold: true,
+      next: 'run', pic: ['0', 2, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
       hit: { C: 'runAttack', },
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
