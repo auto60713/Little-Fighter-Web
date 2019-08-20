@@ -31,6 +31,8 @@ lf2.prepareEntrance = () => {
     x: 400,
     y: 400,
   });
+
+  lf2.canvas.style.backgroundColor = lf2.backgroundColor.entrance;
 }
 
 // 準備選擇模式的東西
@@ -47,6 +49,8 @@ lf2.prepareModeSelection = () => {
     x: 400,
     y: 400,
   });
+
+  lf2.canvas.style.backgroundColor = lf2.backgroundColor.modeSelection;
 }
 
 // 準備選角畫面的東西
@@ -70,6 +74,7 @@ lf2.prepareRoleSelection = () => {
   });
 
   lf2.mainPoint = lf2.scenes.UI[lf2.scenes.UI.length - 1].setting;
+  lf2.canvas.style.backgroundColor = lf2.backgroundColor.roleSelection;
 }
 
 // 準備格鬥模式的東西

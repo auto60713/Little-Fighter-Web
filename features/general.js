@@ -12,7 +12,6 @@ lf2.variousChangesFrame = (setting, frame, type, thing) => {
   }
   // 技能換幀
   else if (lf2.skill2(setting, frame, type, thing)) {
-    // if (setting.scenesIndex == 1) console.log(12);
     lf2.skill(setting, frame, type, thing);
   }
   // 自然換幀
@@ -21,8 +20,6 @@ lf2.variousChangesFrame = (setting, frame, type, thing) => {
   }
   // 長壓保持動作
   else if (setting.hitHold != '-' && !setting.keypress[setting.hitHold]) {
-    // if (setting.scenesIndex == 1) console.log(88);
-
     lf2.gotoFrame(thing, setting, type, 999);
   }
 
@@ -41,7 +38,6 @@ lf2.skill = (setting, frame, type, thing) => {
       // 正在按
       if (setting.keypress[hit[i]]) {
         if (nextFrame.hitHold) setting.hitHold = hit[i];
-        if (setting.scenesIndex == 1) console.log(next);
         lf2.gotoFrame(thing, setting, type, next);
         break dance;
       }
@@ -77,7 +73,6 @@ lf2.skill2 = (setting, frame, type, thing) => {
       // 正在按
       if (setting.keypress[hit[i]]) {
         if (nextFrame.hitHold) setting.hitHold = hit[i];
-        if (setting.scenesIndex == 1) console.log(next);
         ddd = next;
         break dance;
       }

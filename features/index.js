@@ -11,6 +11,13 @@ window.lf2 = {
 
   state: '',
   gameOver: null,
+  backgroundColor: {
+    'entrance': '#102463',
+    'modeSelection': '#102463',
+    'roleSelection': '#102463',
+    'battleMode': '',
+    'shaoguanMode': '',
+  },
 
   UI: {},
   map: {},
