@@ -53,41 +53,61 @@ lf2.ContinuousKey = (pressing, keyname) => {
 // 每個場景的按鍵控制
 lf2.sceneKeyEvent = (keyname) => {
 
+  const n = [];
+  var m = (a, b) => {
+    n.push([a, b]);
+  }
+  var x = (a, b) => {
+    a.forEach(ttt => {
+      if (keyname == ttt) lf2.sceneSwitching(b);
+    });
+  }
+
   switch (lf2.state) {
     // 入口畫面
     case 'entrance':
-      if (keyname == 'C') lf2.sceneSwitching('modeSelection');
+      x(['C'], 'modeSelection')
       break;
     // 選擇模式
     case 'modeSelection':
-      if (keyname == 'C') lf2.sceneSwitching('roleSelection');
-      if (keyname == 'X' || keyname == 'esc') lf2.sceneSwitching('entrance');
+      x(['C'], 'roleSelection')
+      x(['X', 'esc'], 'entrance')
       break;
     // 選擇角色
     case 'roleSelection':
-      if (keyname == 'C') lf2.sceneSwitching('battleMode');
-      if (keyname == 'X' || keyname == 'esc') lf2.sceneSwitching('modeSelection');
-      if (keyname == 'right' && lf2.characterListIndex < lf2.characterList.length - 1) {
-
-        lf2.characterListIndex++;
-      }
-      if (keyname == 'left' && lf2.characterListIndex > 0) {
-        lf2.characterListIndex--;
-      }
-
-      lf2.mainPoint.x = lf2.scenes.UI[lf2.characterListIndex].setting.x + 15;
+      x(['C'], 'battleMode')
+      x(['X', 'esc'], 'modeSelection')
+      m(['right'], () => {
+        if (lf2.characterListIndex < lf2.characterList.length - 1) lf2.characterListIndex++;
+        lf2.mainPoint.x = lf2.scenes.UI[lf2.characterListIndex].setting.x + 15;
+      });
+      m(['left'], () => {
+        if (lf2.characterListIndex > 0) lf2.characterListIndex--;
+        lf2.mainPoint.x = lf2.scenes.UI[lf2.characterListIndex].setting.x + 15;
+      });
       break;
     // 格鬥模式
     case 'battleMode':
-      if (keyname == 'C' && lf2.gameOver < 0) {
-        lf2.sceneSwitching('roleSelection');
-        lf2.gameOver = null;
-      }
-      if (keyname == 'esc') lf2.sceneSwitching('roleSelection');
+      x(['esc'], 'roleSelection')
+      m(['C'], () => {
+        if (lf2.gameOver < 0) {
+          lf2.sceneSwitching('roleSelection');
+          lf2.gameOver = null;
+        }
+      });
       break;
     // 闖關模式
     case 'shaoguanMode':
       break;
   }
 
+
+
+  n.forEach(ttt => {
+    if (keyname == ttt[0]) ttt[1]();
+  });
+
+
 }
+
+

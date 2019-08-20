@@ -7,72 +7,44 @@ lf2.eachFrame = () => {
 
   // 目前模式
   switch (lf2.state) {
-    // 入口畫面
-    case 'entrance': lf2.ThisFrameEntrance(); break;
-    // 選擇模式
-    case 'modeSelection': lf2.ThisFrameModeSelection(); break;
-    // 選擇角色
-    case 'roleSelection': lf2.ThisFrameRoleSelection(); break;
-    // 格鬥模式
-    case 'battleMode': lf2.ThisFrameBattleMode(); break;
-    // 闖關模式
-    case 'shaoguanMode': lf2.ThisFrameShaoguanMode(); break;
+    case 'entrance':
+    case 'modeSelection':
+    case 'roleSelection':
+      lf2.thisFrame(['UI']);
+      break;
+    case 'battleMode':
+    case 'shaoguanMode':
+      lf2.thisFrame(['map', 'character', 'derivative', 'UI']);
+      break;
   }
 
   // 60FPS
   setTimeout(lf2.eachFrame, 1000 / 60);
 };
 
-// 這一幀的入口畫面
-lf2.ThisFrameEntrance = () => {
-  lf2.arrange('UI');
-}
+lf2.thisFrame = (layer) => {
+  // 要運算的圖層
+  layer.forEach(l => {
+    lf2.arrange(l);
+  });
 
-// 這一幀的選擇模式
-lf2.ThisFrameModeSelection = () => {
-  lf2.arrange('UI');
-}
-
-// 這一幀的選擇角色
-lf2.ThisFrameRoleSelection = () => {
-  lf2.arrange('UI');
-}
-
-// 這一幀的格鬥模式
-lf2.ThisFrameBattleMode = () => {
-  lf2.arrange('map');
-  lf2.arrange('character');
-  lf2.arrange('derivative');
-  lf2.arrange('UI');
-
+  // 攝影機
   lf2.camera();
 
   if (lf2.gameOver != null) lf2.gameOver--;
 }
 
-// 這一幀的闖關模式
-lf2.ThisFrameShaoguanMode = () => {
-  lf2.arrange('map');
-  lf2.arrange('character');
-  lf2.arrange('derivative');
-  lf2.arrange('UI');
-
-  lf2.camera();
-
-  if (lf2.gameOver >= 0) lf2.gameOver--;
-}
-
 
 lf2.arrange = (type) => {
 
-  // 這個場景的每個物件
+  // 這個圖層的每個物件
   lf2.scenes[type].forEach((thing, index, object) => {
 
     if (!thing.setting.destroy) {
 
       let series = type == 'map' ? thing.decorate : [thing.setting];
 
-      // 此物件的每個元素 (其實就只有地圖是多元素)
+      // 這個物件的每個元素 (其實就只有地圖是多元素)
       series.forEach(setting => {
 
         // 目前的幀

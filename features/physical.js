@@ -67,16 +67,16 @@ lf2.move = (setting, frame, type) => {
 }
 
 // 走路移動
-lf2.walk = (setting, frame, type) => {
-  if (frame.walk) {
-    if (setting.keypress.right) {
-      setting.xSpeed = setting.walkingSpeed;
-    }
-    else if (setting.keypress.left) {
-      setting.xSpeed = setting.walkingSpeed * -1;
-    }
-  }
-}
+// lf2.walk = (setting, frame, type) => {
+//   if (frame.walk) {
+//     if (setting.keypress.right) {
+//       setting.xSpeed = setting.walkingSpeed;
+//     }
+//     else if (setting.keypress.left) {
+//       setting.xSpeed = setting.walkingSpeed * -1;
+//     }
+//   }
+// }
 
 // 固定在畫面某處
 lf2.FixedPosition = (setting, frame, type) => {
