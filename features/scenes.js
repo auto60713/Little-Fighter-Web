@@ -12,6 +12,8 @@ lf2.sceneSwitching = (state) => {
     case 'modeSelection': lf2.prepareModeSelection(); break;
     // 選擇角色
     case 'roleSelection': lf2.prepareRoleSelection(); break;
+    // 選擇地圖
+    case 'mapSelection': lf2.prepareMapSelection(); break;
     // 格鬥模式
     case 'battleMode': lf2.prepareBattleMode(); break;
     // 闖關模式
@@ -23,14 +25,8 @@ lf2.sceneSwitching = (state) => {
 
 // 準備入口畫面的東西
 lf2.prepareEntrance = () => {
-  lf2.adjunction('UI', 'logo', {
-    x: 400,
-    y: 150,
-  });
-  lf2.adjunction('UI', 'startgame', {
-    x: 400,
-    y: 400,
-  });
+  lf2.adjunction('UI', 'logo');
+  lf2.adjunction('UI', 'startgame');
 
   lf2.canvas.style.backgroundColor = lf2.backgroundColor.entrance;
 }
@@ -77,12 +73,17 @@ lf2.prepareRoleSelection = () => {
   lf2.canvas.style.backgroundColor = lf2.backgroundColor.roleSelection;
 }
 
+// 準備選擇地圖的東西
+lf2.prepareMapSelection = () => {
+
+  lf2.canvas.style.backgroundColor = lf2.backgroundColor.modeSelection;
+}
+
 // 準備格鬥模式的東西
 lf2.prepareBattleMode = () => {
 
   // 地圖
-  lf2.adjunction('map', 'lf', {
-  });
+  lf2.adjunction('map', 'lf');
 
   lf2.mainMap = lf2.scenes.map[0].setting;
   lf2.canvas.style.backgroundColor = lf2.mainMap.backgroundColor;
@@ -104,12 +105,8 @@ lf2.prepareBattleMode = () => {
     mirror: true,
   });
 
-  lf2.adjunction('UI', 'hpbar2', {
-    fixedPosition: [100, 100],
-  });
-  lf2.adjunction('UI', 'hpbar', {
-    fixedPosition: [100, 100],
-  });
+  lf2.adjunction('UI', 'hpbar2');
+  lf2.adjunction('UI', 'hpbar');
 
   lf2.mainHpbar2 = lf2.scenes.UI[0].setting;
 }
@@ -121,7 +118,7 @@ lf2.prepareShaoguanMode = (stagename) => {
 }
 
 // 將物件加到場景中
-lf2.adjunction = (type, name, data) => {
+lf2.adjunction = (type, name, data = {}) => {
 
   var template = JSON.parse(JSON.stringify(lf2[type][name]));
 

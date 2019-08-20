@@ -1,3 +1,15 @@
+// LOGO
+lf2.UI.logo = {
+  setting: {
+    name: 'logo',
+    file: { 'logo': { deputy: 'png', w: 356, h: 84 }, },
+    scale: 2,
+    fixedPosition: [400, 150],
+  },
+  frame: {
+    'standing': { next: 999, pic: ['logo', 0, 0], center: [178, 42], wait: 1, },
+  }
+};
 
 // 開始按鈕
 lf2.UI.startgame = {
@@ -5,6 +17,7 @@ lf2.UI.startgame = {
     name: 'startgame',
     file: { 'start': { deputy: 'png', w: 227, h: 74 }, },
     scale: 1,
+    fixedPosition: [400, 400],
   },
   frame: {
     'standing': { next: 999, pic: ['start', 0, 0], center: [113, 37], wait: 1, },
@@ -12,17 +25,7 @@ lf2.UI.startgame = {
 };
 
 
-// LOGO
-lf2.UI.logo = {
-  setting: {
-    name: 'logo',
-    file: { 'logo': { deputy: 'png', w: 356, h: 84 }, },
-    scale: 2,
-  },
-  frame: {
-    'standing': { next: 999, pic: ['logo', 0, 0], center: [178, 42], wait: 1, },
-  }
-};
+
 
 
 // 選角手
@@ -64,6 +67,7 @@ lf2.UI.hpbar = {
     name: 'hpbar',
     file: { 'hpbar': { deputy: 'png', w: 820, h: 258 }, },
     scale: 0.1,
+    fixedPosition: [100, 100],
   },
   frame: {
     'standing': { next: 999, pic: ['hpbar', 0, 0], center: [410, 129], wait: 1, },
@@ -76,6 +80,7 @@ lf2.UI.hpbar2 = {
     name: 'hpbar2',
     file: { 'hpbar2': { deputy: 'png', w: 820, h: 258 }, },
     scale: 0.1,
+    fixedPosition: [100, 100],
   },
   frame: {
     'standing': { next: 999, pic: ['hpbar2', 0, 0], center: [410, 129], wait: 1, },
@@ -114,6 +119,7 @@ lf2.UI.ko = {
     name: 'ko',
     file: { 'ko': { deputy: 'png', w: 590, h: 267 }, },
     scale: 1,
+    fixedPosition: [400, 300],
   },
   frame: {
     'standing': { next: 1000, pic: ['ko', 0, 0], center: [295, 133], wait: 300, },

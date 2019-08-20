@@ -45,7 +45,7 @@ lf2.logKey = (e) => {
 
 // 連按技能
 lf2.ContinuousKey = (pressing, keyname) => {
-  if ((!lf2.mainCharacter.keypress[keyname] && pressing)) {
+  if (!lf2.mainCharacter.keypress[keyname] && pressing) {
     lf2.mainCharacter.keyReaction.push([keyname, 20]);
   }
 }
@@ -75,7 +75,7 @@ lf2.sceneKeyEvent = (keyname) => {
       break;
     // 選擇角色
     case 'roleSelection':
-      x(['C'], 'battleMode')
+      x(['C'], 'mapSelection')
       x(['X', 'esc'], 'modeSelection')
       m(['right'], () => {
         if (lf2.characterListIndex < lf2.characterList.length - 1) lf2.characterListIndex++;
@@ -85,6 +85,11 @@ lf2.sceneKeyEvent = (keyname) => {
         if (lf2.characterListIndex > 0) lf2.characterListIndex--;
         lf2.mainPoint.x = lf2.scenes.UI[lf2.characterListIndex].setting.x + 15;
       });
+      break;
+    // 選擇地圖
+    case 'mapSelection':
+      x(['C'], 'battleMode')
+      x(['X', 'esc'], 'roleSelection')
       break;
     // 格鬥模式
     case 'battleMode':

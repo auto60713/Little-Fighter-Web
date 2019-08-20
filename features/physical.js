@@ -9,8 +9,8 @@ lf2.physical = (setting, frame, type, thing) => {
   setting.x += setting.xSpeed;
   setting.y += setting.ySpeed;
 
-  // UI固定位置
-  if (type == 'UI') lf2.fixedPosition(setting, frame, type);
+  // 固定位置
+  lf2.fixedPosition(setting, frame, type);
 
   // 重力影響與落地
   if (type == 'character') {
@@ -37,9 +37,6 @@ lf2.physical = (setting, frame, type, thing) => {
       else if (setting.keypress.left) setting.mirror = true;
     }
   }
-
-
-
 
 }
 

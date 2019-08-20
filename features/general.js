@@ -11,69 +11,38 @@ lf2.variousChangesFrame = (setting, frame, type, thing) => {
     lf2.gotoFrame(thing, setting, type, 'falling');
   }
   // 技能換幀
-  else if (lf2.skill2(setting, frame, type, thing)) {
-    lf2.skill(setting, frame, type, thing);
+  else if (lf2.skill(setting, frame, type, thing)) {
+    lf2.gotoFrame(thing, setting, type, lf2.ttttt);
   }
   // 自然換幀
   else if (setting.nowwait <= 0) {
     lf2.gotoFrame(thing, setting, type, frame.next);
   }
   // 長壓保持動作
-  else if (setting.hitHold != '-' && !setting.keypress[setting.hitHold]) {
-    if (frame.hitHold) lf2.gotoFrame(thing, setting, type, 999);
+  else if (setting.hitHold != '-' && !setting.keypress[setting.hitHold] && frame.hitHold) {
+    lf2.gotoFrame(thing, setting, type, 999);
   }
 
 }
 
 // 技能
 lf2.skill = (setting, frame, type, thing) => {
-  if (type == 'character' && frame.hit) {
-    // 技能組
-    var hit = Object.keys(frame.hit);
-
-    dance: for (let i = 0; i < hit.length; i++) {
-      var next = frame.hit[hit[i]];
-      var nextFrame = lf2.theFrame(type, thing, setting, next);
-
-      // 正在按
-      if (setting.keypress[hit[i]]) {
-        if (nextFrame.hitHold) setting.hitHold = hit[i];
-        lf2.gotoFrame(thing, setting, type, next);
-        break dance;
-      }
-      // 在反應表裡面有組合
-      if (setting.keyReaction.length >= 2) {
-        for (let y = 0; y < setting.keyReaction.length - 1; y++) {
-          var key1 = setting.keyReaction[y][0];
-          var key2 = setting.keyReaction[y + 1][0];
-          if (key1 + key2 == hit[i]) {
-            if (lf2.theFrame(type, thing, setting, next).hitHold && setting.keypress[key2]) {
-              if (nextFrame.hitHold) setting.hitHold = key2;
-              lf2.gotoFrame(thing, setting, type, next);
-              break dance;
-            }
-
-          }
-        }
-      }
-    }
-  }
-}
-
-lf2.skill2 = (setting, frame, type, thing) => {
   var ddd = false;
-  if (type == 'character' && frame.hit) {
-    // 技能組
+  if (frame.hit) {
+    // 目前動作可使用的技能按法
     var hit = Object.keys(frame.hit);
 
     dance: for (let i = 0; i < hit.length; i++) {
+      // 前往的動作名稱(預計要用的技能)
       var next = frame.hit[hit[i]];
+      // 前往的動作資訊
       var nextFrame = lf2.theFrame(type, thing, setting, next);
 
       // 正在按
       if (setting.keypress[hit[i]]) {
         if (nextFrame.hitHold) setting.hitHold = hit[i];
         ddd = next;
+        lf2.ttttt = next;
         break dance;
       }
       // 在反應表裡面有組合
@@ -82,9 +51,10 @@ lf2.skill2 = (setting, frame, type, thing) => {
           var key1 = setting.keyReaction[y][0];
           var key2 = setting.keyReaction[y + 1][0];
           if (key1 + key2 == hit[i]) {
-            if (lf2.theFrame(type, thing, setting, next).hitHold && setting.keypress[key2]) {
-              if (nextFrame.hitHold) setting.hitHold = key2;
+            if (nextFrame.hitHold && setting.keypress[key2]) {
+              setting.hitHold = key2;
               ddd = next;
+              lf2.ttttt = next;
               break dance;
             }
 
@@ -159,11 +129,7 @@ lf2.HPsystem = (setting, frame, type) => {
 
   if (setting.nowHP <= 0 && lf2.gameOver == null) {
 
-    lf2.adjunction('UI', 'ko',
-      {
-        fixedPosition: [400, 300],
-      }
-    );
+    lf2.adjunction('UI', 'ko');
     lf2.gameOver = 180;
   }
 
@@ -214,6 +180,5 @@ lf2.produceDerivative = (setting, frame) => {
 
 
 lf2.theFrame = (type, thing, setting, frameName) => {
-  var frame = type === 'map' ? thing.component[setting.component][frameName] : thing.frame[frameName];
-  return frame;
+  return type === 'map' ? thing.component[setting.component][frameName] : thing.frame[frameName];
 }

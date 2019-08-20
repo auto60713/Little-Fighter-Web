@@ -10,6 +10,7 @@ lf2.eachFrame = () => {
     case 'entrance':
     case 'modeSelection':
     case 'roleSelection':
+    case 'mapSelection':
       lf2.thisFrame(['UI']);
       break;
     case 'battleMode':
