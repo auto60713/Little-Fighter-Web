@@ -2,9 +2,7 @@
 lf2.variousChangesFrame = (setting, frame, type, thing) => {
 
   // 被打偵測
-  if (!setting.catching
-    && (lf2.amIBeingBeaten(setting, frame, 'character', thing) || lf2.amIBeingBeaten(setting, frame, 'derivative', thing))
-  ) {
+  if (!setting.catching && lf2.amIBeingBeaten(setting, frame, type, thing)) {
     lf2.adjunction('UI', 'hit', {
       x: setting.x,
       y: setting.y,
@@ -21,6 +19,11 @@ lf2.variousChangesFrame = (setting, frame, type, thing) => {
   else if (lf2.skill(setting, frame, type, thing)) {
     lf2.gotoFrame(thing, setting, type, lf2.ttttt);
   }
+  // 循環到期換動作
+  else if (setting.keep[1] && setting.keep[0] <= 0) {
+    lf2.gotoFrame(thing, setting, type, setting.keep[1]);
+    setting.keep[1] = null;
+  }
   // 自然換動作
   else if (setting.nowwait <= 0) {
     lf2.gotoFrame(thing, setting, type, frame.next);
@@ -28,6 +31,11 @@ lf2.variousChangesFrame = (setting, frame, type, thing) => {
   // 長壓保持動作
   else if (type == 'character' && setting.hitHold != '-' && !setting.keypress[setting.hitHold] && frame.hitHold) {
     lf2.gotoFrame(thing, setting, type, 999);
+  }
+
+  // 循環動作
+  if (frame.keep && !setting.keep[1]) {
+    setting.keep = frame.keep;
   }
 
 }
@@ -45,26 +53,27 @@ lf2.skill = (setting, frame, type, thing) => {
       // 前往的動作資訊
       var nextFrame = lf2.theFrame(type, thing, setting, next);
 
-      // 正在按
-      if (setting.keypress[hit[i]]) {
-        if (nextFrame.hitHold) setting.hitHold = hit[i];
-        ddd = next;
-        lf2.ttttt = next;
-        break dance;
-      }
-      // 在反應表裡面有組合
-      if (setting.keyReaction.length >= 2) {
-        for (let y = 0; y < setting.keyReaction.length - 1; y++) {
-          var key1 = setting.keyReaction[y][0];
-          var key2 = setting.keyReaction[y + 1][0];
-          if (key1 + key2 == hit[i]) {
-            if (nextFrame.hitHold && setting.keypress[key2]) {
-              setting.hitHold = key2;
-              ddd = next;
-              lf2.ttttt = next;
-              break dance;
+      if (nextFrame) {
+        // 正在按
+        if (setting.keypress[hit[i]]) {
+          if (nextFrame.hitHold) setting.hitHold = hit[i];
+          ddd = next;
+          lf2.ttttt = next;
+          break dance;
+        }
+        // 在反應表裡面有組合
+        if (setting.keyReaction.length >= 2) {
+          for (let y = 0; y < setting.keyReaction.length - 1; y++) {
+            var key1 = setting.keyReaction[y][0];
+            var key2 = setting.keyReaction[y + 1][0];
+            if (key1 + key2 == hit[i]) {
+              if (nextFrame.hitHold && setting.keypress[key2]) {
+                setting.hitHold = key2;
+                ddd = next;
+                lf2.ttttt = next;
+                break dance;
+              }
             }
-
           }
         }
       }
@@ -105,47 +114,51 @@ lf2.gotoFrame = (thing, setting, type, next) => {
 lf2.amIBeingBeaten = (setting, frame, type, thing) => {
   var isHit = false;
   if (frame.bdy) {
-    lf2.scenes[type].forEach(det => {
-      var detFrame = det.frame[det.setting.nowframe];
-      if (detFrame.itr && (!det.setting.hitCD[setting.scenesIndex] || det.setting.hitCD[setting.scenesIndex] <= 0)) {
-        if (setting.team !== det.setting.team) {
+    ['character', 'derivative'].forEach(dettype => {
+      lf2.scenes[dettype].forEach(det => {
+        var detFrame = det.frame[det.setting.nowframe];
+        if (detFrame.itr && (!det.setting.hitCD[setting.scenesIndex] || det.setting.hitCD[setting.scenesIndex] <= 0)) {
+          if (setting.team !== det.setting.team) {
 
-          // 被打最右邊 >= 打人最左邊
-          if (setting.x + frame.bdy.x + frame.bdy.w >= det.setting.x + detFrame.itr.x
-            // 被打最左邊 < 打人最右邊
-            && setting.x + frame.bdy.x < det.setting.x + detFrame.itr.x + detFrame.itr.w
-            // 被打最下邊 >= 打人最上邊
-            && setting.y + frame.bdy.y + frame.bdy.h >= det.setting.y + detFrame.itr.y
-            // 被打最上邊 < 打人最下邊
-            && setting.y + frame.bdy.y < det.setting.y + detFrame.itr.y + detFrame.itr.h) {
-            // 被打的中間
-            var sc = setting.x + frame.bdy.x + (frame.bdy.w / 2);
-            // 打人的中間
-            var dc = det.setting.x + detFrame.itr.x + (detFrame.itr.w / 2);
-            // 下次打我多久後
-            det.setting.hitCD[setting.scenesIndex] = detFrame.itr.cd;
-            // 打擊換動作
-            if (detFrame.itr.next) lf2.gotoFrame(det, det.setting, type, detFrame.itr.next);
-            // 抓攻擊
-            if (detFrame.itr.catching) setting.catching = det.setting.scenesIndex;
-            // 一般攻擊
-            else {
-              let m = det.setting.mirror ? -1 : 1;
-              if (detFrame.itr.symmetry && sc * m < dc * m) {
-                m = det.setting.mirror ? 1 : -1;
-              }
+            // 被打最右邊 >= 打人最左邊
+            if (setting.x + frame.bdy.x + frame.bdy.w >= det.setting.x + detFrame.itr.x
+              // 被打最左邊 < 打人最右邊
+              && setting.x + frame.bdy.x < det.setting.x + detFrame.itr.x + detFrame.itr.w
+              // 被打最下邊 >= 打人最上邊
+              && setting.y + frame.bdy.y + frame.bdy.h >= det.setting.y + detFrame.itr.y
+              // 被打最上邊 < 打人最下邊
+              && setting.y + frame.bdy.y < det.setting.y + detFrame.itr.y + detFrame.itr.h) {
+              // 被打的中間
+              var sc = setting.x + frame.bdy.x + (frame.bdy.w / 2);
+              // 打人的中間
+              var dc = det.setting.x + detFrame.itr.x + (detFrame.itr.w / 2);
+              // 下次打我多久後
+              det.setting.hitCD[setting.scenesIndex] = detFrame.itr.cd;
+              // 打擊換動作
+              if (detFrame.itr.next) lf2.gotoFrame(det, det.setting, dettype, detFrame.itr.next);
+              // 抓攻擊
+              if (type == 'character' && detFrame.itr.catching) setting.catching = det.setting.scenesIndex;
+              // 一般攻擊
               else {
-                m = det.setting.mirror ? -1 : 1;
-              }
-              const m2 = setting.mirror ? -1 : 1;
-              thing.frame['falling'].move = [detFrame.itr.move[0] * m * m2, detFrame.itr.move[1]];
-              isHit = true;
-            }
-            setting.nowHP -= detFrame.itr.injury;
-          }
+                let m = det.setting.mirror ? -1 : 1;
+                if (detFrame.itr.symmetry && sc * m < dc * m) {
+                  m = det.setting.mirror ? 1 : -1;
+                }
+                else {
+                  m = det.setting.mirror ? -1 : 1;
+                }
+                const m2 = setting.mirror ? -1 : 1;
+                if (type == 'character') thing.frame['falling'].move = [detFrame.itr.move[0] * m * m2, detFrame.itr.move[1]];
 
+
+                isHit = true;
+              }
+              setting.nowHP -= detFrame.itr.injury;
+            }
+
+          }
         }
-      }
+      });
     });
   }
   return isHit;
@@ -177,6 +190,8 @@ lf2.counter = (setting, frame, type, thing) => {
 
   // 幀等待
   setting.nowwait--;
+
+  if (setting.keep[0] > 0) setting.keep[0]--;
 
   if (type == 'character') {
 

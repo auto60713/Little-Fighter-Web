@@ -25,11 +25,11 @@ lf2.bot = (setting, frame, type, thing) => {
 
 
     // 丟冰球
-    if (setting.keypress['A']) {
-      setting.keypress['A'] = false;
+    if (setting.keypress['D']) {
+      setting.keypress['D'] = false;
     }
     if (lf2.doIt(10)) {
-      setting.keypress['A'] = true;
+      setting.keypress['D'] = true;
     }
 
 

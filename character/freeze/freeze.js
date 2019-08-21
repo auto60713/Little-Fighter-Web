@@ -333,22 +333,26 @@ lf2.derivative.Freeze = {
 
     standing: {
       next: 'standing2', pic: ['ball', 0, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'disappear', }
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'falling', }
     },
     standing2: {
       next: 'standing3', pic: ['ball', 1, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'disappear', }
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'falling', }
     },
     standing3: {
       next: 'standing4', pic: ['ball', 2, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'disappear', }
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'falling', }
     },
     standing4: {
       next: 'standing', pic: ['ball', 3, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'disappear', }
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'falling', }
     },
 
-    disappear: {
+    falling: {
       next: 'disappear2', pic: ['ball', 0, 1], center: [40, 82], wait: 2, move: [2, 0],
     },
     disappear2: {

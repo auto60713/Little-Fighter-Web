@@ -5,6 +5,7 @@ lf2.character.John = {
       '0': { deputy: 'png', w: 80, h: 80 },
       '1': { deputy: 'png', w: 80, h: 80 },
       '2': { deputy: 'png', w: 80, h: 80 },
+      '3': { deputy: 'png', w: 80, h: 80 },
     },
     walkingSpeed: 4,
     jumpPower: 4.5,
@@ -19,7 +20,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'thangLong', S: 'shield', D: 'thangLong',
       },
     },
     standing2: {
@@ -27,7 +28,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'thangLong', S: 'shield', D: 'thangLong',
       },
     },
     standing3: {
@@ -35,7 +36,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'thangLong', S: 'shield', D: 'thangLong',
       },
     },
     standing4: {
@@ -43,7 +44,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'thangLong', S: 'shield', D: 'thangLong',
       },
     },
 
@@ -54,7 +55,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'shield', D: 'thangLong',
       },
     },
     walking2: {
@@ -62,7 +63,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'shield', D: 'thangLong',
       },
     },
     walking3: {
@@ -70,7 +71,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'shield', D: 'thangLong',
       },
     },
     walking4: {
@@ -78,7 +79,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'shield', D: 'thangLong',
       },
     },
 
@@ -90,7 +91,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'shield', D: 'thangLong',
       },
     },
     run2: {
@@ -98,7 +99,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'shield', D: 'thangLong',
       },
     },
     run3: {
@@ -106,7 +107,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'shield', D: 'thangLong',
       },
     },
 
@@ -248,10 +249,120 @@ lf2.character.John = {
     // ==============================================================================
 
 
+    shield: {
+      next: 'shield2', pic: ['3', 0, 2], center: [40, 80], wait: 1,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    shield2: {
+      next: 'shield3', pic: ['3', 1, 2], center: [40, 80], wait: 1,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    shield3: {
+      next: 'shield4', pic: ['3', 2, 2], center: [40, 80], wait: 1,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    shield4: {
+      next: 'shield5', pic: ['3', 3, 2], center: [40, 80], wait: 1,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    shield5: {
+      next: 'shield6', pic: ['3', 4, 2], center: [40, 80], wait: 1,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    shield6: {
+      next: 'shield7', pic: ['3', 5, 2], center: [40, 80], wait: 1,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    shield7: {
+      next: 'shield8', pic: ['3', 6, 2], center: [40, 80], wait: 1,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      produce: { name: 'John', frame: 'shield', x: 60, y: 7, },
+    },
+    shield8: {
+      next: 'shield9', pic: ['3', 7, 2], center: [40, 80], wait: 1,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    shield9: {
+      next: 'shield10', pic: ['3', 8, 2], center: [40, 80], wait: 1,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    shield10: {
+      next: 999, pic: ['3', 9, 2], center: [40, 80], wait: 1,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+
+
+
+
+
+
+
 
   }
 };
 
 
+
+
+
+lf2.derivative.John = {
+  setting: {
+    name: 'John',
+    file: {
+      'ball': { deputy: 'png', w: 81, h: 82 },
+    },
+    scale: 1,
+  },
+  frame: {
+
+    standing: {
+      next: 'standing2', pic: ['ball', 0, 0], center: [40, 82], wait: 2, move: [4, 0],
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'disappear', }
+    },
+    standing2: {
+      next: 'standing3', pic: ['ball', 1, 0], center: [40, 82], wait: 2, move: [4, 0],
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'disappear', }
+    },
+    standing3: {
+      next: 'standing4', pic: ['ball', 2, 0], center: [40, 82], wait: 2, move: [4, 0],
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'disappear', }
+    },
+    standing4: {
+      next: 'standing', pic: ['ball', 3, 0], center: [40, 82], wait: 2, move: [4, 0],
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'disappear', }
+    },
+
+
+    shield: {
+      next: 'shield1', pic: ['ball', 0, 4], center: [40, 82], wait: 2,
+    },
+    shield1: {
+      next: 'shield2', pic: ['ball', 1, 4], center: [40, 82], wait: 2,
+    },
+
+    shield2: {
+      next: 'shield3', pic: ['ball', 2, 4], center: [40, 82], wait: 2,
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'shield5', }
+    },
+    shield3: {
+      next: 'shield4', pic: ['ball', 3, 4], center: [40, 82], wait: 2,
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'shield5', }
+    },
+    shield4: {
+      next: 'shield2', pic: ['ball', 4, 4], center: [40, 82], wait: 2, keep: [60, 'shield5'],
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'shield5', }
+    },
+
+    shield5: {
+      next: 'shield6', pic: ['ball', 5, 4], center: [40, 82], wait: 2,
+    },
+    shield6: {
+      next: 'shield7', pic: ['ball', 6, 4], center: [40, 82], wait: 2,
+    },
+    shield7: {
+      next: 1000, pic: ['ball', 7, 4], center: [40, 82], wait: 2,
+    },
+  }
+};
 
 

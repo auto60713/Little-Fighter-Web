@@ -73,7 +73,7 @@ lf2.arrange = (type) => {
         lf2.HPsystem(setting, frame, type);
 
         // 我是機器人
-        // lf2.bot(setting, frame, type, thing);
+        lf2.bot(setting, frame, type, thing);
 
 
 
