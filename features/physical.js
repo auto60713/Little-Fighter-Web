@@ -18,7 +18,7 @@ lf2.physical = (setting, frame, type, thing) => {
   lf2.fixedPosition(setting, frame, type);
 
   // 重力影響與落地
-  if (type == 'character') {
+  if (type == 'character' || setting.physical) {
 
     // 重力加速度
     if (setting.ySpeed < lf2.maxFallingSpeed && setting.inSky) setting.ySpeed += lf2.gravity;

@@ -193,17 +193,21 @@ lf2.character.Rudolf = {
 
     // 普攻
     attack: {
-      next: 'attack2', pic: ['0', 0, 1], center: [40, 80], wait: 1, move: [1, 0],
+      next: 'attack2', pic: ['0', 0, 1], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     attack2: {
-      next: 'attack3', pic: ['0', 1, 1], center: [40, 80], wait: 1,
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, -2], cd: 5, injury: 40, },
+      next: 'attack3', pic: ['0', 1, 1], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     attack3: {
-      next: 999, pic: ['0', 0, 1], center: [40, 80], wait: 1,
+      next: 'attack4', pic: ['0', 2, 1], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    attack4: {
+      next: 999, pic: ['0', 3, 1], center: [40, 80], wait: 3,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      produce: { name: 'Rudolf', frame: 'fly', x: 60, y: 7, },
     },
 
 
@@ -252,5 +256,47 @@ lf2.character.Rudolf = {
 };
 
 
+
+
+
+
+lf2.derivative.Rudolf = {
+  setting: {
+    name: 'Rudolf',
+    file: {
+      'weapon': { deputy: 'png', w: 49, h: 49 },
+    },
+    scale: 1,
+    physical: true,
+  },
+  frame: {
+    standing: {
+      next: 'standing2', pic: ['weapon', 0, 0], center: [24, 49], wait: 1, falling: true,
+      itr: { x: 0, y: 0, w: 49, h: 49, cd: 100, injury: 40, move: [1, -10], },
+    },
+    standing2: {
+      next: 'standing3', pic: ['weapon', 1, 0], center: [24, 49], wait: 1, falling: true,
+      itr: { x: 0, y: 0, w: 49, h: 49, cd: 100, injury: 40, move: [1, -10], },
+    },
+    standing3: {
+      next: 'standing4', pic: ['weapon', 2, 0], center: [24, 49], wait: 1, falling: true,
+      itr: { x: 0, y: 0, w: 49, h: 49, cd: 100, injury: 40, move: [1, -10], },
+    },
+    standing4: {
+      next: 'standing', pic: ['weapon', 3, 0], center: [24, 49], wait: 1, falling: true,
+      itr: { x: 0, y: 0, w: 49, h: 49, cd: 100, injury: 40, move: [1, -10], },
+    },
+
+    fly: {
+      next: 'standing', pic: ['weapon', 3, 0], center: [24, 49], wait: 1, move: [10, -4],
+      itr: { x: 0, y: 0, w: 49, h: 49, cd: 100, injury: 40, move: [1, -10], }
+    },
+
+    lyingDown: {
+      next: 1000, pic: ['weapon', 3, 0], center: [24, 49], wait: 1,
+      itr: { x: 0, y: 0, w: 49, h: 49, cd: 100, injury: 40, move: [1, -10], }
+    },
+  }
+};
 
 
