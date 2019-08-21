@@ -76,6 +76,24 @@ lf2.prepareRoleSelection = () => {
 // 準備選擇地圖的東西
 lf2.prepareMapSelection = () => {
 
+  lf2.mapListIndex = 0;
+  lf2.mapList = [];
+
+  Object.keys(lf2.map).forEach((name, i) => {
+    lf2.adjunction('UI', name, {
+      x: 100 + (150 * i),
+      y: 100,
+      scale: 0.5,
+    });
+    lf2.mapList.push(name);
+  });
+
+  lf2.adjunction('UI', 'point', {
+    x: 120,
+    y: 140,
+  });
+
+  lf2.mainPoint = lf2.scenes.UI[lf2.scenes.UI.length - 1].setting;
   lf2.canvas.style.backgroundColor = lf2.backgroundColor.modeSelection;
 }
 
@@ -83,7 +101,7 @@ lf2.prepareMapSelection = () => {
 lf2.prepareBattleMode = () => {
 
   // 地圖
-  lf2.adjunction('map', 'lf');
+  lf2.adjunction('map', Object.keys(lf2.map)[lf2.mapListIndex]);
 
   lf2.mainMap = lf2.scenes.map[0].setting;
   lf2.canvas.style.backgroundColor = lf2.mainMap.backgroundColor;

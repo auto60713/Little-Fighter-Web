@@ -19,7 +19,7 @@ lf2.variousChangesFrame = (setting, frame, type, thing) => {
     lf2.gotoFrame(thing, setting, type, frame.next);
   }
   // 長壓保持動作
-  else if (setting.hitHold != '-' && !setting.keypress[setting.hitHold] && frame.hitHold) {
+  else if (type == 'character' && setting.hitHold != '-' && !setting.keypress[setting.hitHold] && frame.hitHold) {
     lf2.gotoFrame(thing, setting, type, 999);
   }
 

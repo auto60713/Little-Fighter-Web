@@ -90,6 +90,20 @@ lf2.sceneKeyEvent = (keyname) => {
     case 'mapSelection':
       x(['C'], 'battleMode')
       x(['X', 'esc'], 'roleSelection')
+      m(['right'], () => {
+        if (lf2.mapListIndex < lf2.mapList.length - 1) {
+          lf2.mapListIndex++;
+          for (let i = 0; i < lf2.scenes.UI.length - 1; i++)
+            lf2.scenes.UI[i].setting.x -= 150;
+        }
+      });
+      m(['left'], () => {
+        if (lf2.mapListIndex > 0) {
+          lf2.mapListIndex--;
+          for (let i = 0; i < lf2.scenes.UI.length - 1; i++)
+            lf2.scenes.UI[i].setting.x += 150;
+        }
+      });
       break;
     // 格鬥模式
     case 'battleMode':
