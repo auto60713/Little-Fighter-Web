@@ -19,7 +19,7 @@ lf2.character.Firen = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'explosion', S: 'icePunch', D: 'thangLong',
       },
     },
     standing2: {
@@ -27,7 +27,7 @@ lf2.character.Firen = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'explosion', S: 'icePunch', D: 'thangLong',
       },
     },
     standing3: {
@@ -35,7 +35,7 @@ lf2.character.Firen = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'explosion', S: 'icePunch', D: 'thangLong',
       },
     },
     standing4: {
@@ -43,7 +43,7 @@ lf2.character.Firen = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'explosion', S: 'icePunch', D: 'thangLong',
       },
     },
 
@@ -54,7 +54,7 @@ lf2.character.Firen = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'explosion', S: 'icePunch', D: 'thangLong',
       },
     },
     walking2: {
@@ -62,7 +62,7 @@ lf2.character.Firen = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'explosion', S: 'icePunch', D: 'thangLong',
       },
     },
     walking3: {
@@ -70,7 +70,7 @@ lf2.character.Firen = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'explosion', S: 'icePunch', D: 'thangLong',
       },
     },
     walking4: {
@@ -78,7 +78,7 @@ lf2.character.Firen = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'explosion', S: 'icePunch', D: 'thangLong',
       },
     },
 
@@ -90,7 +90,7 @@ lf2.character.Firen = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'explosion', S: 'icePunch', D: 'thangLong',
       },
     },
     run2: {
@@ -98,7 +98,7 @@ lf2.character.Firen = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'explosion', S: 'icePunch', D: 'thangLong',
       },
     },
     run3: {
@@ -106,7 +106,7 @@ lf2.character.Firen = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'explosion', S: 'icePunch', D: 'thangLong',
       },
     },
 
@@ -248,6 +248,35 @@ lf2.character.Firen = {
     // ==============================================================================
 
 
+    explosion: {
+      next: 'explosion2', pic: ['2', 5, 3], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    explosion2: {
+      next: 'explosion3', pic: ['2', 6, 3], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    explosion3: {
+      next: 'explosion4', pic: ['2', 7, 3], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    explosion4: {
+      next: 'explosion5', pic: ['2', 8, 3], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    explosion5: {
+      next: 'explosion6', pic: ['2', 9, 3], center: [40, 80], wait: 20,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      produce: { name: 'Firen', frame: 'explosion', x: 0, y: 0, },
+    },
+    explosion6: {
+      next: 'explosion7', pic: ['2', 9, 4], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    explosion7: {
+      next: 999, pic: ['2', 8, 4], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
 
 
   }
@@ -256,3 +285,61 @@ lf2.character.Firen = {
 
 
 
+
+lf2.derivative.Firen = {
+  setting: {
+    name: 'Firen',
+    file: {
+      'exp': { deputy: 'png', w: 160, h: 160 },
+    },
+    scale: 1,
+  },
+  frame: {
+
+    standing: {
+      next: 1000, pic: ['ball', 0, 0], center: [40, 82], wait: 2, move: [4, 0],
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'disappear', }
+    },
+
+
+    explosion: {
+      next: 'explosion2', pic: ['exp', 0, 0], center: [80, 160], wait: 2,
+      itr: { x: 0, y: 0, w: 160, h: 160, cd: 100, injury: 40, move: [3, -10], symmetry: true, }
+    },
+    explosion2: {
+      next: 'explosion3', pic: ['exp', 1, 0], center: [80, 160], wait: 2,
+      itr: { x: 0, y: 0, w: 160, h: 160, cd: 100, injury: 40, move: [3, -10], symmetry: true, }
+    },
+    explosion3: {
+      next: 'explosion4', pic: ['exp', 2, 0], center: [80, 160], wait: 2,
+      itr: { x: 0, y: 0, w: 160, h: 160, cd: 100, injury: 40, move: [3, -10], symmetry: true, }
+    },
+    explosion4: {
+      next: 'explosion5', pic: ['exp', 3, 0], center: [80, 160], wait: 2,
+      itr: { x: 0, y: 0, w: 160, h: 160, cd: 100, injury: 40, move: [3, -10], symmetry: true, }
+    },
+    explosion5: {
+      next: 'explosion6', pic: ['exp', 4, 0], center: [80, 160], wait: 2,
+      itr: { x: 0, y: 0, w: 160, h: 160, cd: 100, injury: 40, move: [3, -10], symmetry: true, }
+    },
+    explosion6: {
+      next: 'explosion7', pic: ['exp', 0, 1], center: [80, 160], wait: 2,
+      itr: { x: 0, y: 0, w: 160, h: 160, cd: 100, injury: 40, move: [3, -10], symmetry: true, }
+    },
+    explosion7: {
+      next: 'explosion8', pic: ['exp', 1, 1], center: [80, 160], wait: 2,
+    },
+    explosion8: {
+      next: 'explosion9', pic: ['exp', 2, 1], center: [80, 160], wait: 2,
+    },
+    explosion9: {
+      next: 'explosion10', pic: ['exp', 3, 1], center: [80, 160], wait: 2,
+    },
+    explosion10: {
+      next: 'explosion11', pic: ['exp', 4, 1], center: [80, 160], wait: 2,
+    },
+    explosion11: {
+      next: 1000, pic: ['exp', 0, 2], center: [80, 160], wait: 2,
+    },
+  }
+};

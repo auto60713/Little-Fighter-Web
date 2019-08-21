@@ -109,30 +109,48 @@ lf2.amIBeingBeaten = (setting, frame, type, thing) => {
       var detFrame = det.frame[det.setting.nowframe];
       if (detFrame.itr && (!det.setting.hitCD[setting.scenesIndex] || det.setting.hitCD[setting.scenesIndex] <= 0)) {
         if (setting.team !== det.setting.team) {
+
+          // 被打最右邊 >= 打人最左邊
           if (setting.x + frame.bdy.x + frame.bdy.w >= det.setting.x + detFrame.itr.x
+            // 被打最左邊 < 打人最右邊
             && setting.x + frame.bdy.x < det.setting.x + detFrame.itr.x + detFrame.itr.w
+            // 被打最下邊 >= 打人最上邊
             && setting.y + frame.bdy.y + frame.bdy.h >= det.setting.y + detFrame.itr.y
+            // 被打最上邊 < 打人最下邊
             && setting.y + frame.bdy.y < det.setting.y + detFrame.itr.y + detFrame.itr.h) {
+            // 被打的中間
+            var sc = setting.x + frame.bdy.x + (frame.bdy.w / 2);
+            // 打人的中間
+            var dc = det.setting.x + detFrame.itr.x + (detFrame.itr.w / 2);
             // 下次打我多久後
             det.setting.hitCD[setting.scenesIndex] = detFrame.itr.cd;
             // 打擊換動作
             if (detFrame.itr.next) lf2.gotoFrame(det, det.setting, type, detFrame.itr.next);
             // 抓攻擊
             if (detFrame.itr.catching) setting.catching = det.setting.scenesIndex;
+            // 一般攻擊
             else {
-              const m = det.setting.mirror ? -1 : 1;
+              let m = det.setting.mirror ? -1 : 1;
+              if (detFrame.itr.symmetry && sc * m < dc * m) {
+                m = det.setting.mirror ? 1 : -1;
+              }
+              else {
+                m = det.setting.mirror ? -1 : 1;
+              }
               const m2 = setting.mirror ? -1 : 1;
               thing.frame['falling'].move = [detFrame.itr.move[0] * m * m2, detFrame.itr.move[1]];
               isHit = true;
             }
             setting.nowHP -= detFrame.itr.injury;
           }
+
         }
       }
     });
   }
   return isHit;
 }
+
 
 
 // 血量系統
