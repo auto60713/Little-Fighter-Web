@@ -30,15 +30,15 @@ lf2.derivative.freezeBall = {
 
 
     cm: {
-      next: 'cm2', pic: ['col', 20, 0], center: [0, 0], wait: 10, move: [4, 0],
+      next: 'cm2', pic: ['col', 20, 0], center: [0, 0], wait: 10, move: [4, 0], shadow: false,
       produce: { name: 'freezeBall', frame: 'cols', x: 0, y: 0, },
     },
     cm2: {
-      next: 'cm3', pic: ['col', 20, 0], center: [0, 0], wait: 10, move: [4, 0],
+      next: 'cm3', pic: ['col', 20, 0], center: [0, 0], wait: 10, move: [4, 0], shadow: false,
       produce: { name: 'freezeBall', frame: 'colm', x: 0, y: 0, },
     },
     cm3: {
-      next: 1000, pic: ['col', 20, 0], center: [0, 0], wait: 0, move: [4, 0],
+      next: 1000, pic: ['col', 20, 0], center: [0, 0], wait: 0, move: [4, 0], shadow: false,
       produce: { name: 'freezeBall', frame: 'coll', x: 0, y: 0, },
     },
 

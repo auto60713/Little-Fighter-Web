@@ -182,3 +182,18 @@ lf2.produceDerivative = (setting, frame) => {
 lf2.theFrame = (type, thing, setting, frameName) => {
   return type === 'map' ? thing.component[setting.component][frameName] : thing.frame[frameName];
 }
+
+
+lf2.shadowSystem = (setting, frame, type, thing) => {
+  if (frame.shadow && (type == 'character' || type == 'derivative')) {
+
+    var setting2 = lf2.UI.shadow.setting;
+    var frame2 = lf2.UI.shadow.frame.standing;
+    var type2 = 'UI';
+
+    setting2.x = setting.x;
+    setting2.y = lf2.mainMap.limit.y;
+
+    lf2.draw(setting2, frame2, type2, thing);
+  }
+}

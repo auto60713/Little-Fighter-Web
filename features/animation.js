@@ -60,6 +60,9 @@ lf2.arrange = (type) => {
         // 物理行為
         lf2.physical(setting, frame, type, thing);
 
+        //  影子系統
+        lf2.shadowSystem(setting, frame, type, thing);
+
         // 秀在畫面上
         lf2.draw(setting, frame, type, thing);
 

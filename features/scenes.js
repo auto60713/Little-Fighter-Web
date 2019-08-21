@@ -137,7 +137,6 @@ lf2.prepareShaoguanMode = (stagename) => {
 
 // 將物件加到場景中
 lf2.adjunction = (type, name, data = {}) => {
-
   var template = JSON.parse(JSON.stringify(lf2[type][name]));
 
   template.setting.scenesIndex = lf2.scenesIndex;
@@ -148,7 +147,13 @@ lf2.adjunction = (type, name, data = {}) => {
     template.setting[key] = data[key];
   });
 
+  // 影子
+  // var shadow = JSON.parse(JSON.stringify(lf2['UI']['shadow']));
+  // shadow.setting.follow = template.setting.scenesIndex;
+  // shadow.setting.followType = type;
+
   lf2.scenes[type].push(template);
+  // lf2.scenes['derivative'].push(shadow);
 }
 
 // 場景初始化

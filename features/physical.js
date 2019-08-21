@@ -6,8 +6,13 @@ lf2.physical = (setting, frame, type, thing) => {
   lf2.move(setting, frame, type);
 
   // 根據目前速度移動物件
-  setting.x += setting.xSpeed;
+  // 邊界偵測
+  if (!lf2.mapDetection(setting, type)) {
+    setting.x += setting.xSpeed;
+  }
   setting.y += setting.ySpeed;
+
+
 
   // 固定位置
   lf2.fixedPosition(setting, frame, type);
@@ -29,6 +34,9 @@ lf2.physical = (setting, frame, type, thing) => {
     // 滯空偵測
     setting.inSky = lf2.skyDetection(setting);
 
+    // 地上無慣性 / 空中有慣性
+    if (type == 'character' && !setting.inSky) setting.xSpeed = 0;
+
     if (frame.falling && !setting.inSky) lf2.gotoFrame(thing, setting, type, 'lyingDown');
 
     // 翻轉允許
@@ -42,19 +50,12 @@ lf2.physical = (setting, frame, type, thing) => {
 
 
 lf2.move = (setting, frame, type) => {
-
-  // 地上無慣性 / 空中有慣性
-  if (type == 'character' && !setting.inSky) setting.xSpeed = 0;
-
   if (frame.move) {
     var m = setting.mirror ? -1 : 1;
 
-    // 邊界偵測
-    if (!lf2.mapDetection(setting, type))
-      setting.xSpeed = frame.move[0] * m;
+    setting.xSpeed = frame.move[0] * m;
     setting.ySpeed = frame.move[1];
   }
-
 }
 
 lf2.dropDetection = (setting, frame, type) => {

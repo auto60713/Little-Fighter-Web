@@ -24,8 +24,17 @@ lf2.UI.startgame = {
   }
 };
 
-
-
+// 影子
+lf2.UI.shadow = {
+  setting: {
+    name: 'shadow',
+    file: { 's': { deputy: 'bmp', w: 37, h: 9 }, },
+    scale: 1,
+  },
+  frame: {
+    'standing': { next: 999, pic: ['s', 0, 0], center: [18, 4], wait: 100, },
+  }
+};
 
 
 // 選角手
