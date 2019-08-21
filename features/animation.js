@@ -54,11 +54,11 @@ lf2.arrange = (type) => {
         // 製造衍生物
         lf2.produceDerivative(setting, frame);
 
-        // 換動作
-        lf2.variousChangesFrame(setting, frame, type, thing);
-
         // 物理行為
         lf2.physical(setting, frame, type, thing);
+
+        // 換動作
+        lf2.variousChangesFrame(setting, frame, type, thing);
 
         //  影子系統
         lf2.shadowSystem(setting, frame, type, thing);

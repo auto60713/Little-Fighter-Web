@@ -2,19 +2,26 @@
 lf2.variousChangesFrame = (setting, frame, type, thing) => {
 
   // 被打偵測
-  if (lf2.amIBeingBeaten(setting, frame, 'character', thing)
-    || lf2.amIBeingBeaten(setting, frame, 'derivative', thing)) {
+  if (!setting.catching
+    && (lf2.amIBeingBeaten(setting, frame, 'character', thing) || lf2.amIBeingBeaten(setting, frame, 'derivative', thing))
+  ) {
     lf2.adjunction('UI', 'hit', {
       x: setting.x,
       y: setting.y,
     });
     lf2.gotoFrame(thing, setting, type, 'falling');
   }
-  // 技能換幀
+  // 被抓換動作
+  else if (setting.catching) {
+    var asdasd = lf2.findScenesIndex(setting.catching);
+    var twerff = asdasd.frame[asdasd.setting.nowframe];
+    lf2.gotoFrame(thing, setting, type, twerff.catching.frame);
+  }
+  // 技能換動作
   else if (lf2.skill(setting, frame, type, thing)) {
     lf2.gotoFrame(thing, setting, type, lf2.ttttt);
   }
-  // 自然換幀
+  // 自然換動作
   else if (setting.nowwait <= 0) {
     lf2.gotoFrame(thing, setting, type, frame.next);
   }
@@ -69,6 +76,12 @@ lf2.skill = (setting, frame, type, thing) => {
 // 物件換影格
 lf2.gotoFrame = (thing, setting, type, next) => {
 
+  // 被動鏡像
+  if (next < 0) {
+    setting.mirror = !setting.mirror;
+    next = next * -1;
+  }
+
   if (next == 999) {
     if (type == 'character' && setting.nowHP <= 0) next = 'lyingDown';
     else if (type == 'character' && setting.inSky) next = 'jumping';
@@ -104,12 +117,15 @@ lf2.amIBeingBeaten = (setting, frame, type, thing) => {
             det.setting.hitCD[setting.scenesIndex] = detFrame.itr.cd;
             // 打擊換動作
             if (detFrame.itr.next) lf2.gotoFrame(det, det.setting, type, detFrame.itr.next);
-
-            const m = det.setting.mirror ? -1 : 1;
-            const m2 = setting.mirror ? -1 : 1;
+            // 抓攻擊
+            if (detFrame.itr.catching) setting.catching = det.setting.scenesIndex;
+            else {
+              const m = det.setting.mirror ? -1 : 1;
+              const m2 = setting.mirror ? -1 : 1;
+              thing.frame['falling'].move = [detFrame.itr.move[0] * m * m2, detFrame.itr.move[1]];
+              isHit = true;
+            }
             setting.nowHP -= detFrame.itr.injury;
-            thing.frame['falling'].move = [detFrame.itr.move[0] * m * m2, detFrame.itr.move[1]];
-            isHit = true;
           }
         }
       }
@@ -200,3 +216,5 @@ lf2.shadowSystem = (setting, frame, type, thing) => {
     lf2.draw(setting2, frame2, type2, thing);
   }
 }
+
+
