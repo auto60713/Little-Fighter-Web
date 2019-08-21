@@ -19,7 +19,7 @@ lf2.character.Davis = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'thangLong', S: 'hundredsPunches', D: 'thangLong',
       },
     },
     standing2: {
@@ -27,7 +27,7 @@ lf2.character.Davis = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'thangLong', S: 'hundredsPunches', D: 'thangLong',
       },
     },
     standing3: {
@@ -35,7 +35,7 @@ lf2.character.Davis = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'thangLong', S: 'hundredsPunches', D: 'thangLong',
       },
     },
     standing4: {
@@ -43,7 +43,7 @@ lf2.character.Davis = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'thangLong', S: 'hundredsPunches', D: 'thangLong',
       },
     },
 
@@ -54,7 +54,7 @@ lf2.character.Davis = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'hundredsPunches', D: 'thangLong',
       },
     },
     walking2: {
@@ -62,7 +62,7 @@ lf2.character.Davis = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'hundredsPunches', D: 'thangLong',
       },
     },
     walking3: {
@@ -70,7 +70,7 @@ lf2.character.Davis = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'hundredsPunches', D: 'thangLong',
       },
     },
     walking4: {
@@ -78,7 +78,7 @@ lf2.character.Davis = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'hundredsPunches', D: 'thangLong',
       },
     },
 
@@ -90,7 +90,7 @@ lf2.character.Davis = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'hundredsPunches', D: 'thangLong',
       },
     },
     run2: {
@@ -98,7 +98,7 @@ lf2.character.Davis = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'hundredsPunches', D: 'thangLong',
       },
     },
     run3: {
@@ -106,7 +106,7 @@ lf2.character.Davis = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'hundredsPunches', D: 'thangLong',
       },
     },
 
@@ -161,9 +161,6 @@ lf2.character.Davis = {
       next: 999, pic: ['0', 6, 1], center: [40, 80], wait: 20,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-
-
-
 
 
     // 跑步攻擊
@@ -284,6 +281,95 @@ lf2.character.Davis = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
 
+
+    hundredsPunches: {
+      next: 'hundredsPunches2', pic: ['2', 3, 1], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    hundredsPunches2: {
+      next: 'hundredsPunches3', pic: ['2', 4, 1], center: [40, 80], wait: 2, move: [2, 0],
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, -1], cd: 5, injury: 40, },
+    },
+    hundredsPunches3: {
+      next: 'hundredsPunches4', pic: ['2', 5, 1], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    hundredsPunches4: {
+      next: 'hundredsPunches5', pic: ['2', 6, 1], center: [40, 80], wait: 2, move: [2, 0],
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, -1], cd: 5, injury: 40, },
+    },
+    hundredsPunches5: {
+      next: 'hundredsPunches6', pic: ['2', 7, 1], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    hundredsPunches6: {
+      next: 'hundredsPunches7', pic: ['2', 8, 1], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    hundredsPunches7: {
+      next: 'hundredsPunches8', pic: ['2', 9, 1], center: [40, 80], wait: 2, move: [2, 0],
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, -1], cd: 5, injury: 40, },
+    },
+    hundredsPunches8: {
+      next: 'hundredsPunches9', pic: ['2', 9, 2], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    hundredsPunches9: {
+      next: 'hundredsPunches10', pic: ['2', 8, 2], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    hundredsPunches10: {
+      next: 'hundredsPunches11', pic: ['2', 7, 2], center: [40, 80], wait: 2, move: [2, 0],
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, -4], cd: 5, injury: 40, },
+    },
+    hundredsPunches11: {
+      next: 'hundredsPunches12', pic: ['2', 6, 2], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, -4], cd: 5, injury: 40, },
+    },
+    hundredsPunches12: {
+      next: 'hundredsPunches13', pic: ['2', 5, 2], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    hundredsPunches13: {
+      next: 999, pic: ['2', 4, 2], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+
+
+    ball: {
+      next: 'ball2', pic: ['2', 4, 2], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    ball2: {
+      next: 'ball3', pic: ['2', 4, 2], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    ball3: {
+      next: 'ball4', pic: ['2', 4, 2], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    ball4: {
+      next: 'ball5', pic: ['2', 4, 2], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      produce: { name: 'davisBall', frame: 'standing', x: 60, y: 7, },
+    },
+    ball5: {
+      next: 'ball6', pic: ['2', 4, 2], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    ball6: {
+      next: 'ball7', pic: ['2', 4, 2], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    ball7: {
+      next: 999, pic: ['2', 4, 2], center: [40, 80], wait: 2,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
   }
 };
 
