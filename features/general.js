@@ -102,6 +102,9 @@ lf2.amIBeingBeaten = (setting, frame, type, thing) => {
             && setting.y + frame.bdy.y < det.setting.y + detFrame.itr.y + detFrame.itr.h) {
             // 下次打我多久後
             det.setting.hitCD[setting.scenesIndex] = detFrame.itr.cd;
+            // 打擊換動作
+            if (detFrame.itr.next) lf2.gotoFrame(det, det.setting, type, detFrame.itr.next);
+
             const m = det.setting.mirror ? -1 : 1;
             const m2 = setting.mirror ? -1 : 1;
             setting.nowHP -= detFrame.itr.injury;
@@ -185,7 +188,7 @@ lf2.theFrame = (type, thing, setting, frameName) => {
 
 
 lf2.shadowSystem = (setting, frame, type, thing) => {
-  if (frame.shadow && (type == 'character' || type == 'derivative')) {
+  if (!frame.shadowHide && (type == 'character' || type == 'derivative')) {
 
     var setting2 = lf2.UI.shadow.setting;
     var frame2 = lf2.UI.shadow.frame.standing;

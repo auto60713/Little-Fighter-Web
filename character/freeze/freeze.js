@@ -19,7 +19,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'iceBall',
       },
     },
     standing2: {
@@ -27,7 +27,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'iceBall',
       },
     },
     standing3: {
@@ -35,7 +35,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'iceBall',
       },
     },
     standing4: {
@@ -43,7 +43,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'iceBall',
       },
     },
 
@@ -54,7 +54,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'iceBall',
       },
     },
     walking2: {
@@ -62,7 +62,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'iceBall',
       },
     },
     walking3: {
@@ -70,7 +70,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'iceBall',
       },
     },
     walking4: {
@@ -78,7 +78,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'iceBall',
       },
     },
 
@@ -90,7 +90,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'iceBall',
       },
     },
     run2: {
@@ -98,7 +98,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'iceBall',
       },
     },
     run3: {
@@ -106,7 +106,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'iceBall',
       },
     },
 
@@ -332,33 +332,46 @@ lf2.derivative.Freeze = {
   frame: {
 
     standing: {
-      next: 'fly2', pic: ['ball', 0, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], }
+      next: 'standing2', pic: ['ball', 0, 0], center: [40, 82], wait: 2, move: [4, 0],
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'disappear', }
     },
-    fly2: {
-      next: 'fly3', pic: ['ball', 1, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], }
+    standing2: {
+      next: 'standing3', pic: ['ball', 1, 0], center: [40, 82], wait: 2, move: [4, 0],
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'disappear', }
     },
-    fly3: {
-      next: 'fly4', pic: ['ball', 2, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], }
+    standing3: {
+      next: 'standing4', pic: ['ball', 2, 0], center: [40, 82], wait: 2, move: [4, 0],
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'disappear', }
     },
-    fly4: {
+    standing4: {
       next: 'standing', pic: ['ball', 3, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], }
+      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'disappear', }
+    },
+
+    disappear: {
+      next: 'disappear2', pic: ['ball', 0, 1], center: [40, 82], wait: 2, move: [2, 0],
+    },
+    disappear2: {
+      next: 'disappear3', pic: ['ball', 1, 1], center: [40, 82], wait: 2,
+    },
+    disappear3: {
+      next: 'disappear4', pic: ['ball', 2, 1], center: [40, 82], wait: 2,
+    },
+    disappear4: {
+      next: 1000, pic: ['ball', 3, 1], center: [40, 82], wait: 2,
     },
 
 
     cm: {
-      next: 'cm2', pic: ['col', 20, 0], center: [0, 0], wait: 10, move: [4, 0], shadow: false,
+      next: 'cm2', pic: ['col', 20, 0], center: [0, 0], wait: 10, move: [4, 0], shadowHide: true,
       produce: { name: 'freezeBall', frame: 'cols', x: 0, y: 0, },
     },
     cm2: {
-      next: 'cm3', pic: ['col', 20, 0], center: [0, 0], wait: 10, move: [4, 0], shadow: false,
+      next: 'cm3', pic: ['col', 20, 0], center: [0, 0], wait: 10, move: [4, 0], shadowHide: true,
       produce: { name: 'freezeBall', frame: 'colm', x: 0, y: 0, },
     },
     cm3: {
-      next: 1000, pic: ['col', 20, 0], center: [0, 0], wait: 0, move: [4, 0], shadow: false,
+      next: 1000, pic: ['col', 20, 0], center: [0, 0], wait: 0, move: [4, 0], shadowHide: true,
       produce: { name: 'freezeBall', frame: 'coll', x: 0, y: 0, },
     },
 

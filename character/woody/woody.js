@@ -19,7 +19,7 @@ lf2.character.Woody = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'mobile',
       },
     },
     standing2: {
@@ -27,7 +27,7 @@ lf2.character.Woody = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'mobile',
       },
     },
     standing3: {
@@ -35,7 +35,7 @@ lf2.character.Woody = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'mobile',
       },
     },
     standing4: {
@@ -43,7 +43,7 @@ lf2.character.Woody = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'mobile',
       },
     },
 
@@ -54,7 +54,7 @@ lf2.character.Woody = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'mobile',
       },
     },
     walking2: {
@@ -62,7 +62,7 @@ lf2.character.Woody = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'mobile',
       },
     },
     walking3: {
@@ -70,7 +70,7 @@ lf2.character.Woody = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'mobile',
       },
     },
     walking4: {
@@ -78,7 +78,7 @@ lf2.character.Woody = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'mobile',
       },
     },
 
@@ -90,7 +90,7 @@ lf2.character.Woody = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'mobile',
       },
     },
     run2: {
@@ -98,7 +98,7 @@ lf2.character.Woody = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'mobile',
       },
     },
     run3: {
@@ -106,7 +106,7 @@ lf2.character.Woody = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'mobile',
       },
     },
 
@@ -142,7 +142,7 @@ lf2.character.Woody = {
 
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        C: 'jumpAttack',
+        C: 'jumpAttack', D: 'mobile',
       },
     },
 
@@ -248,6 +248,46 @@ lf2.character.Woody = {
     // ==============================================================================
 
 
+    mobile: {
+      next: 'mobile2', pic: ['2', 1, 3], center: [40, 80], wait: 0,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    mobile2: {
+      next: 'mobile3', pic: ['2', 2, 3], center: [40, 80], wait: 0,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    mobile3: {
+      next: 'mobile4', pic: ['2', 3, 3], center: [40, 80], wait: 0,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    mobile4: {
+      next: 'mobile5', pic: ['2', 4, 3], center: [40, 80], wait: 0,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    mobile5: {
+      next: 'mobile6', pic: ['2', 5, 3], center: [40, 80], wait: 0,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    mobile6: {
+      next: 'mobile7', pic: ['2', 6, 3], center: [40, 80], wait: 0, mobile: true, drop: 'mobile7',
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    mobile7: {
+      next: 'mobile8', pic: ['2', 7, 3], center: [40, 80], wait: 0,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    mobile8: {
+      next: 'mobile9', pic: ['2', 8, 3], center: [40, 80], wait: 0,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    mobile9: {
+      next: 'mobile10', pic: ['2', 9, 3], center: [40, 80], wait: 0,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
+    mobile10: {
+      next: 999, pic: ['2', 9, 4], center: [40, 80], wait: 0,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    },
 
   }
 };

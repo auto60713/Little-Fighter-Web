@@ -19,7 +19,7 @@ lf2.character.Henry = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'flute', S: 'icePunch', D: 'thangLong',
       },
     },
     standing2: {
@@ -27,7 +27,7 @@ lf2.character.Henry = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'flute', S: 'icePunch', D: 'thangLong',
       },
     },
     standing3: {
@@ -35,7 +35,7 @@ lf2.character.Henry = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'flute', S: 'icePunch', D: 'thangLong',
       },
     },
     standing4: {
@@ -43,7 +43,7 @@ lf2.character.Henry = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'flute', S: 'icePunch', D: 'thangLong',
       },
     },
 
@@ -54,7 +54,7 @@ lf2.character.Henry = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'flute', S: 'icePunch', D: 'thangLong',
       },
     },
     walking2: {
@@ -62,7 +62,7 @@ lf2.character.Henry = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'flute', S: 'icePunch', D: 'thangLong',
       },
     },
     walking3: {
@@ -70,7 +70,7 @@ lf2.character.Henry = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'flute', S: 'icePunch', D: 'thangLong',
       },
     },
     walking4: {
@@ -78,7 +78,7 @@ lf2.character.Henry = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'flute', S: 'icePunch', D: 'thangLong',
       },
     },
 
@@ -90,7 +90,7 @@ lf2.character.Henry = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'flute', S: 'icePunch', D: 'thangLong',
       },
     },
     run2: {
@@ -98,7 +98,7 @@ lf2.character.Henry = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'flute', S: 'icePunch', D: 'thangLong',
       },
     },
     run3: {
@@ -106,7 +106,7 @@ lf2.character.Henry = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'flute', S: 'icePunch', D: 'thangLong',
       },
     },
 
@@ -247,6 +247,26 @@ lf2.character.Henry = {
     // 技能
     // ==============================================================================
 
+    flute: {
+      next: 'flute2', pic: ['2', 0, 0], center: [40, 80], wait: 20,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      itr: { x: 0, y: 0, w: 80, h: 80, move: [0, -4], cd: 20, injury: 20, },
+    },
+    flute2: {
+      next: 'flute3', pic: ['2', 1, 0], center: [40, 80], wait: 20,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      itr: { x: 0, y: 0, w: 80, h: 80, move: [0, -4], cd: 20, injury: 20, },
+    },
+    flute3: {
+      next: 'flute4', pic: ['2', 2, 0], center: [40, 80], wait: 20,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      itr: { x: 0, y: 0, w: 80, h: 80, move: [0, -4], cd: 20, injury: 20, },
+    },
+    flute4: {
+      next: 999, pic: ['2', 3, 0], center: [40, 80], wait: 20,
+      bdy: { x: 0, y: 0, w: 80, h: 80 },
+      itr: { x: 0, y: 0, w: 80, h: 80, move: [0, -4], cd: 20, injury: 20, },
+    },
 
   }
 };
