@@ -79,10 +79,12 @@ lf2.sceneKeyEvent = (keyname) => {
       x(['X', 'esc'], 'modeSelection')
       m(['right'], () => {
         if (lf2.characterListIndex < lf2.characterList.length - 1) lf2.characterListIndex++;
+        else if (lf2.characterListIndex == lf2.characterList.length - 1) lf2.characterListIndex = 0;
         lf2.mainPoint.x = lf2.scenes.UI[lf2.characterListIndex].setting.x + 15;
       });
       m(['left'], () => {
         if (lf2.characterListIndex > 0) lf2.characterListIndex--;
+        else if (lf2.characterListIndex == 0) lf2.characterListIndex = lf2.characterList.length - 1;
         lf2.mainPoint.x = lf2.scenes.UI[lf2.characterListIndex].setting.x + 15;
       });
       break;
