@@ -19,7 +19,7 @@ lf2.character.Deep = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'upSword', S: 'dashSword', D: 'blast',
+        C: 'attack', X: 'defense', A: 'jumpSword', S: 'dashSword', D: 'blast',
       },
     },
     standing2: {
@@ -27,7 +27,7 @@ lf2.character.Deep = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'upSword', S: 'dashSword', D: 'blast',
+        C: 'attack', X: 'defense',  A: 'jumpSword', S: 'dashSword', D: 'blast',
       },
     },
     standing3: {
@@ -35,7 +35,7 @@ lf2.character.Deep = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'upSword', S: 'dashSword', D: 'blast',
+        C: 'attack', X: 'defense',  A: 'jumpSword', S: 'dashSword', D: 'blast',
       },
     },
     standing4: {
@@ -43,7 +43,7 @@ lf2.character.Deep = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'upSword', S: 'dashSword', D: 'blast',
+        C: 'attack', X: 'defense', A: 'jumpSword', S: 'dashSword', D: 'blast',
       },
     },
 
@@ -54,7 +54,7 @@ lf2.character.Deep = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'upSword', S: 'dashSword', D: 'blast',
+        C: 'attack', X: 'defense',  A: 'jumpSword', S: 'dashSword', D: 'blast',
       },
     },
     walking2: {
@@ -62,7 +62,7 @@ lf2.character.Deep = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'upSword', S: 'dashSword', D: 'blast',
+        C: 'attack', X: 'defense',  A: 'jumpSword', S: 'dashSword', D: 'blast',
       },
     },
     walking3: {
@@ -70,7 +70,7 @@ lf2.character.Deep = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'upSword', S: 'dashSword', D: 'blast',
+        C: 'attack', X: 'defense',  A: 'jumpSword', S: 'dashSword', D: 'blast',
       },
     },
     walking4: {
@@ -78,7 +78,7 @@ lf2.character.Deep = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'upSword', S: 'dashSword', D: 'blast',
+        C: 'attack', X: 'defense',  A: 'jumpSword', S: 'dashSword', D: 'blast',
       },
     },
 
@@ -90,7 +90,7 @@ lf2.character.Deep = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'upSword', S: 'dashSword', D: 'blast',
+        C: 'attack', X: 'defense', A: 'jumpSword', S: 'dashSword', D: 'blast',
       },
     },
     run2: {
@@ -98,7 +98,7 @@ lf2.character.Deep = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'upSword', S: 'dashSword', D: 'blast',
+        C: 'attack', X: 'defense',  A: 'jumpSword', S: 'dashSword', D: 'blast',
       },
     },
     run3: {
@@ -106,7 +106,7 @@ lf2.character.Deep = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'upSword', S: 'dashSword', D: 'blast',
+        C: 'attack', X: 'defense', A: 'jumpSword', S: 'dashSword', D: 'blast',
       },
     },
 
@@ -407,110 +407,110 @@ lf2.character.Deep = {
 
 
     // 第一上斬
-    upSword: {
-      next: 'upSword2', pic: ['2', 0, 0], center: [40, 80], wait: 2, move: [2, 0],
+    jumpSword: {
+      next: 'jumpSword2', pic: ['2', 0, 0], center: [40, 80], wait: 2, move: [2, 0],
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    upSword2: {
-      next: 'upSword3', pic: ['2', 1, 0], center: [40, 80], wait: 2,
+    jumpSword2: {
+      next: 'jumpSword3', pic: ['2', 1, 0], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    upSword3: {
-      next: 'upSword4', pic: ['2', 2, 0], center: [40, 80], wait: 2,
+    jumpSword3: {
+      next: 'jumpSword4', pic: ['2', 2, 0], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    upSword4: {
-      next: 'upSword5', pic: ['2', 3, 0], center: [40, 80], wait: 2,
+    jumpSword4: {
+      next: 'jumpSword5', pic: ['2', 3, 0], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    upSword5: {
-      next: 'upSword6', pic: ['2', 4, 0], center: [40, 80], wait: 2,
+    jumpSword5: {
+      next: 'jumpSword6', pic: ['2', 4, 0], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    upSword6: {
-      next: 'upSword7', pic: ['2', 7, 1], center: [40, 80], wait: 2,
+    jumpSword6: {
+      next: 'jumpSword7', pic: ['2', 7, 1], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    upSword7: {
-      next: 'upSword8', pic: ['2', 6, 2], center: [40, 80], wait: 2,
+    jumpSword7: {
+      next: 'jumpSword8', pic: ['2', 6, 2], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        up: 'downSword',
+        up: 'jumpSword15',
       },
     },
-    upSword8: {
+    jumpSword8: {
       next: 999, pic: ['2', 5, 2], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        A: 'upSword9', up: 'downSword',
+        A: 'jumpSword9', up: 'jumpSword15',
       },
     },
 
     // 第二上斬
-    upSword9: {
-      next: 'upSword10', pic: ['2', 1, 1], center: [40, 80], wait: 2, move: [2, 0],
+    jumpSword9: {
+      next: 'jumpSword10', pic: ['2', 1, 1], center: [40, 80], wait: 2, move: [2, 0],
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    upSword10: {
-      next: 'upSword11', pic: ['2', 0, 1], center: [40, 80], wait: 2,
+    jumpSword10: {
+      next: 'jumpSword11', pic: ['2', 0, 1], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    upSword11: {
-      next: 'upSword12', pic: ['2', 2, 1], center: [40, 80], wait: 2,
+    jumpSword11: {
+      next: 'jumpSword12', pic: ['2', 2, 1], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    upSword12: {
-      next: 'upSword13', pic: ['2', 3, 1], center: [40, 80], wait: 2,
+    jumpSword12: {
+      next: 'jumpSword13', pic: ['2', 3, 1], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    upSword13: {
-      next: 'upSword14', pic: ['2', 4, 1], center: [40, 80], wait: 2,
+    jumpSword13: {
+      next: 'jumpSword14', pic: ['2', 4, 1], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        up: 'downSword',
+        up: 'jumpSword15',
       },
     },
-    upSword14: {
+    jumpSword14: {
       next: 999, pic: ['2', 0, 3], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        A: 'upSword', up: 'downSword',
+        A: 'jumpSword', up: 'jumpSword15',
       },
     },
 
 
     // 上斬跳
-    downSword: {
-      next: 'downSword2', pic: ['2', 5, 0], center: [40, 80], wait: 2, move: [5, -8],
+    jumpSword15: {
+      next: 'jumpSword16', pic: ['2', 5, 0], center: [40, 80], wait: 2, move: [5, -8],
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    downSword2: {
-      next: 'downSword2', pic: ['2', 6, 0], center: [40, 80], wait: 2,
+    jumpSword16: {
+      next: 'jumpSword16', pic: ['2', 6, 0], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        A: 'downSword3',
+        A: 'jumpSword17',
       },
     },
 
     // 下斬
-    downSword3: {
-      next: 'downSword4', pic: ['2', 7, 0], center: [40, 80], wait: 2,
+    jumpSword17: {
+      next: 'jumpSword18', pic: ['2', 7, 0], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    downSword4: {
-      next: 'downSword5', pic: ['2', 8, 0], center: [40, 80], wait: 2,
+    jumpSword18: {
+      next: 'jumpSword19', pic: ['2', 8, 0], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    downSword5: {
-      next: 'downSword6', pic: ['2', 9, 0], center: [40, 80], wait: 2,
+    jumpSword19: {
+      next: 'jumpSword20', pic: ['2', 9, 0], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    downSword6: {
-      next: 'downSword7', pic: ['2', 9, 1], center: [40, 80], wait: 2,
+    jumpSword20: {
+      next: 'jumpSword21', pic: ['2', 9, 1], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    downSword7: {
-      next: 'downSword7', pic: ['2', 8, 1], center: [40, 80], wait: 2,
+    jumpSword21: {
+      next: 'jumpSword21', pic: ['2', 8, 1], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
 

@@ -19,7 +19,7 @@ lf2.character.Rudolf = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
       },
     },
     standing2: {
@@ -27,7 +27,7 @@ lf2.character.Rudolf = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
       },
     },
     standing3: {
@@ -35,7 +35,7 @@ lf2.character.Rudolf = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
       },
     },
     standing4: {
@@ -43,7 +43,7 @@ lf2.character.Rudolf = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
       },
     },
 
@@ -54,7 +54,7 @@ lf2.character.Rudolf = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
       },
     },
     walking2: {
@@ -62,7 +62,7 @@ lf2.character.Rudolf = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
       },
     },
     walking3: {
@@ -70,7 +70,7 @@ lf2.character.Rudolf = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
       },
     },
     walking4: {
@@ -78,7 +78,7 @@ lf2.character.Rudolf = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
       },
     },
 
@@ -90,7 +90,7 @@ lf2.character.Rudolf = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
       },
     },
     run2: {
@@ -98,7 +98,7 @@ lf2.character.Rudolf = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
       },
     },
     run3: {
@@ -106,7 +106,7 @@ lf2.character.Rudolf = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
       },
     },
 

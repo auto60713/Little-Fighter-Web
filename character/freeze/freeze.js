@@ -19,7 +19,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'iceBall',
+        C: 'attack', X: 'defense', A: 'whirlwind', S: 'downPunch', D: 'ball',
       },
     },
     standing2: {
@@ -27,7 +27,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'iceBall',
+        C: 'attack', X: 'defense', A: 'whirlwind', S: 'downPunch', D: 'ball',
       },
     },
     standing3: {
@@ -35,7 +35,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'iceBall',
+        C: 'attack', X: 'defense',  A: 'whirlwind', S: 'downPunch', D: 'ball',
       },
     },
     standing4: {
@@ -43,7 +43,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'icePunch', D: 'iceBall',
+        C: 'attack', X: 'defense',  A: 'whirlwind', S: 'downPunch', D: 'ball',
       },
     },
 
@@ -54,7 +54,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'iceBall',
+        C: 'attack', X: 'defense',  A: 'whirlwind', S: 'downPunch', D: 'ball',
       },
     },
     walking2: {
@@ -62,7 +62,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'iceBall',
+        C: 'attack', X: 'defense', A: 'whirlwind', S: 'downPunch', D: 'ball',
       },
     },
     walking3: {
@@ -70,7 +70,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'iceBall',
+        C: 'attack', X: 'defense',  A: 'whirlwind', S: 'downPunch', D: 'ball',
       },
     },
     walking4: {
@@ -78,7 +78,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'iceBall',
+        C: 'attack', X: 'defense',  A: 'whirlwind', S: 'downPunch', D: 'ball',
       },
     },
 
@@ -90,7 +90,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'iceBall',
+        C: 'attack', X: 'defense', A: 'whirlwind', S: 'downPunch', D: 'ball',
       },
     },
     run2: {
@@ -98,7 +98,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'iceBall',
+        C: 'attack', X: 'defense', A: 'whirlwind', S: 'downPunch', D: 'ball',
       },
     },
     run3: {
@@ -106,7 +106,7 @@ lf2.character.Freeze = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'icePunch', D: 'iceBall',
+        C: 'attack', X: 'defense',  A: 'whirlwind', S: 'downPunch', D: 'ball',
       },
     },
 
@@ -248,63 +248,63 @@ lf2.character.Freeze = {
     // ==============================================================================
 
     // 冰彈
-    iceBall: {
-      next: 'iceBall2', pic: ['2', 0, 0], center: [40, 80], wait: 3,
+    ball: {
+      next: 'ball2', pic: ['2', 0, 0], center: [40, 80], wait: 3,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    iceBall2: {
-      next: 'iceBall3', pic: ['2', 1, 0], center: [40, 80], wait: 3,
+    ball2: {
+      next: 'ball3', pic: ['2', 1, 0], center: [40, 80], wait: 3,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    iceBall3: {
-      next: 'iceBall4', pic: ['2', 2, 0], center: [40, 80], wait: 3,
+    ball3: {
+      next: 'ball4', pic: ['2', 2, 0], center: [40, 80], wait: 3,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    iceBall4: {
-      next: 'iceBall5', pic: ['2', 3, 0], center: [40, 80], wait: 3,
+    ball4: {
+      next: 'ball5', pic: ['2', 3, 0], center: [40, 80], wait: 3,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       produce: { name: 'Freeze', frame: 'standing', x: 60, y: 7, },
     },
-    iceBall5: {
-      next: 'iceBall6', pic: ['2', 4, 0], center: [40, 80], wait: 3,
+    ball5: {
+      next: 'ball6', pic: ['2', 4, 0], center: [40, 80], wait: 3,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    iceBall6: {
+    ball6: {
       next: 999, pic: ['2', 5, 0], center: [40, 80], wait: 3,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
 
 
-    icePunch: {
-      next: 'icePunch2', pic: ['1', 8, 0], center: [40, 80], wait: 1,
+    downPunch: {
+      next: 'downPunch2', pic: ['1', 8, 0], center: [40, 80], wait: 1,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    icePunch2: {
-      next: 'icePunch3', pic: ['1', 9, 0], center: [40, 80], wait: 2,
+    downPunch2: {
+      next: 'downPunch3', pic: ['1', 9, 0], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    icePunch3: {
-      next: 'icePunch4', pic: ['1', 7, 1], center: [40, 80], wait: 2,
+    downPunch3: {
+      next: 'downPunch4', pic: ['1', 7, 1], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    icePunch4: {
-      next: 'icePunch5', pic: ['1', 8, 1], center: [40, 80], wait: 2,
+    downPunch4: {
+      next: 'downPunch5', pic: ['1', 8, 1], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    icePunch5: {
-      next: 'icePunch6', pic: ['1', 9, 1], center: [40, 80], wait: 2,
+    downPunch5: {
+      next: 'downPunch6', pic: ['1', 9, 1], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       produce: { name: 'Freeze', frame: 'cm', x: 60, y: 7, },
     },
-    icePunch6: {
-      next: 'icePunch7', pic: ['1', 5, 4], center: [40, 80], wait: 2,
+    downPunch6: {
+      next: 'downPunch7', pic: ['1', 5, 4], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    icePunch7: {
-      next: 'icePunch8', pic: ['1', 6, 4], center: [40, 80], wait: 2,
+    downPunch7: {
+      next: 'downPunch8', pic: ['1', 6, 4], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
-    icePunch8: {
+    downPunch8: {
       next: 999, pic: ['1', 9, 4], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },

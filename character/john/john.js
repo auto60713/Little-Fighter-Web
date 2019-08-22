@@ -20,7 +20,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'shield', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'heal', S: 'forceField', D: 'DAaction',
       },
     },
     standing2: {
@@ -28,7 +28,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'shield', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'heal', S: 'forceField', D: 'DAaction',
       },
     },
     standing3: {
@@ -36,7 +36,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'shield', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'heal', S: 'forceField', D: 'DAaction',
       },
     },
     standing4: {
@@ -44,7 +44,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'thangLong', S: 'shield', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'heal', S: 'forceField', D: 'DAaction',
       },
     },
 
@@ -55,7 +55,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'shield', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'heal', S: 'forceField', D: 'DAaction',
       },
     },
     walking2: {
@@ -63,7 +63,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'shield', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'heal', S: 'forceField', D: 'DAaction',
       },
     },
     walking3: {
@@ -71,7 +71,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'shield', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'heal', S: 'forceField', D: 'DAaction',
       },
     },
     walking4: {
@@ -79,7 +79,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'shield', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'heal', S: 'forceField', D: 'DAaction',
       },
     },
 
@@ -91,7 +91,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'shield', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'heal', S: 'forceField', D: 'DAaction',
       },
     },
     run2: {
@@ -99,7 +99,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'shield', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'heal', S: 'forceField', D: 'DAaction',
       },
     },
     run3: {
@@ -107,7 +107,7 @@ lf2.character.John = {
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
         up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'iceBall', S: 'shield', D: 'thangLong',
+        C: 'attack', X: 'defense', A: 'heal', S: 'forceField', D: 'DAaction',
       },
     },
 
