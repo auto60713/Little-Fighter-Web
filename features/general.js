@@ -216,10 +216,11 @@ lf2.produceDerivative = (setting, frame) => {
   if (frame.produce && !setting.alreadyProduced) {
 
     var direction = setting.mirror ? -1 : 1;
+    var asd = setting.mirror ? setting.file[frame.pic[0]].w : 0;
 
     lf2.adjunction('derivative', frame.produce.name, {
-      x: setting.x + (frame.produce.x * direction),
-      y: setting.y + frame.produce.y,
+      x: setting.x - frame.center[0] + (frame.produce.x * direction) + asd,
+      y: setting.y - frame.center[1] + frame.produce.y,
       team: setting.team,
       mirror: setting.mirror,
       nowframe: frame.produce.frame,

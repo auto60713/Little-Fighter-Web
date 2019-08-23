@@ -36,7 +36,7 @@ window.lf2 = {
   // 設定有意思的值
 
   // wait等於幾幀
-  waitMagnification: 2,
+  waitMagnification: 3,
   // 重力
   gravity: 0.32,
   // 落下最大速度

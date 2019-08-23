@@ -52,7 +52,7 @@ lf2.character.Davis = {
 
     // 走路
     walking: {
-      next: 'walking2', pic: ['0', 0, 4], center: [39, 78], wait: 3, move: [4, 0], flip: true, hitHold: true,
+      next: 'walking2', pic: ['0', 0, 4], center: [39, 78], wait: 3, move: [5, 0], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
@@ -60,7 +60,7 @@ lf2.character.Davis = {
       },
     },
     walking2: {
-      next: 'walking3', pic: ['0', 0, 5], center: [39, 79], wait: 3, move: [4, 0], flip: true, hitHold: true,
+      next: 'walking3', pic: ['0', 0, 5], center: [39, 79], wait: 3, move: [5, 0], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
@@ -68,7 +68,7 @@ lf2.character.Davis = {
       },
     },
     walking3: {
-      next: 'walking4', pic: ['0', 0, 6], center: [39, 79], wait: 3, move: [4, 0], flip: true, hitHold: true,
+      next: 'walking4', pic: ['0', 0, 6], center: [39, 79], wait: 3, move: [5, 0], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
@@ -76,7 +76,7 @@ lf2.character.Davis = {
       },
     },
     walking4: {
-      next: 'walking', pic: ['0', 0, 7], center: [39, 79], wait: 3, move: [4, 0], flip: true, hitHold: true,
+      next: 'walking', pic: ['0', 0, 7], center: [39, 79], wait: 3, move: [5, 0], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65 },
       hit: {
         rightright: 'run', leftleft: 'run', up: 'jumpPre',
@@ -87,7 +87,7 @@ lf2.character.Davis = {
 
     // 跑步
     run: {
-      next: 'run2', pic: ['0', 2, 0], center: [36, 80], wait: 3, move: [6, 0], hitHold: true,
+      next: 'run2', pic: ['0', 2, 0], center: [36, 80], wait: 3, move: [10, 0], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60 },
       hit: {
         up: 'runJumpPre',
@@ -95,7 +95,7 @@ lf2.character.Davis = {
       },
     },
     run2: {
-      next: 'run3', pic: ['0', 2, 1], center: [37, 79], wait: 3, move: [6, 0], hitHold: true,
+      next: 'run3', pic: ['0', 2, 1], center: [37, 79], wait: 3, move: [10, 0], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60 },
       hit: {
         up: 'runJumpPre',
@@ -103,7 +103,7 @@ lf2.character.Davis = {
       },
     },
     run3: {
-      next: 'run', pic: ['0', 2, 2], center: [32, 78], wait: 3, move: [6, 0], hitHold: true,
+      next: 'run', pic: ['0', 2, 2], center: [32, 78], wait: 3, move: [10, 0], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60 },
       hit: {
         up: 'runJumpPre',
@@ -176,20 +176,20 @@ lf2.character.Davis = {
       itr: { x: -18, y: 24, w: 88, h: 30, move: [20, 0], cd: 5, injury: 55, },
     },
     runAttack4: {
-      next: 'runAttack5', pic: ['1', 3, 5], center: [20, 79], wait: 3, move: [1, 0],
+      next: 'runAttack5', pic: ['1', 3, 5], center: [20, 79], wait: 3,
       bdy: { x: 14, y: 14, w: 43, h: 67 },
       itr: { x: 28, y: 25, w: 43, h: 27, move: [17, 0], cd: 5, injury: 40, },
     },
     runAttack5: {
-      next: 'runAttack6', pic: ['1', 3, 6], center: [20, 79], wait: 2, move: [1, 0],
+      next: 'runAttack6', pic: ['1', 3, 6], center: [20, 79], wait: 2,
       bdy: { x: 14, y: 14, w: 43, h: 67 },
     },
     runAttack6: {
-      next: 'runAttack7', pic: ['1', 3, 6], center: [30, 79], wait: 2, move: [1, 0],
+      next: 'runAttack7', pic: ['1', 3, 6], center: [30, 79], wait: 2,
       bdy: { x: 20, y: 11, w: 31, h: 68 },
     },
     runAttack7: {
-      next: 999, pic: ['1', 3, 6], center: [32, 79], wait: 1, move: [1, 0],
+      next: 999, pic: ['1', 3, 6], center: [32, 79], wait: 1,
       bdy: { x: 20, y: 11, w: 31, h: 68 },
     },
 
@@ -256,14 +256,14 @@ lf2.character.Davis = {
 
     // 跳躍
     jumpPre: {
-      next: 'jumping', pic: ['0', 6, 0], center: [39, 79], wait: 1, move: [0, -8], flip: true,
+      next: 'jumping', pic: ['0', 6, 0], center: [39, 79], wait: 1, move: [0, -16/2], flip: true,
       bdy: { x: 22, y: 24, w: 35, h: 58 },
       hit: {
         right: 'jumpPreMove', left: 'jumpPreMove',
       },
     },
     jumpPreMove: {
-      next: 'jumping', pic: ['0', 6, 1], center: [39, 79], wait: 0, move: [4, -8], flip: true,
+      next: 'jumping', pic: ['0', 6, 1], center: [39, 79], wait: 0, move: [10/2, -16/2], flip: true,
       bdy: { x: 26, y: 26, w: 34, h: 56 },
     },
     jumping: {
@@ -277,7 +277,7 @@ lf2.character.Davis = {
 
     // 跑步跳躍
     runJumpPre: {
-      next: 'runJumping', pic: ['0', 6, 3], center: [39, 79], wait: 0, move: [6, -5],
+      next: 'runJumping', pic: ['0', 6, 3], center: [39, 79], wait: 0, move: [18/2, -10/2],
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
     runJumping: {

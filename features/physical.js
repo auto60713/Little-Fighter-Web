@@ -85,11 +85,13 @@ lf2.move = (setting, frame, type) => {
   if (frame.move) {
     var m = setting.mirror ? -1 : 1;
 
-    setting.xSpeed = frame.move[0] * m;
+    setting.xSpeed = frame.move[0] * m * 0.6;
     setting.ySpeed = frame.move[1];
   }
   // 地上無慣性 / 空中有慣性
-  else if (type == 'character' && !setting.inSky) setting.xSpeed = 0;
+  else if (type == 'character' && !setting.inSky) {
+    setting.xSpeed = setting.xSpeed * 0.7;
+  }
 }
 
 lf2.dropDetection = (setting, frame, type) => {
