@@ -7,29 +7,29 @@ lf2.bot = (setting, frame, type, thing) => {
     // 朝玩家的方向走
     if (lf2.doIt(20)) {
       if (setting.x > lf2.mainCharacter.x + 100) {
-        setting.keypress['right'] = false;
-        setting.keypress['left'] = true;
+        setting.keypress['R'] = false;
+        setting.keypress['L'] = true;
       }
       else if (setting.x < lf2.mainCharacter.x - 100) {
-        setting.keypress['left'] = false;
-        setting.keypress['right'] = true;
+        setting.keypress['L'] = false;
+        setting.keypress['R'] = true;
       }
     }
 
     // 停下來(隨機) 或是靠近
     if (lf2.doIt(20) || (setting.x - lf2.mainCharacter.x > -100 && setting.x - lf2.mainCharacter.x < 100)) {
-      setting.keypress['left'] = false;
-      setting.keypress['right'] = false;
+      setting.keypress['L'] = false;
+      setting.keypress['R'] = false;
     }
 
 
 
     // 丟冰球
-    if (setting.keypress['D']) {
-      setting.keypress['D'] = false;
+    if (setting.keypress['B4']) {
+      setting.keypress['B4'] = false;
     }
     if (lf2.doIt(10)) {
-      setting.keypress['D'] = true;
+      setting.keypress['B4'] = true;
     }
 
 

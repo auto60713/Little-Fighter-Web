@@ -1,41 +1,30 @@
 lf2.keymap = {
-  39: 'right',
-  37: 'left',
-  38: 'up',
-  40: 'down',
+  'ArrowUp': 'U',
+  'ArrowDown': 'D',
+  'ArrowRight': 'R',
+  'ArrowLeft': 'L',
 
-  27: 'esc',
+  'KeyA': 'B6', 'KeyS': 'B5', 'KeyD': 'B4',
+  'KeyZ': 'B3', 'KeyX': 'B2', 'KeyC': 'B1',
 
-  81: 'Q',
-  87: 'W',
-  69: 'E',
-  82: 'R',
-
-  65: 'A',
-  83: 'S',
-  68: 'D',
-  70: 'F',
-
-  90: 'Z',
-  88: 'X',
-  67: 'C',
-  86: 'V',
+  'esc': 'Escape',
 };
 
 // 鍵盤控制
 lf2.logKey = (e) => {
+
   const event = window.event || e;
   const pressing = event.type === 'keydown';
 
   if (lf2.mainCharacter) {
 
-    lf2.ContinuousKey(pressing, lf2.keymap[event.keyCode]);
-    lf2.mainCharacter.keypress[lf2.keymap[event.keyCode]] = pressing;
+    lf2.ContinuousKey(pressing, lf2.keymap[e.code]);
+    lf2.mainCharacter.keypress[lf2.keymap[e.code]] = pressing;
   }
 
 
   if (pressing && !lf2.qweqwe) {
-    lf2.sceneKeyEvent(lf2.keymap[event.keyCode]);
+    lf2.sceneKeyEvent(lf2.keymap[e.code]);
     lf2.qweqwe = true;
   }
 
@@ -66,23 +55,23 @@ lf2.sceneKeyEvent = (keyname) => {
   switch (lf2.state) {
     // 入口畫面
     case 'entrance':
-      x(['C'], 'modeSelection')
+      x(['B1'], 'modeSelection')
       break;
     // 選擇模式
     case 'modeSelection':
-      x(['C'], 'roleSelection')
-      x(['X', 'esc'], 'entrance')
+      x(['B1'], 'roleSelection')
+      x(['B2', 'esc'], 'entrance')
       break;
     // 選擇角色
     case 'roleSelection':
-      x(['C'], 'mapSelection')
-      x(['X', 'esc'], 'modeSelection')
-      m(['right'], () => {
+      x(['B1'], 'mapSelection')
+      x(['B2', 'esc'], 'modeSelection')
+      m(['R'], () => {
         if (lf2.characterListIndex < lf2.characterList.length - 1) lf2.characterListIndex++;
         else if (lf2.characterListIndex == lf2.characterList.length - 1) lf2.characterListIndex = 0;
         lf2.mainPoint.x = lf2.scenes.UI[lf2.characterListIndex].setting.x + 15;
       });
-      m(['left'], () => {
+      m(['L'], () => {
         if (lf2.characterListIndex > 0) lf2.characterListIndex--;
         else if (lf2.characterListIndex == 0) lf2.characterListIndex = lf2.characterList.length - 1;
         lf2.mainPoint.x = lf2.scenes.UI[lf2.characterListIndex].setting.x + 15;
@@ -90,16 +79,16 @@ lf2.sceneKeyEvent = (keyname) => {
       break;
     // 選擇地圖
     case 'mapSelection':
-      x(['C'], 'battleMode')
-      x(['X', 'esc'], 'roleSelection')
-      m(['right'], () => {
+      x(['B1'], 'battleMode')
+      x(['B2', 'esc'], 'roleSelection')
+      m(['R'], () => {
         if (lf2.mapListIndex < lf2.mapList.length - 1) {
           lf2.mapListIndex++;
           for (let i = 0; i < lf2.scenes.UI.length - 1; i++)
             lf2.scenes.UI[i].setting.x -= 150;
         }
       });
-      m(['left'], () => {
+      m(['L'], () => {
         if (lf2.mapListIndex > 0) {
           lf2.mapListIndex--;
           for (let i = 0; i < lf2.scenes.UI.length - 1; i++)
@@ -110,7 +99,7 @@ lf2.sceneKeyEvent = (keyname) => {
     // 格鬥模式
     case 'battleMode':
       x(['esc'], 'roleSelection')
-      m(['C'], () => {
+      m(['B1'], () => {
         if (lf2.gameOver < 0) {
           lf2.sceneSwitching('roleSelection');
           lf2.gameOver = null;

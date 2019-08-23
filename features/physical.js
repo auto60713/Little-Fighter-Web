@@ -73,8 +73,8 @@ lf2.physical = (setting, frame, type, thing) => {
 
       // 翻轉允許
       if (frame.flip) {
-        if (setting.keypress.right) setting.mirror = false;
-        else if (setting.keypress.left) setting.mirror = true;
+        if (setting.keypress['R']) setting.mirror = false;
+        else if (setting.keypress['L']) setting.mirror = true;
       }
     }
   }

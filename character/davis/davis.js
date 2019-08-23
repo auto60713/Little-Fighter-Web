@@ -20,32 +20,32 @@ lf2.character.Davis = {
       next: 'standing2', pic: ['0', 0, 0], center: [39, 79], wait: 5, flip: true,
       bdy: { x: 21, y: 18, w: 43, h: 62 },
       hit: {
-        right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'singLong', S: 'manyPunch', D: 'ball',
+        R: 'walking', L: 'walking', RR: 'run', LL: 'run', U: 'jumpPre',
+        B1: 'attack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
       },
     },
     standing2: {
       next: 'standing3', pic: ['0', 0, 1], center: [39, 79], wait: 3, flip: true,
       bdy: { x: 21, y: 18, w: 43, h: 62 },
       hit: {
-        right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'singLong', S: 'manyPunch', D: 'ball',
+        R: 'walking', L: 'walking', RR: 'run', LL: 'run', U: 'jumpPre',
+        B1: 'attack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
       },
     },
     standing3: {
       next: 'standing4', pic: ['0', 0, 2], center: [39, 79], wait: 5, flip: true,
       bdy: { x: 21, y: 18, w: 43, h: 62 },
       hit: {
-        right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'singLong', S: 'manyPunch', D: 'ball',
+        R: 'walking', L: 'walking', RR: 'run', LL: 'run', U: 'jumpPre',
+        B1: 'attack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
       },
     },
     standing4: {
       next: 999, pic: ['0', 0, 3], center: [39, 79], wait: 9, flip: true,
       bdy: { x: 21, y: 18, w: 43, h: 62 },
       hit: {
-        right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'singLong', S: 'manyPunch', D: 'ball',
+        R: 'walking', L: 'walking', RR: 'run', LL: 'run', U: 'jumpPre',
+        B1: 'attack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
       },
     },
 
@@ -55,32 +55,32 @@ lf2.character.Davis = {
       next: 'walking2', pic: ['0', 0, 4], center: [39, 78], wait: 3, move: [5, 0], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65 },
       hit: {
-        rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'singLong', S: 'manyPunch', D: 'ball',
+        RR: 'run', LL: 'run', U: 'jumpPre',
+        B1: 'attack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
       },
     },
     walking2: {
       next: 'walking3', pic: ['0', 0, 5], center: [39, 79], wait: 3, move: [5, 0], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65 },
       hit: {
-        rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'singLong', S: 'manyPunch', D: 'ball',
+        RR: 'run', LL: 'run', U: 'jumpPre',
+        B1: 'attack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
       },
     },
     walking3: {
       next: 'walking4', pic: ['0', 0, 6], center: [39, 79], wait: 3, move: [5, 0], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65 },
       hit: {
-        rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'singLong', S: 'manyPunch', D: 'ball',
+        RR: 'run', LL: 'run', U: 'jumpPre',
+        B1: 'attack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
       },
     },
     walking4: {
       next: 'walking', pic: ['0', 0, 7], center: [39, 79], wait: 3, move: [5, 0], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65 },
       hit: {
-        rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'singLong', S: 'manyPunch', D: 'ball',
+        RR: 'run', LL: 'run', U: 'jumpPre',
+        B1: 'attack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
       },
     },
 
@@ -90,24 +90,24 @@ lf2.character.Davis = {
       next: 'run2', pic: ['0', 2, 0], center: [36, 80], wait: 3, move: [10, 0], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60 },
       hit: {
-        up: 'runJumpPre',
-        C: 'runAttack', X: 'defense', A: 'singLong', S: 'manyPunch', D: 'ball',
+        U: 'runJumpPre',
+        B1: 'runAttack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
       },
     },
     run2: {
       next: 'run3', pic: ['0', 2, 1], center: [37, 79], wait: 3, move: [10, 0], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60 },
       hit: {
-        up: 'runJumpPre',
-        C: 'runAttack', X: 'defense', A: 'singLong', S: 'manyPunch', D: 'ball',
+        U: 'runJumpPre',
+        B1: 'runAttack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
       },
     },
     run3: {
       next: 'run', pic: ['0', 2, 2], center: [32, 78], wait: 3, move: [10, 0], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60 },
       hit: {
-        up: 'runJumpPre',
-        C: 'runAttack', X: 'defense', A: 'singLong', S: 'manyPunch', D: 'ball',
+        U: 'runJumpPre',
+        B1: 'runAttack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
       },
     },
 
@@ -259,7 +259,7 @@ lf2.character.Davis = {
       next: 'jumping', pic: ['0', 6, 0], center: [39, 79], wait: 1, move: [0, -16/2], flip: true,
       bdy: { x: 22, y: 24, w: 35, h: 58 },
       hit: {
-        right: 'jumpPreMove', left: 'jumpPreMove',
+        R: 'jumpPreMove', L: 'jumpPreMove',
       },
     },
     jumpPreMove: {
@@ -270,7 +270,7 @@ lf2.character.Davis = {
       next: 'jumping', pic: ['0', 6, 2], center: [39, 79], wait: 20, flip: true,
       bdy: { x: 20, y: 11, w: 29, h: 61 },
       hit: {
-        C: 'jumpAttack',
+        B1: 'jumpAttack',
       },
     },
 
@@ -284,7 +284,7 @@ lf2.character.Davis = {
       next: 'runJumping', pic: ['0', 6, 3], center: [39, 79], wait: 20,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        C: 'jumpAttack',
+        B1: 'jumpAttack',
       },
     },
 
