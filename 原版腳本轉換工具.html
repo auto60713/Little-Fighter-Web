@@ -85,6 +85,10 @@
         if (element == 'wpoint:') ss = true;
         if (ss) array[i] = '';
         if (element == 'wpoint_end:') ss = false;
+        if (element == 'wpoint_end:www:qqq:') {
+          ss = false;
+          array[i] = '\n},\n';
+        }
 
         if (element == 'bpoint:') ss = true;
         if (ss) array[i] = '';
