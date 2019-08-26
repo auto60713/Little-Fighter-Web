@@ -117,6 +117,7 @@ lf2.amIBeingBeaten = (setting, frame, type, thing) => {
     ['character', 'derivative'].forEach(dettype => {
       lf2.scenes[dettype].forEach(det => {
         var detFrame = det.frame[det.setting.nowframe];
+
         if (detFrame.itr && (!det.setting.hitCD[setting.scenesIndex] || det.setting.hitCD[setting.scenesIndex] <= 0)) {
           if (setting.team !== det.setting.team) {
 
@@ -168,6 +169,9 @@ lf2.amIBeingBeaten = (setting, frame, type, thing) => {
 
 // 血量系統
 lf2.HPsystem = (setting, frame, type) => {
+  if (lf2.state != 'battleMode' && lf2.state != 'shaoguanMode') return;
+  if (type != 'character') return;
+
   if (lf2.mainCharacter) {
     var pp = lf2.mainCharacter.nowHP / lf2.mainCharacter.HP;
     if (pp <= 0) pp = -1;
@@ -212,7 +216,10 @@ lf2.counter = (setting, frame, type, thing) => {
 
 
 // 製造衍生物
-lf2.produceDerivative = (setting, frame) => {
+lf2.produceDerivative = (setting, frame, type) => {
+  if (lf2.state != 'battleMode' && lf2.state != 'shaoguanMode') return;
+  if (type != 'character' && type != 'derivative') return;
+
   if (frame.produce && !setting.alreadyProduced) {
 
     var direction = setting.mirror ? -1 : 1;
@@ -238,6 +245,9 @@ lf2.theFrame = (type, thing, setting, frameName) => {
 
 
 lf2.shadowSystem = (setting, frame, type, thing) => {
+  if (lf2.state != 'battleMode' && lf2.state != 'shaoguanMode') return;
+  if (type != 'character' && type != 'derivative') return;
+
   if (!frame.shadowHide && (type == 'character' || type == 'derivative')) {
 
     var setting2 = lf2.UI.shadow.setting;

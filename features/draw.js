@@ -1,6 +1,7 @@
 
 // 將物件畫在上canvas上
 lf2.draw = (setting, frame, type, thing) => {
+
   var file = type == 'map' ? thing.setting.file[frame.pic[0]] : setting.file[frame.pic[0]];
   // FIXME: 有計畫將name拿掉 直接是類別名稱
   var name = type == 'map' ? thing.setting.name : setting.name;

@@ -16,28 +16,33 @@ lf2.logKey = (e) => {
   const event = window.event || e;
   const pressing = event.type === 'keydown';
 
-  if (lf2.mainCharacter) {
 
-    lf2.ContinuousKey(pressing, lf2.keymap[e.code]);
-    lf2.mainCharacter.keypress[lf2.keymap[e.code]] = pressing;
-  }
+  lf2.keyToControl(lf2.mainCharacter, pressing, lf2.keymap[e.code]);
 
 
-  if (pressing && !lf2.qweqwe) {
+  if (pressing && !lf2.keydownLock) {
+    // 場景按鍵事件
     lf2.sceneKeyEvent(lf2.keymap[e.code]);
-    lf2.qweqwe = true;
+    // 為了避免按住狂跳畫面 設定只有keydown瞬間有效
+    lf2.keydownLock = true;
   }
-
-  if (!pressing) lf2.qweqwe = false;
+  else if (!pressing) lf2.keydownLock = false;
 
 }
 
-// 連按技能
-lf2.ContinuousKey = (pressing, keyname) => {
-  if (!lf2.mainCharacter.keypress[keyname] && pressing) {
-    lf2.mainCharacter.keyReaction.push([keyname, 20]);
+
+
+// 操作指定角色
+lf2.keyToControl = (setting, pressing, keyname) => {
+  if (setting) {
+    // 按下序
+    setting.keypress[keyname] = pressing;
+    // 按鍵反應序
+    if (pressing) setting.keyReaction.push([keyname, 20]);
   }
 }
+
+
 
 // 每個場景的按鍵控制
 lf2.sceneKeyEvent = (keyname) => {
