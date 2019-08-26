@@ -125,8 +125,12 @@ lf2.prepareBattleMode = () => {
 
   lf2.adjunction('UI', 'hpbar2');
   lf2.adjunction('UI', 'hpbar');
+  lf2.adjunction('UI', 'otherhpbar');
+  lf2.adjunction('UI', 'otherhpbar2');
 
   lf2.mainHpbar2 = lf2.scenes.UI[0].setting;
+  lf2.otherhpbar = lf2.scenes.UI[2].setting;
+  lf2.otherhpbar2 = lf2.scenes.UI[3].setting;
 }
 
 // 準備闖關模式的東西

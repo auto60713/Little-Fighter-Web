@@ -167,28 +167,6 @@ lf2.amIBeingBeaten = (setting, frame, type, thing) => {
 
 
 
-// 血量系統
-lf2.HPsystem = (setting, frame, type) => {
-  if (lf2.state != 'battleMode' && lf2.state != 'shaoguanMode') return;
-  if (type != 'character') return;
-
-  if (lf2.mainCharacter) {
-    var pp = lf2.mainCharacter.nowHP / lf2.mainCharacter.HP;
-    if (pp <= 0) pp = -1;
-    lf2.mainHpbar2.file['hpbar2'].w = 820 * pp;
-  }
-  else {
-
-  }
-
-  if (setting.nowHP <= 0 && lf2.gameOver == null) {
-
-    lf2.adjunction('UI', 'ko');
-    lf2.gameOver = 180;
-  }
-
-}
-
 // 計算器
 lf2.counter = (setting, frame, type, thing) => {
 
@@ -250,37 +228,54 @@ lf2.shadowSystem = (setting, frame, type, thing) => {
 
   if (!frame.shadowHide && (type == 'character' || type == 'derivative')) {
 
-    var type2 = 'UI';
-    var thing2 = 'shadow'
-    var setting2 = lf2[type2][thing2].setting;
-    var frame2 = lf2[type2][thing2].frame.standing;
+    lf2.shadowSystem2(setting, thing, 'shadow', 0);
 
-    setting2.x = setting.x;
-    setting2.y = lf2.mainMap.limit.y;
-
-    lf2.draw(setting2, frame2, type2, thing);
-    if (setting.scenesIndex == 1) {
-      thing2 = 'p1';
-      setting2 = lf2[type2][thing2].setting;
-      frame2 = lf2[type2][thing2].frame.standing;
-
-      setting2.x = setting.x;
-      setting2.y = lf2.mainMap.limit.y+10;
-
-      lf2.draw(setting2, frame2, type2, thing);
-    }
+    if (setting.scenesIndex == 1)
+      lf2.shadowSystem2(setting, thing, 'p1', 10);
     else if (setting.scenesIndex == 2) {
-      thing2 = 'p2';
-      setting2 = lf2[type2][thing2].setting;
-      frame2 = lf2[type2][thing2].frame.standing;
-
-      setting2.x = setting.x;
-      setting2.y = lf2.mainMap.limit.y+10;
-
-      lf2.draw(setting2, frame2, type2, thing);
+      lf2.shadowSystem2(setting, thing, 'p2', 10);
     }
 
   }
 }
+lf2.shadowSystem2 = (setting, thing, name, y) => {
+  setting2 = lf2['UI'][name].setting;
+  frame2 = lf2['UI'][name].frame.standing;
+  setting2.x = setting.x;
+  setting2.y = lf2.mainMap.limit.y + y;
+  lf2.draw(setting2, frame2, 'UI', thing);
+}
 
 
+// 血量系統
+lf2.HPsystem = (setting, frame, type) => {
+  if (lf2.state != 'battleMode' && lf2.state != 'shaoguanMode') return;
+  if (type != 'character') return;
+
+  if (setting.scenesIndex == 1) {
+    var pp = setting.nowHP / setting.HP;
+    if (pp <= 0) pp = -1;
+    lf2.mainHpbar2.file['hpbar2'].w = 820 * pp;
+  }
+  else if (setting.scenesIndex == 2) {
+    var pp = setting.nowHP / setting.HP;
+    if (pp <= 0) pp = -1;
+    lf2.ElefollowsCharacter(lf2.otherhpbar, setting, 20);
+    lf2.ElefollowsCharacter(lf2.otherhpbar2, setting, 20);
+    lf2.otherhpbar2.file['otherhpbar2'].w = 70 * pp;
+  }
+
+
+  if (setting.nowHP <= 0 && lf2.gameOver == null) {
+    lf2.adjunction('UI', 'ko');
+    lf2.gameOver = 180;
+  }
+
+}
+
+
+// 某物件跟著某角色
+lf2.ElefollowsCharacter = (ele, char, y) => {
+  ele.x = char.x;
+  ele.y = lf2.mainMap.limit.y + y;
+}

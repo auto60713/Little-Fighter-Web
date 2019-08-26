@@ -36,15 +36,25 @@ lf2.UI.shadow = {
   }
 };
 
-// 影子
-lf2.UI.shadow = {
+// 2P血條
+lf2.UI.otherhpbar = {
   setting: {
-    name: 'shadow',
-    file: { 's': { deputy: 'bmp', w: 37, h: 9 }, },
+    name: 'otherhpbar',
+    file: { 'otherhpbar': { deputy: 'png', w: 70, h: 5 }, },
     scale: 1,
   },
   frame: {
-    'standing': { next: 999, pic: ['s', 0, 0], center: [18, 4], wait: 100, },
+    'standing': { next: 999, pic: ['otherhpbar', 0, 0], center: [35, 2], wait: 100, },
+  }
+};
+lf2.UI.otherhpbar2 = {
+  setting: {
+    name: 'otherhpbar2',
+    file: { 'otherhpbar2': { deputy: 'png', w: 70, h: 5 }, },
+    scale: 1,
+  },
+  frame: {
+    'standing': { next: 999, pic: ['otherhpbar2', 0, 0], center: [35, 2], wait: 100, },
   }
 };
 
