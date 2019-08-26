@@ -8,141 +8,168 @@
   <title>Document</title>
 </head>
 
-<body>
+<body onload="qweqwe()">
+  <textarea rows="4" cols="50" id="asd" placeholder="貼上原版腳本" onchange="qweqwe()"></textarea>
   <pre id="whereToPrint"></pre>
   <script>
-    var str = `<frame> 304 singlong
-   pic: 174  state: 3  wait: 2  next: 305  dvx: 0  dvy: 0  dvz: 0  centerx: 34  centery: 81  hit_a: 0  hit_d: 0  hit_j: 0
-   wpoint:
-      kind: 1  x: 45  y: 39  weaponact: 28  attacking: 0  cover: 1  dvx: 0  dvy: 0  dvz: 0 
-   wpoint_end:
-   itr:
-      kind: 0  x: 19  y: 1  w: 61  h: 80  dvx: 7  dvy: -7  fall: 70  vrest: 10  bdefend: 60  injury: 30  
-   itr_end:
-   bdy:
-      kind: 0  x: 28  y: 12  w: 29  h: 66
-   bdy_end:
-<frame_end>
-
-<frame> 305 singlong
-   pic: 175  state: 3  wait: 2  next: 306  dvx: 0  dvy: 0  dvz: 0  centerx: 33  centery: 75  hit_a: 0  hit_d: 0  hit_j: 0
-   wpoint:
-      kind: 1  x: 42  y: 36  weaponact: 27  attacking: 0  cover: 1  dvx: 0  dvy: 0  dvz: 0 
-   wpoint_end:
-   bdy:
-      kind: 0  x: 27  y: 7  w: 28  h: 65
-   bdy_end:
-<frame_end>`;
-
-    var eee = str.replace(/\n/g, '');
-    var ddd = eee.split(" ");
-    var dd = false;
-    var ss = false;
-
-    for (let i = 0; i < ddd.length; i++) {
-      const element = ddd[i];
-      const array = ddd;
-
-      // 忽略
-      if (
-        element == 'state:'
-        || element == 'sound:'
-        || element == 'kind:'
-        || element == 'dvz:'
-        || element == 'fall:'
-        || element == 'vrest:'
-        || element == 'arest:'
-        || element == 'bdefend:'
-        || element == 'effect:'
-        || element == 'hit_a:'
-        || element == 'hit_d:'
-        || element == 'hit_j:'
-        || element == 'mp:'
-        || element == 'facing:'
-        || element == '\n'
-      ) {
-        array[i] = '';
-        array[i + 1] = '';
-      };
-
-      // 忽略
-      if (element == 'wpoint:') ss = true;
-      if (ss) array[i] = '';
-      if (element == 'wpoint_end:') ss = false;
 
 
-      if (!ss) {
+    function qweqwe() {
+      var asd = document.getElementById('whereToPrint');
+      asd.innerHTML = "";
 
-        // 需要
+      var str = document.getElementById('asd').value;
+
+      var eee = str.replace(/\n/g, '').replace(/<frame>/g, 'qqq:').replace(/<frame_end>/g, 'www:');
+
+      var ddd = eee.split(" ");
+      var dd = false;
+      var ss = false;
+      var skillname = '';
+      var eeeqwe = 0;
+
+      for (let i = 0; i < ddd.length; i++) {
+        const element = ddd[i];
+        const array = ddd;
+
+        if (i == 2) {
+          skillname = ddd[i];
+          if (eeeqwe > 0) array[i] = skillname + eeeqwe + ':{';
+          else array[i] = skillname  + ':{';
+
+          eeeqwe++;
+        }
+
+        // 忽略
         if (
-          element == 'wait:'
-          || element == 'next:'
-          || element == 'injury:'
-          || element == 'y:'
-          || element == 'w:'
-          || element == 'h:'
+          element.indexOf('state') >= 0
+          || element.indexOf('sound') >= 0
+          || element.indexOf('kind') >= 0
+          || element.indexOf('dvz') >= 0
+          || element.indexOf('fall:') >= 0
+          || element.indexOf('rest') >= 0
+          || element.indexOf('bdefend') >= 0
+          || element.indexOf('effect') >= 0
+          || element.indexOf('hit_') >= 0
+          || element.indexOf('mp') >= 0
+          || element.indexOf('facing') >= 0
+          || element.indexOf('qqq') >= 0
+          || element.indexOf('\n') >= 0
+
         ) {
-          // 如果沒有dvy 補上,0]
-          if (dd) {
-            dd = false;
-            array.splice(i, 1, ',0],' + element);
+          array[i] = '';
+          array[i + 1] = '';
+        };
+        console.log(element);
+
+        if (
+          element.indexOf('www') >= 0
+        ) {
+          // array[i-1] = '';
+          array[i] = '},';
+        };
+
+        // 忽略
+        if (
+          element.indexOf('catchingact') >= 0
+          || element.indexOf('caughtact') >= 0
+
+          || element.indexOf('caughtact') >= 0
+        ) {
+          array[i] = '';
+          array[i + 1] = '';
+          array[i + 2] = '';
+        };
+
+        // 忽略
+        if (element == 'wpoint:') ss = true;
+        if (ss) array[i] = '';
+        if (element == 'wpoint_end:') ss = false;
+
+        if (element == 'bpoint:') ss = true;
+        if (ss) array[i] = '';
+        if (element == 'bpoint_end:') ss = false;
+
+        if (!ss) {
+
+          // 需要
+          if (
+            element == 'wait:'
+            || element == 'next:'
+            || element == 'injury:'
+            || element == 'y:'
+            || element == 'w:'
+            || element == 'h:'
+          ) {
+            // 如果沒有dvy 補上,0]
+            if (dd) {
+              dd = false;
+              array.splice(i, 1, ',0], ' + element);
+            }
+            // 前面補逗點
+            else if (element == 'next:') array.splice(i, 2, ",next: '" + skillname +eeeqwe+ "'");
+            // 前面補逗點
+            else array.splice(i, 1, ',' + element);
           }
-          // 前面補逗點
-          else array.splice(i, 1, ',' + element);
+
+          // 圖片
+          if (element == 'pic:') {
+            var n = array[i + 1];
+            var a = Math.floor(n / 70);
+            var b = Math.floor((n - (a * 70)) / 10);
+            var c = (n % 10);
+            array.splice(i, 3, `\n  pic: ['${a}' ,${b} ,${c}]`);
+          }
+
+          // 移動
+          if (element == 'dvx:') {
+            array.splice(i, 2, ',move:[' + array[i + 1]);
+            dd = true;
+          }
+          else if (element == 'dvy:') {
+            array.splice(i, 2, ',' + array[i + 1] + ']');
+            dd = false;
+          }
+
+          // 座標
+          if (element == 'centerx:') array.splice(i, 2, ',center:[' + array[i + 1]);
+          else if (element == 'centery:') array.splice(i, 2, ',' + array[i + 1] + '],');
+
+
+
+          // 大標籤轉換
+          if (element == 'itr:') array.splice(i, 1, '\n  itr: {');
+          else if (element == 'itr_end:') array.splice(i, 1, '},');
+          else if (element == 'itr_end:www:') array.splice(i, 1, '},\n},');
+
+          if (element == 'opoint:') array.splice(i, 1, '\nproduce: {');
+          else if (element == 'opoint_end:') array.splice(i, 1, '},');
+
+
+          // 替換
+          if (element == 'action:') array[i] = ',name:';
+          if (element == 'oid:') array[i] = ',frame:';
+
+          if (element == 'bdy:') array.splice(i, 1, '\n  bdy: {');
+          else if (element == 'bdy_end:') array.splice(i, 1, '},\n');
+          else if (element == 'bdy_end:www:') array.splice(i, 1, '},\n},');
+
         }
 
-        // 圖片
-        if (element == 'pic:') {
-          var n = array[i + 1];
-          var a = Math.floor(n / 70);
-          var b = Math.floor((n - (a * 70)) / 10);
-          var c = (n % 10);
-          array.splice(i, 3, `\n\npic:['${a}',${b},${c}]`);
-        }
 
-        // 移動
-        if (element == 'dvx:') {
-          array.splice(i, 1, ',move:[');
-          dd = true;
-        }
-        else if (element == 'dvy:') {
-          array.splice(i, 2, ',' + array[i + 1] + ']');
-          dd = false;
-        }
+      }
 
-        // 座標
-        if (element == 'centerx:') array.splice(i, 1, ',center:[');
-        else if (element == 'centery:') array.splice(i, 2, ',' + array[i + 1] + '],');
-
-
-
-        // 大標籤轉換
-        if (element == 'itr:') array.splice(i, 1, '\nitr:{');
-        else if (element == 'itr_end:') array.splice(i, 1, '},');
-
-        if (element == 'opoint:') array.splice(i, 1, '\nproduce:{');
-        else if (element == 'opoint_end:') array.splice(i, 1, '},');
-
-        // 替換
-        if (element == 'action:') array[i] = ',name:';
-        if (element == 'oid:') array[i] = ',frame:';
-
-console.log(element);
-        if (element == 'bdy:') array.splice(i, 1, '\nbdy:{');
-        else if (element == 'bdy_end:<frame_end><frame>') array.splice(i, 1, '},\n\n');
-          else if (element == 'bdy_end:<frame_end>') array.splice(i, 1, '},');
+      var eeeeeeeeeee = '';
+      for (let i = 0; i < ddd.length; i++) {
+        // console.log(ddd[i]);
+        if (ddd[i] != '') eeeeeeeeeee += ddd[i] + ' ';
+        if (i == ddd.length - 1 && ddd[i] == '') eeeeeeeeeee += '\n},';
       }
 
 
+      eeeeeeeeeee = eeeeeeeeeee.replace(/ ,/g, ', ');
+      document.getElementById("whereToPrint").innerHTML = eeeeeeeeeee;
     }
-
-
-
-
-    for (let i = 0; i < ddd.length; i++) {
-      if (ddd[i] != '') document.getElementById("whereToPrint").innerHTML += ddd[i] + ' ';
-    }
-
   </script>
 </body>
 
