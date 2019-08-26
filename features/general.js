@@ -250,14 +250,36 @@ lf2.shadowSystem = (setting, frame, type, thing) => {
 
   if (!frame.shadowHide && (type == 'character' || type == 'derivative')) {
 
-    var setting2 = lf2.UI.shadow.setting;
-    var frame2 = lf2.UI.shadow.frame.standing;
     var type2 = 'UI';
+    var thing2 = 'shadow'
+    var setting2 = lf2[type2][thing2].setting;
+    var frame2 = lf2[type2][thing2].frame.standing;
 
     setting2.x = setting.x;
     setting2.y = lf2.mainMap.limit.y;
 
     lf2.draw(setting2, frame2, type2, thing);
+    if (setting.scenesIndex == 1) {
+      thing2 = 'p1';
+      setting2 = lf2[type2][thing2].setting;
+      frame2 = lf2[type2][thing2].frame.standing;
+
+      setting2.x = setting.x;
+      setting2.y = lf2.mainMap.limit.y+10;
+
+      lf2.draw(setting2, frame2, type2, thing);
+    }
+    else if (setting.scenesIndex == 2) {
+      thing2 = 'p2';
+      setting2 = lf2[type2][thing2].setting;
+      frame2 = lf2[type2][thing2].frame.standing;
+
+      setting2.x = setting.x;
+      setting2.y = lf2.mainMap.limit.y+10;
+
+      lf2.draw(setting2, frame2, type2, thing);
+    }
+
   }
 }
 

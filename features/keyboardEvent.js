@@ -10,14 +10,26 @@ lf2.keymap = {
   'esc': 'Escape',
 };
 
+lf2.keymap2 = {
+  'Numpad5': 'U',
+  'Numpad2': 'D',
+  'Numpad3': 'R',
+  'Numpad1': 'L',
+
+  'KeyJ': 'B6', 'KeyK': 'B5', 'KeyL': 'B4',
+  'KeyM': 'B3', 'Comma': 'B2', 'Period': 'B1',
+};
+
+
 // 鍵盤控制
 lf2.logKey = (e) => {
 
   const event = window.event || e;
   const pressing = event.type === 'keydown';
 
+  if (lf2.keymap[e.code]) lf2.keyToControl(lf2.mainCharacter, pressing, lf2.keymap[e.code]);
+  else lf2.keyToControl(lf2.scenes.character[1].setting, pressing, lf2.keymap2[e.code]);
 
-  lf2.keyToControl(lf2.mainCharacter, pressing, lf2.keymap[e.code]);
 
 
   if (pressing && !lf2.keydownLock) {

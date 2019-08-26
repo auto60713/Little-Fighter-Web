@@ -36,6 +36,43 @@ lf2.UI.shadow = {
   }
 };
 
+// 影子
+lf2.UI.shadow = {
+  setting: {
+    name: 'shadow',
+    file: { 's': { deputy: 'bmp', w: 37, h: 9 }, },
+    scale: 1,
+  },
+  frame: {
+    'standing': { next: 999, pic: ['s', 0, 0], center: [18, 4], wait: 100, },
+  }
+};
+
+// p1
+lf2.UI.p1 = {
+  setting: {
+    name: 'p1',
+    file: { 'p1': { deputy: 'png', w: 14, h: 10 }, },
+    scale: 1,
+  },
+  frame: {
+    'standing': { next: 999, pic: ['p1', 0, 0], center: [7, 5], wait: 100, },
+  }
+};
+
+
+// p2
+lf2.UI.p2 = {
+  setting: {
+    name: 'p2',
+    file: { 'p2': { deputy: 'png', w: 14, h: 10 }, },
+    scale: 1,
+  },
+  frame: {
+    'standing': { next: 999, pic: ['p2', 0, 0], center: [7, 5], wait: 100, },
+  }
+};
+
 
 // 選角手
 lf2.UI.point = {
