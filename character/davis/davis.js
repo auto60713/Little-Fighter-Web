@@ -6,8 +6,6 @@ lf2.character.Davis = {
       '1': { deputy: 'png', w: 80, h: 80 },
       '2': { deputy: 'png', w: 80, h: 80 },
     },
-    walkingSpeed: 4,
-    jumpPower: 4.5,
     scale: 1,
     HP: 500,
   },
@@ -464,47 +462,47 @@ lf2.derivative.Davis = {
     standing2: {
       next: 'standing3', pic: ['ball', 0, 1], center: [53, 24], wait: 1, move: [5, 0],
       bdy: { x: 26, y: 12, w: 45, h: 24 },
-      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, njury: 30, move: [7, 0], next: 'falling', }
+      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, injury: 30, move: [7, 0], next: 'falling', }
     },
     standing3: {
       next: 'standing4', pic: ['ball', 0, 0], center: [56, 24], wait: 1, move: [7, 0],
       bdy: { x: 26, y: 12, w: 45, h: 24 },
-      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, njury: 30, move: [7, 0], next: 'falling', }
+      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, injury: 30, move: [7, 0], next: 'falling', }
     },
     standing4: {
       next: 'standing5', pic: ['ball', 0, 1], center: [52, 24], wait: 1, move: [9, 0],
       bdy: { x: 26, y: 12, w: 45, h: 24 },
-      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, njury: 30, move: [7, 0], next: 'falling', }
+      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, injury: 30, move: [7, 0], next: 'falling', }
     },
     standing5: {
       next: 'standing6', pic: ['ball', 0, 2], center: [53, 24], wait: 1, move: [10, 0],
       bdy: { x: 26, y: 12, w: 45, h: 24 },
-      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, njury: 30, move: [7, 0], next: 'falling', }
+      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, injury: 30, move: [7, 0], next: 'falling', }
     },
     standing6: {
       next: 'standing7', pic: ['ball', 0, 3], center: [52, 24], wait: 1, move: [13, 0],
       bdy: { x: 26, y: 12, w: 45, h: 24 },
-      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, njury: 30, move: [7, 0], next: 'falling', }
+      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, injury: 30, move: [7, 0], next: 'falling', }
     },
     standing7: {
       next: 'standing8', pic: ['ball', 0, 2], center: [53, 24], wait: 1, move: [16, 0],
       bdy: { x: 26, y: 12, w: 45, h: 24 },
-      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, njury: 30, move: [7, 0], next: 'falling', }
+      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, injury: 30, move: [7, 0], next: 'falling', }
     },
     standing8: {
       next: 'standing9', pic: ['ball', 0, 3], center: [53, 24], wait: 1, move: [18, 0],
       bdy: { x: 26, y: 12, w: 45, h: 24 },
-      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, njury: 30, move: [7, 0], next: 'falling', }
+      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, injury: 30, move: [7, 0], next: 'falling', }
     },
     standing9: {
       next: 'standing10', pic: ['ball', 2, 0], center: [55, 24], wait: 1, move: [20, 0],
       bdy: { x: 26, y: 12, w: 45, h: 24 },
-      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, njury: 30, move: [7, 0], next: 'falling', }
+      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, injury: 30, move: [7, 0], next: 'falling', }
     },
     standing10: {
       next: 'standing9', pic: ['ball', 2, 1], center: [55, 24], wait: 1, move: [20, 0],
       bdy: { x: 26, y: 12, w: 45, h: 24 },
-      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, njury: 30, move: [7, 0], next: 'falling', }
+      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, injury: 30, move: [7, 0], next: 'falling', }
     },
 
 
