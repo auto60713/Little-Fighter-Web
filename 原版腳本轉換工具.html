@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>原版腳本轉換工具</title>
   <style>
     textarea {
       width: 99%;
@@ -17,6 +17,9 @@
   <textarea rows="10" id="originalScript" placeholder="貼上原版腳本" onchange="scriptConversion()"></textarea>
   <pre id="newScript"></pre>
   <script>
+
+    // 圖片row幾格
+    var picrow = 4;
 
     var ignoreLock;
     var skillname;
@@ -43,8 +46,8 @@
 
           // 第一個不用序號
           array[i] = '';
-          array[i + 1] = '';
-          array[i + 2] += (frameIndex != 1 ? frameIndex : '') + ' :{';
+          array[i + 1] = "'";
+          array[i + 2] += (frameIndex != 1 ? frameIndex : '') + "': {";
           frameIndex++;
         }
 
@@ -151,8 +154,8 @@
       if (element == 'pic:') {
         var n = array[i + 1];
         var filename = Math.floor(n / 70);
-        var col = Math.floor((n - (filename * 70)) / 10);
-        var row = (n % 10);
+        var col = Math.floor((n - (filename * 70)) / picrow);
+        var row = (n % picrow);
 
         array[i] = `\n  pic:`;
         array[i + 1] = `['${filename}', ${col}, ${row}]`;
@@ -189,7 +192,7 @@
         array[i + 1] = '[' + array[i + 1] + ', ';
 
         // 如果沒有第二座標 補上0
-        if (array[i + 3] != n3 + ':') array[i + 1] += ' 0],';
+        if (array[i + 3] != n3 + ':') array[i + 1] += '0], ';
       }
       else if (element == n3 + ':') {
         array[i] = '';
