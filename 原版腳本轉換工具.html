@@ -6,49 +6,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    textarea {
+      width: 99%;
+    }
+  </style>
 </head>
 
-<body onload="qweqwe()">
-  <textarea rows="4" cols="50" id="asd" placeholder="貼上原版腳本" onchange="qweqwe()"></textarea>
-  <pre id="whereToPrint"></pre>
+<body onload="scriptConversion()">
+  <textarea rows="10" id="originalScript" placeholder="貼上原版腳本" onchange="scriptConversion()"></textarea>
+  <pre id="newScript"></pre>
   <script>
-    var ss = false;
-    var skillname = '';
-    var frameIndex = 1;
 
-    function qweqwe() {
-      var asd = document.getElementById('whereToPrint');
-      asd.innerHTML = "";
+    var ignoreLock;
+    var skillname;
+    var frameIndex;
+    var array;
+    var i;
+    var element;
 
-      // 前置
-      var str = document.getElementById('asd').value;
-      var eee = str.replace(/\n/g, '').replace(/<frame>/g, 'qqq:').replace(/<frame_end>/g, 'www:');
-      var array = eee.split(" ");
+    function scriptConversion() {
 
-      for (let i = 0; i < array.length; i++) {
-        const element = array[i];
+      var str = document.getElementById('originalScript').value;
+      array = str.replace(/\n/g, '').split(" ");
+
+      frameIndex = 1;
+
+      for (i = 0; i < array.length; i++) {
+        element = array[i];
 
         // 開頭
         if (i == 2) {
           // 傳給next用
           skillname = array[i];
 
+          array[i - 2] = '';
+          array[i - 1] = '';
           // 第一個不用序號
           array[i] += (frameIndex != 1 ? frameIndex : '') + ' :{';
           frameIndex++;
         }
 
-        // 忽略大標籤
-        notwwwww(element, array, i, 'wpoint');
-        notwwwww(element, array, i, 'bpoint');
+        // 忽略標籤
+        tagsIgnore('wpoint');
+        tagsIgnore('bpoint');
 
-        // 要的大標籤
-        wwwww(element, array, i, 'itr');
-        wwwww(element, array, i, 'opoint');
-        wwwww(element, array, i, 'bdy');
+        // 保留標籤
+        tagsReserved('itr');
+        tagsReserved('opoint');
+        tagsReserved('bdy');
 
         // 忽略屬性
-        notabb(element, array, i, [
+        attributeIgnore([
           'state',
           'dvz',
           'sound',
@@ -60,17 +69,16 @@
           'hit_',
           'mp',
           'facing',
-          'qqq',
           '\n',
         ], 2);
 
-        notabb(element, array, i, [
+        attributeIgnore([
           'catchingact',
           'caughtact',
         ], 3);
 
         // 要的屬性
-        needabb(element, array, i, [
+        attributeRetention([
           'pic:',
           'wait:',
           'next:',
@@ -82,82 +90,46 @@
         ]);
 
         // 替換屬性名
-        changename(array, i, element, 'action:', 'name:');
-        changename(array, i, element, 'oid:', 'frame:');
+        changename('action:', 'name:');
+        changename('oid:', 'frame:');
 
         // 座標類合併
-        naasdasdme(element, array, i, 'move', 'dvx', 'dvy');
-        naasdasdme(element, array, i, 'center', 'centerx', 'centery');
-
+        attributeMerge('move', 'dvx', 'dvy');
+        attributeMerge('center', 'centerx', 'centery');
 
       }
 
-      var eeeeeeeeeee = '';
-      for (let i = 0; i < array.length; i++) {
-        if (array[i] != '') eeeeeeeeeee += array[i] + ' ';
-        if (i == array.length - 1 && array[i] == '') eeeeeeeeeee += '\n},';
-      }
-
-
-
-      document.getElementById("whereToPrint").innerHTML = eeeeeeeeeee;
+      // 印出
+      document.getElementById("newScript").innerText = '';
+      for (let i = 0; i < array.length; i++)
+        if (array[i] != '') document.getElementById("newScript").innerText += array[i] + ' ';
     }
 
 
-    // 替換大標籤
-    function wwwww(element, array, i, tagname) {
-      if (element == tagname + ':') {
+    // 忽略標籤
+    function tagsIgnore(tagname) {
+      if (element == tagname + ':') ignoreLock = true;
+      if (ignoreLock) array[i] = '';
+      if (element == tagname + '_end:') ignoreLock = false;
+      else if (element == tagname + '_end:<frame_end>') {
+        ignoreLock = false;
+        array[i] = '\n},';
+      }
+    }
+
+    // 保留標籤
+    function tagsReserved(tagname) {
+      if (element == tagname + ':')
         array[i] = '\n  ' + tagname + ': {';
-      }
-      else if (element == tagname + '_end:') {
+      else if (element == tagname + '_end:')
         array[i] = '},';
-      }
-      else if (element == tagname + '_end:www:') {
+      else if (element == tagname + '_end:<frame_end>')
         array[i] = '},\n},';
-      }
     }
-
-
-    // 忽略大標籤
-    function notwwwww(element, array, i, tagname) {
-      if (element == tagname + ':') ss = true;
-      if (ss) array[i] = '';
-      if (element == tagname + '_end:') ss = false;
-      // if (element == tagname + '_end:www:qqq:') {
-      //   ss = false;
-      //   array[i] = '\n},\n';
-      // }
-    }
-
-    // 需要屬性
-    function needabb(element, array, i, ttt) {
-
-      if (element == 'pic:') {
-        var n = array[i + 1];
-        var a = Math.floor(n / 70);
-        var b = Math.floor((n - (a * 70)) / 10);
-        var c = (n % 10);
-
-        array[i] = `\n  pic:`;
-        array[i + 1] = `['${a}', ${b}, ${c}]`;
-      }
-
-      else if (element == 'next:') {
-        array[i + 1] = "'" + skillname + frameIndex + "'";
-      }
-
-
-
-      // 後面補逗點
-      ttt.forEach(abname => {
-        if (element == abname) array[i + 1] += ',';
-      });
-    }
-
 
     // 忽略屬性
-    function notabb(element, array, i, ttt, sptime) {
-      ttt.forEach(abname => {
+    function attributeIgnore(list, sptime) {
+      list.forEach(abname => {
         if (element.indexOf(abname) >= 0) {
           for (let j = 0; j < sptime; j++)
             array[i + j] = '';
@@ -165,34 +137,53 @@
       });
     }
 
-    // 更換屬性名
-    function changename(array, i, element, name1, name2) {
+    // 保留屬性
+    function attributeRetention(list) {
+
+      if (element == 'pic:') {
+        var n = array[i + 1];
+        var filename = Math.floor(n / 70);
+        var col = Math.floor((n - (filename * 70)) / 10);
+        var row = (n % 10);
+
+        array[i] = `\n  pic:`;
+        array[i + 1] = `['${filename}', ${col}, ${row}]`;
+      }
+
+      else if (element == 'next:') {
+        array[i + 1] = "'" + skillname + frameIndex + "'";
+      }
+
+      // 後面補逗點
+      list.forEach(abname => {
+        if (element == abname) array[i + 1] += ',';
+      });
+    }
+
+    // 更換屬性
+    function changename(name1, name2) {
       if (element == name1) {
         array[i] = name2;
         array[i + 1] += ','
       }
     }
 
+    // 座標合併
+    function attributeMerge(n1, n2, n3) {
 
-
-
-    // 座標類
-    function naasdasdme(element, array, i, n1, n2, n3) {
-
-      if (ss) return;
+      if (ignoreLock) return;
 
       if (element == n2 + ':') {
-        array.splice(i, 2, n1 + ':[' + array[i + 1]+',');
-        // array[i] = `\n  pic:`;
-        dd = true;
+        array[i] = n1 + ':';
+        array[i + 1] = '[' + array[i + 1] + ',';
+
+        // 如果沒有第二座標 補上0
+        if (array[i + 3] != n3 + ':') array[i + 1] += ' 0],';
       }
       else if (element == n3 + ':') {
-        array.splice(i, 2, '' + array[i + 1] + '],');
-        dd = false;
+        array[i] = '';
+        array[i + 1] = array[i + 1] + '],';
       }
-
-      // 如果沒有第二座標 補上0
-      // if (array[i + 3] != n3 + ':') array[i + 1] += ', 0],';
     }
 
   </script>
