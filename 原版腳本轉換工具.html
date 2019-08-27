@@ -28,22 +28,23 @@
     function scriptConversion() {
 
       var str = document.getElementById('originalScript').value;
-      array = str.replace(/\n/g, '').split(" ");
+      array = str.replace(/\n/g, '').replace(/<frame_end>/g, ' <frame_end> ').split(" ");
 
       frameIndex = 1;
 
       for (i = 0; i < array.length; i++) {
         element = array[i];
 
+        // console.log(element);
         // 開頭
-        if (i == 2) {
+        if (element == '<frame>') {
           // 傳給next用
-          skillname = array[i];
+          skillname = array[i + 2];
 
-          array[i - 2] = '';
-          array[i - 1] = '';
           // 第一個不用序號
-          array[i] += (frameIndex != 1 ? frameIndex : '') + ' :{';
+          array[i] = '';
+          array[i + 1] = '';
+          array[i + 2] += (frameIndex != 1 ? frameIndex : '') + ' :{';
           frameIndex++;
         }
 
@@ -63,7 +64,6 @@
           'sound',
           'kind',
           'fall:',
-          'rest',
           'bdefend',
           'effect',
           'hit_',
@@ -72,16 +72,19 @@
           '\n',
         ], 2);
 
+        // 忽略屬性
         attributeIgnore([
           'catchingact',
           'caughtact',
         ], 3);
 
-        // 要的屬性
+        // 保留屬性
         attributeRetention([
           'pic:',
           'wait:',
           'next:',
+          'vrest:',
+          'arest:',
           'injury:',
           'x:',
           'y:',
@@ -89,7 +92,7 @@
           'h:',
         ]);
 
-        // 替換屬性名
+        // 替換屬性
         changename('action:', 'name:');
         changename('oid:', 'frame:');
 
@@ -101,30 +104,35 @@
 
       // 印出
       document.getElementById("newScript").innerText = '';
-      for (let i = 0; i < array.length; i++)
-        if (array[i] != '') document.getElementById("newScript").innerText += array[i] + ' ';
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] != '') document.getElementById("newScript").innerText += array[i];
+      }
+
     }
 
+    // =====================================================================
+    // API
+    // =====================================================================
 
     // 忽略標籤
     function tagsIgnore(tagname) {
       if (element == tagname + ':') ignoreLock = true;
       if (ignoreLock) array[i] = '';
       if (element == tagname + '_end:') ignoreLock = false;
-      else if (element == tagname + '_end:<frame_end>') {
+      else if (element == '<frame_end>') {
         ignoreLock = false;
-        array[i] = '\n},';
+        array[i] = '\n},\n';
       }
     }
 
     // 保留標籤
     function tagsReserved(tagname) {
       if (element == tagname + ':')
-        array[i] = '\n  ' + tagname + ': {';
+        array[i] = '\n  ' + tagname + ': { ';
       else if (element == tagname + '_end:')
         array[i] = '},';
-      else if (element == tagname + '_end:<frame_end>')
-        array[i] = '},\n},';
+      else if (element == '<frame_end>')
+        array[i] = '\n},\n';
     }
 
     // 忽略屬性
@@ -156,7 +164,10 @@
 
       // 後面補逗點
       list.forEach(abname => {
-        if (element == abname) array[i + 1] += ',';
+        if (element == abname) {
+          array[i] += ' ';
+          array[i + 1] += ', ';
+        }
       });
     }
 
@@ -174,15 +185,15 @@
       if (ignoreLock) return;
 
       if (element == n2 + ':') {
-        array[i] = n1 + ':';
-        array[i + 1] = '[' + array[i + 1] + ',';
+        array[i] = n1 + ': ';
+        array[i + 1] = '[' + array[i + 1] + ', ';
 
         // 如果沒有第二座標 補上0
         if (array[i + 3] != n3 + ':') array[i + 1] += ' 0],';
       }
       else if (element == n3 + ':') {
         array[i] = '';
-        array[i + 1] = array[i + 1] + '],';
+        array[i + 1] = array[i + 1] + '], ';
       }
     }
 
