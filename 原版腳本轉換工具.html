@@ -20,6 +20,7 @@
 
     // 圖片row幾格
     var picrow = 4;
+    var characterName = 'Davis';
 
     var ignoreLock;
     var skillname;
@@ -96,8 +97,8 @@
         ]);
 
         // 替換屬性
-        changename('action:', 'name:');
-        changename('oid:', 'frame:');
+        changename('action:', 'name:', characterName);
+        changename('oid:', 'frame:', 'standing');
 
         // 座標類合併
         attributeMerge('move', 'dvx', 'dvy');
@@ -162,7 +163,7 @@
       }
 
       else if (element == 'next:') {
-        array[i + 1] = "'" + skillname + frameIndex + "'";
+        if (array[i + 1] != 999 && array[i + 1] != 1000) array[i + 1] = "'" + skillname + frameIndex + "'";
       }
 
       // 後面補逗點
@@ -175,10 +176,10 @@
     }
 
     // 更換屬性
-    function changename(name1, name2) {
+    function changename(name1, name2, val) {
       if (element == name1) {
-        array[i] = name2;
-        array[i + 1] += ','
+        array[i] = name2 + ' ';
+        array[i + 1] = "'" + val + "', "
       }
     }
 
