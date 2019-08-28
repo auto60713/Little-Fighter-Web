@@ -152,37 +152,40 @@ lf2.character.Davis = {
       bdy: { x: 21, y: 6, w: 29, h: 58, },
     },
 
+
+  
     // 跑攻
     'run_attack': {
-      pic: ['1', 3, 0], wait: 2, next: 'run_attack2', move: [0, 0], center: [35, 79],
+      pic: ['1', 3, 0], wait: 2, next: 'run_attack2', move: [0, 0], center: [35, 79], 
       bdy: { x: 17, y: 25, w: 44, h: 54, },
     },
     'run_attack2': {
-      pic: ['1', 3, 1], wait: 1, next: 'run_attack3', move: [16, 0], center: [30, 79],
+      pic: ['1', 3, 1], wait: 1, next: 'run_attack3', move: [16, 0], center: [30, 79], 
       bdy: { x: 25, y: 24, w: 31, h: 55, },
     },
     'run_attack3': {
-      pic: ['1', 3, 2], wait: 1, next: 'run_attack4', move: [0, 0], center: [25, 79],
-      itr: { x: -18, y: 24, w: 88, h: 30, move: [20, 0], vrest: 7, injury: 55, },
+      pic: ['1', 3, 2], wait: 1, next: 'run_attack4', move: [0, 0], center: [25, 79], 
+      itr: { x: -18, y: 24, w: 88, h: 30, move: [20, 0], fall: true, vrest: 7, injury: 55, },
       bdy: { x: 15, y: 19, w: 37, h: 62, },
     },
     'run_attack4': {
-      pic: ['1', 3, 3], wait: 3, next: 'run_attack5', move: [0, 0], center: [20, 79],
-      itr: { x: 28, y: 25, w: 43, h: 27, move: [17, 0], vrest: 10, injury: 40, },
+      pic: ['1', 3, 3], wait: 3, next: 'run_attack5', move: [0, 0], center: [20, 79], 
+      itr: { x: 28, y: 25, w: 43, h: 27, move: [17, 0], fall: true, vrest: 10, injury: 40, },
       bdy: { x: 14, y: 14, w: 43, h: 67, },
     },
     'run_attack5': {
-      pic: ['1', 3, 4], wait: 2, next: 'run_attack6', move: [0, 0], center: [20, 79],
+      pic: ['1', 3, 4], wait: 2, next: 'run_attack6', move: [0, 0], center: [20, 79], 
       bdy: { x: 14, y: 14, w: 43, h: 67, },
     },
     'run_attack6': {
-      pic: ['1', 3, 5], wait: 2, next: 'run_attack7', move: [0, 0], center: [30, 79],
+      pic: ['1', 3, 5], wait: 2, next: 'run_attack7', move: [0, 0], center: [30, 79], 
       bdy: { x: 20, y: 11, w: 31, h: 68, },
     },
     'run_attack7': {
-      pic: ['1', 3, 6], wait: 1, next: 999, move: [0, 0], center: [32, 79],
+      pic: ['1', 3, 6], wait: 1, next: 999, move: [0, 0], center: [32, 79], 
       bdy: { x: 20, y: 11, w: 31, h: 68, },
     },
+    
 
 
     // 跑跳攻
@@ -294,6 +297,17 @@ lf2.character.Davis = {
     },
 
 
+    'injured': {
+      pic: ['1', 5, 0], wait: 2, next: 'injured2', move: [0, 0], center: [35, 79], 
+      bdy: { x: 25, y: 17, w: 29, h: 61, },
+    },
+    'injured2': {
+      pic: ['1', 5, 1], wait: 3, next: 999, move: [0, 0], center: [34, 79], 
+      bdy: { x: 32, y: 16, w: 27, h: 63, },
+      bdy: { x: 22, y: 37, w: 26, h: 42, },
+    },
+    
+
 
     // ==============================================================================
     // 技能
@@ -336,7 +350,7 @@ lf2.character.Davis = {
     },
     'many_punch2': {
       pic: ['2', 1, 4], wait: 1, next: 'many_punch3', move: [5, 0], center: [33, 79],
-      itr: { x: 17, y: 35, w: 61, h: 13, move: [7, 0], vrest: 7, injury: 25, },
+      itr: { x: 17, y: 35, w: 61, h: 13, move: [7, 0], fall: false, vrest: 7, injury: 25, },
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
     'many_punch3': {
@@ -345,7 +359,7 @@ lf2.character.Davis = {
     },
     'many_punch4': {
       pic: ['2', 1, 6], wait: 1, next: 'many_punch5', move: [3, 0], center: [32, 79],
-      itr: { x: 14, y: 35, w: 58, h: 18, move: [7, 0], vrest: 7, injury: 25, },
+      itr: { x: 14, y: 35, w: 58, h: 18, move: [7, 0], fall: false, vrest: 7, injury: 25, },
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
     'many_punch5': {
@@ -358,7 +372,7 @@ lf2.character.Davis = {
     },
     'many_punch7': {
       pic: ['2', 1, 9], wait: 1, next: 'many_punch8', move: [5, 0], center: [22, 79],
-      itr: { x: -1, y: 22, w: 81, h: 25, move: [10, 0], vrest: 7, injury: 25, },
+      itr: { x: -1, y: 22, w: 81, h: 25, move: [10, 0], fall: false, vrest: 7, injury: 25, },
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
     'many_punch8': {
@@ -375,7 +389,7 @@ lf2.character.Davis = {
     },
     'many_punch11': {
       pic: ['2', 2, 6], wait: 1, next: 'many_punch12', move: [3, 0], center: [22, 79],
-      itr: { x: 12, y: 11, w: 70, h: 51, move: [7, -15], vrest: 15, injury: 25, },
+      itr: { x: 12, y: 11, w: 70, h: 51, move: [7, -7], fall: true, vrest: 15, injury: 25, },
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
     'many_punch12': {
@@ -387,40 +401,43 @@ lf2.character.Davis = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
 
+
+
     'singlong': {
-      pic: ['2', 3, 0], wait: 1, next: 'singlong2', move: [7, -9], center: [30, 76],
+      pic: ['2', 3, 0], wait: 1, next: 'singlong2', move: [7, -9], center: [30, 76], 
     },
     'singlong2': {
-      pic: ['2', 3, 1], wait: 1, next: 'singlong3', move: [0, 0], center: [28, 79],
-      itr: { x: 10, y: 3, w: 72, h: 75, move: [7, -13], vrest: 10, injury: 85, },
+      pic: ['2', 3, 1], wait: 1, next: 'singlong3', move: [0, 0], center: [28, 79], 
+      itr: { x: 10, y: 3, w: 72, h: 75, move: [7, -13], fall: true, vrest: 10, injury: 85, },
     },
     'singlong3': {
-      pic: ['2', 3, 2], wait: 1, next: 'singlong4', move: [0, 0], center: [26, 81],
-      itr: { x: 13, y: -1, w: 67, h: 80, move: [7, -11], vrest: 10, injury: 60, },
+      pic: ['2', 3, 2], wait: 1, next: 'singlong4', move: [0, 0], center: [26, 81], 
+      itr: { x: 13, y: -1, w: 67, h: 80, move: [7, -11], fall: true, vrest: 10, injury: 60, },
       bdy: { x: 19, y: 7, w: 36, h: 69, },
     },
     'singlong4': {
-      pic: ['2', 3, 3], wait: 1, next: 'singlong5', move: [0, 0], center: [26, 78],
-      itr: { x: 11, y: -2, w: 63, h: 80, move: [7, -9], vrest: 10, injury: 45, },
+      pic: ['2', 3, 3], wait: 1, next: 'singlong5', move: [0, 0], center: [26, 78], 
+      itr: { x: 11, y: -2, w: 63, h: 80, move: [7, -9], fall: true, vrest: 10, injury: 45, },
       bdy: { x: 22, y: 6, w: 30, h: 69, },
     },
     'singlong5': {
-      pic: ['2', 3, 4], wait: 2, next: 'singlong6', move: [0, 0], center: [34, 81],
-      itr: { x: 19, y: 1, w: 61, h: 80, move: [7, -7], vrest: 10, injury: 30, },
+      pic: ['2', 3, 4], wait: 2, next: 'singlong6', move: [0, 0], center: [34, 81], 
+      itr: { x: 19, y: 1, w: 61, h: 80, move: [7, -7], fall: true, vrest: 10, injury: 30, },
       bdy: { x: 28, y: 12, w: 29, h: 66, },
     },
     'singlong6': {
-      pic: ['2', 3, 5], wait: 2, next: 'singlong7', move: [0, 0], center: [33, 75],
+      pic: ['2', 3, 5], wait: 2, next: 'singlong7', move: [0, 0], center: [33, 75], 
       bdy: { x: 27, y: 7, w: 28, h: 65, },
     },
     'singlong7': {
-      pic: ['2', 3, 6], wait: 3, next: 'singlong8', move: [0, 0], center: [29, 74],
+      pic: ['2', 3, 6], wait: 3, next: 'singlong8', move: [0, 0], center: [29, 74], 
       bdy: { x: 23, y: 11, w: 30, h: 61, },
     },
     'singlong8': {
-      pic: ['2', 3, 7], wait: 2, next: 999, move: [0, 0], center: [29, 73],
+      pic: ['2', 3, 7], wait: 2, next: 999, move: [0, 0], center: [29, 73], 
       bdy: { x: 21, y: 3, w: 33, h: 68, },
     },
+    
 
 
 

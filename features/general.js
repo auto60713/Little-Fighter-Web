@@ -1,13 +1,16 @@
 
 lf2.variousChangesFrame = (setting, frame, type, thing) => {
 
+  var qqqq = lf2.amIBeingBeaten(setting, frame, type, thing);
   // 被打偵測
-  if (!setting.catching && lf2.amIBeingBeaten(setting, frame, type, thing)) {
+  if (!setting.catching && qqqq[0]) {
     lf2.adjunction('UI', 'hit', {
       x: setting.x,
       y: setting.y,
     });
-    lf2.gotoFrame(thing, setting, type, 'falling');
+
+    if (qqqq[1]) lf2.gotoFrame(thing, setting, type, 'falling');
+    else lf2.gotoFrame(thing, setting, type, 'injured');
   }
   // 被抓換動作
   else if (setting.catching) {
@@ -113,6 +116,7 @@ lf2.gotoFrame = (thing, setting, type, next) => {
 // 被打偵測
 lf2.amIBeingBeaten = (setting, frame, type, thing) => {
   var isHit = false;
+  var knockDown = false;
   if (frame.bdy) {
     ['character', 'derivative'].forEach(dettype => {
       lf2.scenes[dettype].forEach(det => {
@@ -129,6 +133,8 @@ lf2.amIBeingBeaten = (setting, frame, type, thing) => {
               && setting.y + frame.bdy.y + frame.bdy.h >= det.setting.y + detFrame.itr.y
               // 被打最上邊 < 打人最下邊
               && setting.y + frame.bdy.y < det.setting.y + detFrame.itr.y + detFrame.itr.h) {
+
+
               // 被打的中間
               var sc = setting.x + frame.bdy.x + (frame.bdy.w / 2);
               // 打人的中間
@@ -151,8 +157,14 @@ lf2.amIBeingBeaten = (setting, frame, type, thing) => {
                   m = det.setting.mirror ? -1 : 1;
                 }
                 const m2 = setting.mirror ? -1 : 1;
-                if (type == 'character') thing.frame['falling'].move = [detFrame.itr.move[0] * m * m2, detFrame.itr.move[1]];
 
+                if (type == 'character') {
+                  knockDown = detFrame.itr.fall;
+
+                  if (knockDown) thing.frame['falling'].move = [detFrame.itr.move[0] * m * m2, detFrame.itr.move[1]];
+                  else thing.frame['injured'].move = [detFrame.itr.move[0] * m * m2, detFrame.itr.move[1]];
+                }
+                else knockDown = true;
 
                 isHit = true;
               }
@@ -164,7 +176,7 @@ lf2.amIBeingBeaten = (setting, frame, type, thing) => {
       });
     });
   }
-  return isHit;
+  return [isHit, knockDown];
 }
 
 
