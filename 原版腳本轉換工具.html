@@ -20,8 +20,9 @@
   <script>
 
     // 圖片row幾格
-    var picrow = 7;
-    var characterName = 'Freeze';
+    var picrow = 10;
+    var characterName = 'John';
+    var picstart = 0;
 
     // FIXME: 出版前要在包裝一下 例如參數設定欄 複製提示等
 
@@ -38,6 +39,7 @@
       array = str.replace(/\n/g, '').replace(/<frame_end>/g, ' <frame_end> ').split(" ");
 
       frameIndex = 1;
+      skillname = null;
 
       for (i = 0; i < array.length; i++) {
         element = array[i];
@@ -45,12 +47,12 @@
         // 開頭
         if (element == '<frame>') {
           // 傳給next用
-          skillname = array[i + 2];
+          if (!skillname) skillname = array[i + 2];
 
           // 第一個不用序號
           array[i] = '';
           array[i + 1] = "'";
-          array[i + 2] += (frameIndex != 1 ? frameIndex : '') + "': {";
+          array[i + 2] = skillname + (frameIndex != 1 ? frameIndex : '') + "': {";
           frameIndex++;
         }
 
@@ -90,6 +92,7 @@
           'throwinjury:',
           'dircontrol:',
           'decrease:',
+          'zwidth:',
         ], 3);
 
         // 保留屬性
@@ -188,7 +191,7 @@
     function attributeRetention(list) {
 
       if (element == 'pic:') {
-        var n = array[i + 1];
+        var n = array[i + 1] - picstart;
         var filename = Math.floor(n / 70);
         var col = Math.floor((n - (filename * 70)) / picrow);
         var row = (n % picrow);

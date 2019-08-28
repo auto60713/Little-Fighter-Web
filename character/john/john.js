@@ -5,7 +5,7 @@ lf2.character.John = {
       '0': { deputy: 'png', w: 80, h: 80 },
       '1': { deputy: 'png', w: 80, h: 80 },
       '2': { deputy: 'png', w: 80, h: 80 },
-      '3': { deputy: 'png', w: 80, h: 80 },
+      '3': { deputy: 'png', w: 110, h: 110 },
     },
     walkingSpeed: 4,
     jumpPower: 4.5,
@@ -13,287 +13,280 @@ lf2.character.John = {
     HP: 500,
   },
   frame: {
-
-    // 站立
-    standing: {
-      next: 'standing2', pic: ['0', 0, 0], center: [40, 80], wait: 4, flip: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    'standing': {
+      pic: ['0', 0, 0], wait: 6, next: 'standing2', move: [0, 0], center: [39, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'heal', B5: 'forceField', B4: 'DAaction',
+        B1: 'punch', B2: 'defend', B6: 'heal', B5: 'force_field', B4: 'DA_action',
       },
     },
-    standing2: {
-      next: 'standing3', pic: ['0', 1, 0], center: [40, 80], wait: 4, flip: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    'standing2': {
+      pic: ['0', 0, 1], wait: 5, next: 'standing3', move: [0, 0], center: [39, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'heal', B5: 'forceField', B4: 'DAaction',
+        B1: 'punch', B2: 'defend', B6: 'heal', B5: 'force_field', B4: 'DA_action',
       },
     },
-    standing3: {
-      next: 'standing4', pic: ['0', 2, 0], center: [40, 80], wait: 4, flip: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    'standing3': {
+      pic: ['0', 0, 2], wait: 5, next: 'standing4', move: [0, 0], center: [39, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'heal', B5: 'forceField', B4: 'DAaction',
+        B1: 'punch', B2: 'defend', B6: 'heal', B5: 'force_field', B4: 'DA_action',
       },
     },
-    standing4: {
-      next: 999, pic: ['0', 3, 0], center: [40, 80], wait: 4, flip: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    'standing4': {
+      pic: ['0', 0, 3], wait: 6, next: 999, move: [0, 0], center: [39, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'heal', B5: 'forceField', B4: 'DAaction',
+        B1: 'punch', B2: 'defend', B6: 'heal', B5: 'force_field', B4: 'DA_action',
       },
     },
-
-
-    // 走路
-    walking: {
-      next: 'walking2', pic: ['0', 4, 0], center: [40, 80], wait: 4, move: [4, 0], flip: true, hitHold: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      hit: {
-        RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'heal', B5: 'forceField', B4: 'DAaction',
-      },
+    'walking': {
+      pic: ['0', 0, 4], wait: 3, next: 999, move: [0, 0], center: [39, 78],
+      itr: { x: 40, y: 16, w: 25, h: 65, },
+      bdy: { x: 28, y: 15, w: 27, h: 65, },
     },
-    walking2: {
-      next: 'walking3', pic: ['0', 5, 0], center: [40, 80], wait: 4, move: [4, 0], flip: true, hitHold: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      hit: {
-        RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'heal', B5: 'forceField', B4: 'DAaction',
-      },
+    'walking2': {
+      pic: ['0', 0, 5], wait: 3, next: 999, move: [0, 0], center: [41, 79],
+      itr: { x: 40, y: 16, w: 25, h: 65, },
+      bdy: { x: 28, y: 15, w: 27, h: 65, },
     },
-    walking3: {
-      next: 'walking4', pic: ['0', 6, 0], center: [40, 80], wait: 4, move: [4, 0], flip: true, hitHold: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      hit: {
-        RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'heal', B5: 'forceField', B4: 'DAaction',
-      },
+    'walking3': {
+      pic: ['0', 0, 6], wait: 3, next: 999, move: [0, 0], center: [41, 79],
+      itr: { x: 40, y: 16, w: 25, h: 65, },
+      bdy: { x: 28, y: 15, w: 27, h: 65, },
     },
-    walking4: {
-      next: 'walking', pic: ['0', 7, 0], center: [40, 80], wait: 4, move: [4, 0], flip: true, hitHold: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      hit: {
-        RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'heal', B5: 'forceField', B4: 'DAaction',
-      },
+    'walking4': {
+      pic: ['0', 0, 7], wait: 3, next: 999, move: [0, 0], center: [42, 78],
+      itr: { x: 40, y: 16, w: 25, h: 65, },
+      bdy: { x: 28, y: 15, w: 27, h: 65, },
     },
-
-
-
-    // 跑步
-    run: {
-      next: 'run2', pic: ['0', 0, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      hit: {
-        U: 'dash',
-        B1: 'punch', B2: 'defend', B6: 'heal', B5: 'forceField', B4: 'DAaction',
-      },
+    'running': {
+      pic: ['0', 2, 0], wait: 3, next: 0, move: [0, 0], center: [32, 79], sound: '003.wav',
+      bdy: { x: 25, y: 19, w: 38, h: 60, },
     },
-    run2: {
-      next: 'run3', pic: ['0', 1, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      hit: {
-        U: 'dash',
-        B1: 'punch', B2: 'defend', B6: 'heal', B5: 'forceField', B4: 'DAaction',
-      },
+    'running2': {
+      pic: ['0', 2, 1], wait: 3, next: 0, move: [0, 0], center: [32, 79],
+      bdy: { x: 25, y: 19, w: 38, h: 60, },
     },
-    run3: {
-      next: 'running', pic: ['0', 2, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      hit: {
-        U: 'dash',
-        B1: 'punch', B2: 'defend', B6: 'heal', B5: 'forceField', B4: 'DAaction',
-      },
+    'running3': {
+      pic: ['0', 2, 2], wait: 3, next: 0, move: [0, 0], center: [26, 79], sound: '004.wav',
+      bdy: { x: 25, y: 19, w: 38, h: 60, },
     },
-
-
-    // 跑步跳躍
-    runJumpPre: {
-      next: 'runJumping', pic: ['0', 3, 6], center: [40, 80], wait: 0, move: [6, -5],
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    'punch': {
+      pic: ['0', 1, 0], wait: 2, next: 'punch2', move: [1, 0], center: [35, 79],
+      itr: { x: 21, y: 57, w: 37, h: 24, vrest: 1, },
+      bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
-    runJumping: {
-      next: 'runJumping', pic: ['0', 3, 6], center: [40, 80], wait: 20,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      hit: {
-        B1: 'jump_attack',
-      },
+    'punch2': {
+      pic: ['0', 1, 1], wait: 3, next: 999, move: [0, 0], center: [21, 79], sound: '007.wav',
+      itr: { x: 26, y: 37, w: 52, h: 14, move: [2, 0], injury: 20, },
+      bdy: { x: 13, y: 12, w: 29, h: 68, },
+      bdy: { x: 2, y: 38, w: 60, h: 18, },
     },
-
-
-    // 跳躍
-    jumpPre: {
-      next: 'jumping', pic: ['0', 0, 6], center: [40, 80], wait: 1, move: [0, -8], flip: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      hit: {
-        R: 'jumpPreMove', L: 'jumpPreMove',
-      },
+    'jump_attack': {
+      pic: ['0', 1, 4], wait: 4, next: 'jump_attack2', move: [0, 0], center: [39, 70], sound: '007.wav',
+      bdy: { x: 25, y: 13, w: 25, h: 58, },
     },
-    jumpPreMove: {
-      next: 'jumping', pic: ['0', 0, 6], center: [40, 80], wait: 0, move: [4, -8], flip: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    'jump_attack2': {
+      pic: ['0', 1, 5], wait: 2, next: 'jump_attack3', move: [0, 0], center: [39, 70],
+      itr: { x: 37, y: 30, w: 36, h: 20, move: [7, 0], fall: true, arest: 15, injury: 45, },
+      bdy: { x: 24, y: 10, w: 31, h: 57, },
     },
-    jumping: {
-      next: 'jumping', pic: ['0', 2, 6], center: [40, 80], wait: 20, flip: true,
-
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      hit: {
-        B1: 'jump_attack',
-      },
+    'jump_attack3': {
+      pic: ['0', 1, 6], wait: 2, next: 'jump_attack4', move: [0, 0], center: [39, 70],
+      itr: { x: 46, y: 40, w: 31, h: 21, move: [7, 0], fall: true, arest: 15, injury: 45, },
+      bdy: { x: 30, y: 7, w: 28, h: 61, },
     },
-
-
-    // 跳攻擊
-    jumpAttack: {
-      next: 'jumpAttack2', pic: ['0', 4, 1], center: [40, 80], wait: 2,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    'jump_attack4': {
+      pic: ['0', 1, 7], wait: 5, next: 999, move: [0, 0], center: [39, 70],
+      bdy: { x: 33, y: 9, w: 36, h: 64, },
     },
-    jumpAttack2: {
-      next: 'jumpAttack3', pic: ['0', 5, 1], center: [40, 80], wait: 2,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, 0], cd: 5, injury: 40, },
+    'run_attack': {
+      pic: ['1', 3, 2], wait: 4, next: 'run_attack2', move: [6, 0], center: [31, 79],
+      bdy: { x: 19, y: 24, w: 35, h: 54, },
+      bdy: { x: 10, y: 36, w: 27, h: 15, },
     },
-    jumpAttack3: {
-      next: 999, pic: ['0', 6, 1], center: [40, 80], wait: 20,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    'run_attack2': {
+      pic: ['1', 3, 3], wait: 2, next: 'run_attack3', move: [4, 0], center: [19, 79], sound: '007.wav',
+      itr: { x: 19, y: 37, w: 61, h: 17, move: [10, 0], fall: true, arest: 15, injury: 50, },
+      bdy: { x: 24, y: 36, w: 55, h: 19, },
+      bdy: { x: 8, y: 51, w: 38, h: 27, },
+      bdy: { x: 23, y: 18, w: 28, h: 23, },
     },
-
-
-
-
-
-    // 跑步攻擊
-    runAttack: {
-      next: 'runAttack2', pic: ['1', 2, 3], center: [40, 80], wait: 2, move: [1, 0],
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    'run_attack3': {
+      pic: ['1', 3, 4], wait: 3, next: 999, move: [0, 0], center: [14, 79],
+      bdy: { x: 18, y: 36, w: 39, h: 24, },
+      bdy: { x: 2, y: 57, w: 41, h: 22, },
+      bdy: { x: 19, y: 20, w: 24, h: 27, },
     },
-    runAttack2: {
-      next: 'runAttack3', pic: ['1', 3, 3], center: [40, 80], wait: 2, move: [1, 0],
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    'dash_attack': {
+      pic: ['1', 3, 6], wait: 3, next: 'dash_attack2', move: [0, 0], center: [38, 73],
+      bdy: { x: 24, y: 18, w: 25, h: 55, },
+      bdy: { x: 13, y: 36, w: 52, h: 18, },
+      bdy: { x: 31, y: 9, w: 25, h: 29, },
     },
-    runAttack3: {
-      next: 'runAttack4', pic: ['1', 4, 3], center: [40, 80], wait: 2, move: [1, 0],
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [10, -2], cd: 5, injury: 40, },
+    'dash_attack2': {
+      pic: ['1', 3, 7], wait: 3, next: '216', move: [0, 0], center: [31, 73], sound: '007.wav',
+      itr: { x: 27, y: 38, w: 53, h: 23, move: [12, 0], fall: true, arest: 20, injury: 70, },
+      bdy: { x: 7, y: 19, w: 37, h: 45, },
+      bdy: { x: 22, y: 36, w: 50, h: 18, },
+      bdy: { x: 24, y: 6, w: 30, h: 34, },
     },
-    runAttack4: {
-      next: 'runAttack5', pic: ['1', 5, 3], center: [40, 80], wait: 2, move: [1, 0],
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [10, -2], cd: 5, injury: 40, },
+    'defend': {
+      pic: ['0', 5, 6], wait: 12, next: 999, move: [0, 0], center: [39, 79],
+      bdy: { x: 20, y: 19, w: 38, h: 60, },
     },
-    runAttack5: {
-      next: 999, pic: ['1', 6, 3], center: [40, 80], wait: 2, move: [1, 0],
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    'falling': {
+      pic: ['0', 3, 0], wait: 3, next: 0, move: [0, 0], center: [39, 79],
+      itr: { x: 21, y: 14, w: 29, h: 44, move: [2, 0], fall: true, vrest: 20, injury: 30, },
+      bdy: { x: 25, y: 25, w: 21, h: 20, },
     },
-
-
-    // 普攻
-    attack: {
-      next: 'attack2', pic: ['0', 0, 1], center: [40, 80], wait: 1, move: [1, 0],
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    'falling2': {
+      pic: ['0', 3, 1], wait: 3, next: 0, move: [0, 0], center: [39, 79],
+      itr: { x: 15, y: 11, w: 42, h: 26, move: [2, 0], fall: true, vrest: 20, injury: 30, },
+      itr: { x: 35, y: 30, w: 27, h: 29, move: [2, 0], fall: true, vrest: 20, injury: 30, },
+      bdy: { x: 22, y: 20, w: 24, h: 23, },
     },
-    attack2: {
-      next: 'attack3', pic: ['0', 1, 1], center: [40, 80], wait: 1,
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, -2], cd: 5, injury: 40, },
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    'falling3': {
+      pic: ['0', 3, 2], wait: 3, next: 0, move: [0, 0], center: [39, 79],
+      itr: { x: 13, y: 18, w: 46, h: 26, move: [2, 0], fall: true, vrest: 20, injury: 30, },
+      bdy: { x: 27, y: 22, w: 20, h: 18, },
     },
-    attack3: {
-      next: 999, pic: ['0', 0, 1], center: [40, 80], wait: 1,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    'falling4': {
+      pic: ['0', 3, 3], wait: 3, next: 0, move: [0, 0], center: [39, 79],
+      itr: { x: 32, y: 18, w: 33, h: 27, move: [2, 0], fall: true, vrest: 20, injury: 30, },
+      itr: { x: 10, y: 38, w: 38, h: 21, move: [2, 0], fall: true, vrest: 20, injury: 30, },
+      bdy: { x: 22, y: 30, w: 27, h: 21, },
+    },
+    'falling5': {
+      pic: ['0', 3, 4], wait: 3, next: 0, move: [0, 0], center: [39, 72],
+    },
+    'jump': {
+      pic: ['0', 6, 0], wait: 1, next: 'jump2', move: [0, 0], center: [39, 79],
+      bdy: { x: 22, y: 24, w: 35, h: 58, },
+    },
+    'jump2': {
+      pic: ['0', 6, 1], wait: 1, next: 'jump3', move: [0, 0], center: [42, 79], sound: '017.wav',
+      bdy: { x: 26, y: 26, w: 34, h: 56, },
+    },
+    'jump3': {
+      pic: ['0', 6, 2], wait: 1, next: 0, move: [0, 0], center: [39, 79],
+      bdy: { x: 28, y: 3, w: 23, h: 65, },
+      bdy: { x: 18, y: 29, w: 48, h: 17, },
+    },
+    'dash': {
+      pic: ['0', 6, 3], wait: 8, next: 'dash2', move: [0, 0], center: [39, 79],
+      bdy: { x: 43, y: 5, w: 23, h: 33, },
+      bdy: { x: 28, y: 29, w: 21, h: 33, },
+      bdy: { x: 18, y: 48, w: 27, h: 21, },
+    },
+    'dash': {
+      pic: ['1', 4, 2], wait: 2, next: 0, move: [0, 0], center: [39, 79],
+      bdy: { x: 35, y: 8, w: 27, h: 27, },
+      bdy: { x: 16, y: 30, w: 39, h: 37, },
+    },
+    'injured': {
+      pic: ['1', 5, 0], wait: 2, next: 'injured2', move: [0, 0], center: [35, 79],
+      bdy: { x: 25, y: 17, w: 29, h: 61, },
+    },
+    'injured2': {
+      pic: ['1', 5, 1], wait: 3, next: 999, move: [0, 0], center: [35, 79],
+      bdy: { x: 32, y: 16, w: 27, h: 63, },
+      bdy: { x: 22, y: 37, w: 26, h: 42, },
     },
 
-
-    // 防禦
-    defense: {
-      next: 'defend', pic: ['0', 6, 5], center: [40, 80], wait: 3, flip: true, hitHold: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
-
-    // 受傷
-    injured: {
-      next: 999, pic: ['0', 6, 0], center: [40, 80], wait: 2,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
-
-
-    // 被打飛
-    falling: {
-      next: 'falling2', pic: ['0', 0, 3], center: [40, 80], wait: 2, falling: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
-    falling2: {
-      next: 'falling3', pic: ['0', 1, 3], center: [40, 80], wait: 2, falling: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
-    falling3: {
-      next: 'falling4', pic: ['0', 2, 3], center: [40, 80], wait: 2, falling: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
-    falling4: {
-      next: 'falling4', pic: ['0', 3, 3], center: [40, 80], wait: 2, falling: true,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
-
-    // 躺地
-    lyingDown: {
-      next: 999, pic: ['0', 4, 3], center: [40, 75], wait: 10, lyingDown: true,
-    },
 
     // ==============================================================================
     // 技能
     // ==============================================================================
 
+    'DA_action': {
+      pic: ['1', 6, 2], wait: 1, next: 'DA_action2', move: [0, 0], center: [25, 79], 
+      bdy: { x: 8, y: 39, w: 61, h: 23, },
+      bdy: { x: 11, y: 12, w: 34, h: 66, },
+    },
+    'DA_action2': {
+      pic: ['1', 6, 3], wait: 1, next: 'DA_action3', move: [0, 0], center: [24, 79], sound: '018.wav', 
+      bdy: { x: 8, y: 39, w: 61, h: 23, },
+      bdy: { x: 9, y: 13, w: 33, h: 66, },
+    },
+    'DA_action3': {
+      pic: ['1', 6, 4], wait: 1, next: 'DAA_action1', move: [0, 0], center: [24, 79], 
+      bdy: { x: 8, y: 39, w: 61, h: 23, },
+      bdy: { x: 8, y: 12, w: 34, h: 68, },
+    },
 
-    shield: {
-      next: 'shield2', pic: ['3', 0, 2], center: [40, 80], wait: 1,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    'DAA_action1': {
+      pic: ['3', 0, 0], wait: 1, next: 'DAA_action12', move: [-4, 0], center: [39, 109], sound: '019.wav', 
+      bdy: { x: 19, y: 42, w: 38, h: 68, },
+      bdy: { x: 10, y: 66, w: 58, h: 19, },
     },
-    shield2: {
-      next: 'shield3', pic: ['3', 1, 2], center: [40, 80], wait: 1,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    'DAA_action12': {
+      pic: ['3', 0, 1], wait: 1, next: 'DAA_action13', move: [0, 0], center: [31, 109], 
+      opoint: { x: 95, y: 78, name: 'John', move: [0, 0], frame: 'standing', },
+      bdy: { x: 9, y: 43, w: 37, h: 65, },
+      bdy: { x: 4, y: 67, w: 57, h: 19, },
     },
-    shield3: {
-      next: 'shield4', pic: ['3', 2, 2], center: [40, 80], wait: 1,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    'DAA_action13': {
+      pic: ['3', 0, 2], wait: 1, next: 'DAA_action14', move: [0, 0], center: [28, 109], 
+      bdy: { x: 0, y: 68, w: 63, h: 16, },
+      bdy: { x: 12, y: 42, w: 31, h: 69, },
     },
-    shield4: {
-      next: 'shield5', pic: ['3', 3, 2], center: [40, 80], wait: 1,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
-    shield5: {
-      next: 'shield6', pic: ['3', 4, 2], center: [40, 80], wait: 1,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
-    shield6: {
-      next: 'shield7', pic: ['3', 5, 2], center: [40, 80], wait: 1,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
-    shield7: {
-      next: 'shield8', pic: ['3', 6, 2], center: [40, 80], wait: 1,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      produce: { name: 'John', frame: 'shield', x: 60, y: 7, },
-    },
-    shield8: {
-      next: 'shield9', pic: ['3', 7, 2], center: [40, 80], wait: 1,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
-    shield9: {
-      next: 'shield10', pic: ['3', 8, 2], center: [40, 80], wait: 1,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
-    shield10: {
-      next: 999, pic: ['3', 9, 2], center: [40, 80], wait: 1,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    'DAA_action14': {
+      pic: ['3', 0, 3], wait: 1, next: 999, move: [0, 0], center: [28, 109], 
+      bdy: { x: 13, y: 42, w: 30, h: 69, },
+      bdy: { x: 4, y: 75, w: 54, h: 13, },
     },
 
 
+   
 
-
+    'force_field': {
+      pic: ['2', 2, 1], wait: 1, next: 'force_field2', move: [0, 0], center: [39, 79], sound: '018.wav',
+      bdy: { x: 17, y: 16, w: 39, h: 64, },
+    },
+    'force_field2': {
+      pic: ['2', 2, 3], wait: 1, next: 'force_field3', move: [0, 0], center: [39, 79], sound: '052.wav',
+      bdy: { x: 17, y: 16, w: 39, h: 64, },
+    },
+    'force_field3': {
+      pic: ['2', 2, 4], wait: 1, next: 'force_field4', move: [0, 0], center: [23, 78],
+      itr: { x: 34, y: 49, w: 28, h: 18, move: [2, 0], injury: 20, },
+      bdy: { x: 17, y: 16, w: 39, h: 64, },
+    },
+    'force_field4': {
+      pic: ['2', 2, 5], wait: 1, next: 'force_field5', move: [0, 0], center: [22, 78],
+      itr: { x: 45, y: 28, w: 33, h: 35, move: [2, 0], injury: 20, },
+      bdy: { x: 17, y: 16, w: 39, h: 64, },
+    },
+    'force_field5': {
+      pic: ['2', 2, 6], wait: 1, next: 'force_field6', move: [0, 0], center: [22, 78],
+      itr: { x: 61, y: 26, w: 18, h: 33, move: [2, 0], injury: 20, },
+      bdy: { x: 17, y: 16, w: 39, h: 64, },
+    },
+    'force_field6': {
+      pic: ['2', 2, 7], wait: 1, next: 'force_field7', move: [0, 0], center: [22, 78],
+      itr: { x: 61, y: 25, w: 17, h: 34, move: [2, 0], injury: 20, },
+      bdy: { x: 17, y: 16, w: 39, h: 64, },
+    },
+    'force_field7': {
+      pic: ['2', 2, 8], wait: 1, next: 'force_field8', move: [0, 0], center: [22, 78],
+      opoint: { x: 73, y: 40, name: 'John', move: [0, 0], frame: 'force_field', },
+      bdy: { x: 17, y: 16, w: 39, h: 64, },
+    },
+    'force_field8': {
+      pic: ['2', 2, 9], wait: 1, next: 'force_field9', move: [0, 0], center: [22, 78],
+      bdy: { x: 17, y: 16, w: 39, h: 64, },
+    },
+    'force_field9': {
+      pic: ['2', 0, 6], wait: 1, next: 999, move: [0, 0], center: [35, 79],
+      bdy: { x: 17, y: 16, w: 39, h: 64, },
+    },
 
 
 
@@ -309,59 +302,80 @@ lf2.derivative.John = {
   setting: {
     name: 'John',
     file: {
-      'ball': { deputy: 'png', w: 81, h: 82 },
+      'ball': { deputy: 'png', w: 82, h: 83 },
     },
     scale: 1,
   },
   frame: {
 
-    standing: {
-      next: 'standing2', pic: ['ball', 0, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'disappear', }
+    'standing': {
+      pic: ['ball', 0, 0], wait: 1, next: 'flying2', move: [18, 0], center: [40, 41],
+      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], fall: true, vrest: 10, injury: 55, next: 'falling', },
+      bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
-    standing2: {
-      next: 'standing3', pic: ['ball', 1, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'disappear', }
+    'flying2': {
+      pic: ['ball', 0, 1], wait: 1, next: 'flying3', move: [18, 0], center: [40, 41],
+      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], fall: true, vrest: 10, injury: 55, next: 'falling', },
+      bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
-    standing3: {
-      next: 'standing4', pic: ['ball', 2, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'disappear', }
+    'flying3': {
+      pic: ['ball', 0, 2], wait: 1, next: 'flying4', move: [18, 0], center: [40, 41],
+      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], fall: true, vrest: 10, injury: 55, next: 'falling', },
+      bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
-    standing4: {
-      next: 'standing', pic: ['ball', 3, 0], center: [40, 82], wait: 2, move: [4, 0],
-      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'disappear', }
+    'flying4': {
+      pic: ['ball', 0, 1], wait: 1, next: 999, move: [18, 0], center: [40, 41],
+      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], fall: true, vrest: 10, injury: 55, next: 'falling', },
+      bdy: { x: 22, y: 27, w: 55, h: 27, },
+    },
+
+    'falling': {
+      pic: ['ball', 0, 4], wait: 1, next: 'hiting2', move: [0, 0], center: [-10, 41],
+    },
+    'hiting2': {
+      pic: ['ball', 0, 5], wait: 1, next: 'hiting3', move: [0, 0], center: [-10, 41],
+    },
+    'hiting3': {
+      pic: ['ball', 0, 6], wait: 1, next: 'hiting4', move: [0, 0], center: [-10, 41],
+    },
+    'hiting4': {
+      pic: ['ball', 0, 7], wait: 1, next: 1000, move: [0, 0], center: [-10, 41],
     },
 
 
-    shield: {
-      next: 'shield1', pic: ['ball', 0, 4], center: [40, 82], wait: 2,
+    'force_field': {
+      pic: ['ball', 4, 0], wait: 2, next: 'force_field2', move: [0, 0], center: [41, 44],
+      itr: { x: 46, y: 30, w: 10, h: 32, move: [10, 0], vrest: 8, injury: 40, fall: true, next: 'force_field6', },
     },
-    shield1: {
-      next: 'shield2', pic: ['ball', 1, 4], center: [40, 82], wait: 2,
+    'force_field2': {
+      pic: ['ball', 4, 1], wait: 2, next: 'force_field3', move: [0, 0], center: [41, 45],
+      itr: { x: 41, y: 21, w: 19, h: 47, move: [10, 0], vrest: 8, injury: 40, fall: true, next: 'force_field6', },
+    },
+    'force_field3': {
+      pic: ['ball', 4, 2], wait: 1, next: 'force_field4', move: [0, 0], center: [35, 41], sound: '051.wav',
+      itr: { x: 33, y: 15, w: 26, h: 55, move: [10, 0], vrest: 8, injury: 40, fall: true, next: 'force_field6', },
+    },
+    'force_field4': {
+      pic: ['ball', 4, 3], wait: 1, next: 'force_field5', move: [0, 0], center: [37, 41],
+      itr: { x: 38, y: 16, w: 21, h: 53, move: [10, 0], vrest: 8, injury: 40, fall: true, next: 'force_field6', },
+    },
+    'force_field5': {
+      pic: ['ball', 4, 4], wait: 1, next: 'force_field3', move: [0, 0], center: [37, 41], keep: [200, 'force_field6'],
+      itr: { x: 36, y: 14, w: 23, h: 55, move: [10, 0], vrest: 8, injury: 40, fall: true, next: 'force_field6', },
     },
 
-    shield2: {
-      next: 'shield3', pic: ['ball', 2, 4], center: [40, 82], wait: 2,
-      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'shield5', }
+
+    'force_field6': {
+      pic: ['ball', 4, 5], wait: 2, next: 'force_field7', move: [0, 0], center: [39, 40], sound: '053.wav',
     },
-    shield3: {
-      next: 'shield4', pic: ['ball', 3, 4], center: [40, 82], wait: 2,
-      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'shield5', }
+    'force_field7': {
+      pic: ['ball', 4, 6], wait: 2, next: 'force_field8', move: [0, 0], center: [33, 39],
     },
-    shield4: {
-      next: 'shield2', pic: ['ball', 4, 4], center: [40, 82], wait: 2, keep: [60, 'shield5'],
-      itr: { x: 0, y: 0, w: 82, h: 83, cd: 100, injury: 40, move: [1, -10], next: 'shield5', }
+    'force_field8': {
+      pic: ['ball', 4, 7], wait: 2, next: 1000, move: [0, 0], center: [33, 38],
     },
 
-    shield5: {
-      next: 'shield6', pic: ['ball', 5, 4], center: [40, 82], wait: 2,
-    },
-    shield6: {
-      next: 'shield7', pic: ['ball', 6, 4], center: [40, 82], wait: 2,
-    },
-    shield7: {
-      next: 1000, pic: ['ball', 7, 4], center: [40, 82], wait: 2,
-    },
+
   }
 };
 
