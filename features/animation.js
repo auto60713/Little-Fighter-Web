@@ -55,6 +55,9 @@ lf2.arrange = (type) => {
         // 製造衍生物
         lf2.produceDerivative(setting, frame, type);
 
+        // 音效
+        lf2.sound(setting, frame);
+
         // 物理行為
         lf2.physical(setting, frame, type, thing);
 
@@ -76,8 +79,7 @@ lf2.arrange = (type) => {
         // 我是機器人
         // lf2.bot(setting, frame, type, thing);
 
-        // 音效
-        lf2.sound(setting, frame);
+
 
       });
 

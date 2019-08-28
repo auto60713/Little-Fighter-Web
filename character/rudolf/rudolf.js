@@ -378,6 +378,14 @@ lf2.derivative.Rudolf = {
   frame: {
 
 
+    'fly': {
+      pic: ['weapon', 0, 0], wait: 0, next: 'standing', move: [13, -3], center: [24, 40], drop: 1000,
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [2, 0], fall: false, injury: 22, next: 'falling', },
+      bdy: { x: 3, y: 4, w: 40, h: 39, },
+    },
+
+
+
     'standing': {
       pic: ['weapon', 0, 0], wait: 1, next: 'throwing2', move: [0, 0], center: [24, 40], drop: 1000,
       itr: { x: 3, y: 4, w: 40, h: 39, move: [2, 0], fall: false, injury: 22, next: 'falling', },
@@ -400,13 +408,7 @@ lf2.derivative.Rudolf = {
     },
 
 
-    'fly': {
-      pic: ['weapon', 0, 0], wait: 1, next: 'throwing2', move: [13, -3], center: [24, 40], drop: 1000,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [2, 0], fall: false, injury: 22, next: 'falling', },
-      bdy: { x: 3, y: 4, w: 40, h: 39, },
-    },
-
-
+  
 
     'injured': {
       pic: ['weapon', 0, 0], wait: 0, next: 'in_the_sky2', move: [-4, -4], center: [24, 40], drop: 1000,
