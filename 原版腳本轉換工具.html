@@ -14,13 +14,16 @@
 </head>
 
 <body onload="scriptConversion()">
-  <textarea rows="10" id="originalScript" placeholder="貼上原版腳本" onchange="scriptConversion()"></textarea>
+  <textarea rows="6" id="originalScript" placeholder="貼上原版腳本" onchange="scriptConversion()"
+    onfocus="((e) => {e.value=''})(this)"></textarea>
   <pre id="newScript"></pre>
   <script>
 
     // 圖片row幾格
-    var picrow = 4;
-    var characterName = 'Davis';
+    var picrow = 10;
+    var characterName = 'Woody';
+
+    // FIXME: 出版前要在包裝一下 例如參數設定欄 複製提示等
 
     var ignoreLock;
     var skillname;
@@ -109,14 +112,27 @@
       // 印出
       document.getElementById("newScript").innerText = '';
       for (let i = 0; i < array.length; i++) {
-        if (array[i] != '') document.getElementById("newScript").innerText += array[i];
+        if (array[i] != '' && array[i] != ' ') document.getElementById("newScript").innerText += array[i];
       }
 
+      // 自動複製新腳本
+      copyText("newScript");
     }
 
     // =====================================================================
     // API
     // =====================================================================
+
+    // 複製新腳本
+    function copyText(element) {
+      var text = document.getElementById(element);
+      var selection = window.getSelection();
+      var range = document.createRange();
+      range.selectNodeContents(text);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      document.execCommand('copy');
+    }
 
     // 忽略標籤
     function tagsIgnore(tagname) {
