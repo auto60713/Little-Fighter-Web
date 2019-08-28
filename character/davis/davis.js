@@ -11,298 +11,287 @@ lf2.character.Davis = {
   },
   frame: {
 
-    // 校正完畢
-
-    // 站立
-    standing: {
-      next: 'standing2', pic: ['0', 0, 0], center: [39, 79], wait: 5, flip: true,
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
+    // 站
+    'standing': {
+      pic: ['0', 0, 0], wait: 5, next: 'standing2', move: [0, 0], center: [39, 79], flip: true,
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
-        R: 'walking', L: 'walking', RR: 'run', LL: 'run', U: 'jumpPre',
-        B1: 'attack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'singlong', B5: 'many_punch', B4: 'ball',
       },
     },
-    standing2: {
-      next: 'standing3', pic: ['0', 0, 1], center: [39, 79], wait: 3, flip: true,
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
+    'standing2': {
+      pic: ['0', 0, 1], wait: 3, next: 'standing3', move: [0, 0], center: [39, 79], flip: true,
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
-        R: 'walking', L: 'walking', RR: 'run', LL: 'run', U: 'jumpPre',
-        B1: 'attack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'singlong', B5: 'many_punch', B4: 'ball',
       },
     },
-    standing3: {
-      next: 'standing4', pic: ['0', 0, 2], center: [39, 79], wait: 5, flip: true,
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
+    'standing3': {
+      pic: ['0', 0, 2], wait: 5, next: 'standing4', move: [0, 0], center: [39, 79], flip: true,
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
-        R: 'walking', L: 'walking', RR: 'run', LL: 'run', U: 'jumpPre',
-        B1: 'attack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'singlong', B5: 'many_punch', B4: 'ball',
       },
     },
-    standing4: {
-      next: 999, pic: ['0', 0, 3], center: [39, 79], wait: 9, flip: true,
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
+    'standing4': {
+      pic: ['0', 0, 3], wait: 9, next: 999, move: [0, 0], center: [39, 79], flip: true,
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
-        R: 'walking', L: 'walking', RR: 'run', LL: 'run', U: 'jumpPre',
-        B1: 'attack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
-      },
-    },
-
-
-    // 走路
-    walking: {
-      next: 'walking2', pic: ['0', 0, 4], center: [39, 78], wait: 3, move: [5, 0], flip: true, hitHold: true,
-      bdy: { x: 28, y: 15, w: 27, h: 65 },
-      hit: {
-        RR: 'run', LL: 'run', U: 'jumpPre',
-        B1: 'attack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
-      },
-    },
-    walking2: {
-      next: 'walking3', pic: ['0', 0, 5], center: [39, 79], wait: 3, move: [5, 0], flip: true, hitHold: true,
-      bdy: { x: 28, y: 15, w: 27, h: 65 },
-      hit: {
-        RR: 'run', LL: 'run', U: 'jumpPre',
-        B1: 'attack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
-      },
-    },
-    walking3: {
-      next: 'walking4', pic: ['0', 0, 6], center: [39, 79], wait: 3, move: [5, 0], flip: true, hitHold: true,
-      bdy: { x: 28, y: 15, w: 27, h: 65 },
-      hit: {
-        RR: 'run', LL: 'run', U: 'jumpPre',
-        B1: 'attack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
-      },
-    },
-    walking4: {
-      next: 'walking', pic: ['0', 0, 7], center: [39, 79], wait: 3, move: [5, 0], flip: true, hitHold: true,
-      bdy: { x: 28, y: 15, w: 27, h: 65 },
-      hit: {
-        RR: 'run', LL: 'run', U: 'jumpPre',
-        B1: 'attack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'singlong', B5: 'many_punch', B4: 'ball',
       },
     },
 
-
-    // 跑步
-    run: {
-      next: 'run2', pic: ['0', 2, 0], center: [36, 80], wait: 3, move: [10, 0], hitHold: true,
-      bdy: { x: 25, y: 19, w: 38, h: 60 },
+    // 走
+    'walking': {
+      pic: ['0', 0, 4], wait: 3, next: 'walking2', move: [5, 0], center: [39, 78], flip: true, hitHold: true,
+      bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
-        U: 'runJumpPre',
-        B1: 'runAttack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'singlong', B5: 'many_punch', B4: 'ball',
       },
     },
-    run2: {
-      next: 'run3', pic: ['0', 2, 1], center: [37, 79], wait: 3, move: [10, 0], hitHold: true,
-      bdy: { x: 25, y: 19, w: 38, h: 60 },
+    'walking2': {
+      pic: ['0', 0, 5], wait: 3, next: 'walking3', move: [5, 0], center: [39, 79], flip: true, hitHold: true,
+      bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
-        U: 'runJumpPre',
-        B1: 'runAttack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'singlong', B5: 'many_punch', B4: 'ball',
       },
     },
-    run3: {
-      next: 'run', pic: ['0', 2, 2], center: [32, 78], wait: 3, move: [10, 0], hitHold: true,
-      bdy: { x: 25, y: 19, w: 38, h: 60 },
+    'walking3': {
+      pic: ['0', 0, 6], wait: 3, next: 'walking4', move: [5, 0], center: [39, 79], flip: true, hitHold: true,
+      bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
-        U: 'runJumpPre',
-        B1: 'runAttack', B2: 'defense', B6: 'singLong', B5: 'manyPunch', B4: 'ball',
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'singlong', B5: 'many_punch', B4: 'ball',
+      },
+    },
+    'walking4': {
+      pic: ['0', 0, 7], wait: 3, next: 'walking', move: [5, 0], center: [39, 78], flip: true, hitHold: true,
+      bdy: { x: 28, y: 15, w: 27, h: 65, },
+      hit: {
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'singlong', B5: 'many_punch', B4: 'ball',
       },
     },
 
-
-    // 普攻
-    attack: {
-      next: 'attack2', pic: ['0', 1, 0], center: [42, 79], wait: 1, move: [1, 0],
-      bdy: { x: 28, y: 12, w: 33, h: 70 },
+    // 跑
+    'running': {
+      pic: ['0', 2, 0], wait: 3, next: 'running2', move: [10, 0], center: [36, 80], hitHold: true,
+      bdy: { x: 25, y: 19, w: 38, h: 60, },
+      hit: {
+        U: 'dash',
+        B1: 'run_attack', B2: 'defend', B6: 'singlong', B5: 'many_punch', B4: 'ball',
+      },
     },
-    attack2: {
-      next: 'attack3', pic: ['0', 1, 1], center: [23, 79], wait: 1,
-      bdy: { x: 13, y: 11, w: 31, h: 68 },
-      itr: { x: 21, y: 31, w: 43, h: 18, move: [2, 0], cd: 5, injury: 20, },
+    'running2': {
+      pic: ['0', 2, 1], wait: 3, next: 'running3', move: [10, 0], center: [37, 79], hitHold: true,
+      bdy: { x: 25, y: 19, w: 38, h: 60, },
+      hit: {
+        U: 'dash',
+        B1: 'run_attack', B2: 'defend', B6: 'singlong', B5: 'many_punch', B4: 'ball',
+      },
     },
-    attack3: {
-      next: 'attack4', pic: ['0', 1, 2], center: [28, 79], wait: 1,
-      bdy: { x: 17, y: 9, w: 31, h: 72 },
-    },
-    attack4: {
-      next: 999, pic: ['0', 1, 3], center: [41, 79], wait: 1,
-      bdy: { x: 29, y: 10, w: 32, h: 70 },
-    },
-
-
-    // 跳攻擊
-    jumpAttack: {
-      next: 'jumpAttack2', pic: ['1', 6, 2], center: [36, 75], wait: 1,
-      bdy: { x: 18, y: 10, w: 35, h: 57 },
-    },
-    jumpAttack2: {
-      next: 'jumpAttack3', pic: ['1', 6, 3], center: [39, 74], wait: 1,
-      bdy: { x: 22, y: 9, w: 35, h: 56 },
-    },
-    jumpAttack3: {
-      next: 'jumpAttack4', pic: ['1', 6, 4], center: [35, 75], wait: 1,
-      bdy: { x: 24, y: 6, w: 29, h: 60 },
-    },
-    jumpAttack4: {
-      next: 'jumpAttack5', pic: ['1', 6, 5], center: [25, 70], wait: 3,
-      bdy: { x: 11, y: 2, w: 29, h: 63 },
-      itr: { x: 17, y: 37, w: 52, h: 17, move: [9, -5], cd: 5, injury: 60, },
-    },
-    jumpAttack5: {
-      next: 'jumpAttack6', pic: ['1', 6, 6], center: [25, 71], wait: 1,
-      bdy: { x: 11, y: 5, w: 28, h: 63 },
-      itr: { x: 32, y: 40, w: 36, h: 16, move: [9, -5], cd: 5, injury: 60, },
-    },
-    jumpAttack6: {
-      next: 999, pic: ['1', 6, 7], center: [33, 72], wait: 3,
-      bdy: { x: 21, y: 6, w: 29, h: 58 },
+    'running3': {
+      pic: ['0', 2, 2], wait: 3, next: 'running', move: [10, 0], center: [32, 78], hitHold: true,
+      bdy: { x: 25, y: 19, w: 38, h: 60, },
+      hit: {
+        U: 'dash',
+        B1: 'run_attack', B2: 'defend', B6: 'singlong', B5: 'many_punch', B4: 'ball',
+      },
     },
 
-
-    // 跑步攻擊
-    runAttack: {
-      next: 'runAttack2', pic: ['1', 3, 2], center: [35, 79], wait: 2,
-      bdy: { x: 17, y: 25, w: 44, h: 54 },
+    // 站攻
+    'punch': {
+      pic: ['0', 1, 0], wait: 1, next: 'punch2', move: [0, 0], center: [42, 79],
+      bdy: { x: 28, y: 12, w: 33, h: 70, },
     },
-    runAttack2: {
-      next: 'runAttack3', pic: ['1', 3, 3], center: [30, 79], wait: 1, move: [16, 0],
-      bdy: { x: 25, y: 24, w: 31, h: 55 },
+    'punch2': {
+      pic: ['0', 1, 1], wait: 1, next: 'punch3', move: [0, 0], center: [23, 79],
+      itr: { x: 21, y: 31, w: 43, h: 18, move: [2, 0], injury: 20, },
+      bdy: { x: 13, y: 11, w: 31, h: 68, },
     },
-    runAttack3: {
-      next: 'runAttack4', pic: ['1', 3, 4], center: [25, 79], wait: 1,
-      bdy: { x: 15, y: 19, w: 37, h: 62 },
-      itr: { x: -18, y: 24, w: 88, h: 30, move: [20, 0], cd: 5, injury: 55, },
+    'punch3': {
+      pic: ['0', 1, 2], wait: 1, next: 'punch4', move: [2, 0], center: [28, 79],
+      bdy: { x: 17, y: 9, w: 31, h: 72, },
     },
-    runAttack4: {
-      next: 'runAttack5', pic: ['1', 3, 5], center: [20, 79], wait: 3,
-      bdy: { x: 14, y: 14, w: 43, h: 67 },
-      itr: { x: 28, y: 25, w: 43, h: 27, move: [17, 0], cd: 5, injury: 40, },
-    },
-    runAttack5: {
-      next: 'runAttack6', pic: ['1', 3, 6], center: [20, 79], wait: 2,
-      bdy: { x: 14, y: 14, w: 43, h: 67 },
-    },
-    runAttack6: {
-      next: 'runAttack7', pic: ['1', 3, 6], center: [30, 79], wait: 2,
-      bdy: { x: 20, y: 11, w: 31, h: 68 },
-    },
-    runAttack7: {
-      next: 999, pic: ['1', 3, 6], center: [32, 79], wait: 1,
-      bdy: { x: 20, y: 11, w: 31, h: 68 },
+    'punch4': {
+      pic: ['0', 1, 3], wait: 1, next: 999, move: [2, 0], center: [41, 79],
+      bdy: { x: 29, y: 10, w: 32, h: 70, },
     },
 
+    // 跳攻
+    'jump_attack': {
+      pic: ['1', 6, 2], wait: 1, next: 'jump_attack2', move: [0, 0], center: [36, 75],
+      bdy: { x: 18, y: 10, w: 35, h: 57, },
+    },
+    'jump_attack2': {
+      pic: ['1', 6, 3], wait: 1, next: 'jump_attack3', move: [0, 0], center: [39, 74],
+      bdy: { x: 22, y: 9, w: 35, h: 56, },
+    },
+    'jump_attack3': {
+      pic: ['1', 6, 4], wait: 1, next: 'jump_attack4', move: [0, 0], center: [35, 75],
+      bdy: { x: 24, y: 6, w: 29, h: 60, },
+    },
+    'jump_attack4': {
+      pic: ['1', 6, 5], wait: 3, next: 'jump_attack5', move: [0, 0], center: [25, 70],
+      itr: { x: 17, y: 37, w: 52, h: 17, move: [9, -5], arest: 15, injury: 60, },
+      bdy: { x: 11, y: 2, w: 29, h: 63, },
+    },
+    'jump_attack5': {
+      pic: ['1', 6, 6], wait: 1, next: 'jump_attack6', move: [0, 0], center: [25, 71],
+      itr: { x: 32, y: 40, w: 36, h: 16, move: [9, -5], arest: 15, injury: 60, },
+      bdy: { x: 11, y: 5, w: 28, h: 63, },
+    },
+    'jump_attack6': {
+      pic: ['1', 6, 7], wait: 3, next: 999, move: [0, 0], center: [33, 72],
+      bdy: { x: 21, y: 6, w: 29, h: 58, },
+    },
 
-    // 跑跳攻擊
-    dashAttack: {
-      next: 'dashAttack2', pic: ['1', 6, 2], center: [36, 75], wait: 1,
-      bdy: { x: 18, y: 10, w: 35, h: 57 },
+    // 跑攻
+    'run_attack': {
+      pic: ['1', 3, 0], wait: 2, next: 'run_attack2', move: [0, 0], center: [35, 79],
+      bdy: { x: 17, y: 25, w: 44, h: 54, },
     },
-    dashAttack2: {
-      next: 'dashAttack3', pic: ['0', 6, 3], center: [39, 74], wait: 1,
-      bdy: { x: 22, y: 9, w: 35, h: 56 },
+    'run_attack2': {
+      pic: ['1', 3, 1], wait: 1, next: 'run_attack3', move: [16, 0], center: [30, 79],
+      bdy: { x: 25, y: 24, w: 31, h: 55, },
     },
-    dashAttack3: {
-      next: 'dashAttack4', pic: ['0', 6, 4], center: [35, 75], wait: 1,
-      bdy: { x: 24, y: 6, w: 29, h: 60 },
+    'run_attack3': {
+      pic: ['1', 3, 2], wait: 1, next: 'run_attack4', move: [0, 0], center: [25, 79],
+      itr: { x: -18, y: 24, w: 88, h: 30, move: [20, 0], vrest: 7, injury: 55, },
+      bdy: { x: 15, y: 19, w: 37, h: 62, },
     },
-    dashAttack4: {
-      next: 'dashAttack5', pic: ['0', 6, 5], center: [25, 70], wait: 3,
-      bdy: { x: 11, y: 2, w: 29, h: 63 },
-      itr: { x: 17, y: 37, w: 52, h: 17, move: [14, -5], cd: 5, injury: 80, },
+    'run_attack4': {
+      pic: ['1', 3, 3], wait: 3, next: 'run_attack5', move: [0, 0], center: [20, 79],
+      itr: { x: 28, y: 25, w: 43, h: 27, move: [17, 0], vrest: 10, injury: 40, },
+      bdy: { x: 14, y: 14, w: 43, h: 67, },
     },
-    dashAttack5: {
-      next: 'dashAttack6', pic: ['0', 6, 6], center: [25, 71], wait: 1,
-      bdy: { x: 11, y: 5, w: 28, h: 63 },
-      itr: { x: 32, y: 40, w: 36, h: 16, move: [14, -5], cd: 5, injury: 80, },
+    'run_attack5': {
+      pic: ['1', 3, 4], wait: 2, next: 'run_attack6', move: [0, 0], center: [20, 79],
+      bdy: { x: 14, y: 14, w: 43, h: 67, },
     },
-    dashAttack6: {
-      next: 999, pic: ['0', 6, 7], center: [33, 72], wait: 3,
-      bdy: { x: 21, y: 6, w: 29, h: 58 },
+    'run_attack6': {
+      pic: ['1', 3, 5], wait: 2, next: 'run_attack7', move: [0, 0], center: [30, 79],
+      bdy: { x: 20, y: 11, w: 31, h: 68, },
+    },
+    'run_attack7': {
+      pic: ['1', 3, 6], wait: 1, next: 999, move: [0, 0], center: [32, 79],
+      bdy: { x: 20, y: 11, w: 31, h: 68, },
     },
 
+
+    // 跑跳攻
+    'dash_attack': {
+      pic: ['1', 6, 2], wait: 1, next: 'dash_attack2', move: [0, 0], center: [36, 75],
+      bdy: { x: 18, y: 10, w: 35, h: 57, },
+    },
+    'dash_attack2': {
+      pic: ['1', 6, 3], wait: 1, next: 'dash_attack3', move: [0, 0], center: [39, 74],
+      bdy: { x: 22, y: 9, w: 35, h: 56, },
+    },
+    'dash_attack3': {
+      pic: ['1', 6, 4], wait: 1, next: 'dash_attack4', move: [0, 0], center: [35, 75],
+      bdy: { x: 24, y: 6, w: 29, h: 60, },
+    },
+    'dash_attack4': {
+      pic: ['1', 6, 5], wait: 7, next: 'dash_attack5', move: [0, 0], center: [25, 70],
+      itr: { x: 17, y: 37, w: 52, h: 17, move: [14, -5], arest: 9, injury: 80, },
+      bdy: { x: 11, y: 2, w: 29, h: 63, },
+    },
+    'dash_attack5': {
+      pic: ['1', 6, 6], wait: 1, next: 'dash_attack6', move: [0, 0], center: [25, 71],
+      itr: { x: 32, y: 40, w: 36, h: 16, move: [14, -5], arest: 9, injury: 80, },
+      bdy: { x: 11, y: 5, w: 28, h: 63, },
+    },
+    'dash_attack6': {
+      pic: ['1', 6, 7], wait: 3, next: 'dash_attack6', move: [0, 0], center: [33, 72],
+      bdy: { x: 21, y: 6, w: 29, h: 58, },
+    },
 
     // 防禦
-    defense: {
-      next: 'defense', pic: ['0', 5, 6], center: [39, 79], wait: 3, flip: true, hitHold: true,
-      bdy: { x: 20, y: 19, w: 38, h: 60 },
+    'defend': {
+      pic: ['0', 5, 6], wait: 12, next: 999, move: [0, 0], center: [39, 79], flip: true, hitHold: true,
+      bdy: { x: 20, y: 19, w: 38, h: 60, },
+      hit: {
+        B2: 'defend',
+      },
     },
-
 
     // 被打飛
-    falling: {
-      next: 'falling2', pic: ['0', 3, 0], center: [39, 79], wait: 3, falling: true,
-      bdy: { x: 25, y: 25, w: 21, h: 20 },
+    'falling': {
+      pic: ['0', 3, 0], wait: 3, next: 'falling2', move: [0, 0], center: [39, 79], drop: 'lyingDown',
+      bdy: { x: 25, y: 25, w: 21, h: 20, },
     },
-    falling2: {
-      next: 'falling3', pic: ['0', 3, 1], center: [37, 85], wait: 3, falling: true,
-      bdy: { x: 22, y: 20, w: 24, h: 23 },
+    'falling2': {
+      pic: ['0', 3, 1], wait: 3, next: 'falling3', move: [0, 0], center: [37, 85], drop: 'lyingDown',
+      bdy: { x: 22, y: 20, w: 24, h: 23, },
     },
-    falling3: {
-      next: 'falling4', pic: ['0', 3, 2], center: [39, 79], wait: 3, falling: true,
-      bdy: { x: 27, y: 22, w: 20, h: 18 },
+    'falling3': {
+      pic: ['0', 3, 2], wait: 3, next: 'falling4', move: [0, 0], center: [39, 79], drop: 'lyingDown',
+      bdy: { x: 27, y: 22, w: 20, h: 18, },
     },
-    falling4: {
-      next: 'falling4', pic: ['0', 3, 3], center: [39, 79], wait: 3, falling: true,
-      bdy: { x: 22, y: 30, w: 27, h: 21 },
-    },
-
-    // 躺地
-    lyingDown: {
-      next: 999, pic: ['0', 3, 4], center: [39, 66], wait: 10, lyingDown: true,
+    'falling4': {
+      pic: ['0', 3, 3], wait: 3, next: 'falling4', move: [0, 0], center: [39, 79], drop: 'lyingDown',
+      bdy: { x: 22, y: 30, w: 27, h: 21, },
     },
 
+    'lyingDown': {
+      pic: ['0', 3, 4], wait: 10, next: 999, move: [0, 0], center: [39, 66],
+    },
 
-    // 跳躍
-    jumpPre: {
-      next: 'jumping', pic: ['0', 6, 0], center: [39, 79], wait: 1, move: [0, -16 / 2], flip: true,
-      bdy: { x: 22, y: 24, w: 35, h: 58 },
+    // 跳
+    'jump': {
+      pic: ['0', 6, 0], wait: 1, next: 'jump2', move: [0, -8], center: [39, 79], flip: true,
+      bdy: { x: 22, y: 24, w: 35, h: 58, },
       hit: {
-        R: 'jumpPreMove', L: 'jumpPreMove',
+        R: 'jump2Move', L: 'jump2Move',
       },
     },
-    jumpPreMove: {
-      next: 'jumping', pic: ['0', 6, 1], center: [39, 79], wait: 0, move: [10 / 2, -16 / 2], flip: true,
-      bdy: { x: 26, y: 26, w: 34, h: 56 },
+    'jump2': {
+      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [0, 0], center: [39, 79], flip: true,
+      bdy: { x: 26, y: 26, w: 34, h: 56, },
     },
-    jumping: {
-      next: 'jumping', pic: ['0', 6, 2], center: [39, 79], wait: 20, flip: true,
-      bdy: { x: 20, y: 11, w: 29, h: 61 },
+    'jump2Move': {
+      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [5, 0], center: [39, 79], flip: true,
+      bdy: { x: 26, y: 26, w: 34, h: 56, },
+    },
+    'jumping': {
+      pic: ['0', 6, 2], wait: 1, next: 'jumping', move: [0, 0], center: [39, 79], flip: true,
+      bdy: { x: 20, y: 11, w: 29, h: 61, },
       hit: {
-        B1: 'jumpAttack',
-      },
-    },
-
-
-    // 跑步跳躍
-    runJumpPre: {
-      next: 'runJumping', pic: ['0', 6, 3], center: [39, 79], wait: 0, move: [18 / 2, -10 / 2],
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-    },
-    runJumping: {
-      next: 'runJumping', pic: ['0', 6, 3], center: [39, 79], wait: 20,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      hit: {
-        B1: 'jumpAttack',
+        B1: 'jump_attack',
       },
     },
 
-
-
-
-
-
-
-
-    // 受傷
-    injured: {
-      next: 999, pic: ['0', 0, 6], center: [40, 80], wait: 2,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
+    // 跑跳
+    'dash': {
+      pic: ['0', 6, 3], wait: 0, next: 'dash2', move: [9, -5], center: [39, 79],
+      bdy: { x: 43, y: 5, w: 23, h: 33, },
+      bdy: { x: 28, y: 29, w: 21, h: 33, },
+      bdy: { x: 18, y: 48, w: 27, h: 21, },
     },
-
-
-
-
-
+    'dash2': {
+      pic: ['0', 6, 3], wait: 8, next: 'dash3', move: [0, 0], center: [39, 79],
+      bdy: { x: 43, y: 5, w: 23, h: 33, },
+      bdy: { x: 28, y: 29, w: 21, h: 33, },
+      bdy: { x: 18, y: 48, w: 27, h: 21, },
+      hit: {
+        B1: 'dash_attack',
+      },
+    },
+    'dash3': {
+      pic: ['1', 4, 2], wait: 2, next: 'dash3', move: [0, 0], center: [39, 78],
+      bdy: { x: 35, y: 8, w: 27, h: 27, },
+      bdy: { x: 16, y: 30, w: 39, h: 37, },
+      hit: {
+        B1: 'dash_attack',
+      },
+    },
 
 
 
@@ -310,131 +299,129 @@ lf2.character.Davis = {
     // 技能
     // ==============================================================================
 
-
-    ball: {
-      next: 'ball2', pic: ['2', 0, 0], center: [39, 79], wait: 1,
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
+    'ball': {
+      pic: ['2', 0, 0], wait: 1, next: 'ball2', move: [0, 0], center: [39, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
-    ball2: {
-      next: 'ball3', pic: ['2', 0, 1], center: [39, 79], wait: 1,
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
+    'ball2': {
+      pic: ['2', 0, 1], wait: 1, next: 'ball3', move: [0, 0], center: [39, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
-    ball3: {
-      next: 'ball4', pic: ['2', 0, 2], center: [39, 79], wait: 1,
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
+    'ball3': {
+      pic: ['2', 0, 2], wait: 1, next: 'ball4', move: [0, 0], center: [39, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
-    ball4: {
-      next: 'ball5', pic: ['2', 0, 3], center: [39, 79], wait: 1,
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
+    'ball4': {
+      pic: ['2', 0, 3], wait: 1, next: 'ball5', move: [0, 0], center: [39, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
-    ball5: {
-      next: 'ball6', pic: ['2', 0, 4], center: [30, 79], wait: 1,
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
-      produce: { name: 'Davis', frame: 'standing', x: 90, y: 43 },
+    'ball5': {
+      pic: ['2', 0, 4], wait: 1, next: 'ball6', move: [0, 0], center: [30, 79],
+      opoint: { x: 90, y: 43, name: 'Davis', move: [0, 0], frame: 'standing', },
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
-    ball6: {
-      next: 'ball7', pic: ['2', 0, 6], center: [39, 79], wait: 1,
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
+    'ball6': {
+      pic: ['2', 0, 6], wait: 1, next: 'ball7', move: [0, 0], center: [39, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
-    ball7: {
-      next: 999, pic: ['2', 0, 0], center: [39, 79], wait: 2,
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
-    },
-
-
-    manyPunch: {
-      next: 'manyPunch2', pic: ['2', 1, 3], center: [37, 79], wait: 1, move: [7, 0],
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
-    },
-    manyPunch2: {
-      next: 'manyPunch3', pic: ['2', 1, 4], center: [33, 79], wait: 1, move: [5, 0],
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
-      itr: { x: 17, y: 35, w: 61, h: 13, move: [7, 0], cd: 5, injury: 25, },
-    },
-    manyPunch3: {
-      next: 'manyPunch4', pic: ['2', 1, 5], center: [38, 79], wait: 1, move: [3, 0],
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
-    },
-    manyPunch4: {
-      next: 'manyPunch5', pic: ['2', 1, 6], center: [32, 79], wait: 1, move: [3, 0],
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
-      itr: { x: 14, y: 35, w: 58, h: 18, move: [7, 0], cd: 5, injury: 25, },
-    },
-    manyPunch5: {
-      next: 'manyPunch6', pic: ['2', 1, 7], center: [24, 79], wait: 1, move: [3, 0],
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
-    },
-    manyPunch6: {
-      next: 'manyPunch7', pic: ['2', 1, 8], center: [24, 79], wait: 1, move: [5, 0],
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
-    },
-    manyPunch7: {
-      next: 'manyPunch8', pic: ['2', 1, 9], center: [22, 79], wait: 1, move: [5, 0],
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
-      itr: { x: -1, y: 22, w: 81, h: 25, move: [2, -1], cd: 5, injury: 25, },
-    },
-    manyPunch8: {
-      next: 'manyPunch9', pic: ['2', 2, 9], center: [18, 79], wait: 1, move: [3, 0],
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
-    },
-    manyPunch9: {
-      next: 'manyPunch10', pic: ['2', 2, 8], center: [22, 79], wait: 1, move: [5, 0],
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
-    },
-    manyPunch10: {
-      next: 'manyPunch11', pic: ['2', 2, 7], center: [26, 79], wait: 1, move: [7, 0],
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
-    },
-    manyPunch11: {
-      next: 'manyPunch12', pic: ['2', 2, 6], center: [22, 79], wait: 1, move: [3, 0],
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
-      itr: { x: 12, y: 11, w: 70, h: 51, move: [7, -15], cd: 5, injury: 25, },
-    },
-    manyPunch12: {
-      next: 'manyPunch13', pic: ['2', 2, 5], center: [27, 79], wait: 2, move: [3, 0],
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
-    },
-    manyPunch13: {
-      next: 999, pic: ['2', 2, 4], center: [34, 79], wait: 3,
-      bdy: { x: 21, y: 18, w: 43, h: 62 },
+    'ball7': {
+      pic: ['2', 0, 0], wait: 2, next: 999, move: [0, 0], center: [39, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
 
 
-    // 昇龍拳
-    singLong: {
-      next: 'singLong2', pic: ['2', 3, 0], center: [30, 76], wait: 1, move: [7, -9],
+    'many_punch': {
+      pic: ['2', 1, 3], wait: 1, next: 'many_punch2', move: [7, 0], center: [37, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
-    singLong2: {
-      next: 'singLong3', pic: ['2', 3, 1], center: [28, 79], wait: 1,
-      itr: { x: 10, y: 3, w: 72, h: 75, move: [7, -13], cd: 5, injury: 85, },
+    'many_punch2': {
+      pic: ['2', 1, 4], wait: 1, next: 'many_punch3', move: [5, 0], center: [33, 79],
+      itr: { x: 17, y: 35, w: 61, h: 13, move: [7, 0], vrest: 7, injury: 25, },
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
-    singLong3: {
-      next: 'singLong4', pic: ['2', 3, 2], center: [26, 81], wait: 1,
-      bdy: { x: 19, y: 7, w: 36, h: 69 },
-      itr: { x: 13, y: -1, w: 67, h: 80, move: [7, -11], cd: 5, injury: 60, },
+    'many_punch3': {
+      pic: ['2', 1, 5], wait: 1, next: 'many_punch4', move: [3, 0], center: [38, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
-    singLong4: {
-      next: 'singLong5', pic: ['2', 3, 3], center: [26, 78], wait: 1,
-      bdy: { x: 28, y: 12, w: 29, h: 66 },
-      itr: { x: 11, y: -2, w: 63, h: 80, move: [7, -9], cd: 5, injury: 45, },
+    'many_punch4': {
+      pic: ['2', 1, 6], wait: 1, next: 'many_punch5', move: [3, 0], center: [32, 79],
+      itr: { x: 14, y: 35, w: 58, h: 18, move: [7, 0], vrest: 7, injury: 25, },
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
-    singLong5: {
-      next: 'singLong6', pic: ['2', 3, 4], center: [34, 81], wait: 2,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      itr: { x: 19, y: 1, w: 61, h: 80, move: [7, -7], cd: 5, injury: 30, },
+    'many_punch5': {
+      pic: ['2', 1, 7], wait: 1, next: 'many_punch6', move: [3, 0], center: [24, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
-    singLong6: {
-      next: 'singLong7', pic: ['2', 3, 5], center: [33, 75], wait: 2,
-      bdy: { x: 27, y: 7, w: 28, h: 65 },
+    'many_punch6': {
+      pic: ['2', 1, 8], wait: 1, next: 'many_punch7', move: [5, 0], center: [24, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
-    singLong7: {
-      next: 'singLong8', pic: ['2', 3, 6], center: [29, 74], wait: 3,
-      bdy: { x: 23, y: 11, w: 30, h: 61 },
+    'many_punch7': {
+      pic: ['2', 1, 9], wait: 1, next: 'many_punch8', move: [5, 0], center: [22, 79],
+      itr: { x: -1, y: 22, w: 81, h: 25, move: [10, 0], vrest: 7, injury: 25, },
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
-    singLong8: {
-      next: 999, pic: ['2', 3, 7], center: [29, 73], wait: 20,
-      bdy: { x: 21, y: 3, w: 33, h: 68 },
+    'many_punch8': {
+      pic: ['2', 2, 9], wait: 1, next: 'many_punch9', move: [3, 0], center: [18, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
+    'many_punch9': {
+      pic: ['2', 2, 8], wait: 1, next: 'many_punch10', move: [5, 0], center: [22, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
+    },
+    'many_punch10': {
+      pic: ['2', 2, 7], wait: 1, next: 'many_punch11', move: [7, 0], center: [26, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
+    },
+    'many_punch11': {
+      pic: ['2', 2, 6], wait: 1, next: 'many_punch12', move: [3, 0], center: [22, 79],
+      itr: { x: 12, y: 11, w: 70, h: 51, move: [7, -15], vrest: 15, injury: 25, },
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
+    },
+    'many_punch12': {
+      pic: ['2', 2, 5], wait: 2, next: 'many_punch13', move: [3, 0], center: [27, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
+    },
+    'many_punch13': {
+      pic: ['2', 2, 4], wait: 3, next: 999, move: [0, 0], center: [34, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
+    },
+
+    'singlong': {
+      pic: ['2', 3, 0], wait: 1, next: 'singlong2', move: [7, -9], center: [30, 76],
+    },
+    'singlong2': {
+      pic: ['2', 3, 1], wait: 1, next: 'singlong3', move: [0, 0], center: [28, 79],
+      itr: { x: 10, y: 3, w: 72, h: 75, move: [7, -13], vrest: 10, injury: 85, },
+    },
+    'singlong3': {
+      pic: ['2', 3, 2], wait: 1, next: 'singlong4', move: [0, 0], center: [26, 81],
+      itr: { x: 13, y: -1, w: 67, h: 80, move: [7, -11], vrest: 10, injury: 60, },
+      bdy: { x: 19, y: 7, w: 36, h: 69, },
+    },
+    'singlong4': {
+      pic: ['2', 3, 3], wait: 1, next: 'singlong5', move: [0, 0], center: [26, 78],
+      itr: { x: 11, y: -2, w: 63, h: 80, move: [7, -9], vrest: 10, injury: 45, },
+      bdy: { x: 22, y: 6, w: 30, h: 69, },
+    },
+    'singlong5': {
+      pic: ['2', 3, 4], wait: 2, next: 'singlong6', move: [0, 0], center: [34, 81],
+      itr: { x: 19, y: 1, w: 61, h: 80, move: [7, -7], vrest: 10, injury: 30, },
+      bdy: { x: 28, y: 12, w: 29, h: 66, },
+    },
+    'singlong6': {
+      pic: ['2', 3, 5], wait: 2, next: 'singlong7', move: [0, 0], center: [33, 75],
+      bdy: { x: 27, y: 7, w: 28, h: 65, },
+    },
+    'singlong7': {
+      pic: ['2', 3, 6], wait: 3, next: 'singlong8', move: [0, 0], center: [29, 74],
+      bdy: { x: 23, y: 11, w: 30, h: 61, },
+    },
+    'singlong8': {
+      pic: ['2', 3, 7], wait: 2, next: 999, move: [0, 0], center: [29, 73],
+      bdy: { x: 21, y: 3, w: 33, h: 68, },
+    },
+
 
 
   }
@@ -454,69 +441,68 @@ lf2.derivative.Davis = {
   },
   frame: {
 
-    standing: {
-      next: 'standing2', pic: ['ball', 0, 0], center: [56, 24], wait: 1, move: [4, 0],
-      bdy: { x: 26, y: 12, w: 45, h: 24 },
-      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, injury: 30, move: [7, 0], next: 'falling', }
+    'standing': {
+      pic: ['ball', 0, 0], wait: 1, next: 'flying2', move: [4, 0], center: [56, 24],
+      itr: { x: 26, y: 12, w: 45, h: 24, move: [7, 0], arest: 6, injury: 30, next: 'falling', },
+      bdy: { x: 26, y: 12, w: 45, h: 24, },
     },
-    standing2: {
-      next: 'standing3', pic: ['ball', 0, 1], center: [53, 24], wait: 1, move: [5, 0],
-      bdy: { x: 26, y: 12, w: 45, h: 24 },
-      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, injury: 30, move: [7, 0], next: 'falling', }
+    'flying2': {
+      pic: ['ball', 0, 1], wait: 1, next: 'flying3', move: [5, 0], center: [53, 24],
+      itr: { x: 26, y: 12, w: 45, h: 24, move: [7, 0], arest: 6, injury: 30, next: 'falling', },
+      bdy: { x: 26, y: 12, w: 45, h: 24, },
     },
-    standing3: {
-      next: 'standing4', pic: ['ball', 0, 0], center: [56, 24], wait: 1, move: [7, 0],
-      bdy: { x: 26, y: 12, w: 45, h: 24 },
-      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, injury: 30, move: [7, 0], next: 'falling', }
+    'flying3': {
+      pic: ['ball', 0, 0], wait: 1, next: 'flying4', move: [7, 0], center: [56, 24],
+      itr: { x: 26, y: 12, w: 45, h: 24, move: [7, 0], arest: 6, injury: 30, next: 'falling', },
+      bdy: { x: 26, y: 12, w: 45, h: 24, },
     },
-    standing4: {
-      next: 'standing5', pic: ['ball', 0, 1], center: [52, 24], wait: 1, move: [9, 0],
-      bdy: { x: 26, y: 12, w: 45, h: 24 },
-      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, injury: 30, move: [7, 0], next: 'falling', }
+    'flying4': {
+      pic: ['ball', 0, 1], wait: 1, next: 'flying5', move: [9, 0], center: [52, 24],
+      itr: { x: 26, y: 12, w: 45, h: 24, move: [7, 0], arest: 6, injury: 30, next: 'falling', },
+      bdy: { x: 26, y: 12, w: 45, h: 24, },
     },
-    standing5: {
-      next: 'standing6', pic: ['ball', 0, 2], center: [53, 24], wait: 1, move: [10, 0],
-      bdy: { x: 26, y: 12, w: 45, h: 24 },
-      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, injury: 30, move: [7, 0], next: 'falling', }
+    'flying5': {
+      pic: ['ball', 0, 2], wait: 1, next: 'flying6', move: [10, 0], center: [53, 24],
+      itr: { x: 26, y: 12, w: 45, h: 24, move: [7, 0], arest: 6, injury: 30, next: 'falling', },
+      bdy: { x: 26, y: 12, w: 45, h: 24, },
     },
-    standing6: {
-      next: 'standing7', pic: ['ball', 0, 3], center: [52, 24], wait: 1, move: [13, 0],
-      bdy: { x: 26, y: 12, w: 45, h: 24 },
-      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, injury: 30, move: [7, 0], next: 'falling', }
+    'flying6': {
+      pic: ['ball', 0, 3], wait: 1, next: 'flying7', move: [13, 0], center: [52, 24],
+      itr: { x: 26, y: 12, w: 45, h: 24, move: [7, 0], arest: 6, injury: 30, next: 'falling', },
+      bdy: { x: 26, y: 12, w: 45, h: 24, },
     },
-    standing7: {
-      next: 'standing8', pic: ['ball', 0, 2], center: [53, 24], wait: 1, move: [16, 0],
-      bdy: { x: 26, y: 12, w: 45, h: 24 },
-      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, injury: 30, move: [7, 0], next: 'falling', }
+    'flying7': {
+      pic: ['ball', 0, 2], wait: 1, next: 'flying8', move: [16, 0], center: [53, 24],
+      itr: { x: 26, y: 12, w: 45, h: 24, move: [7, 0], arest: 6, injury: 30, next: 'falling', },
+      bdy: { x: 26, y: 12, w: 45, h: 24, },
     },
-    standing8: {
-      next: 'standing9', pic: ['ball', 0, 3], center: [53, 24], wait: 1, move: [18, 0],
-      bdy: { x: 26, y: 12, w: 45, h: 24 },
-      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, injury: 30, move: [7, 0], next: 'falling', }
+    'flying8': {
+      pic: ['ball', 0, 3], wait: 1, next: 'flying9', move: [18, 0], center: [53, 24],
+      itr: { x: 26, y: 12, w: 45, h: 24, move: [7, 0], arest: 6, injury: 30, next: 'falling', },
+      bdy: { x: 26, y: 12, w: 45, h: 24, },
     },
-    standing9: {
-      next: 'standing10', pic: ['ball', 2, 0], center: [55, 24], wait: 1, move: [20, 0],
-      bdy: { x: 26, y: 12, w: 45, h: 24 },
-      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, injury: 30, move: [7, 0], next: 'falling', }
+    'flying9': {
+      pic: ['ball', 2, 0], wait: 1, next: 'flying10', move: [20, 0], center: [55, 24],
+      itr: { x: 26, y: 12, w: 45, h: 24, move: [7, 0], arest: 6, injury: 30, next: 'falling', },
+      bdy: { x: 26, y: 12, w: 45, h: 24, },
     },
-    standing10: {
-      next: 'standing9', pic: ['ball', 2, 1], center: [55, 24], wait: 1, move: [20, 0],
-      bdy: { x: 26, y: 12, w: 45, h: 24 },
-      itr: { x: 26, y: 12, w: 45, h: 24, cd: 100, injury: 30, move: [7, 0], next: 'falling', }
+    'flying10': {
+      pic: ['ball', 2, 1], wait: 1, next: 'flying9', move: [20, 0], center: [55, 24],
+      itr: { x: 26, y: 12, w: 45, h: 24, move: [7, 0], arest: 6, injury: 30, next: 'falling', },
+      bdy: { x: 26, y: 12, w: 45, h: 24, },
     },
 
-
-    falling: {
-      next: 'disappear2', pic: ['ball', 1, 0], center: [55, 22], wait: 1,
+    'falling': {
+      pic: ['ball', 1, 0], wait: 1, next: 'hiting2', move: [0, 0], center: [55, 22],
     },
-    disappear2: {
-      next: 'disappear3', pic: ['ball', 1, 1], center: [52, 23], wait: 1,
+    'hiting2': {
+      pic: ['ball', 1, 1], wait: 1, next: 'hiting3', move: [0, 0], center: [52, 23],
     },
-    disappear3: {
-      next: 'disappear4', pic: ['ball', 1, 2], center: [46, 21], wait: 1,
+    'hiting3': {
+      pic: ['ball', 1, 2], wait: 1, next: 'hiting4', move: [0, 0], center: [46, 21],
     },
-    disappear4: {
-      next: 1000, pic: ['ball', 1, 3], center: [43, 22], wait: 1,
+    'hiting4': {
+      pic: ['ball', 1, 3], wait: 1, next: 1000, move: [0, 0], center: [43, 22],
     },
 
 

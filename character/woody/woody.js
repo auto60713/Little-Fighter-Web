@@ -188,28 +188,31 @@ lf2.character.Woody = {
     'defend': {
       pic: ['0', 5, 6], wait: 12, next: 999, move: [0, 0], center: [39, 79], flip: true, hitHold: true,
       bdy: { x: 20, y: 19, w: 38, h: 60, },
+      hit: {
+        B2: 'defend',
+      },
     },
 
     // 被打飛
     'falling': {
-      pic: ['0', 3, 0], wait: 3, next: 'falling2', move: [0, 0], center: [39, 79], falling: true,
+      pic: ['0', 3, 0], wait: 3, next: 'falling2', move: [0, 0], center: [39, 79], drop: 'lyingDown',
       bdy: { x: 25, y: 25, w: 21, h: 20, },
     },
     'falling2': {
-      pic: ['0', 3, 1], wait: 3, next: 'falling3', move: [0, 0], center: [37, 85], falling: true,
+      pic: ['0', 3, 1], wait: 3, next: 'falling3', move: [0, 0], center: [37, 85], drop: 'lyingDown',
       bdy: { x: 22, y: 20, w: 24, h: 23, },
     },
     'falling3': {
-      pic: ['0', 3, 2], wait: 3, next: 'falling4', move: [0, 0], center: [39, 79], falling: true,
+      pic: ['0', 3, 2], wait: 3, next: 'falling4', move: [0, 0], center: [39, 79], drop: 'lyingDown',
       bdy: { x: 27, y: 22, w: 20, h: 18, },
     },
     'falling4': {
-      pic: ['0', 3, 3], wait: 3, next: 'lyingDown', move: [0, 0], center: [39, 79], falling: true,
+      pic: ['0', 3, 3], wait: 3, next: 'falling4', move: [0, 0], center: [39, 79], drop: 'lyingDown',
       bdy: { x: 22, y: 30, w: 27, h: 21, },
     },
 
     'lyingDown': {
-      pic: ['0', 3, 4], wait: 20, next: 999, move: [0, 0], center: [39, 66], lyingDown: true,
+      pic: ['0', 3, 4], wait: 20, next: 999, move: [0, 0], center: [39, 66],
     },
 
     // 跳
@@ -221,15 +224,15 @@ lf2.character.Woody = {
       },
     },
     'jump2': {
-      pic: ['0', 6, 1], wait: 1, next: 'jump3', move: [0, 0], center: [39, 79], flip: true,
+      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [0, 0], center: [39, 79], flip: true,
       bdy: { x: 26, y: 26, w: 34, h: 56, },
     },
     'jump2Move': {
-      pic: ['0', 6, 1], wait: 1, next: 'jump3', move: [4, 0], center: [39, 79], flip: true,
+      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [4, 0], center: [39, 79], flip: true,
       bdy: { x: 26, y: 26, w: 34, h: 56, },
     },
-    'jump3': {
-      pic: ['0', 6, 2], wait: 1, next: 'jump3', move: [0, 0], center: [39, 79], flip: true,
+    'jumping': {
+      pic: ['0', 6, 2], wait: 1, next: 'jumping', move: [0, 0], center: [39, 79], flip: true,
       bdy: { x: 20, y: 11, w: 29, h: 61, },
       hit: {
         B1: 'jump_attack', B4: 'teleport',

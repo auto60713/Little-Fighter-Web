@@ -7,7 +7,7 @@ lf2.keymap = {
   'KeyA': 'B6', 'KeyS': 'B5', 'KeyD': 'B4',
   'KeyZ': 'B3', 'KeyX': 'B2', 'KeyC': 'B1',
 
-  'esc': 'Escape',
+  'Escape': 'esc',
 };
 
 lf2.keymap2 = {
@@ -27,19 +27,18 @@ lf2.logKey = (e) => {
   const event = window.event || e;
   const pressing = event.type === 'keydown';
 
+
+  // P1
   if (lf2.keymap[e.code]) lf2.keyToControl(lf2.mainCharacter, pressing, lf2.keymap[e.code]);
+  // P2
   else lf2.keyToControl(lf2.scenes.character[1].setting, pressing, lf2.keymap2[e.code]);
 
+  // 場景按鍵事件
+  if (pressing && !lf2.keydownLock) lf2.sceneKeyEvent(lf2.keymap[e.code]);
 
 
-  if (pressing && !lf2.keydownLock) {
-    // 場景按鍵事件
-    lf2.sceneKeyEvent(lf2.keymap[e.code]);
-    // 為了避免按住狂跳畫面 設定只有keydown瞬間有效
-    lf2.keydownLock = true;
-  }
-  else if (!pressing) lf2.keydownLock = false;
-
+  // 按住不連續反應鎖
+  lf2.keydownLock = pressing;
 }
 
 
@@ -47,10 +46,10 @@ lf2.logKey = (e) => {
 // 操作指定角色
 lf2.keyToControl = (setting, pressing, keyname) => {
   if (setting) {
-    // 按下序
+    // 正在按序
     setting.keypress[keyname] = pressing;
     // 按鍵反應序
-    if (pressing) setting.keyReaction.push([keyname, 20]);
+    if (pressing && !lf2.keydownLock) setting.keyReaction.push([keyname, 20]);
   }
 }
 

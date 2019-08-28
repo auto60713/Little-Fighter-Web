@@ -59,17 +59,14 @@ lf2.physical = (setting, frame, type, thing) => {
         setting.ySpeed = 0;
         setting.xSpeed = 0;
         setting.y = lf2.mainMap.limit.y;
-        // 落地換動作
-        if (frame.drop) lf2.gotoFrame(thing, setting, type, frame.drop);
-        else lf2.gotoFrame(thing, setting, type, frame.falling ? 'lyingDown' : 'standing');
+        lf2.gotoFrame(thing, setting, type, 'standing');
       }
 
       // 滯空偵測
       setting.inSky = lf2.skyDetection(setting);
 
-
-      // 無滯空躺下
-      if (frame.falling && !setting.inSky) lf2.gotoFrame(thing, setting, type, 'lyingDown');
+      // 落地換動作
+      if (frame.drop && (setting.ySpeed >= 0 && setting.y == lf2.mainMap.limit.y)) lf2.gotoFrame(thing, setting, type, frame.drop);
 
       // 翻轉允許
       if (frame.flip) {

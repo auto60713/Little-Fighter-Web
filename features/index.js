@@ -38,9 +38,9 @@ window.lf2 = {
   // wait等於幾幀
   waitMagnification: 3,
   // 重力
-  gravity: 0.32,
+  gravity: 0.33,
   // 落下最大速度
-  maxFallingSpeed: 10,
+  maxFallingSpeed: 10.5,
 
 };
 

@@ -134,7 +134,9 @@ lf2.amIBeingBeaten = (setting, frame, type, thing) => {
               // 打人的中間
               var dc = det.setting.x + detFrame.itr.x + (detFrame.itr.w / 2);
               // 下次打我多久後
-              det.setting.hitCD[setting.scenesIndex] = detFrame.itr.cd;
+              // FIXME: vrest arest未來要做出區分
+              var cd = detFrame.itr.vrest || detFrame.itr.arest;
+              det.setting.hitCD[setting.scenesIndex] = cd;
               // 打擊換動作
               if (detFrame.itr.next) lf2.gotoFrame(det, det.setting, dettype, detFrame.itr.next);
               // 抓攻擊
@@ -198,18 +200,18 @@ lf2.produceDerivative = (setting, frame, type) => {
   if (lf2.state != 'battleMode' && lf2.state != 'shaoguanMode') return;
   if (type != 'character' && type != 'derivative') return;
 
-  if (frame.produce && !setting.alreadyProduced) {
+  if (frame.opoint && !setting.alreadyProduced) {
 
     var direction = setting.mirror ? -1 : 1;
     var asd = setting.mirror ? setting.file[frame.pic[0]].w : 0;
 
-    lf2.adjunction('derivative', frame.produce.name, {
-      x: setting.x - frame.center[0] + (frame.produce.x * direction) + asd,
-      y: setting.y - frame.center[1] + frame.produce.y,
+    lf2.adjunction('derivative', frame.opoint.name, {
+      x: setting.x - frame.center[0] + (frame.opoint.x * direction) + asd,
+      y: setting.y - frame.center[1] + frame.opoint.y,
       team: setting.team,
       mirror: setting.mirror,
-      nowframe: frame.produce.frame,
-      nowwait: lf2.derivative[frame.produce.name].frame[frame.produce.frame].wait * lf2.waitMagnification,
+      nowframe: frame.opoint.frame,
+      nowwait: lf2.derivative[frame.opoint.name].frame[frame.opoint.frame].wait * lf2.waitMagnification,
     });
 
     setting.alreadyProduced = true;
