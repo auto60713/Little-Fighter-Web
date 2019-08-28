@@ -89,7 +89,7 @@ lf2.character.Firen = {
       next: 'run2', pic: ['0', 0, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        U: 'runJumpPre',
+        U: 'dash',
         B1: 'punch', B2: 'defend', B6: 'explosion', B5: 'burnRun', B4: 'ball',
       },
     },
@@ -97,7 +97,7 @@ lf2.character.Firen = {
       next: 'run3', pic: ['0', 1, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        U: 'runJumpPre',
+        U: 'dash',
         B1: 'punch', B2: 'defend', B6: 'explosion', B5: 'burnRun', B4: 'ball',
       },
     },
@@ -105,7 +105,7 @@ lf2.character.Firen = {
       next: 'running', pic: ['0', 2, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        U: 'runJumpPre',
+        U: 'dash',
         B1: 'punch', B2: 'defend', B6: 'explosion', B5: 'burnRun', B4: 'ball',
       },
     },
@@ -120,7 +120,7 @@ lf2.character.Firen = {
       next: 'runJumping', pic: ['0', 3, 6], center: [40, 80], wait: 20,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        B1: 'jumpAttack',
+        B1: 'jump_attack',
       },
     },
 
@@ -142,7 +142,7 @@ lf2.character.Firen = {
 
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        B1: 'jumpAttack',
+        B1: 'jump_attack',
       },
     },
 

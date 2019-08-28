@@ -76,7 +76,7 @@ lf2.arrange = (type) => {
         // lf2.bot(setting, frame, type, thing);
 
         // 音效
-        lf2.sound(setting, frame, type);
+        lf2.sound(frame);
 
       });
 
