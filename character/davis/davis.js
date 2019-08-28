@@ -216,6 +216,7 @@ lf2.character.Davis = {
       bdy: { x: 21, y: 6, w: 29, h: 58, },
     },
 
+
     // 防禦
     'defend': {
       pic: ['0', 5, 6], wait: 12, next: 999, move: [0, 0], center: [39, 79], flip: true, hitHold: true,
