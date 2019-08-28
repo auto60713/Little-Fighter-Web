@@ -6,8 +6,6 @@ lf2.character.Firen = {
       '1': { deputy: 'png', w: 80, h: 80 },
       '2': { deputy: 'png', w: 80, h: 80 },
     },
-    walkingSpeed: 4,
-    jumpPower: 4.5,
     scale: 1,
     HP: 500,
   },
