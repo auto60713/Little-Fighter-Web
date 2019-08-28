@@ -16,32 +16,32 @@ lf2.character.Freeze = {
       next: 'standing2', pic: ['0', 0, 0], center: [39, 79], wait: 16, flip: true,
       bdy: { x: 21, y: 18, w: 43, h: 62 },
       hit: {
-        R: 'walking', L: 'walking', RR: 'run', LL: 'run', U: 'jumpPre',
-        B1: 'attack', B2: 'defense', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
       },
     },
     standing2: {
       next: 'standing3', pic: ['0', 0, 1], center: [39, 79], wait: 7, flip: true,
       bdy: { x: 21, y: 18, w: 43, h: 62 },
       hit: {
-        R: 'walking', L: 'walking', RR: 'run', LL: 'run', U: 'jumpPre',
-        B1: 'attack', B2: 'defense', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
       },
     },
     standing3: {
       next: 'standing4', pic: ['0', 0, 2], center: [39, 79], wait: 5, flip: true,
       bdy: { x: 21, y: 18, w: 43, h: 62 },
       hit: {
-        R: 'walking', L: 'walking', RR: 'run', LL: 'run', U: 'jumpPre',
-        B1: 'attack', B2: 'defense', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
       },
     },
     standing4: {
       next: 999, pic: ['0', 0, 3], center: [39, 79], wait: 7, flip: true,
       bdy: { x: 21, y: 18, w: 43, h: 62 },
       hit: {
-        R: 'walking', L: 'walking', RR: 'run', LL: 'run', U: 'jumpPre',
-        B1: 'attack', B2: 'defense', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
       },
     },
 
@@ -51,32 +51,32 @@ lf2.character.Freeze = {
       next: 'walking2', pic: ['0', 0, 4], center: [39, 78], wait: 3, move: [4, 0], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65 },
       hit: {
-        RR: 'run', LL: 'run', U: 'jumpPre',
-        B1: 'attack', B2: 'defense', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
       },
     },
     walking2: {
       next: 'walking3', pic: ['0', 0, 5], center: [39, 79], wait: 3, move: [4, 0], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65 },
       hit: {
-        RR: 'run', LL: 'run', U: 'jumpPre',
-        B1: 'attack', B2: 'defense', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
       },
     },
     walking3: {
       next: 'walking4', pic: ['0', 0, 6], center: [39, 79], wait: 3, move: [4, 0], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65 },
       hit: {
-        RR: 'run', LL: 'run', U: 'jumpPre',
-        B1: 'attack', B2: 'defense', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
       },
     },
     walking4: {
       next: 'walking', pic: ['0', 0, 7], center: [39, 78], wait: 3, move: [4, 0], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65 },
       hit: {
-        RR: 'run', LL: 'run', U: 'jumpPre',
-        B1: 'attack', B2: 'defense', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
       },
     },
 
@@ -87,7 +87,7 @@ lf2.character.Freeze = {
       bdy: { x: 25, y: 19, w: 38, h: 60 },
       hit: {
         U: 'runJumpPre',
-        B1: 'attack', B2: 'defense', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
+        B1: 'punch', B2: 'defend', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
       },
     },
     run2: {
@@ -95,15 +95,15 @@ lf2.character.Freeze = {
       bdy: { x: 25, y: 19, w: 38, h: 60 },
       hit: {
         U: 'runJumpPre',
-        B1: 'attack', B2: 'defense', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
+        B1: 'punch', B2: 'defend', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
       },
     },
     run3: {
-      next: 'run', pic: ['0', 2, 2], center: [36, 79], wait: 3, move: [6, 0], hitHold: true,
+      next: 'running', pic: ['0', 2, 2], center: [36, 79], wait: 3, move: [6, 0], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60 },
       hit: {
         U: 'runJumpPre',
-        B1: 'attack', B2: 'defense', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
+        B1: 'punch', B2: 'defend', B4: 'whirlwind', B5: 'downPunch', B6: 'ball',
       },
     },
 
@@ -185,7 +185,7 @@ lf2.character.Freeze = {
 
     // 防禦
     defense: {
-      next: 'defense', pic: ['0', 5, 6], center: [39, 79], wait: 3, flip: true, hitHold: true,
+      next: 'defend', pic: ['0', 5, 6], center: [39, 79], wait: 3, flip: true, hitHold: true,
       bdy: { x: 20, y: 19, w: 38, h: 60 },
     },
 

@@ -18,32 +18,32 @@ lf2.character.Deep = {
       next: 'standing2', pic: ['0', 0, 0], center: [40, 80], wait: 4, flip: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'jumpSword', S: 'dashSword', D: 'blast',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'jumpSword', B5: 'dashSword', B4: 'blast',
       },
     },
     standing2: {
       next: 'standing3', pic: ['0', 1, 0], center: [40, 80], wait: 4, flip: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense',  A: 'jumpSword', S: 'dashSword', D: 'blast',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend',  B6: 'jumpSword', B5: 'dashSword', B4: 'blast',
       },
     },
     standing3: {
       next: 'standing4', pic: ['0', 2, 0], center: [40, 80], wait: 4, flip: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense',  A: 'jumpSword', S: 'dashSword', D: 'blast',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend',  B6: 'jumpSword', B5: 'dashSword', B4: 'blast',
       },
     },
     standing4: {
       next: 999, pic: ['0', 3, 0], center: [40, 80], wait: 4, flip: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'jumpSword', S: 'dashSword', D: 'blast',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'jumpSword', B5: 'dashSword', B4: 'blast',
       },
     },
 
@@ -53,32 +53,32 @@ lf2.character.Deep = {
       next: 'walking2', pic: ['0', 4, 0], center: [40, 80], wait: 4, move: [4, 0], flip: true, hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense',  A: 'jumpSword', S: 'dashSword', D: 'blast',
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend',  B6: 'jumpSword', B5: 'dashSword', B4: 'blast',
       },
     },
     walking2: {
       next: 'walking3', pic: ['0', 5, 0], center: [40, 80], wait: 4, move: [4, 0], flip: true, hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense',  A: 'jumpSword', S: 'dashSword', D: 'blast',
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend',  B6: 'jumpSword', B5: 'dashSword', B4: 'blast',
       },
     },
     walking3: {
       next: 'walking4', pic: ['0', 6, 0], center: [40, 80], wait: 4, move: [4, 0], flip: true, hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense',  A: 'jumpSword', S: 'dashSword', D: 'blast',
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend',  B6: 'jumpSword', B5: 'dashSword', B4: 'blast',
       },
     },
     walking4: {
       next: 'walking', pic: ['0', 7, 0], center: [40, 80], wait: 4, move: [4, 0], flip: true, hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense',  A: 'jumpSword', S: 'dashSword', D: 'blast',
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend',  B6: 'jumpSword', B5: 'dashSword', B4: 'blast',
       },
     },
 
@@ -89,24 +89,24 @@ lf2.character.Deep = {
       next: 'run2', pic: ['0', 0, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'jumpSword', S: 'dashSword', D: 'blast',
+        U: 'runJumpPre',
+        B1: 'punch', B2: 'defend', B6: 'jumpSword', B5: 'dashSword', B4: 'blast',
       },
     },
     run2: {
       next: 'run3', pic: ['0', 1, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        up: 'runJumpPre',
-        C: 'attack', X: 'defense',  A: 'jumpSword', S: 'dashSword', D: 'blast',
+        U: 'runJumpPre',
+        B1: 'punch', B2: 'defend',  B6: 'jumpSword', B5: 'dashSword', B4: 'blast',
       },
     },
     run3: {
-      next: 'run', pic: ['0', 2, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
+      next: 'running', pic: ['0', 2, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'jumpSword', S: 'dashSword', D: 'blast',
+        U: 'runJumpPre',
+        B1: 'punch', B2: 'defend', B6: 'jumpSword', B5: 'dashSword', B4: 'blast',
       },
     },
 
@@ -120,7 +120,7 @@ lf2.character.Deep = {
       next: 'runJumping', pic: ['0', 3, 6], center: [40, 80], wait: 20,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        C: 'jumpAttack',
+        B1: 'jumpAttack',
       },
     },
 
@@ -130,7 +130,7 @@ lf2.character.Deep = {
       next: 'jumping', pic: ['0', 0, 6], center: [40, 80], wait: 1, move: [0, -8], flip: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        right: 'jumpPreMove', left: 'jumpPreMove',
+        R: 'jumpPreMove', L: 'jumpPreMove',
       },
     },
     jumpPreMove: {
@@ -142,7 +142,7 @@ lf2.character.Deep = {
 
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        C: 'jumpAttack',
+        B1: 'jumpAttack',
       },
     },
 
@@ -209,7 +209,7 @@ lf2.character.Deep = {
 
     // 防禦
     defense: {
-      next: 'defense', pic: ['0', 6, 5], center: [40, 80], wait: 3, flip: true, hitHold: true,
+      next: 'defend', pic: ['0', 6, 5], center: [40, 80], wait: 3, flip: true, hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
 
@@ -268,7 +268,7 @@ lf2.character.Deep = {
       next: 999, pic: ['1', 9, 6], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        D: 'blast6',
+        B4: 'blast6',
       },
     },
     // 第二刀波
@@ -292,7 +292,7 @@ lf2.character.Deep = {
       next: 999, pic: ['1', 9, 3], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        D: 'blast11',
+        B4: 'blast11',
       },
     },
     // 第三刀波
@@ -435,14 +435,14 @@ lf2.character.Deep = {
       next: 'jumpSword8', pic: ['2', 6, 2], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        up: 'jumpSword15',
+        U: 'jumpSword15',
       },
     },
     jumpSword8: {
       next: 999, pic: ['2', 5, 2], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        A: 'jumpSword9', up: 'jumpSword15',
+        B6: 'jumpSword9', U: 'jumpSword15',
       },
     },
 
@@ -467,14 +467,14 @@ lf2.character.Deep = {
       next: 'jumpSword14', pic: ['2', 4, 1], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        up: 'jumpSword15',
+        U: 'jumpSword15',
       },
     },
     jumpSword14: {
       next: 999, pic: ['2', 0, 3], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        A: 'jumpSword', up: 'jumpSword15',
+        B6: 'jumpSword', U: 'jumpSword15',
       },
     },
 
@@ -488,7 +488,7 @@ lf2.character.Deep = {
       next: 'jumpSword16', pic: ['2', 6, 0], center: [40, 80], wait: 2,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        A: 'jumpSword17',
+        B6: 'jumpSword17',
       },
     },
 

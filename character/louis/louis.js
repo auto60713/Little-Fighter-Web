@@ -18,32 +18,32 @@ lf2.character.Louis = {
       pic: ['0', 0, 0], wait: 9, next: 'standing2', move: [0, 0], center: [42, 79], flip: true,
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
-        right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'rCatch', S: 'thousandFoot', D: 'blastpush',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'rCatch', B5: 'thousandFoot', B4: 'blastpush',
       },
     },
     'standing2': {
       pic: ['0', 0, 1], wait: 3, next: 'standing3', move: [0, 0], center: [42, 79], flip: true,
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
-        right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'rCatch', S: 'thousandFoot', D: 'blastpush',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'rCatch', B5: 'thousandFoot', B4: 'blastpush',
       },
     },
     'standing3': {
       pic: ['0', 0, 2], wait: 4, next: 'standing4', move: [0, 0], center: [42, 79], flip: true,
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
-        right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'rCatch', S: 'thousandFoot', D: 'blastpush',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'rCatch', B5: 'thousandFoot', B4: 'blastpush',
       },
     },
     'standing4': {
       pic: ['0', 0, 3], wait: 5, next: 999, move: [0, 0], center: [42, 79], flip: true,
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
-        right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'rCatch', S: 'thousandFoot', D: 'blastpush',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'rCatch', B5: 'thousandFoot', B4: 'blastpush',
       },
     },
 
@@ -54,59 +54,59 @@ lf2.character.Louis = {
       pic: ['0', 0, 4], wait: 3, next: 'walking2', move: [0, 0], center: [42, 79], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
-        rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'rCatch', S: 'thousandFoot', D: 'blastpush',
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'rCatch', B5: 'thousandFoot', B4: 'blastpush',
       },
     },
     'walking2': {
       pic: ['0', 0, 5], wait: 3, next: 'walking3', move: [0, 0], center: [42, 79], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
-        rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'rCatch', S: 'thousandFoot', D: 'blastpush',
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'rCatch', B5: 'thousandFoot', B4: 'blastpush',
       },
     },
     'walking3': {
       pic: ['0', 0, 6], wait: 3, next: 'walking4', move: [0, 0], center: [42, 79], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
-        rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'rCatch', S: 'thousandFoot', D: 'blastpush',
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'rCatch', B5: 'thousandFoot', B4: 'blastpush',
       },
     },
     'walking4': {
       pic: ['0', 0, 7], wait: 3, next: 'walking', move: [0, 0], center: [42, 79], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
-        rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'rCatch', S: 'thousandFoot', D: 'blastpush',
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'rCatch', B5: 'thousandFoot', B4: 'blastpush',
       },
     },
 
 
     // 跑步
     'running': {
-      pic: ['0', 2, 0], wait: 3, next: 'running'2, move: [0, 0], center: [48, 79], hitHold: true,
+      pic: ['0', 2, 0], wait: 3, next: 'running2', move: [0, 0], center: [48, 79], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
-        up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'rCatch', S: 'thousandFoot', D: 'blastpush',
+        U: 'runJumpPre',
+        B1: 'punch', B2: 'defend', B6: 'rCatch', B5: 'thousandFoot', B4: 'blastpush',
       },
     },
     'running2': {
       pic: ['0', 2, 1], wait: 3, next: 'running3', move: [0, 0], center: [51, 79], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
-        up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'rCatch', S: 'thousandFoot', D: 'blastpush',
+        U: 'runJumpPre',
+        B1: 'punch', B2: 'defend', B6: 'rCatch', B5: 'thousandFoot', B4: 'blastpush',
       },
     },
     'running3': {
       pic: ['0', 2, 2], wait: 3, next: 'running', move: [0, 0], center: [50, 79], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
-        up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'rCatch', S: 'thousandFoot', D: 'blastpush',
+        U: 'runJumpPre',
+        B1: 'punch', B2: 'defend', B6: 'rCatch', B5: 'thousandFoot', B4: 'blastpush',
       },
     },
 
@@ -273,7 +273,7 @@ lf2.character.Louis = {
       pic: ['0', 6, 0], wait: 1, next: 'jump2', move: [0, 0], center: [47, 79], flip: true,
       bdy: { x: 22, y: 24, w: 35, h: 58, },
       hit: {
-        right: 'jumpPreMove', left: 'jumpPreMove',
+        R: 'jumpPreMove', L: 'jumpPreMove',
       },
     },
     'jump2': {
@@ -285,7 +285,7 @@ lf2.character.Louis = {
       bdy: { x: 28, y: 3, w: 23, h: 65, },
       bdy: { x: 18, y: 29, w: 48, h: 17, },
       hit: {
-        C: 'jumpAttack',
+        B1: 'jumpAttack',
       },
     },
 
@@ -302,7 +302,7 @@ lf2.character.Louis = {
       bdy: { x: 28, y: 29, w: 21, h: 33, },
       bdy: { x: 18, y: 48, w: 27, h: 21, },
       hit: {
-        C: 'jumpAttack',
+        B1: 'jumpAttack',
       },
     },
     'dash': {
@@ -310,7 +310,7 @@ lf2.character.Louis = {
       bdy: { x: 35, y: 8, w: 27, h: 27, },
       bdy: { x: 16, y: 30, w: 39, h: 37, },
       hit: {
-        C: 'jumpAttack',
+        B1: 'jumpAttack',
       },
     },
 

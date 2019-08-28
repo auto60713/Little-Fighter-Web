@@ -18,32 +18,32 @@ lf2.character.Rudolf = {
       next: 'standing2', pic: ['0', 0, 0], center: [40, 80], wait: 4, flip: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'addMan', B5: 'jumpSword', B4: '',
       },
     },
     standing2: {
       next: 'standing3', pic: ['0', 1, 0], center: [40, 80], wait: 4, flip: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'addMan', B5: 'jumpSword', B4: '',
       },
     },
     standing3: {
       next: 'standing4', pic: ['0', 2, 0], center: [40, 80], wait: 4, flip: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'addMan', B5: 'jumpSword', B4: '',
       },
     },
     standing4: {
       next: 999, pic: ['0', 3, 0], center: [40, 80], wait: 4, flip: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        right: 'walking', left: 'walking', rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'addMan', B5: 'jumpSword', B4: '',
       },
     },
 
@@ -53,32 +53,32 @@ lf2.character.Rudolf = {
       next: 'walking2', pic: ['0', 4, 0], center: [40, 80], wait: 4, move: [4, 0], flip: true, hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'addMan', B5: 'jumpSword', B4: '',
       },
     },
     walking2: {
       next: 'walking3', pic: ['0', 5, 0], center: [40, 80], wait: 4, move: [4, 0], flip: true, hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'addMan', B5: 'jumpSword', B4: '',
       },
     },
     walking3: {
       next: 'walking4', pic: ['0', 6, 0], center: [40, 80], wait: 4, move: [4, 0], flip: true, hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'addMan', B5: 'jumpSword', B4: '',
       },
     },
     walking4: {
       next: 'walking', pic: ['0', 7, 0], center: [40, 80], wait: 4, move: [4, 0], flip: true, hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        rightright: 'run', leftleft: 'run', up: 'jumpPre',
-        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
+        RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B6: 'addMan', B5: 'jumpSword', B4: '',
       },
     },
 
@@ -89,24 +89,24 @@ lf2.character.Rudolf = {
       next: 'run2', pic: ['0', 0, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
+        U: 'runJumpPre',
+        B1: 'punch', B2: 'defend', B6: 'addMan', B5: 'jumpSword', B4: '',
       },
     },
     run2: {
       next: 'run3', pic: ['0', 1, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
+        U: 'runJumpPre',
+        B1: 'punch', B2: 'defend', B6: 'addMan', B5: 'jumpSword', B4: '',
       },
     },
     run3: {
-      next: 'run', pic: ['0', 2, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
+      next: 'running', pic: ['0', 2, 2], center: [40, 80], wait: 4, move: [6, 0], hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        up: 'runJumpPre',
-        C: 'attack', X: 'defense', A: 'addMan', S: 'jumpSword', D: '',
+        U: 'runJumpPre',
+        B1: 'punch', B2: 'defend', B6: 'addMan', B5: 'jumpSword', B4: '',
       },
     },
 
@@ -120,7 +120,7 @@ lf2.character.Rudolf = {
       next: 'runJumping', pic: ['0', 3, 6], center: [40, 80], wait: 20,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        C: 'jumpAttack',
+        B1: 'jumpAttack',
       },
     },
 
@@ -130,7 +130,7 @@ lf2.character.Rudolf = {
       next: 'jumping', pic: ['0', 0, 6], center: [40, 80], wait: 1, move: [0, -8], flip: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        right: 'jumpPreMove', left: 'jumpPreMove',
+        R: 'jumpPreMove', L: 'jumpPreMove',
       },
     },
     jumpPreMove: {
@@ -142,7 +142,7 @@ lf2.character.Rudolf = {
 
       bdy: { x: 0, y: 0, w: 80, h: 80 },
       hit: {
-        C: 'jumpAttack',
+        B1: 'jumpAttack',
       },
     },
 
@@ -213,7 +213,7 @@ lf2.character.Rudolf = {
 
     // 防禦
     defense: {
-      next: 'defense', pic: ['0', 6, 5], center: [40, 80], wait: 3, flip: true, hitHold: true,
+      next: 'defend', pic: ['0', 6, 5], center: [40, 80], wait: 3, flip: true, hitHold: true,
       bdy: { x: 0, y: 0, w: 80, h: 80 },
     },
 
