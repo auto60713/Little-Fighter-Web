@@ -8,6 +8,7 @@ lf2.keymap = {
   'KeyZ': 'B3', 'KeyX': 'B2', 'KeyC': 'B1',
 
   'Escape': 'esc',
+  'KeyQ': 'pause',
 };
 
 lf2.keymap2 = {
@@ -125,6 +126,9 @@ lf2.sceneKeyEvent = (keyname) => {
           lf2.sceneSwitching('roleSelection');
           lf2.gameOver = null;
         }
+      });
+      m(['pause'], () => {
+        lf2.pause = !lf2.pause;
       });
       break;
     // 闖關模式

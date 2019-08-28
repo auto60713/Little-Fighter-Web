@@ -2,23 +2,24 @@
 // 每一幀要做的事
 lf2.eachFrame = () => {
 
-  // 清空畫布
-  lf2.ctx.clearRect(0, 0, lf2.canvas.width, lf2.canvas.height);
+  if (!lf2.pause) {
+    // 清空畫布
+    lf2.ctx.clearRect(0, 0, lf2.canvas.width, lf2.canvas.height);
 
-  // 目前模式
-  switch (lf2.state) {
-    case 'entrance':
-    case 'modeSelection':
-    case 'roleSelection':
-    case 'mapSelection':
-      lf2.thisFrame(['UI']);
-      break;
-    case 'battleMode':
-    case 'shaoguanMode':
-      lf2.thisFrame(['map', 'character', 'derivative', 'UI']);
-      break;
+    // 目前模式
+    switch (lf2.state) {
+      case 'entrance':
+      case 'modeSelection':
+      case 'roleSelection':
+      case 'mapSelection':
+        lf2.thisFrame(['UI']);
+        break;
+      case 'battleMode':
+      case 'shaoguanMode':
+        lf2.thisFrame(['map', 'character', 'derivative', 'UI']);
+        break;
+    }
   }
-
   // 60FPS
   setTimeout(lf2.eachFrame, 1000 / 60);
 };

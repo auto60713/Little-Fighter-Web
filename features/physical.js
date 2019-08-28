@@ -10,16 +10,19 @@ lf2.physical = (setting, frame, type, thing) => {
   }
   // 被抓中
   else if (setting.catching) {
-    var asdasd = lf2.findScenesIndex(setting.catching);
-    var twerff = asdasd.frame[asdasd.setting.nowframe];
-    var m = asdasd.setting.mirror ? -1 : 1;
-    if (twerff.catching) {
-      setting.x = asdasd.setting.x + (twerff.catching.x * m);
-      setting.y = asdasd.setting.y + twerff.catching.y;
-      if (twerff.catching.move) {
-        const m = asdasd.setting.mirror ? -1 : 1;
+    var enemy = lf2.findScenesIndex(setting.catching);
+    var enemyFrame = enemy.frame[enemy.setting.nowframe];
+    setting.mirror = enemy.setting.mirror;
+    var m = enemy.setting.mirror ? -1 : 1;
+    if (enemyFrame.cpoint) {
+      // FIXME: 與衍生物相同 if (setting.catching)相同
+      var asd = enemy.setting.mirror ? (enemy.setting.file[enemyFrame.pic[0]].w) : 0;
+      setting.x = enemy.setting.x - enemyFrame.center[0] + (enemyFrame.cpoint.x * m) + asd;
+      setting.y = enemy.setting.y - (enemyFrame.center[1] / 2) + enemyFrame.cpoint.y;
+      if (enemyFrame.cpoint.move) {
+        const m = enemy.setting.mirror ? -1 : 1;
         const m2 = setting.mirror ? -1 : 1;
-        thing.frame['falling'].move = [twerff.catching.move[0] * m * m2, twerff.catching.move[1]];
+        thing.frame['falling'].move = [enemyFrame.cpoint.move[0] * m * m2, enemyFrame.cpoint.move[1]];
       }
     }
     // 鬆開

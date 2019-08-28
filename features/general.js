@@ -14,9 +14,9 @@ lf2.variousChangesFrame = (setting, frame, type, thing) => {
   }
   // 被抓換動作
   else if (setting.catching) {
-    var asdasd = lf2.findScenesIndex(setting.catching);
-    var twerff = asdasd.frame[asdasd.setting.nowframe];
-    lf2.gotoFrame(thing, setting, type, twerff.catching.frame);
+    var enemy = lf2.findScenesIndex(setting.catching);
+    var enemyFrame = enemy.frame[enemy.setting.nowframe];
+    lf2.gotoFrame(thing, setting, type, enemyFrame.cpoint.frame);
   }
   // 技能換動作
   else if (lf2.skill(setting, frame, type, thing)) {
