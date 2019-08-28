@@ -66,8 +66,8 @@ lf2.sceneKeyEvent = (keyname) => {
   var x = (a, b) => {
     a.forEach(ttt => {
       if (keyname == ttt) {
-        if (keyname == 'B1') lf2.sound({ sound: 'm_ok.wav' });
-        else lf2.sound({ sound: 'm_cancel.wav' });
+        if (keyname == 'B1') lf2.sound({}, { sound: 'm_ok.wav' });
+        else lf2.sound({}, { sound: 'm_cancel.wav' });
 
         lf2.sceneSwitching(b);
       }

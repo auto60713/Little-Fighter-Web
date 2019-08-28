@@ -18,7 +18,7 @@ lf2.character.Louis = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'r-catch', B5: 'thousandFoot', B4: 'blastpush',
+        B1: 'punch', B2: 'defend', B6: 'r-catch', B5: '1000foot', B4: 'blastpush',
       },
     },
     'standing2': {
@@ -26,7 +26,7 @@ lf2.character.Louis = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'r-catch', B5: 'thousandFoot', B4: 'blastpush',
+        B1: 'punch', B2: 'defend', B6: 'r-catch', B5: '1000foot', B4: 'blastpush',
       },
     },
     'standing3': {
@@ -34,7 +34,7 @@ lf2.character.Louis = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'r-catch', B5: 'thousandFoot', B4: 'blastpush',
+        B1: 'punch', B2: 'defend', B6: 'r-catch', B5: '1000foot', B4: 'blastpush',
       },
     },
     'standing4': {
@@ -42,7 +42,7 @@ lf2.character.Louis = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'r-catch', B5: 'thousandFoot', B4: 'blastpush',
+        B1: 'punch', B2: 'defend', B6: 'r-catch', B5: '1000foot', B4: 'blastpush',
       },
     },
 
@@ -51,7 +51,7 @@ lf2.character.Louis = {
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'r-catch', B5: 'thousandFoot', B4: 'blastpush',
+        B1: 'punch', B2: 'defend', B6: 'r-catch', B5: '1000foot', B4: 'blastpush',
       },
     },
     'walking2': {
@@ -59,7 +59,7 @@ lf2.character.Louis = {
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'r-catch', B5: 'thousandFoot', B4: 'blastpush',
+        B1: 'punch', B2: 'defend', B6: 'r-catch', B5: '1000foot', B4: 'blastpush',
       },
     },
     'walking3': {
@@ -67,7 +67,7 @@ lf2.character.Louis = {
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'r-catch', B5: 'thousandFoot', B4: 'blastpush',
+        B1: 'punch', B2: 'defend', B6: 'r-catch', B5: '1000foot', B4: 'blastpush',
       },
     },
     'walking4': {
@@ -75,7 +75,7 @@ lf2.character.Louis = {
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'r-catch', B5: 'thousandFoot', B4: 'blastpush',
+        B1: 'punch', B2: 'defend', B6: 'r-catch', B5: '1000foot', B4: 'blastpush',
       },
     },
 
@@ -84,7 +84,7 @@ lf2.character.Louis = {
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'r-catch', B5: 'thousandFoot', B4: 'blastpush',
+        B1: 'run_attack', B2: 'defend', B6: 'r-catch', B5: '1000foot', B4: 'blastpush',
       },
     },
     'running2': {
@@ -92,7 +92,7 @@ lf2.character.Louis = {
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'r-catch', B5: 'thousandFoot', B4: 'blastpush',
+        B1: 'run_attack', B2: 'defend', B6: 'r-catch', B5: '1000foot', B4: 'blastpush',
       },
     },
     'running3': {
@@ -100,7 +100,7 @@ lf2.character.Louis = {
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'r-catch', B5: 'thousandFoot', B4: 'blastpush',
+        B1: 'run_attack', B2: 'defend', B6: 'r-catch', B5: '1000foot', B4: 'blastpush',
       },
     },
 
@@ -110,7 +110,7 @@ lf2.character.Louis = {
     },
     'punch2': {
       pic: ['0', 1, 1], wait: 2, next: 999, move: [0, 0], center: [40, 79],
-      itr: { x: 26, y: 37, w: 52, h: 14, move: [2, 0], injury: 20, },
+      itr: { x: 26, y: 37, w: 52, h: 14, move: [2, 0], fall: false, arest: 10, injury: 20, },
       bdy: { x: 28, y: 12, w: 36, h: 68, },
     },
 
@@ -318,134 +318,138 @@ lf2.character.Louis = {
 
 
     'c-throw': {
-      pic: ['2', 1, 0], wait: 2, next: 'c-throw2', move: [0, 0], center: [39, 79], sound: '015.wav', 
+      pic: ['2', 1, 0], wait: 2, next: 'c-throw2', move: [0, 0], center: [39, 79], sound: '015.wav',
       cpoint: { x: 83, y: 43, frame: 'falling', },
       itr: { x: 18, y: 24, w: 103, h: 56, move: [14, 0], fall: true, vrest: 75, injury: 65, },
       bdy: { x: 19, y: 13, w: 47, h: 67, },
     },
     'c-throw2': {
-      pic: ['2', 1, 1], wait: 2, next: 'c-throw3', move: [1, 0], center: [39, 79], 
+      pic: ['2', 1, 1], wait: 2, next: 'c-throw3', move: [1, 0], center: [39, 79],
       cpoint: { x: 66, y: 59, injury: 20, frame: 'falling', },
       bdy: { x: 16, y: 12, w: 45, h: 65, },
     },
     'c-throw3': {
-      pic: ['2', 1, 2], wait: 1, next: 'c-throw4', move: [1, 0], center: [34, 79], sound: '007.wav', 
+      pic: ['2', 1, 2], wait: 1, next: 'c-throw4', move: [1, 0], center: [34, 79], sound: '007.wav',
       cpoint: { x: -4, y: 38, frame: 'falling', },
       itr: { x: -48, y: 22, w: 107, h: 57, move: [-14, 0], fall: true, vrest: 75, injury: 65, },
       bdy: { x: 15, y: 12, w: 42, h: 70, },
     },
     'c-throw4': {
-      pic: ['2', 1, 3], wait: 2, next: 'c-throw5', move: [0, 0], center: [40, 79], 
+      pic: ['2', 1, 3], wait: 2, next: 'c-throw5', move: [0, 0], center: [40, 79],
       cpoint: { x: 12, y: 19, frame: 'falling', },
       itr: { x: -35, y: -19, w: 109, h: 60, move: [-14, 0], fall: true, vrest: 75, injury: 65, },
       bdy: { x: 23, y: 9, w: 42, h: 70, },
     },
     'c-throw5': {
-      pic: ['2', 1, 4], wait: 2, next: 'c-throw6', move: [-2, 0], center: [38, 79], 
+      pic: ['2', 1, 4], wait: 2, next: 'c-throw6', move: [-2, 0], center: [38, 79],
       cpoint: { x: 71, y: 19, frame: 'falling', },
       itr: { x: 14, y: -16, w: 107, h: 67, move: [14, 0], fall: true, vrest: 75, injury: 65, },
       bdy: { x: 16, y: 11, w: 41, h: 69, },
     },
     'c-throw6': {
-      pic: ['2', 1, 5], wait: 1, next: 'c-throw7', move: [-1, 0], center: [39, 79], 
+      pic: ['2', 1, 5], wait: 1, next: 'c-throw7', move: [-1, 0], center: [39, 79],
       cpoint: { x: 74, y: 53, frame: 'falling', },
       itr: { x: 18, y: 10, w: 106, h: 65, move: [14, 0], fall: true, vrest: 75, injury: 65, },
       bdy: { x: 11, y: 11, w: 45, h: 69, },
     },
     'c-throw7': {
-      pic: ['2', 1, 5], wait: 1, next: 'c-throw8', move: [-1, 0], center: [39, 79], 
+      pic: ['2', 1, 5], wait: 1, next: 'c-throw8', move: [-1, 0], center: [39, 79],
       cpoint: { x: 74, y: 53, frame: 'falling', },
       itr: { x: 16, y: 11, w: 108, h: 64, move: [14, 0], fall: true, vrest: 75, injury: 65, },
       bdy: { x: 11, y: 11, w: 45, h: 69, },
     },
     'c-throw8': {
-      pic: ['2', 1, 1], wait: 1, next: 'c-throw9', move: [0, 0], center: [39, 79], 
+      pic: ['2', 1, 1], wait: 1, next: 'c-throw9', move: [0, 0], center: [39, 79],
       cpoint: { x: 66, y: 57, frame: 'falling', },
       itr: { x: -15, y: 16, w: 119, h: 65, move: [14, 0], fall: true, vrest: 75, injury: 65, },
       bdy: { x: 18, y: 11, w: 42, h: 68, },
     },
     'c-throw9': {
-      pic: ['2', 1, 2], wait: 1, next: 'c-throw10', move: [0, 0], center: [36, 79], 
+      pic: ['2', 1, 2], wait: 1, next: 'c-throw10', move: [0, 0], center: [36, 79],
       cpoint: { x: -5, y: 24, frame: 'falling', },
       itr: { x: -49, y: 0, w: 123, h: 55, move: [-14, 0], fall: true, vrest: 75, injury: 65, },
       bdy: { x: 9, y: 8, w: 49, h: 72, },
     },
     'c-throw10': {
-      pic: ['2', 1, 6], wait: 1, next: 'c-throw11', move: [0, 0], center: [43, 79], sound: '007.wav', 
+      pic: ['2', 1, 6], wait: 1, next: 'c-throw11', move: [0, 0], center: [43, 79], sound: '007.wav',
       cpoint: { x: 9, y: 49, frame: 'falling', move: [-8, -8], },
       bdy: { x: 19, y: 15, w: 28, h: 65, },
     },
     'c-throw11': {
-      pic: ['2', 1, 6], wait: 3, next: -999, move: [0, 0], center: [43, 79], 
+      pic: ['2', 1, 6], wait: 3, next: -999, move: [0, 0], center: [43, 79],
       bdy: { x: 19, y: 15, w: 28, h: 65, },
     },
-    
-    
-    
-    
-    
 
-    // 抓到旋轉
-    whirl: {
-      next: 'whirl2', pic: ['2', 0, 1], center: [40, 80], wait: 2,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, -1], cd: 5, injury: 40, },
-      catching: { x: 30, y: 0, frame: 'falling', },
+
+
+
+    '1000foot': {
+      pic: ['2', 0, 0], wait: 1, next: '1000foot2', move: [0, 0], center: [44, 79],
+      bdy: { x: 23, y: 14, w: 35, h: 64, },
     },
-    whirl2: {
-      next: 'whirl3', pic: ['2', 1, 1], center: [40, 80], wait: 2,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, -1], cd: 5, injury: 40, },
-      catching: { x: 10, y: 20, frame: 'falling', },
+    '1000foot2': {
+      pic: ['2', 0, 1], wait: 2, next: '1000foot3', move: [0, 0], center: [27, 79],
+      bdy: { x: 23, y: 14, w: 35, h: 64, },
     },
-    whirl3: {
-      next: 'whirl4', pic: ['2', 2, 1], center: [40, 80], wait: 2,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, -1], cd: 5, injury: 40, },
-      catching: { x: -30, y: 0, frame: 'falling', },
+    '1000foot3': {
+      pic: ['2', 0, 2], wait: 1, next: '1000foot4', move: [2, 0], center: [23, 81], sound: '003.wav',
+      bdy: { x: 24, y: 21, w: 44, h: 54, },
     },
-    whirl4: {
-      next: 'whirl5', pic: ['2', 3, 1], center: [40, 80], wait: 2,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, -1], cd: 5, injury: 40, },
-      catching: { x: -30, y: -20, frame: 'falling', },
+    '1000foot4': {
+      pic: ['2', 0, 3], wait: 1, next: '1000foot5', move: [8, 0], center: [28, 78],
+      bdy: { x: 18, y: 18, w: 53, h: 41, },
     },
-    whirl5: {
-      next: 'whirl6', pic: ['2', 4, 1], center: [40, 80], wait: 2,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, -1], cd: 5, injury: 40, },
-      catching: { x: 10, y: -20, frame: 'falling', },
+    '1000foot5': {
+      pic: ['2', 0, 4], wait: 1, next: '1000foot6', move: [12, 0], center: [24, 84],
+      bdy: { x: 10, y: 17, w: 43, h: 46, },
     },
-    whirl6: {
-      next: 'whirl7', pic: ['2', 5, 1], center: [40, 80], wait: 0,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, -1], cd: 5, injury: 40, },
-      catching: { x: 20, y: 10, frame: 'falling', },
+    '1000foot6': {
+      pic: ['2', 0, 5], wait: 2, next: '1000foot7', move: [12, 0], center: [38, 78], sound: '007.wav',
+      itr: { x: 11, y: 31, w: 68, h: 27, move: [13, 0], fall: false, vrest: 7, injury: 20, },
+      bdy: { x: 13, y: 6, w: 41, h: 40, },
     },
-    whirl7: {
-      next: 'whirl8', pic: ['2', 0, 1], center: [40, 80], wait: 1,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, -1], cd: 5, injury: 40, },
-      catching: { x: 20, y: 10, frame: 'falling', },
+    '1000foot7': {
+      pic: ['2', 0, 6], wait: 2, next: '1000foot8', move: [12, 0], center: [38, 77], sound: '069.wav',
+      bdy: { x: 9, y: 7, w: 45, h: 38, },
     },
-    whirl8: {
-      next: 'whirl9', pic: ['2', 1, 1], center: [40, 80], wait: 1,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, -1], cd: 5, injury: 40, },
-      catching: { x: 20, y: 10, frame: 'falling', },
+    '1000foot8': {
+      pic: ['2', 0, 7], wait: 2, next: '1000foot9', move: [12, 0], center: [38, 78], sound: '007.wav',
+      itr: { x: 11, y: 31, w: 68, h: 27, move: [13, 0], fall: false, vrest: 7, injury: 20, },
+      bdy: { x: 9, y: 8, w: 45, h: 35, },
     },
-    whirl9: {
-      next: 'whirl10', pic: ['2', 2, 1], center: [40, 80], wait: 2,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, -1], cd: 5, injury: 40, },
-      catching: { x: -30, y: 0, frame: 'falling', },
+    '1000foot9': {
+      pic: ['2', 0, 8], wait: 2, next: '1000foot10', move: [12, 0], center: [38, 77], sound: '069.wav',
+      itr: { x: 11, y: 31, w: 68, h: 27, move: [13, 0], fall: false, vrest: 7, injury: 20, },
+      bdy: { x: 10, y: 9, w: 44, h: 33, },
     },
-    whirl10: {
-      next: -999, pic: ['2', 6, 1], center: [40, 80], wait: 2,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [2, -1], cd: 5, injury: 40, },
-      catching: { x: -30, y: -30, frame: 'falling', move: [-20, -2], },
+    '1000foot10': {
+      pic: ['2', 0, 5], wait: 2, next: '1000foot11', move: [12, 0], center: [38, 78], sound: '007.wav',
+      bdy: { x: 10, y: 10, w: 38, h: 37, },
     },
+    '1000foot11': {
+      pic: ['2', 0, 6], wait: 2, next: '1000foot12', move: [12, 0], center: [38, 77], sound: '069.wav',
+      itr: { x: 11, y: 31, w: 68, h: 27, move: [13, 0], fall: false, vrest: 7, injury: 20, },
+      bdy: { x: 9, y: 9, w: 40, h: 35, },
+    },
+    '1000foot12': {
+      pic: ['2', 0, 7], wait: 2, next: '1000foot13', move: [12, 0], center: [38, 78], sound: '007.wav',
+      bdy: { x: 7, y: 8, w: 36, h: 37, },
+    },
+    '1000foot13': {
+      pic: ['2', 0, 8], wait: 2, next: '1000foot14', move: [12, 0], center: [38, 77], sound: '069.wav',
+      itr: { x: 9, y: 22, w: 81, h: 35, move: [17, -7], fall: true, vrest: 7, injury: 30, },
+      bdy: { x: 9, y: 8, w: 40, h: 38, },
+    },
+    '1000foot14': {
+      pic: ['2', 0, 9], wait: 2, next: '1000foot15', move: [5, 0], center: [46, 70],
+      bdy: { x: 16, y: 13, w: 48, h: 54, },
+    },
+    '1000foot15': {
+      pic: ['0', 3, 6], wait: 4, next: 999, move: [0, 0], center: [46, 76], sound: '009.wav',
+      bdy: { x: 24, y: 43, w: 33, h: 37, },
+      bdy: { x: 32, y: 24, w: 28, h: 28, },
+    },
+
 
   }
 };

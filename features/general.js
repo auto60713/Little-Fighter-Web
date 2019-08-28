@@ -9,8 +9,14 @@ lf2.variousChangesFrame = (setting, frame, type, thing) => {
       y: setting.y,
     });
 
-    if (qqqq[1]) lf2.gotoFrame(thing, setting, type, 'falling');
-    else lf2.gotoFrame(thing, setting, type, 'injured');
+    if (qqqq[1]) {
+      lf2.sound({}, { sound: '006.wav' });
+      lf2.gotoFrame(thing, setting, type, 'falling');
+    }
+    else {
+      lf2.sound({}, { sound: '001.wav' });
+      lf2.gotoFrame(thing, setting, type, 'injured');
+    }
   }
   // 被抓換動作
   else if (setting.catching) {
@@ -111,6 +117,7 @@ lf2.gotoFrame = (thing, setting, type, next) => {
   setting.nowframe = next;
   setting.nowwait = nextFrame.wait * lf2.waitMagnification;
   setting.alreadyProduced = false;
+  setting.alreadySound = false;
 }
 
 // 被打偵測
