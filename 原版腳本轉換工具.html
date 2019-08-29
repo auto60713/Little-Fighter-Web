@@ -20,9 +20,9 @@
   <script>
 
     // 圖片row幾格
-    var picrow = 10;
-    var characterName = 'Deep';
-    var picstart = 0;
+    var picrow = 4;
+    var characterName = 'Firen';
+    var picstart = 18;
 
     // FIXME: 出版前要在包裝一下 例如參數設定欄 複製提示等
 
@@ -242,7 +242,7 @@
       }
 
       else if (element == 'effect:') {
-        if (array[i + 1] > 3) {
+        if (array[i + 1] == 4) {
           array[i] = 'Delete this itr';
           array[i + 1] = '';
         }
@@ -265,7 +265,8 @@
             case 'hit_d:': array[i] = 'B2:'; break;
             case 'hit_j:': array[i] = 'U:'; break;
           }
-          array[i + 1] = "'" + skillname + (array[i + 1] - OrgframeIndex + 1) + "'";
+          if (array[i + 1] != 999 && array[i + 1] != 1000)
+            array[i + 1] = "'" + skillname + (array[i + 1] - OrgframeIndex + 1) + "'";
         }
         else {
           array[i] = '';

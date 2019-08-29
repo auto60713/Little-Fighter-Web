@@ -280,26 +280,95 @@ lf2.character.Henry = {
     // 技能
     // ==============================================================================
 
-    flute: {
-      next: 'flute2', pic: ['2', 0, 0], center: [40, 80], wait: 20,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [0, -4], cd: 20, injury: 20, },
+    'super_arrow': {
+      pic: ['0', 1, 0], wait: 1, next: 'super_arrow2', move: [0, 0], center: [40, 79],
+      bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
-    flute2: {
-      next: 'flute3', pic: ['2', 1, 0], center: [40, 80], wait: 20,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [0, -4], cd: 20, injury: 20, },
+    'super_arrow2': {
+      pic: ['0', 1, 1], wait: 1, next: 'super_arrow3', move: [0, 0], center: [30, 79],
+      bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
-    flute3: {
-      next: 'flute4', pic: ['2', 2, 0], center: [40, 80], wait: 20,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [0, -4], cd: 20, injury: 20, },
+    'super_arrow3': {
+      pic: ['0', 1, 2], wait: 1, next: 'super_arrow4', move: [0, 0], center: [24, 78],
+      bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
-    flute4: {
-      next: 999, pic: ['2', 3, 0], center: [40, 80], wait: 20,
-      bdy: { x: 0, y: 0, w: 80, h: 80 },
-      itr: { x: 0, y: 0, w: 80, h: 80, move: [0, -4], cd: 20, injury: 20, },
+    'super_arrow4': {
+      pic: ['2', 0, 4], wait: 1, next: 'super_arrow5', move: [0, 0], center: [38, 78], sound: '022.wav',
+      bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
+    'super_arrow5': {
+      pic: ['2', 0, 5], wait: 1, next: 'super_arrow8', move: [0, 0], center: [38, 78], sound: '059.wav',
+      bdy: { x: 26, y: 12, w: 27, h: 68, },
+    },
+    'super_arrow6': {
+      pic: ['2', 0, 5], wait: 1, next: 'super_arrow8', move: [0, 0], center: [38, 78],
+      bdy: { x: 26, y: 12, w: 27, h: 68, },
+    },
+    'super_arrow7': {
+      pic: ['2', 0, 5], wait: 1, next: 'super_arrow8', move: [0, 0], center: [38, 78],
+      bdy: { x: 26, y: 12, w: 27, h: 68, },
+    },
+    'super_arrow8': {
+      pic: ['2', 0, 6], wait: 1, next: 'super_arrow9', move: [0, 0], center: [39, 78], sound: '024.wav',
+      // opoint: { x: 95, y: 41, name: 'Deep', move: [22, 0], frame: 'standing', },
+      bdy: { x: 26, y: 12, w: 27, h: 68, },
+    },
+    'super_arrow9': {
+      pic: ['2', 0, 7], wait: 1, next: 'super_arrow10', move: [0, 0], center: [36, 78],
+      bdy: { x: 26, y: 12, w: 27, h: 68, },
+    },
+    'super_arrow10': {
+      pic: ['0', 1, 5], wait: 1, next: 999, move: [0, 0], center: [36, 78],
+      bdy: { x: 26, y: 12, w: 27, h: 68, },
+    },
+
+
+    'flute': {
+      pic: ['2', 0, 0], wait: 8, next: 'flute2', move: [0, 0], center: [36, 79], sound: '056.wav',
+      bdy: { x: 22, y: 8, w: 36, h: 73, },
+    },
+    'flute2': {
+      pic: ['2', 0, 1], wait: 0, next: 'flute3', move: [0, 0], center: [36, 79],
+      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], fall: true },
+      bdy: { x: 22, y: 8, w: 36, h: 73, },
+      hit: {
+        B6: 999, B2: 999,
+      },
+    },
+    'flute3': {
+      pic: ['2', 0, 1], wait: 9, next: 'flute4', move: [0, 0], center: [36, 79], sound: '057.wav',
+      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], fall: true },
+      bdy: { x: 22, y: 8, w: 36, h: 73, },
+      hit: {
+        B6: 999, B2: 999,
+      },
+    },
+    'flute4': {
+      pic: ['2', 0, 2], wait: 27, next: 'flute5', move: [0, 0], center: [36, 79], sound: '058.wav',
+      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], fall: true },
+      bdy: { x: 22, y: 8, w: 36, h: 73, },
+      hit: {
+        B6: 999, B2: 999,
+      },
+    },
+    'flute5': {
+      pic: ['2', 0, 3], wait: 9, next: 'flute6', move: [0, 0], center: [36, 79], sound: '101.wav',
+      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], fall: true },
+      bdy: { x: 22, y: 8, w: 36, h: 73, },
+      hit: {
+        B6: 999, B2: 999,
+      },
+    },
+    'flute6': {
+      pic: ['2', 0, 0], wait: 50, next: 999, move: [0, 0], center: [36, 79], sound: '102.wav',
+      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], fall: true },
+      bdy: { x: 22, y: 8, w: 36, h: 73, },
+      hit: {
+        B6: 999, B2: 999,
+      },
+    },
+
+
 
   }
 };
@@ -370,7 +439,7 @@ lf2.derivative.Henry = {
     },
 
 
-  
+
 
     'injured': {
       pic: ['arrow', 1, 0], wait: 0, next: 'in_the_sky2', move: [-4, -4], center: [24, 40], drop: 1000,

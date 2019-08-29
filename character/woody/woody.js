@@ -353,6 +353,62 @@ lf2.character.Woody = {
       bdy: { x: 22, y: 7, w: 38, h: 52, },
     },
 
+    'cleg': {
+      pic: ['2', 2, 0], wait: 1, next: 'cleg2', move: [8, 0], center: [38, 79], 
+      bdy: { x: 25, y: 18, w: 34, h: 58, },
+    },
+    'cleg2': {
+      pic: ['2', 2, 1], wait: 2, next: 'cleg3', move: [8, 0], center: [38, 79], sound: '007.wav', 
+      bdy: { x: 25, y: 18, w: 34, h: 58, },
+    },
+    'cleg3': {
+      pic: ['2', 2, 2], wait: 1, next: 'cleg4', move: [8, 0], center: [38, 79], 
+      itr: { x: 52, y: 17, w: 29, h: 24, move: [11, 0], vrest: 9, injury: 20, },
+      itr: { x: 1, y: 17, w: 27, h: 25, move: [-2, 0], vrest: 9, injury: 20, },
+      bdy: { x: 25, y: 18, w: 34, h: 58, },
+    },
+    'cleg4': {
+      pic: ['2', 2, 3], wait: 1, next: 'cleg5', move: [8, 0], center: [38, 79], 
+      bdy: { x: 25, y: 18, w: 34, h: 58, },
+    },
+    'cleg5': {
+      pic: ['2', 2, 4], wait: 1, next: 'cleg6', move: [8, 0], center: [38, 79], 
+      bdy: { x: 25, y: 18, w: 34, h: 58, },
+    },
+    'cleg6': {
+      pic: ['2', 2, 5], wait: 1, next: 'cleg7', move: [8, 0], center: [38, 79], sound: '007.wav', 
+      itr: { x: 52, y: 17, w: 29, h: 24, move: [11, 0], vrest: 9, injury: 20, },
+      itr: { x: 1, y: 17, w: 27, h: 25, move: [-2, 0], vrest: 9, injury: 20, },
+      bdy: { x: 25, y: 18, w: 34, h: 58, },
+    },
+    'cleg7': {
+      pic: ['2', 2, 6], wait: 1, next: 'cleg8', move: [8, 0], center: [38, 79],
+      bdy: { x: 25, y: 18, w: 34, h: 58, },
+    },
+    'cleg8': {
+      pic: ['2', 2, 7], wait: 1, next: 'cleg9', move: [8, 0], center: [38, 79], sound: '007.wav', 
+      bdy: { x: 25, y: 18, w: 34, h: 58, },
+    },
+    'cleg9': {
+      pic: ['2', 2, 8], wait: 1, next: 'cleg10', move: [8, 0], center: [38, 79], 
+      itr: { x: 52, y: 17, w: 29, h: 24, move: [5, -9], fall: true, vrest: 9, injury: 20, },
+      itr: { x: 1, y: 17, w: 27, h: 25, move: [-2, 0], fall: true, vrest: 9, injury: 20, },
+      bdy: { x: 25, y: 18, w: 34, h: 58, },
+    },
+    'cleg10': {
+      pic: ['2', 2, 9], wait: 1, next: 'cleg11', move: [8, 0], center: [31, 79], 
+      bdy: { x: 25, y: 18, w: 34, h: 58, },
+    },
+    'cleg11': {
+      pic: ['2', 3, 0], wait: 2, next: 'cleg12', move: [8, 0], center: [39, 79], 
+      bdy: { x: 25, y: 18, w: 34, h: 58, },
+    },
+    'cleg12': {
+      pic: ['0', 6, 0], wait: 4, next: 999, move: [0, 0], center: [39, 79], B6: 'cleg-189', B5: 'cleg-7', sound: '012.wav', 
+      bdy: { x: 26, y: 36, w: 29, h: 44, },
+    },
+    
+
 
   }
 };
