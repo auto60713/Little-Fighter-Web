@@ -16,7 +16,7 @@ lf2.character.Freeze = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B4: 'whirlwind', B5: 'Down_punch', B6: 'ball',
+        B1: 'punch', B2: 'defend', B4: 'Whirlwind', B5: 'Down_punch', B6: 'ball',
       },
     },
     'standing2': {
@@ -24,7 +24,7 @@ lf2.character.Freeze = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B4: 'whirlwind', B5: 'Down_punch', B6: 'ball',
+        B1: 'punch', B2: 'defend', B4: 'Whirlwind', B5: 'Down_punch', B6: 'ball',
       },
     },
     'standing3': {
@@ -32,7 +32,7 @@ lf2.character.Freeze = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B4: 'whirlwind', B5: 'Down_punch', B6: 'ball',
+        B1: 'punch', B2: 'defend', B4: 'Whirlwind', B5: 'Down_punch', B6: 'ball',
       },
     },
     'standing4': {
@@ -40,12 +40,12 @@ lf2.character.Freeze = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B4: 'whirlwind', B5: 'Down_punch', B6: 'ball',
+        B1: 'punch', B2: 'defend', B4: 'Whirlwind', B5: 'Down_punch', B6: 'ball',
       },
     },
 
     'walking': {
-      pic: ['0', 0, 4], wait: 3, next: 999, move: [0, 0], center: [39, 78], flip: true, hitHold: true,
+      pic: ['0', 0, 4], wait: 3, next: 'walking2', move: [5, 0], center: [39, 78], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -53,7 +53,7 @@ lf2.character.Freeze = {
       },
     },
     'walking2': {
-      pic: ['0', 0, 5], wait: 3, next: 999, move: [0, 0], center: [39, 79], flip: true, hitHold: true,
+      pic: ['0', 0, 5], wait: 3, next: 'walking3', move: [5, 0], center: [39, 79], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -61,7 +61,7 @@ lf2.character.Freeze = {
       },
     },
     'walking3': {
-      pic: ['0', 0, 6], wait: 3, next: 999, move: [0, 0], center: [39, 79], flip: true, hitHold: true,
+      pic: ['0', 0, 6], wait: 3, next: 'walking4', move: [5, 0], center: [39, 79], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -69,7 +69,7 @@ lf2.character.Freeze = {
       },
     },
     'walking4': {
-      pic: ['0', 0, 7], wait: 3, next: 999, move: [0, 0], center: [39, 78], flip: true, hitHold: true,
+      pic: ['0', 0, 7], wait: 3, next: 'walking', move: [5, 0], center: [39, 78], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -78,7 +78,7 @@ lf2.character.Freeze = {
     },
 
     'running': {
-      pic: ['0', 2, 0], wait: 3, next: 0, move: [0, 0], center: [35, 79], sound: '003.wav', hitHold: true,
+      pic: ['0', 2, 0], wait: 3, next: 'running2', move: [10, 0], center: [35, 79], sound: '003.wav', hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -86,7 +86,7 @@ lf2.character.Freeze = {
       },
     },
     'running2': {
-      pic: ['0', 2, 1], wait: 3, next: 0, move: [0, 0], center: [41, 79], hitHold: true,
+      pic: ['0', 2, 1], wait: 3, next: 'running3', move: [10, 0], center: [41, 79], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -94,7 +94,7 @@ lf2.character.Freeze = {
       },
     },
     'running3': {
-      pic: ['0', 2, 2], wait: 3, next: 0, move: [0, 0], center: [36, 79], sound: '004.wav', hitHold: true,
+      pic: ['0', 2, 2], wait: 3, next: 'running', move: [10, 0], center: [36, 79], sound: '004.wav', hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -223,7 +223,7 @@ lf2.character.Freeze = {
     },
 
     'dash': {
-      pic: ['0', 6, 3], wait: 8, next: 'dash2', move: [9, -5], center: [39, 79],
+      pic: ['0', 6, 3], wait: 0, next: 'dash2', move: [9, -5], center: [39, 79],
       bdy: { x: 43, y: 5, w: 23, h: 33, },
       bdy: { x: 28, y: 29, w: 21, h: 33, },
       bdy: { x: 18, y: 48, w: 27, h: 21, },
@@ -260,28 +260,28 @@ lf2.character.Freeze = {
     // 技能
     // ==============================================================================
 
-    'ball1': {
-      pic: ['2', 0, 0], wait: 1, next: 'ball12', move: [0, 0], center: [40, 79], sound: '064.wav',
+    'ball': {
+      pic: ['2', 0, 0], wait: 1, next: 'ball2', move: [0, 0], center: [40, 79], sound: '064.wav',
       bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
-    'ball12': {
-      pic: ['2', 0, 1], wait: 1, next: 'ball13', move: [0, 0], center: [39, 79],
+    'ball2': {
+      pic: ['2', 0, 1], wait: 1, next: 'ball3', move: [0, 0], center: [39, 79],
       bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
-    'ball13': {
-      pic: ['2', 0, 2], wait: 1, next: 'ball14', move: [4, 0], center: [22, 79],
+    'ball3': {
+      pic: ['2', 0, 2], wait: 1, next: 'ball4', move: [4, 0], center: [22, 79],
       bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
-    'ball14': {
-      pic: ['2', 0, 3], wait: 1, next: 'ball15', move: [3, 0], center: [37, 79],
+    'ball4': {
+      pic: ['2', 0, 3], wait: 1, next: 'ball5', move: [3, 0], center: [37, 79],
       opoint: { x: 80, y: 46, name: 'Freeze', move: [0, 0], frame: 'standing', },
       bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
-    'ball15': {
-      pic: ['2', 0, 4], wait: 2, next: 'ball16', move: [1, 0], center: [37, 79],
+    'ball5': {
+      pic: ['2', 0, 4], wait: 2, next: 'ball6', move: [1, 0], center: [37, 79],
       bdy: { x: 25, y: 11, w: 35, h: 67, },
     },
-    'ball16': {
+    'ball6': {
       pic: ['2', 0, 5], wait: 3, next: 999, move: [0, 0], center: [32, 79],
       bdy: { x: 24, y: 14, w: 31, h: 64, },
     },
@@ -344,7 +344,7 @@ lf2.character.Freeze = {
     },
     'Whirlwind6': {
       pic: ['2', 1, 5], wait: 2, next: 'Whirlwind7', move: [0, 0], center: [33, 71],
-      opoint: { x: 33, y: 71, name: 'Freeze', move: [0, 0], frame: 'standing', },
+      opoint: { x: 33, y: 71, name: 'Freeze', move: [0, 0], frame: 'whirlwind', },
       bdy: { x: 24, y: 14, w: 31, h: 64, },
     },
     'Whirlwind7': {
@@ -383,65 +383,65 @@ lf2.derivative.Freeze = {
   },
   frame: {
 
-    standing: {
-      next: 'standing2', pic: ['ball', 0, 0], center: [40, 41], wait: 0, move: [9, 0],
-      bdy: { x: 22, y: 27, w: 55, h: 27 },
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [7, 0], cd: 100, injury: 45, next: 'falling', }
+    'standing': {
+      pic: ['ball', 0, 0], wait: 0, next: 'flying2', move: [9, 0], center: [40, 41],
+      itr: { x: 22, y: 27, w: 55, h: 27, move: [7, 0], fall: false, vrest: 10, injury: 45, next: 'falling', },
+      bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
-    standing2: {
-      next: 'standing3', pic: ['ball', 0, 1], center: [40, 41], wait: 0, move: [9, 0],
-      bdy: { x: 22, y: 27, w: 55, h: 27 },
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [7, 0], cd: 100, injury: 45, next: 'falling', }
+    'flying2': {
+      pic: ['ball', 0, 1], wait: 0, next: 'flying3', move: [9, 0], center: [40, 41],
+      itr: { x: 22, y: 27, w: 55, h: 27, move: [7, 0], fall: false, vrest: 10, injury: 45, next: 'falling', },
+      bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
-    standing3: {
-      next: 'standing4', pic: ['ball', 0, 2], center: [40, 41], wait: 0, move: [9, 0],
-      bdy: { x: 22, y: 27, w: 55, h: 27 },
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [7, 0], cd: 100, injury: 45, next: 'falling', }
+    'flying3': {
+      pic: ['ball', 0, 2], wait: 0, next: 'flying4', move: [9, 0], center: [40, 41],
+      itr: { x: 22, y: 27, w: 55, h: 27, move: [7, 0], fall: false, vrest: 10, injury: 45, next: 'falling', },
+      bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
-    standing4: {
-      next: 'standing5', pic: ['ball', 3, 0], center: [40, 41], wait: 0, move: [9, 0],
-      bdy: { x: 22, y: 27, w: 55, h: 27 },
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [7, 0], cd: 100, injury: 45, next: 'falling', }
+    'flying4': {
+      pic: ['ball', 0, 3], wait: 0, next: 'flying5', move: [9, 0], center: [40, 41],
+      itr: { x: 22, y: 27, w: 55, h: 27, move: [7, 0], fall: false, vrest: 10, injury: 45, next: 'falling', },
+      bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
-    standing5: {
-      next: 'standing6', pic: ['ball', 2, 0], center: [40, 43], wait: 0, move: [9, 0],
-      bdy: { x: 22, y: 27, w: 55, h: 27 },
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [7, 0], cd: 100, injury: 45, next: 'falling', }
+    'flying5': {
+      pic: ['ball', 2, 0], wait: 0, next: 'flying6', move: [9, 0], center: [40, 43],
+      itr: { x: 22, y: 27, w: 55, h: 27, move: [7, 0], fall: false, vrest: 10, injury: 45, next: 'falling', },
+      bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
-    standing6: {
-      next: 'standing', pic: ['ball', 3, 0], center: [40, 43], wait: 0, move: [9, 0],
-      bdy: { x: 22, y: 27, w: 55, h: 27 },
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [7, 0], cd: 100, injury: 45, next: 'falling', }
+    'flying6': {
+      pic: ['ball', 2, 1], wait: 0, next: 999, move: [9, 0], center: [40, 43],
+      itr: { x: 22, y: 27, w: 55, h: 27, move: [7, 0], fall: false, vrest: 10, injury: 45, next: 'falling', },
+      bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
 
+    'falling': {
+      pic: ['ball', 1, 0], wait: 1, next: 'hiting2', move: [0, 0], center: [44, 41],
+    },
+    'hiting2': {
+      pic: ['ball', 1, 1], wait: 1, next: 'hiting3', move: [0, 0], center: [44, 41],
+    },
+    'hiting3': {
+      pic: ['ball', 1, 2], wait: 1, next: 'hiting4', move: [0, 0], center: [44, 41],
+    },
+    'hiting4': {
+      pic: ['ball', 1, 3], wait: 1, next: 1000, move: [0, 0], center: [44, 41],
+    },
 
-    falling: {
-      next: 'disappear2', pic: ['ball', 0, 1], center: [44, 41], wait: 1, move: [2, 0],
-    },
-    disappear2: {
-      next: 'disappear3', pic: ['ball', 1, 1], center: [44, 41], wait: 1,
-    },
-    disappear3: {
-      next: 'disappear4', pic: ['ball', 2, 1], center: [44, 41], wait: 1,
-    },
-    disappear4: {
-      next: 1000, pic: ['ball', 3, 1], center: [44, 41], wait: 1,
-    },
 
 
     'column_mother': {
-      pic: ['col', 0, 6], wait: 1, next: 'column_mother2', move: [4, 0], center: [1, 0],
+      pic: ['col', 0, 6], wait: 1, next: 'column_mother2', move: [4, 0], center: [1, 0], shadowHide: true,
     },
     'column_mother2': {
-      pic: ['col', 0, 6], wait: 5, next: 'column_mother3', move: [6, 0], center: [1, 0],
+      pic: ['col', 0, 6], wait: 5, next: 'column_mother3', move: [6, 0], center: [1, 0], shadowHide: true,
       opoint: { x: -13, y: 5, name: 'Freeze', move: [0, 0], frame: 'columnS', },
     },
     'column_mother3': {
-      pic: ['col', 0, 6], wait: 5, next: 'column_mother4', move: [6, 0], center: [1, 0],
+      pic: ['col', 0, 6], wait: 5, next: 'column_mother4', move: [6, 0], center: [1, 0], shadowHide: true,
       opoint: { x: -5, y: 5, name: 'Freeze', move: [0, 0], frame: 'columnM', },
     },
     'column_mother4': {
-      pic: ['col', 0, 6], wait: 1, next: 1000, move: [6, 0], center: [1, 0],
+      pic: ['col', 0, 6], wait: 1, next: 1000, move: [6, 0], center: [1, 0], shadowHide: true,
       opoint: { x: 29, y: 5, name: 'Freeze', move: [0, 0], frame: 'columnL', },
     },
 
@@ -550,6 +550,43 @@ lf2.derivative.Freeze = {
       pic: ['col', 2, 6], wait: 1, next: 1000, move: [0, 0], center: [52, 112],
     },
 
+
+    'whirlwind': {
+      pic: ['ww', 0, 0], wait: 2, next: 'whirlwind2', move: [2, 0], center: [82, 144], sound: '073.wav',
+    },
+    'whirlwind2': {
+      pic: ['ww', 0, 1], wait: 2, next: 'whirlwind3', move: [2, 0], center: [82, 144],
+    },
+    'whirlwind3': {
+      pic: ['ww', 0, 2], wait: 1, next: 'whirlwind4', move: [2, 0], center: [82, 144],
+    },
+    'whirlwind4': {
+      pic: ['ww', 0, 3], wait: 1, next: 'whirlwind5', move: [2, 0], center: [82, 144],
+      itr: { x: 15, y: 21, w: 128, h: 170, move: [0, -18], fall: true, vrest: 200, injury: 75, },
+    },
+    'whirlwind5': {
+      pic: ['ww', 0, 4], wait: 1, next: 'whirlwind6', move: [2, 0], center: [82, 144],
+      itr: { x: 15, y: 21, w: 128, h: 170, move: [0, -18], fall: true, vrest: 200, injury: 75, },
+    },
+    'whirlwind6': {
+      pic: ['ww', 1, 0], wait: 1, next: 'whirlwind7', move: [2, 0], center: [82, 144],
+      itr: { x: 15, y: 21, w: 128, h: 170, move: [0, -18], fall: true, vrest: 200, injury: 75, },
+    },
+    'whirlwind7': {
+      pic: ['ww', 1, 1], wait: 1, next: 'whirlwind8', move: [2, 0], center: [82, 144],
+      itr: { x: 15, y: 21, w: 128, h: 170, move: [0, -18], fall: true, vrest: 200, injury: 75, },
+    },
+    'whirlwind8': {
+      pic: ['ww', 1, 2], wait: 1, next: 'whirlwind5', move: [2, 0], center: [82, 144], keep: [200, 'whirlwind9'],
+      itr: { x: 15, y: 21, w: 128, h: 170, move: [0, -18], fall: true, vrest: 200, injury: 75, },
+    },
+
+    'whirlwind9': {
+      pic: ['ww', 1, 3], wait: 2, next: 'whirlwind10', move: [2, 0], center: [82, 144],
+    },
+    'whirlwind10': {
+      pic: ['ww', 1, 4], wait: 2, next: 1000, move: [2, 0], center: [82, 144],
+    },
 
 
   }

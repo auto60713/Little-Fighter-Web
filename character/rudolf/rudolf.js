@@ -17,7 +17,7 @@ lf2.character.Rudolf = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'addMan', B5: 'jump_sword', B4: '',
+        B1: 'punch', B2: 'defend', B6: '+man', B5: 'jump_sword', B4: '',
       },
     },
     'standing2': {
@@ -25,7 +25,7 @@ lf2.character.Rudolf = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'addMan', B5: 'jump_sword', B4: '',
+        B1: 'punch', B2: 'defend', B6: '+man', B5: 'jump_sword', B4: '',
       },
     },
     'standing3': {
@@ -33,7 +33,7 @@ lf2.character.Rudolf = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'addMan', B5: 'jump_sword', B4: '',
+        B1: 'punch', B2: 'defend', B6: '+man', B5: 'jump_sword', B4: '',
       },
     },
     'standing4': {
@@ -41,7 +41,7 @@ lf2.character.Rudolf = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'addMan', B5: 'jump_sword', B4: '',
+        B1: 'punch', B2: 'defend', B6: '+man', B5: 'jump_sword', B4: '',
       },
     },
 
@@ -50,7 +50,7 @@ lf2.character.Rudolf = {
       bdy: { x: 22, y: 13, w: 34, h: 64, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'addMan', B5: 'jump_sword', B4: '',
+        B1: 'punch', B2: 'defend', B6: '+man', B5: 'jump_sword', B4: '',
       },
     },
     'walking2': {
@@ -58,7 +58,7 @@ lf2.character.Rudolf = {
       bdy: { x: 23, y: 12, w: 33, h: 67, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'addMan', B5: 'jump_sword', B4: '',
+        B1: 'punch', B2: 'defend', B6: '+man', B5: 'jump_sword', B4: '',
       },
     },
     'walking3': {
@@ -66,7 +66,7 @@ lf2.character.Rudolf = {
       bdy: { x: 24, y: 11, w: 34, h: 67, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'addMan', B5: 'jump_sword', B4: '',
+        B1: 'punch', B2: 'defend', B6: '+man', B5: 'jump_sword', B4: '',
       },
     },
     'walking4': {
@@ -74,7 +74,7 @@ lf2.character.Rudolf = {
       bdy: { x: 26, y: 12, w: 34, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'addMan', B5: 'jump_sword', B4: '',
+        B1: 'punch', B2: 'defend', B6: '+man', B5: 'jump_sword', B4: '',
       },
     },
 
@@ -83,7 +83,7 @@ lf2.character.Rudolf = {
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'addMan', B5: 'jump_sword', B4: '',
+        B1: 'run_attack', B2: 'defend', B6: '+man', B5: 'jump_sword', B4: '',
       },
     },
     'running2': {
@@ -91,7 +91,7 @@ lf2.character.Rudolf = {
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'addMan', B5: 'jump_sword', B4: '',
+        B1: 'run_attack', B2: 'defend', B6: '+man', B5: 'jump_sword', B4: '',
       },
     },
     'running3': {
@@ -99,7 +99,7 @@ lf2.character.Rudolf = {
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'addMan', B5: 'jump_sword', B4: '',
+        B1: 'run_attack', B2: 'defend', B6: '+man', B5: 'jump_sword', B4: '',
       },
     },
 
@@ -344,6 +344,56 @@ lf2.character.Rudolf = {
     },
 
 
+    '+man': {
+      pic: ['1', 1, 5], wait: 3, next: '+man2', move: [0, 0], center: [41, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
+    },
+    '+man2': {
+      pic: ['1', 1, 4], wait: 2, next: '+man3', move: [0, 0], center: [41, 79], sound: '062.wav',
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
+    },
+    '+man3': {
+      pic: ['1', 1, 5], wait: 2, next: '+man4', move: [0, 0], center: [41, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
+    },
+    '+man4': {
+      pic: ['1', 1, 4], wait: 1, next: '+man5', move: [0, 0], center: [41, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
+    },
+    '+man5': {
+      pic: ['1', 0, 8], wait: 1, next: '+man6', move: [0, 0], center: [41, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
+    },
+    '+man6': {
+      pic: ['1', 0, 9], wait: 1, next: '+man7', move: [0, 0], center: [41, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
+    },
+    '+man7': {
+      pic: ['1', 1, 8], wait: 1, next: '+man8', move: [0, 0], center: [41, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
+    },
+    '+man8': {
+      pic: ['1', 1, 6], wait: 2, next: '+man9', move: [0, 0], center: [41, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
+    },
+    '+man9': {
+      pic: ['1', 1, 9], wait: 1, next: '+man10', move: [0, 0], center: [41, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
+    },
+    '+man10': {
+      pic: ['1', 1, 7], wait: 1, next: '+man11', move: [0, 0], center: [41, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
+    },
+    '+man11': {
+      pic: ['1', 1, 8], wait: 1, next: '+man12', move: [0, 0], center: [41, 79],
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
+    },
+    '+man12': {
+      pic: ['1', 0, 9], wait: 1, next: 999, move: [0, 0], center: [41, 79],
+      // opoint: { x: 40, y: 79, name: 'Freeze', move: [0, 0], frame: 'standing', },
+      bdy: { x: 21, y: 18, w: 43, h: 62, },
+    },
+
 
   }
 };
@@ -360,13 +410,12 @@ lf2.derivative.Rudolf = {
       'weapon': { deputy: 'png', w: 49, h: 49 },
     },
     scale: 1,
-    physical: true,
   },
   frame: {
 
 
     'fly': {
-      pic: ['weapon', 0, 0], wait: 0, next: 'standing', move: [13, -3], center: [24, 40], drop: 1000,
+      pic: ['weapon', 0, 0], wait: 0, next: 'standing', move: [13, -3], center: [24, 40], drop: 1000, physical: true,
       itr: { x: 3, y: 4, w: 40, h: 39, move: [2, 0], fall: false, injury: 22, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
@@ -374,22 +423,22 @@ lf2.derivative.Rudolf = {
 
 
     'standing': {
-      pic: ['weapon', 0, 0], wait: 1, next: 'throwing2', move: [0, 0], center: [24, 40], drop: 1000,
+      pic: ['weapon', 0, 0], wait: 1, next: 'throwing2', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
       itr: { x: 3, y: 4, w: 40, h: 39, move: [2, 0], fall: false, injury: 22, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
     'throwing2': {
-      pic: ['weapon', 0, 1], wait: 1, next: 'throwing3', move: [0, 0], center: [24, 40], drop: 1000,
+      pic: ['weapon', 0, 1], wait: 1, next: 'throwing3', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
       itr: { x: 3, y: 4, w: 40, h: 39, move: [2, 0], fall: false, injury: 22, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
     'throwing3': {
-      pic: ['weapon', 0, 2], wait: 1, next: 'throwing4', move: [0, 0], center: [24, 40], drop: 1000,
+      pic: ['weapon', 0, 2], wait: 1, next: 'throwing4', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
       itr: { x: 3, y: 4, w: 40, h: 39, move: [2, 0], fall: false, injury: 22, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
     'throwing4': {
-      pic: ['weapon', 0, 3], wait: 1, next: 999, move: [0, 0], center: [24, 40], drop: 1000,
+      pic: ['weapon', 0, 3], wait: 1, next: 999, move: [0, 0], center: [24, 40], drop: 1000, physical: true,
       itr: { x: 3, y: 4, w: 40, h: 39, move: [2, 0], fall: false, injury: 22, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
@@ -398,23 +447,23 @@ lf2.derivative.Rudolf = {
 
 
     'injured': {
-      pic: ['weapon', 0, 0], wait: 0, next: 'in_the_sky2', move: [-4, -4], center: [24, 40], drop: 1000,
+      pic: ['weapon', 0, 0], wait: 0, next: 'in_the_sky2', move: [-4, -4], center: [24, 40], drop: 1000, physical: true,
     },
     'falling': {
-      pic: ['weapon', 0, 0], wait: 0, next: 'in_the_sky2', move: [-4, -4], center: [24, 40], drop: 1000,
+      pic: ['weapon', 0, 0], wait: 0, next: 'in_the_sky2', move: [-4, -4], center: [24, 40], drop: 1000, physical: true,
     },
 
     'in_the_sky': {
-      pic: ['weapon', 0, 0], wait: 0, next: 'in_the_sky2', move: [0, 0], center: [24, 40], drop: 1000,
+      pic: ['weapon', 0, 0], wait: 0, next: 'in_the_sky2', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
     },
     'in_the_sky2': {
-      pic: ['weapon', 0, 1], wait: 0, next: 'in_the_sky3', move: [0, 0], center: [24, 40], drop: 1000,
+      pic: ['weapon', 0, 1], wait: 0, next: 'in_the_sky3', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
     },
     'in_the_sky3': {
-      pic: ['weapon', 0, 2], wait: 0, next: 'in_the_sky4', move: [0, 0], center: [24, 40], drop: 1000,
+      pic: ['weapon', 0, 2], wait: 0, next: 'in_the_sky4', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
     },
     'in_the_sky4': {
-      pic: ['weapon', 0, 3], wait: 0, next: 'in_the_sky', move: [0, 0], center: [24, 40], drop: 1000,
+      pic: ['weapon', 0, 3], wait: 0, next: 'in_the_sky', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
     },
 
 
