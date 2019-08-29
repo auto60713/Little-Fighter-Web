@@ -52,7 +52,7 @@ lf2.character.John = {
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'singlong', B5: 'many_punch', B4: 'ball',
+        B1: 'punch', B2: 'defend', B6: 'heal_other', B5: 'force_field', B4: 'DA_action',
       },
     },
     'walking2': {
@@ -60,7 +60,7 @@ lf2.character.John = {
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'singlong', B5: 'many_punch', B4: 'ball',
+        B1: 'punch', B2: 'defend', B6: 'heal_other', B5: 'force_field', B4: 'DA_action',
       },
     },
     'walking3': {
@@ -68,7 +68,7 @@ lf2.character.John = {
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'singlong', B5: 'many_punch', B4: 'ball',
+        B1: 'punch', B2: 'defend', B6: 'heal_other', B5: 'force_field', B4: 'DA_action',
       },
     },
     'walking4': {
@@ -76,7 +76,7 @@ lf2.character.John = {
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'singlong', B5: 'many_punch', B4: 'ball',
+        B1: 'punch', B2: 'defend', B6: 'heal_other', B5: 'force_field', B4: 'DA_action',
       },
     },
 
@@ -85,7 +85,7 @@ lf2.character.John = {
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'addMan', B5: 'jump_sword', B4: '',
+        B1: 'run_attack', B2: 'defend', B6: 'heal_other', B5: 'force_field', B4: 'DA_action',
       },
     },
     'running2': {
@@ -93,7 +93,7 @@ lf2.character.John = {
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'addMan', B5: 'jump_sword', B4: '',
+        B1: 'run_attack', B2: 'defend', B6: 'heal_other', B5: 'force_field', B4: 'DA_action',
       },
     },
     'running3': {
@@ -101,7 +101,7 @@ lf2.character.John = {
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'addMan', B5: 'jump_sword', B4: '',
+        B1: 'run_attack', B2: 'defend', B6: 'heal_other', B5: 'force_field', B4: 'DA_action',
       },
     },
 
@@ -224,7 +224,7 @@ lf2.character.John = {
     },
 
     'dash': {
-      pic: ['0', 6, 3], wait: 8, next: 'dash2', move: [9, -5], center: [39, 79],
+      pic: ['0', 6, 3], wait: 0, next: 'dash2', move: [9, -5], center: [39, 79],
       bdy: { x: 43, y: 5, w: 23, h: 33, },
       bdy: { x: 28, y: 29, w: 21, h: 33, },
       bdy: { x: 18, y: 48, w: 27, h: 21, },
@@ -465,26 +465,26 @@ lf2.derivative.John = {
 
     'healball': {
       pic: ['ball', 3, 0], wait: 3, next: 'healball2', move: [0, 0], center: [40, 26], timeToGo: [200, 'healball6'],
-      itr: { x: 25, y: 13, w: 32, h: 34, move: [0, 0], injury: -100, effect: 'heal', vrest: 10, next: 'stars', },
+      itr: { x: 25, y: 13, w: 32, h: 34, move: [0, 0], injury: -100, effect: 'heal', vrest: 10, next: 'stars', team: 'my' },
     },
     'healball2': {
       pic: ['ball', 3, 1], wait: 3, next: 'healball3', move: [0, 0], center: [40, 26],
       opoint: { x: 40, y: 39, name: 'John', move: [0, 0], frame: 'stars3', },
-      itr: { x: 25, y: 13, w: 32, h: 34, move: [0, 0], injury: -100, effect: 'heal', vrest: 10, next: 'stars', },
+      itr: { x: 25, y: 13, w: 32, h: 34, move: [0, 0], injury: -100, effect: 'heal', vrest: 10, next: 'stars', team: 'my' },
     },
     'healball3': {
       pic: ['ball', 3, 2], wait: 3, next: 'healball4', move: [0, 0], center: [40, 26],
       opoint: { x: 40, y: 39, name: 'John', move: [0, 0], frame: 'stars3', },
-      itr: { x: 25, y: 13, w: 32, h: 34, move: [0, 0], injury: -100, effect: 'heal', vrest: 10, next: 'stars', },
+      itr: { x: 25, y: 13, w: 32, h: 34, move: [0, 0], injury: -100, effect: 'heal', vrest: 10, next: 'stars', team: 'my' },
     },
     'healball4': {
       pic: ['ball', 3, 4], wait: 3, next: 'healball5', move: [0, 0], center: [40, 26],
-      itr: { x: 25, y: 13, w: 32, h: 34, move: [0, 0], injury: -100, effect: 'heal', vrest: 10, next: 'stars', },
+      itr: { x: 25, y: 13, w: 32, h: 34, move: [0, 0], injury: -100, effect: 'heal', vrest: 10, next: 'stars', team: 'my' },
     },
     'healball5': {
       pic: ['ball', 3, 3], wait: 3, next: 'healball2', move: [0, 0], center: [40, 26],
       opoint: { x: 40, y: 39, name: 'John', move: [0, 0], frame: 'stars3', },
-      itr: { x: 25, y: 13, w: 32, h: 34, move: [0, 0], injury: -100, effect: 'heal', vrest: 10, next: 'stars', },
+      itr: { x: 25, y: 13, w: 32, h: 34, move: [0, 0], injury: -100, effect: 'heal', vrest: 10, next: 'stars', team: 'my' },
     },
 
     'healball6': {
