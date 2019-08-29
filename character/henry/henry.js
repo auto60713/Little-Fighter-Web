@@ -161,12 +161,12 @@ lf2.character.Henry = {
     },
     'run_attack2': {
       pic: ['0', 2, 9], wait: 1, next: 'run_attack3', move: [4, 0], center: [15, 79],
-      itr: { x: 106, y: 115, w: 1, h: 1, move: [10, 0], fall: false, vrest: 15, injury: 35, },
+      itr: { x: 106, y: 115, w: 1, h: 1, move: [10, 0], effect: 'injured', vrest: 15, injury: 35, },
       bdy: { x: 3, y: 12, w: 36, h: 67, },
     },
     'run_attack3': {
       pic: ['0', 3, 8], wait: 3, next: 'run_attack4', move: [4, 0], center: [15, 79], sound: '007.wav',
-      itr: { x: 34, y: 4, w: 47, h: 89, move: [10, 0], fall: false, vrest: 15, injury: 35, },
+      itr: { x: 34, y: 4, w: 47, h: 89, move: [10, 0], effect: 'injured', vrest: 15, injury: 35, },
       bdy: { x: 5, y: 27, w: 43, h: 52, },
     },
     'run_attack4': {
@@ -180,7 +180,7 @@ lf2.character.Henry = {
     },
     'dash_attack2': {
       pic: ['1', 3, 7], wait: 2, next: 'dash_attack3', move: [0, 0], center: [15, 78], sound: '007.wav',
-      itr: { x: 27, y: 3, w: 50, h: 57, move: [12, 0], fall: false, vrest: 20, injury: 45, },
+      itr: { x: 27, y: 3, w: 50, h: 57, move: [12, 0], effect: 'injured', vrest: 20, injury: 45, },
       bdy: { x: 9, y: 7, w: 33, h: 70, },
     },
     'dash_attack3': {
@@ -329,7 +329,7 @@ lf2.character.Henry = {
     },
     'flute2': {
       pic: ['2', 0, 1], wait: 0, next: 'flute3', move: [0, 0], center: [36, 79],
-      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], fall: true },
+      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], effect: 'falling' },
       bdy: { x: 22, y: 8, w: 36, h: 73, },
       hit: {
         B6: 999, B2: 999,
@@ -337,7 +337,7 @@ lf2.character.Henry = {
     },
     'flute3': {
       pic: ['2', 0, 1], wait: 9, next: 'flute4', move: [0, 0], center: [36, 79], sound: '057.wav',
-      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], fall: true },
+      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], effect: 'falling' },
       bdy: { x: 22, y: 8, w: 36, h: 73, },
       hit: {
         B6: 999, B2: 999,
@@ -345,7 +345,7 @@ lf2.character.Henry = {
     },
     'flute4': {
       pic: ['2', 0, 2], wait: 27, next: 'flute5', move: [0, 0], center: [36, 79], sound: '058.wav',
-      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], fall: true },
+      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], effect: 'falling' },
       bdy: { x: 22, y: 8, w: 36, h: 73, },
       hit: {
         B6: 999, B2: 999,
@@ -353,7 +353,7 @@ lf2.character.Henry = {
     },
     'flute5': {
       pic: ['2', 0, 3], wait: 9, next: 'flute6', move: [0, 0], center: [36, 79], sound: '101.wav',
-      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], fall: true },
+      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], effect: 'falling' },
       bdy: { x: 22, y: 8, w: 36, h: 73, },
       hit: {
         B6: 999, B2: 999,
@@ -361,7 +361,7 @@ lf2.character.Henry = {
     },
     'flute6': {
       pic: ['2', 0, 0], wait: 50, next: 999, move: [0, 0], center: [36, 79], sound: '102.wav',
-      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], fall: true },
+      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], effect: 'falling' },
       bdy: { x: 22, y: 8, w: 36, h: 73, },
       hit: {
         B6: 999, B2: 999,
@@ -391,50 +391,50 @@ lf2.derivative.Henry = {
 
     'fly': {
       pic: ['arrow', 0, 0], wait: 0, next: 'standing', move: [20, -4], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], fall: false, injury: 40, next: 'falling', },
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], effect: 'injured', injury: 40, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
 
     'fly2': {
       pic: ['arrow', 0, 4], wait: 3, next: 'throwing6', move: [13, 10], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], fall: false, injury: 40, next: 'falling', },
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], effect: 'injured', injury: 40, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
 
 
     'standing': {
       pic: ['arrow', 0, 0], wait: 3, next: 'throwing2', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], fall: false, injury: 40, next: 'falling', },
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], effect: 'injured', injury: 40, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
     'throwing2': {
       pic: ['arrow', 0, 1], wait: 5, next: 'throwing3', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], fall: false, injury: 40, next: 'falling', },
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], effect: 'injured', injury: 40, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
     'throwing3': {
       pic: ['arrow', 0, 2], wait: 4, next: 'throwing4', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], fall: false, injury: 40, next: 'falling', },
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], effect: 'injured', injury: 40, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
     'throwing4': {
       pic: ['arrow', 0, 3], wait: 3, next: 'throwing5', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], fall: false, injury: 40, next: 'falling', },
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], effect: 'injured', injury: 40, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
     'throwing5': {
       pic: ['arrow', 0, 4], wait: 3, next: 'throwing6', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], fall: false, injury: 40, next: 'falling', },
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], effect: 'injured', injury: 40, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
     'throwing6': {
       pic: ['arrow', 0, 5], wait: 3, next: 'throwing7', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], fall: false, injury: 40, next: 'falling', },
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], effect: 'injured', injury: 40, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
     'throwing7': {
       pic: ['arrow', 0, 6], wait: 0, next: 'throwing7', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], fall: false, injury: 40, next: 'falling', },
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], effect: 'injured', injury: 40, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
 
@@ -483,32 +483,32 @@ lf2.derivative.Henry = {
 
     'SParrow': {
       pic: ['arrow2', 0, 0], wait: 1, next: 'SParrow2', move: [22, 0], center: [19, 24], 
-      itr: { x: -1, y: 12, w: 51, h: 24, move: [20, 0], fall: true, vrest: 15, injury: 50, },
+      itr: { x: -1, y: 12, w: 51, h: 24, move: [20, 0], effect: 'falling', vrest: 15, injury: 50, },
       bdy: { x: -1, y: 12, w: 51, h: 24, },
     },
     'SParrow2': {
       pic: ['arrow2', 0, 1], wait: 1, next: 'SParrow3', move: [22, 0], center: [19, 24], 
-      itr: { x: -1, y: 12, w: 51, h: 24, move: [20, 0], fall: true, vrest: 15, injury: 50, },
+      itr: { x: -1, y: 12, w: 51, h: 24, move: [20, 0], effect: 'falling', vrest: 15, injury: 50, },
       bdy: { x: -1, y: 12, w: 51, h: 24, },
     },
     'SParrow3': {
       pic: ['arrow2', 0, 2], wait: 1, next: 'SParrow4', move: [22, 0], center: [19, 24], 
-      itr: { x: -1, y: 12, w: 51, h: 24, move: [20, 0], fall: true, vrest: 15, injury: 50, },
+      itr: { x: -1, y: 12, w: 51, h: 24, move: [20, 0], effect: 'falling', vrest: 15, injury: 50, },
       bdy: { x: -1, y: 12, w: 51, h: 24, },
     },
     'SParrow4': {
       pic: ['arrow2', 0, 3], wait: 1, next: 'SParrow5', move: [22, 0], center: [19, 24], 
-      itr: { x: -1, y: 12, w: 51, h: 24, move: [20, 0], fall: true, vrest: 15, injury: 50, },
+      itr: { x: -1, y: 12, w: 51, h: 24, move: [20, 0], effect: 'falling', vrest: 15, injury: 50, },
       bdy: { x: -1, y: 12, w: 51, h: 24, },
     },
     'SParrow5': {
       pic: ['arrow2', 0, 4], wait: 1, next: 'SParrow6', move: [22, 0], center: [19, 24], 
-      itr: { x: -1, y: 12, w: 51, h: 24, move: [20, 0], fall: true, vrest: 15, injury: 50, },
+      itr: { x: -1, y: 12, w: 51, h: 24, move: [20, 0], effect: 'falling', vrest: 15, injury: 50, },
       bdy: { x: -1, y: 12, w: 51, h: 24, },
     },
     'SParrow6': {
       pic: ['arrow2', 0, 5], wait: 1, next: 'SParrow', move: [22, 0], center: [19, 24], 
-      itr: { x: -1, y: 12, w: 51, h: 24, move: [20, 0], fall: true, vrest: 15, injury: 50, },
+      itr: { x: -1, y: 12, w: 51, h: 24, move: [20, 0], effect: 'falling', vrest: 15, injury: 50, },
       bdy: { x: -1, y: 12, w: 51, h: 24, },
     },
     

@@ -1,22 +1,12 @@
 
 lf2.variousChangesFrame = (setting, frame, type, thing) => {
 
-  var qqqq = lf2.amIBeingBeaten(setting, frame, type, thing);
+  var effect = lf2.amIBeingBeaten(setting, frame, type, thing);
   // 被打偵測
-  if (!setting.catching && qqqq[0]) {
-    lf2.adjunction('UI', 'hit', {
-      x: setting.x,
-      y: setting.y,
-    });
+  if (!setting.catching && effect) {
 
-    if (qqqq[1]) {
-      lf2.sound({}, { sound: '006.wav' });
-      lf2.gotoFrame(thing, setting, type, 'falling');
-    }
-    else {
-      lf2.sound({}, { sound: '001.wav' });
-      lf2.gotoFrame(thing, setting, type, 'injured');
-    }
+    // 不同的打擊效果 會有不同的特效
+    lf2.strikeEffect(type, thing, setting, effect);
   }
   // 被抓換動作
   else if (setting.catching) {
@@ -122,68 +112,62 @@ lf2.gotoFrame = (thing, setting, type, next) => {
 
 // 被打偵測
 lf2.amIBeingBeaten = (setting, frame, type, thing) => {
-  var isHit = false;
-  var knockDown = false;
+  var effect = null;
   if (frame.bdy) {
-    ['character', 'derivative'].forEach(dettype => {
-      lf2.scenes[dettype].forEach(det => {
-        var detFrame = det.frame[det.setting.nowframe];
+    try {
+      ['character', 'derivative'].forEach(dettype => {
+        lf2.scenes[dettype].forEach(det => {
+          var detFrame = det.frame[det.setting.nowframe];
 
-        if (detFrame.itr && (!det.setting.hitCD[setting.scenesIndex] || det.setting.hitCD[setting.scenesIndex] <= 0)) {
-          if (setting.team !== det.setting.team) {
+          if (detFrame.itr && (!det.setting.hitCD[setting.scenesIndex] || det.setting.hitCD[setting.scenesIndex] <= 0)) {
+            if (setting.team !== det.setting.team) {
 
-            // 被打最右邊 >= 打人最左邊
-            if (setting.x + frame.bdy.x + frame.bdy.w >= det.setting.x + detFrame.itr.x
-              // 被打最左邊 < 打人最右邊
-              && setting.x + frame.bdy.x < det.setting.x + detFrame.itr.x + detFrame.itr.w
-              // 被打最下邊 >= 打人最上邊
-              && setting.y + frame.bdy.y + frame.bdy.h >= det.setting.y + detFrame.itr.y
-              // 被打最上邊 < 打人最下邊
-              && setting.y + frame.bdy.y < det.setting.y + detFrame.itr.y + detFrame.itr.h) {
+              // 被打最右邊 >= 打人最左邊
+              if (setting.x + frame.bdy.x + frame.bdy.w >= det.setting.x + detFrame.itr.x
+                // 被打最左邊 < 打人最右邊
+                && setting.x + frame.bdy.x < det.setting.x + detFrame.itr.x + detFrame.itr.w
+                // 被打最下邊 >= 打人最上邊
+                && setting.y + frame.bdy.y + frame.bdy.h >= det.setting.y + detFrame.itr.y
+                // 被打最上邊 < 打人最下邊
+                && setting.y + frame.bdy.y < det.setting.y + detFrame.itr.y + detFrame.itr.h) {
 
-
-              // 被打的中間
-              var sc = setting.x + frame.bdy.x + (frame.bdy.w / 2);
-              // 打人的中間
-              var dc = det.setting.x + detFrame.itr.x + (detFrame.itr.w / 2);
-              // 下次打我多久後
-              // FIXME: vrest arest未來要做出區分
-              var cd = detFrame.itr.vrest || detFrame.itr.arest;
-              det.setting.hitCD[setting.scenesIndex] = cd;
-              // 打擊換動作
-              if (detFrame.itr.next) lf2.gotoFrame(det, det.setting, dettype, detFrame.itr.next);
-              // 抓攻擊
-              if (type == 'character' && detFrame.itr.catching) setting.catching = det.setting.scenesIndex;
-              // 一般攻擊
-              else {
-                let m = det.setting.mirror ? -1 : 1;
-                if (detFrame.itr.symmetry && sc * m < dc * m) {
-                  m = det.setting.mirror ? 1 : -1;
-                }
+                // 被打的中間
+                var sc = setting.x + frame.bdy.x + (frame.bdy.w / 2);
+                // 打人的中間
+                var dc = det.setting.x + detFrame.itr.x + (detFrame.itr.w / 2);
+                // 下次打我多久後
+                // FIXME: vrest arest未來要做出區分
+                var cd = detFrame.itr.vrest || detFrame.itr.arest;
+                det.setting.hitCD[setting.scenesIndex] = cd;
+                // 打擊換動作
+                if (detFrame.itr.next) lf2.gotoFrame(det, det.setting, dettype, detFrame.itr.next);
+                // 抓攻擊
+                if (type == 'character' && detFrame.itr.catching) setting.catching = det.setting.scenesIndex;
+                // 一般攻擊
                 else {
-                  m = det.setting.mirror ? -1 : 1;
+
+                  let m = det.setting.mirror ? -1 : 1;;
+                  if (detFrame.itr.symmetry && sc * m < dc * m) m = m * -1
+
+                  if (type == 'character') {
+                    effect = detFrame.itr.effect;
+                    setting.xSpeed = detFrame.itr.move[0] * m;
+                    setting.ySpeed = detFrame.itr.move[1];
+                  }
+                  else effect = 'falling';
+
                 }
-                const m2 = setting.mirror ? -1 : 1;
-
-                if (type == 'character') {
-                  knockDown = detFrame.itr.fall;
-
-                  if (knockDown) thing.frame['falling'].move = [detFrame.itr.move[0] * m * m2, detFrame.itr.move[1]];
-                  else thing.frame['injured'].move = [detFrame.itr.move[0] * m * m2, detFrame.itr.move[1]];
-                }
-                else knockDown = true;
-
-                isHit = true;
+                setting.nowHP -= detFrame.itr.injury;
+                throw false;
               }
-              setting.nowHP -= detFrame.itr.injury;
-            }
 
+            }
           }
-        }
+        });
       });
-    });
+    } catch (e) { }
   }
-  return [isHit, knockDown];
+  return effect;
 }
 
 
@@ -235,6 +219,31 @@ lf2.produceDerivative = (setting, frame, type) => {
 
     setting.alreadyProduced = true;
   }
+}
+
+
+lf2.strikeEffect = (type, thing, setting, effect) => {
+  var sound, gotoFrame, UI;
+
+  switch (effect) {
+    case 'falling':
+      sound = '006.wav';
+      gotoFrame = 'falling';
+      UI = 'hit';
+      break;
+    case 'injured':
+      sound = '001.wav';
+      gotoFrame = 'injured';
+      UI = 'hit';
+      break;
+  }
+
+  lf2.sound({}, { sound: sound });
+  lf2.gotoFrame(thing, setting, type, gotoFrame);
+  lf2.adjunction('UI', UI, {
+    x: setting.x,
+    y: setting.y,
+  });
 }
 
 

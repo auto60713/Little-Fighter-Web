@@ -19,7 +19,7 @@ lf2.character.John = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'heal', B5: 'force_field', B4: 'DA_action',
+        B1: 'punch', B2: 'defend', B6: 'heal_other', B5: 'force_field', B4: 'DA_action',
       },
     },
     'standing2': {
@@ -27,7 +27,7 @@ lf2.character.John = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'heal', B5: 'force_field', B4: 'DA_action',
+        B1: 'punch', B2: 'defend', B6: 'heal_other', B5: 'force_field', B4: 'DA_action',
       },
     },
     'standing3': {
@@ -35,7 +35,7 @@ lf2.character.John = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'heal', B5: 'force_field', B4: 'DA_action',
+        B1: 'punch', B2: 'defend', B6: 'heal_other', B5: 'force_field', B4: 'DA_action',
       },
     },
     'standing4': {
@@ -43,7 +43,7 @@ lf2.character.John = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'heal', B5: 'force_field', B4: 'DA_action',
+        B1: 'punch', B2: 'defend', B6: 'heal_other', B5: 'force_field', B4: 'DA_action',
       },
     },
 
@@ -112,7 +112,7 @@ lf2.character.John = {
     },
     'punch2': {
       pic: ['0', 1, 1], wait: 3, next: 999, move: [0, 0], center: [21, 79], sound: '007.wav',
-      itr: { x: 26, y: 37, w: 52, h: 14, move: [2, 0], fall: false, arest: 10, injury: 20, },
+      itr: { x: 26, y: 37, w: 52, h: 14, move: [2, 0], effect: 'injured', arest: 10, injury: 20, },
       bdy: { x: 13, y: 12, w: 29, h: 68, },
       bdy: { x: 2, y: 38, w: 60, h: 18, },
     },
@@ -123,12 +123,12 @@ lf2.character.John = {
     },
     'jump_attack2': {
       pic: ['0', 1, 5], wait: 2, next: 'jump_attack3', move: [0, 0], center: [39, 70],
-      itr: { x: 37, y: 30, w: 36, h: 20, move: [7, 0], fall: true, arest: 15, injury: 45, },
+      itr: { x: 37, y: 30, w: 36, h: 20, move: [7, 0], effect: 'falling', arest: 15, injury: 45, },
       bdy: { x: 24, y: 10, w: 31, h: 57, },
     },
     'jump_attack3': {
       pic: ['0', 1, 6], wait: 2, next: 'jump_attack4', move: [0, 0], center: [39, 70],
-      itr: { x: 46, y: 40, w: 31, h: 21, move: [7, 0], fall: true, arest: 15, injury: 45, },
+      itr: { x: 46, y: 40, w: 31, h: 21, move: [7, 0], effect: 'falling', arest: 15, injury: 45, },
       bdy: { x: 30, y: 7, w: 28, h: 61, },
     },
     'jump_attack4': {
@@ -143,7 +143,7 @@ lf2.character.John = {
     },
     'run_attack2': {
       pic: ['1', 3, 3], wait: 2, next: 'run_attack3', move: [4, 0], center: [19, 79], sound: '007.wav',
-      itr: { x: 19, y: 37, w: 61, h: 17, move: [10, 0], fall: true, arest: 15, injury: 50, },
+      itr: { x: 19, y: 37, w: 61, h: 17, move: [10, 0], effect: 'falling', arest: 15, injury: 50, },
       bdy: { x: 24, y: 36, w: 55, h: 19, },
       bdy: { x: 8, y: 51, w: 38, h: 27, },
       bdy: { x: 23, y: 18, w: 28, h: 23, },
@@ -163,7 +163,7 @@ lf2.character.John = {
     },
     'dash_attack2': {
       pic: ['1', 3, 7], wait: 3, next: 'dash3', move: [0, 0], center: [31, 73], sound: '007.wav',
-      itr: { x: 27, y: 38, w: 53, h: 23, move: [12, 0], fall: true, arest: 20, injury: 70, },
+      itr: { x: 27, y: 38, w: 53, h: 23, move: [12, 0], effect: 'falling', arest: 20, injury: 70, },
       bdy: { x: 7, y: 19, w: 37, h: 45, },
       bdy: { x: 22, y: 36, w: 50, h: 18, },
       bdy: { x: 24, y: 6, w: 30, h: 34, },
@@ -346,6 +346,36 @@ lf2.character.John = {
     },
 
 
+    'heal_other': {
+      pic: ['2', 0, 0], wait: 2, next: 'heal_other2', move: [0, 0], center: [39, 79], sound: '050.wav',
+      bdy: { x: 20, y: 13, w: 37, h: 67, },
+    },
+    'heal_other2': {
+      pic: ['2', 0, 1], wait: 2, next: 'heal_other3', move: [0, 0], center: [39, 79], sound: '052.wav',
+      bdy: { x: 18, y: 14, w: 39, h: 66, },
+    },
+    'heal_other3': {
+      pic: ['2', 0, 2], wait: 2, next: 'heal_other4', move: [0, 0], center: [39, 79],
+      bdy: { x: 18, y: 14, w: 38, h: 66, },
+    },
+    'heal_other4': {
+      pic: ['2', 1, 0], wait: 2, next: 'heal_other5', move: [0, 0], center: [39, 79],
+      bdy: { x: 17, y: 16, w: 39, h: 64, },
+    },
+    'heal_other5': {
+      pic: ['2', 1, 1], wait: 2, next: 'heal_other6', move: [0, 0], center: [36, 79],
+      bdy: { x: 15, y: 15, w: 42, h: 65, },
+    },
+    'heal_other6': {
+      pic: ['2', 1, 2], wait: 2, next: 'heal_other7', move: [0, 0], center: [36, 79],
+      opoint: { x: 78, y: 36, name: 'John', move: [0, 0], frame: 'ssss', },
+      bdy: { x: 18, y: 11, w: 37, h: 68, },
+    },
+    'heal_other7': {
+      pic: ['2', 1, 3], wait: 2, next: 999, move: [0, 0], center: [36, 79],
+      bdy: { x: 20, y: 10, w: 36, h: 69, },
+    },
+
 
 
   }
@@ -367,22 +397,22 @@ lf2.derivative.John = {
 
     'standing': {
       pic: ['ball', 0, 0], wait: 1, next: 'flying2', move: [18, 0], center: [40, 41],
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], fall: true, vrest: 10, injury: 55, next: 'falling', },
+      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], effect: 'falling', vrest: 10, injury: 55, next: 'falling', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
     'flying2': {
       pic: ['ball', 0, 1], wait: 1, next: 'flying3', move: [18, 0], center: [40, 41],
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], fall: true, vrest: 10, injury: 55, next: 'falling', },
+      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], effect: 'falling', vrest: 10, injury: 55, next: 'falling', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
     'flying3': {
       pic: ['ball', 0, 2], wait: 1, next: 'flying4', move: [18, 0], center: [40, 41],
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], fall: true, vrest: 10, injury: 55, next: 'falling', },
+      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], effect: 'falling', vrest: 10, injury: 55, next: 'falling', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
     'flying4': {
       pic: ['ball', 0, 1], wait: 1, next: 999, move: [18, 0], center: [40, 41],
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], fall: true, vrest: 10, injury: 55, next: 'falling', },
+      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], effect: 'falling', vrest: 10, injury: 55, next: 'falling', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
 
@@ -402,23 +432,23 @@ lf2.derivative.John = {
 
     'force_field': {
       pic: ['ball', 4, 0], wait: 2, next: 'force_field2', move: [0, 0], center: [41, 44],
-      itr: { x: 46, y: 30, w: 10, h: 32, move: [10, 0], vrest: 8, injury: 40, fall: true, next: 'force_field6', },
+      itr: { x: 46, y: 30, w: 10, h: 32, move: [10, 0], vrest: 8, injury: 40, effect: 'falling', next: 'force_field6', },
     },
     'force_field2': {
       pic: ['ball', 4, 1], wait: 2, next: 'force_field3', move: [0, 0], center: [41, 45],
-      itr: { x: 41, y: 21, w: 19, h: 47, move: [10, 0], vrest: 8, injury: 40, fall: true, next: 'force_field6', },
+      itr: { x: 41, y: 21, w: 19, h: 47, move: [10, 0], vrest: 8, injury: 40, effect: 'falling', next: 'force_field6', },
     },
     'force_field3': {
       pic: ['ball', 4, 2], wait: 1, next: 'force_field4', move: [0, 0], center: [35, 41], sound: '051.wav',
-      itr: { x: 33, y: 15, w: 26, h: 55, move: [10, 0], vrest: 8, injury: 40, fall: true, next: 'force_field6', },
+      itr: { x: 33, y: 15, w: 26, h: 55, move: [10, 0], vrest: 8, injury: 40, effect: 'falling', next: 'force_field6', },
     },
     'force_field4': {
       pic: ['ball', 4, 3], wait: 1, next: 'force_field5', move: [0, 0], center: [37, 41],
-      itr: { x: 38, y: 16, w: 21, h: 53, move: [10, 0], vrest: 8, injury: 40, fall: true, next: 'force_field6', },
+      itr: { x: 38, y: 16, w: 21, h: 53, move: [10, 0], vrest: 8, injury: 40, effect: 'falling', next: 'force_field6', },
     },
     'force_field5': {
       pic: ['ball', 4, 4], wait: 1, next: 'force_field3', move: [0, 0], center: [37, 41], keep: [200, 'force_field6'],
-      itr: { x: 36, y: 14, w: 23, h: 55, move: [10, 0], vrest: 8, injury: 40, fall: true, next: 'force_field6', },
+      itr: { x: 36, y: 14, w: 23, h: 55, move: [10, 0], vrest: 8, injury: 40, effect: 'falling', next: 'force_field6', },
     },
 
 
@@ -433,6 +463,11 @@ lf2.derivative.John = {
     },
 
 
+
+    'ssss': {
+      pic: ['ball', 10, 0], wait: 1, next: 1000, move: [0, 0], center: [0, 0],
+      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], vrest: 10, injury: -100, effect: '22', },
+    },
   }
 };
 

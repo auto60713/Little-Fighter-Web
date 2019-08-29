@@ -127,12 +127,12 @@ lf2.character.Rudolf = {
     },
     'jump_attack2': {
       pic: ['0', 6, 8], wait: 1, next: 'jump_attack3', move: [0, 0], center: [18, 78], sound: '028.wav',
-      itr: { x: 27, y: 8, w: 53, h: 40, move: [-2, -2], fall: false, arest: 15, injury: 35, },
+      itr: { x: 27, y: 8, w: 53, h: 40, move: [-2, -2], effect: 'injured', arest: 15, injury: 35, },
       bdy: { x: 8, y: 15, w: 34, h: 60, },
     },
     'jump_attack3': {
       pic: ['0', 6, 9], wait: 1, next: 'jump_attack4', move: [0, 0], center: [37, 77],
-      itr: { x: 5, y: 2, w: 75, h: 22, move: [-2, -2], fall: false, arest: 15, injury: 35, },
+      itr: { x: 5, y: 2, w: 75, h: 22, move: [-2, -2], effect: 'injured', arest: 15, injury: 35, },
       bdy: { x: 25, y: 13, w: 32, h: 64, },
     },
     'jump_attack4': {
@@ -141,12 +141,12 @@ lf2.character.Rudolf = {
     },
     'jump_attack5': {
       pic: ['0', 3, 9], wait: 1, next: 'jump_attack6', move: [0, 0], center: [25, 79], sound: '029.wav',
-      itr: { x: 42, y: 6, w: 37, h: 62, move: [1, 0], fall: false, arest: 15, injury: 35, },
+      itr: { x: 42, y: 6, w: 37, h: 62, move: [1, 0], effect: 'injured', arest: 15, injury: 35, },
       bdy: { x: 10, y: 8, w: 34, h: 67, },
     },
     'jump_attack6': {
       pic: ['0', 4, 9], wait: 1, next: 'jump_attack7', move: [0, 0], center: [40, 78],
-      itr: { x: 8, y: 39, w: 67, h: 38, move: [1, 0], fall: false, arest: 15, injury: 35, },
+      itr: { x: 8, y: 39, w: 67, h: 38, move: [1, 0], effect: 'injured', arest: 15, injury: 35, },
       bdy: { x: 21, y: 8, w: 37, h: 68, },
     },
     'jump_attack7': {
@@ -170,7 +170,7 @@ lf2.character.Rudolf = {
     },
     'run_attack4': {
       pic: ['2', 0, 3], wait: 1, next: 'run_attack5', move: [0, 0], center: [44, 85],
-      itr: { x: 13, y: 30, w: 81, h: 53, move: [10, -7], fall: true, vrest: 15, injury: 35, },
+      itr: { x: 13, y: 30, w: 81, h: 53, move: [10, -7], effect: 'falling', vrest: 15, injury: 35, },
       bdy: { x: 27, y: 34, w: 49, h: 52, },
     },
     'run_attack5': {
@@ -196,12 +196,12 @@ lf2.character.Rudolf = {
     },
     'dash_attack3': {
       pic: ['2', 0, 7], wait: 1, next: 'dash_attack4', move: [0, 0], center: [40, 85], sound: '028.wav',
-      itr: { x: 53, y: 24, w: 54, h: 55, move: [10, -7], fall: true, vrest: 15, injury: 75, },
+      itr: { x: 53, y: 24, w: 54, h: 55, move: [10, -7], effect: 'falling', vrest: 15, injury: 75, },
       bdy: { x: 21, y: 34, w: 51, h: 48, },
     },
     'dash_attack4': {
       pic: ['2', 0, 8], wait: 1, next: 'dash_attack5', move: [0, 0], center: [44, 85],
-      itr: { x: 53, y: 24, w: 54, h: 55, move: [10, -7], fall: true, vrest: 15, injury: 75, },
+      itr: { x: 53, y: 24, w: 54, h: 55, move: [10, -7], effect: 'falling', vrest: 15, injury: 75, },
       bdy: { x: 27, y: 34, w: 49, h: 52, },
     },
     'dash_attack5': {
@@ -317,17 +317,17 @@ lf2.character.Rudolf = {
     },
     'jump_sword4': {
       pic: ['3', 0, 1], wait: 1, next: 'jump_sword5', move: [0, 0], center: [22, 57], sound: '028.wav',
-      itr: { x: 39, y: 19, w: 55, h: 44, move: [2, 0], fall: false, vrest: 15, injury: 35, },
+      itr: { x: 39, y: 19, w: 55, h: 44, move: [2, 0], effect: 'injured', vrest: 15, injury: 35, },
       bdy: { x: 4, y: 3, w: 61, h: 56, },
     },
     'jump_sword5': {
       pic: ['3', 0, 2], wait: 1, next: 'jump_sword6', move: [0, 0], center: [23, 57],
-      itr: { x: 33, y: 1, w: 49, h: 38, move: [2, 0], fall: false, vrest: 15, injury: 35, },
+      itr: { x: 33, y: 1, w: 49, h: 38, move: [2, 0], effect: 'injured', vrest: 15, injury: 35, },
       bdy: { x: 5, y: 8, w: 56, h: 53, },
     },
     'jump_sword6': {
       pic: ['3', 0, 3], wait: 1, next: 'jump_sword7', move: [0, 0], center: [48, 57],
-      itr: { x: 17, y: 5, w: 54, h: 24, move: [2, 0], fall: false, vrest: 15, injury: 35, },
+      itr: { x: 17, y: 5, w: 54, h: 24, move: [2, 0], effect: 'injured', vrest: 15, injury: 35, },
       bdy: { x: 29, y: 7, w: 51, h: 56, },
     },
     'jump_sword7': {
@@ -416,7 +416,7 @@ lf2.derivative.Rudolf = {
 
     'fly': {
       pic: ['weapon', 0, 0], wait: 0, next: 'standing', move: [13, -3], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [2, 0], fall: false, injury: 22, next: 'falling', },
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [2, 0], effect: 'injured', injury: 22, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
 
@@ -424,22 +424,22 @@ lf2.derivative.Rudolf = {
 
     'standing': {
       pic: ['weapon', 0, 0], wait: 1, next: 'throwing2', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [2, 0], fall: false, injury: 22, next: 'falling', },
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [2, 0], effect: 'injured', injury: 22, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
     'throwing2': {
       pic: ['weapon', 0, 1], wait: 1, next: 'throwing3', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [2, 0], fall: false, injury: 22, next: 'falling', },
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [2, 0], effect: 'injured', injury: 22, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
     'throwing3': {
       pic: ['weapon', 0, 2], wait: 1, next: 'throwing4', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [2, 0], fall: false, injury: 22, next: 'falling', },
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [2, 0], effect: 'injured', injury: 22, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
     'throwing4': {
       pic: ['weapon', 0, 3], wait: 1, next: 999, move: [0, 0], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [2, 0], fall: false, injury: 22, next: 'falling', },
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [2, 0], effect: 'injured', injury: 22, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
 

@@ -110,7 +110,7 @@ lf2.character.Louis = {
     },
     'punch2': {
       pic: ['0', 1, 1], wait: 2, next: 999, move: [0, 0], center: [40, 79],
-      itr: { x: 26, y: 37, w: 52, h: 14, move: [2, 0], fall: false, arest: 10, injury: 20, },
+      itr: { x: 26, y: 37, w: 52, h: 14, move: [2, 0], effect: 'injured', arest: 10, injury: 20, },
       bdy: { x: 28, y: 12, w: 36, h: 68, },
     },
 
@@ -124,12 +124,12 @@ lf2.character.Louis = {
     },
     'jump_attack3': {
       pic: ['0', 1, 6], wait: 2, next: 'jump_attack4', move: [0, 0], center: [25, 79],
-      itr: { x: 32, y: 30, w: 47, h: 28, move: [12, 0], fall: true, arest: 75, injury: 45, },
+      itr: { x: 32, y: 30, w: 47, h: 28, move: [12, 0], effect: 'falling', arest: 75, injury: 45, },
       bdy: { x: 23, y: 10, w: 37, h: 67, },
     },
     'jump_attack4': {
       pic: ['0', 1, 7], wait: 1, next: 'jump_attack5', move: [0, 0], center: [38, 79],
-      itr: { x: 35, y: 30, w: 30, h: 30, move: [12, 0], fall: true, arest: 75, injury: 45, },
+      itr: { x: 35, y: 30, w: 30, h: 30, move: [12, 0], effect: 'falling', arest: 75, injury: 45, },
       bdy: { x: 33, y: 9, w: 36, h: 64, },
     },
     'jump_attack5': {
@@ -147,13 +147,13 @@ lf2.character.Louis = {
     },
     'run_attack3': {
       pic: ['1', 3, 2], wait: 4, next: 'run_attack4', move: [12, 0], center: [35, 79],
-      itr: { x: 18, y: 30, w: 61, h: 31, move: [14, 0], fall: true, vrest: 7, injury: 65, },
+      itr: { x: 18, y: 30, w: 61, h: 31, move: [14, 0], effect: 'falling', vrest: 7, injury: 65, },
       bdy: { x: 27, y: 15, w: 35, h: 64, },
       bdy: { x: 15, y: 31, w: 21, h: 50, },
     },
     'run_attack4': {
       pic: ['1', 3, 3], wait: 2, next: 'run_attack5', move: [12, 0], center: [35, 79],
-      itr: { x: 17, y: 34, w: 55, h: 21, move: [14, 0], fall: true, vrest: 7, injury: 65, },
+      itr: { x: 17, y: 34, w: 55, h: 21, move: [14, 0], effect: 'falling', vrest: 7, injury: 65, },
       bdy: { x: 18, y: 29, w: 27, h: 54, },
       bdy: { x: 31, y: 12, w: 33, h: 65, },
     },
@@ -185,7 +185,7 @@ lf2.character.Louis = {
     },
     'dash_attack4': {
       pic: ['1', 6, 4], wait: 90, next: 'dash_attack4', move: [13, 6], center: [31, 73], drop: 'dash_attack5',
-      itr: { x: 28, y: 34, w: 57, h: 45, move: [12, 0], fall: true, vrest: 8, injury: 80, },
+      itr: { x: 28, y: 34, w: 57, h: 45, move: [12, 0], effect: 'falling', vrest: 8, injury: 80, },
       bdy: { x: 29, y: 19, w: 39, h: 45, },
       bdy: { x: 16, y: 38, w: 36, h: 29, },
     },
@@ -317,7 +317,7 @@ lf2.character.Louis = {
     'c-throw': {
       pic: ['2', 1, 0], wait: 2, next: 'c-throw2', move: [0, 0], center: [39, 79], sound: '015.wav',
       cpoint: { x: 83, y: 43, frame: 'falling', },
-      itr: { x: 18, y: 24, w: 103, h: 56, move: [14, 0], fall: true, vrest: 75, injury: 65, },
+      itr: { x: 18, y: 24, w: 103, h: 56, move: [14, 0], effect: 'falling', vrest: 75, injury: 65, },
       bdy: { x: 19, y: 13, w: 47, h: 67, },
     },
     'c-throw2': {
@@ -328,43 +328,43 @@ lf2.character.Louis = {
     'c-throw3': {
       pic: ['2', 1, 2], wait: 1, next: 'c-throw4', move: [1, 0], center: [34, 79], sound: '007.wav',
       cpoint: { x: -4, y: 38, frame: 'falling', },
-      itr: { x: -48, y: 22, w: 107, h: 57, move: [-14, 0], fall: true, vrest: 75, injury: 65, },
+      itr: { x: -48, y: 22, w: 107, h: 57, move: [-14, 0], effect: 'falling', vrest: 75, injury: 65, },
       bdy: { x: 15, y: 12, w: 42, h: 70, },
     },
     'c-throw4': {
       pic: ['2', 1, 3], wait: 2, next: 'c-throw5', move: [0, 0], center: [40, 79],
       cpoint: { x: 12, y: 19, frame: 'falling', },
-      itr: { x: -35, y: -19, w: 109, h: 60, move: [-14, 0], fall: true, vrest: 75, injury: 65, },
+      itr: { x: -35, y: -19, w: 109, h: 60, move: [-14, 0], effect: 'falling', vrest: 75, injury: 65, },
       bdy: { x: 23, y: 9, w: 42, h: 70, },
     },
     'c-throw5': {
       pic: ['2', 1, 4], wait: 2, next: 'c-throw6', move: [-2, 0], center: [38, 79],
       cpoint: { x: 71, y: 19, frame: 'falling', },
-      itr: { x: 14, y: -16, w: 107, h: 67, move: [14, 0], fall: true, vrest: 75, injury: 65, },
+      itr: { x: 14, y: -16, w: 107, h: 67, move: [14, 0], effect: 'falling', vrest: 75, injury: 65, },
       bdy: { x: 16, y: 11, w: 41, h: 69, },
     },
     'c-throw6': {
       pic: ['2', 1, 5], wait: 1, next: 'c-throw7', move: [-1, 0], center: [39, 79],
       cpoint: { x: 74, y: 53, frame: 'falling', },
-      itr: { x: 18, y: 10, w: 106, h: 65, move: [14, 0], fall: true, vrest: 75, injury: 65, },
+      itr: { x: 18, y: 10, w: 106, h: 65, move: [14, 0], effect: 'falling', vrest: 75, injury: 65, },
       bdy: { x: 11, y: 11, w: 45, h: 69, },
     },
     'c-throw7': {
       pic: ['2', 1, 5], wait: 1, next: 'c-throw8', move: [-1, 0], center: [39, 79],
       cpoint: { x: 74, y: 53, frame: 'falling', },
-      itr: { x: 16, y: 11, w: 108, h: 64, move: [14, 0], fall: true, vrest: 75, injury: 65, },
+      itr: { x: 16, y: 11, w: 108, h: 64, move: [14, 0], effect: 'falling', vrest: 75, injury: 65, },
       bdy: { x: 11, y: 11, w: 45, h: 69, },
     },
     'c-throw8': {
       pic: ['2', 1, 1], wait: 1, next: 'c-throw9', move: [0, 0], center: [39, 79],
       cpoint: { x: 66, y: 57, frame: 'falling', },
-      itr: { x: -15, y: 16, w: 119, h: 65, move: [14, 0], fall: true, vrest: 75, injury: 65, },
+      itr: { x: -15, y: 16, w: 119, h: 65, move: [14, 0], effect: 'falling', vrest: 75, injury: 65, },
       bdy: { x: 18, y: 11, w: 42, h: 68, },
     },
     'c-throw9': {
       pic: ['2', 1, 2], wait: 1, next: 'c-throw10', move: [0, 0], center: [36, 79],
       cpoint: { x: -5, y: 24, frame: 'falling', },
-      itr: { x: -49, y: 0, w: 123, h: 55, move: [-14, 0], fall: true, vrest: 75, injury: 65, },
+      itr: { x: -49, y: 0, w: 123, h: 55, move: [-14, 0], effect: 'falling', vrest: 75, injury: 65, },
       bdy: { x: 9, y: 8, w: 49, h: 72, },
     },
     'c-throw10': {
@@ -402,7 +402,7 @@ lf2.character.Louis = {
     },
     '1000foot6': {
       pic: ['2', 0, 5], wait: 2, next: '1000foot7', move: [12, 0], center: [38, 78], sound: '007.wav',
-      itr: { x: 11, y: 31, w: 68, h: 27, move: [13, 0], fall: false, vrest: 7, injury: 20, },
+      itr: { x: 11, y: 31, w: 68, h: 27, move: [13, 0], effect: 'injured', vrest: 7, injury: 20, },
       bdy: { x: 13, y: 6, w: 41, h: 40, },
     },
     '1000foot7': {
@@ -411,12 +411,12 @@ lf2.character.Louis = {
     },
     '1000foot8': {
       pic: ['2', 0, 7], wait: 2, next: '1000foot9', move: [12, 0], center: [38, 78], sound: '007.wav',
-      itr: { x: 11, y: 31, w: 68, h: 27, move: [13, 0], fall: false, vrest: 7, injury: 20, },
+      itr: { x: 11, y: 31, w: 68, h: 27, move: [13, 0], effect: 'injured', vrest: 7, injury: 20, },
       bdy: { x: 9, y: 8, w: 45, h: 35, },
     },
     '1000foot9': {
       pic: ['2', 0, 8], wait: 2, next: '1000foot10', move: [12, 0], center: [38, 77], sound: '069.wav',
-      itr: { x: 11, y: 31, w: 68, h: 27, move: [13, 0], fall: false, vrest: 7, injury: 20, },
+      itr: { x: 11, y: 31, w: 68, h: 27, move: [13, 0], effect: 'injured', vrest: 7, injury: 20, },
       bdy: { x: 10, y: 9, w: 44, h: 33, },
     },
     '1000foot10': {
@@ -425,7 +425,7 @@ lf2.character.Louis = {
     },
     '1000foot11': {
       pic: ['2', 0, 6], wait: 2, next: '1000foot12', move: [12, 0], center: [38, 77], sound: '069.wav',
-      itr: { x: 11, y: 31, w: 68, h: 27, move: [13, 0], fall: false, vrest: 7, injury: 20, },
+      itr: { x: 11, y: 31, w: 68, h: 27, move: [13, 0], effect: 'injured', vrest: 7, injury: 20, },
       bdy: { x: 9, y: 9, w: 40, h: 35, },
     },
     '1000foot12': {
@@ -434,7 +434,7 @@ lf2.character.Louis = {
     },
     '1000foot13': {
       pic: ['2', 0, 8], wait: 2, next: '1000foot14', move: [12, 0], center: [38, 77], sound: '069.wav',
-      itr: { x: 9, y: 22, w: 81, h: 35, move: [17, -7], fall: true, vrest: 7, injury: 30, },
+      itr: { x: 9, y: 22, w: 81, h: 35, move: [17, -7], effect: 'falling', vrest: 7, injury: 30, },
       bdy: { x: 9, y: 8, w: 40, h: 38, },
     },
     '1000foot14': {

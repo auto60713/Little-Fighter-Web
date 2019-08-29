@@ -108,7 +108,7 @@ lf2.character.Woody = {
     },
     'punch2': {
       pic: ['0', 1, 1], wait: 1, next: 'punch3', move: [0, 0], center: [28, 79],
-      itr: { x: 21, y: 30, w: 54, h: 23, move: [2, 0], fall: false, arest: 10, injury: 20, },
+      itr: { x: 21, y: 30, w: 54, h: 23, move: [2, 0], effect: 'injured', arest: 10, injury: 20, },
       bdy: { x: 18, y: 14, w: 31, h: 64, },
     },
     'punch3': {
@@ -334,22 +334,22 @@ lf2.character.Woody = {
     },
     'fly_crash5': {
       pic: ['2', 1, 5], wait: 1, next: 'fly_crash6', move: [0, 0], center: [32, 68],
-      itr: { x: 19, y: 6, w: 44, h: 61, move: [45, -7], fall: true, vrest: 10, injury: 85, },
+      itr: { x: 19, y: 6, w: 44, h: 61, move: [45, -7], effect: 'falling', vrest: 10, injury: 85, },
       bdy: { x: 20, y: 6, w: 42, h: 53, },
     },
     'fly_crash6': {
       pic: ['2', 1, 6], wait: 1, next: 'fly_crash7', move: [0, 0], center: [32, 66],
-      itr: { x: 20, y: 5, w: 46, h: 60, move: [39, -7], fall: true, vrest: 10, injury: 70, },
+      itr: { x: 20, y: 5, w: 46, h: 60, move: [39, -7], effect: 'falling', vrest: 10, injury: 70, },
       bdy: { x: 23, y: 6, w: 38, h: 57, },
     },
     'fly_crash7': {
       pic: ['2', 1, 7], wait: 1, next: 'fly_crash8', move: [0, 0], center: [32, 68],
-      itr: { x: 17, y: 6, w: 48, h: 63, move: [33, -7], fall: true, vrest: 10, injury: 55, },
+      itr: { x: 17, y: 6, w: 48, h: 63, move: [33, -7], effect: 'falling', vrest: 10, injury: 55, },
       bdy: { x: 23, y: 5, w: 36, h: 55, },
     },
     'fly_crash8': {
       pic: ['2', 1, 8], wait: 4, next: 999, move: [0, 0], center: [32, 66],
-      itr: { x: 17, y: 8, w: 48, h: 60, move: [27, -7], fall: true, vrest: 10, injury: 45, },
+      itr: { x: 17, y: 8, w: 48, h: 60, move: [27, -7], effect: 'falling', vrest: 10, injury: 45, },
       bdy: { x: 22, y: 7, w: 38, h: 52, },
     },
 
@@ -391,8 +391,8 @@ lf2.character.Woody = {
     },
     'cleg9': {
       pic: ['2', 2, 8], wait: 1, next: 'cleg10', move: [8, 0], center: [38, 79], 
-      itr: { x: 52, y: 17, w: 29, h: 24, move: [5, -9], fall: true, vrest: 9, injury: 20, },
-      itr: { x: 1, y: 17, w: 27, h: 25, move: [-2, 0], fall: true, vrest: 9, injury: 20, },
+      itr: { x: 52, y: 17, w: 29, h: 24, move: [5, -9], effect: 'falling', vrest: 9, injury: 20, },
+      itr: { x: 1, y: 17, w: 27, h: 25, move: [-2, 0], effect: 'falling', vrest: 9, injury: 20, },
       bdy: { x: 25, y: 18, w: 34, h: 58, },
     },
     'cleg10': {
