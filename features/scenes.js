@@ -116,7 +116,7 @@ lf2.prepareBattleMode = () => {
   lf2.mainCharacter = lf2.scenes.character[0].setting;
 
   // 另一個角色
-  lf2.adjunction('character', 'Woody', {
+  lf2.adjunction('character', 'Davis', {
     x: 600,
     y: lf2.mainMap.limit.y,
     team: 1,

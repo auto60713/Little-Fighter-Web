@@ -14,14 +14,38 @@ lf2.amIBeingBeaten = (setting, frame, type, thing) => {
               // 同隊 但是 物件打同隊
               || (setting.team === det.setting.team && detFrame.itr.team == 'my')) {
 
-              // 被打最右邊 >= 打人最左邊
-              if (setting.x + frame.bdy.x + frame.bdy.w >= det.setting.x + detFrame.itr.x
-                // 被打最左邊 < 打人最右邊
-                && setting.x + frame.bdy.x < det.setting.x + detFrame.itr.x + detFrame.itr.w
-                // 被打最下邊 >= 打人最上邊
-                && setting.y + frame.bdy.y + frame.bdy.h >= det.setting.y + detFrame.itr.y
-                // 被打最上邊 < 打人最下邊
-                && setting.y + frame.bdy.y < det.setting.y + detFrame.itr.y + detFrame.itr.h) {
+              // 我四邊
+              var SL = setting.x + frame.bdy.x;
+              var SR = setting.x + frame.bdy.x + frame.bdy.w;
+              var ST = setting.y + frame.bdy.y;
+              var SB = setting.y + frame.bdy.y + frame.bdy.h;
+
+              // 敵四邊
+              var DL = det.setting.x + detFrame.itr.x;
+              var DR = det.setting.x + detFrame.itr.x + detFrame.itr.w
+              var DT = det.setting.y + detFrame.itr.y
+              var DB = det.setting.y + detFrame.itr.y + detFrame.itr.h
+              // https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+              var rect1 = {
+                x: setting.x + frame.bdy.x, 
+                y: 5, 
+                width: 50, 
+                height: 50
+              }
+              var rect2 = {
+                x: 20, 
+                y: 10, 
+                width: 10, 
+                height: 10
+              }
+
+              if (rect1.x < rect2.x + rect2.width &&
+                rect1.x + rect1.width > rect2.x &&
+                rect1.y < rect2.y + rect2.height &&
+                rect1.y + rect1.height > rect2.y) {
+                // collision detected!
+              // }
+              // if (((SL >= DL && SL <= DR) || (SR >= DL && SR <= DR)) && ((ST >= DT && ST <= DB) || (SB >= DT && SB <= DB))) {
 
                 // 被打的中間
                 var sc = setting.x + frame.bdy.x + (frame.bdy.w / 2);
