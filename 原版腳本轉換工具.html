@@ -21,7 +21,7 @@
 
     // 圖片row幾格
     var picrow = 10;
-    var characterName = 'John';
+    var characterName = 'Deep';
     var picstart = 0;
 
     // FIXME: 出版前要在包裝一下 例如參數設定欄 複製提示等
@@ -276,7 +276,7 @@
       // 後面補逗點
       try {
         list.forEach(attrName => {
-          if ((array[i + 1] != '') && element.indexOf(attrName) == 0) {
+          if ((array[i + 1] !== '') && element.indexOf(attrName) == 0) {
             array[i] += ' ';
             array[i + 1] += ', ';
             throw false;

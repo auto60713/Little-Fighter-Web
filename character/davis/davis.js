@@ -362,12 +362,18 @@ lf2.character.Davis = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
     'many_punch9': {
-      pic: ['2', 2, 8], wait: 1, next: 'many_punch10', move: [5, 0], center: [22, 79], B6: 'singlong',
+      pic: ['2', 2, 8], wait: 1, next: 'many_punch10', move: [5, 0], center: [22, 79],
       bdy: { x: 21, y: 18, w: 43, h: 62, },
+      hit: {
+        B6: 'singlong',
+      },
     },
     'many_punch10': {
-      pic: ['2', 2, 7], wait: 1, next: 'many_punch11', move: [7, 0], center: [26, 79], B6: 'singlong', sound: '007.wav',
+      pic: ['2', 2, 7], wait: 1, next: 'many_punch11', move: [7, 0], center: [26, 79], sound: '007.wav',
       bdy: { x: 21, y: 18, w: 43, h: 62, },
+      hit: {
+        B6: 'singlong',
+      },
     },
     'many_punch11': {
       pic: ['2', 2, 6], wait: 1, next: 'many_punch12', move: [3, 0], center: [22, 79],
@@ -375,12 +381,18 @@ lf2.character.Davis = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
     'many_punch12': {
-      pic: ['2', 2, 5], wait: 2, next: 'many_punch13', move: [3, 0], center: [27, 79], U: 'jumphit',
+      pic: ['2', 2, 5], wait: 2, next: 'many_punch13', move: [3, 0], center: [27, 79],
       bdy: { x: 21, y: 18, w: 43, h: 62, },
+      hit: {
+        U: 'jumphit',
+      },
     },
     'many_punch13': {
-      pic: ['2', 2, 4], wait: 3, next: 999, move: [0, 0], center: [34, 79], U: 'jumphit',
+      pic: ['2', 2, 4], wait: 3, next: 999, move: [0, 0], center: [34, 79],
       bdy: { x: 21, y: 18, w: 43, h: 62, },
+      hit: {
+        U: 'jumphit',
+      },
     },
 
     'jumphit': {
@@ -392,8 +404,11 @@ lf2.character.Davis = {
       bdy: { x: 15, y: 8, w: 34, h: 62, },
     },
     'jumphit3': {
-      pic: ['2', 2, 1], wait: 15, next: 999, move: [0, 0], center: [37, 79], B1: 'jumphit4',
+      pic: ['2', 2, 1], wait: 15, next: 999, move: [0, 0], center: [37, 79],
       bdy: { x: 21, y: 8, w: 34, h: 66, },
+      hit: {
+        B1: 'jumphit4',
+      },
     },
 
     'jumphit4': {
@@ -444,14 +459,8 @@ lf2.character.Davis = {
     },
 
 
-
-
-
-
   }
 };
-
-
 
 
 
