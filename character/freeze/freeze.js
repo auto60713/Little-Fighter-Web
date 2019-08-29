@@ -577,7 +577,7 @@ lf2.derivative.Freeze = {
       itr: { x: 15, y: 21, w: 128, h: 170, move: [0, -18], effect: 'falling', vrest: 200, injury: 75, },
     },
     'whirlwind8': {
-      pic: ['ww', 1, 2], wait: 1, next: 'whirlwind5', move: [2, 0], center: [82, 144], keep: [200, 'whirlwind9'],
+      pic: ['ww', 1, 2], wait: 1, next: 'whirlwind5', move: [2, 0], center: [82, 144], timeToGo: [200, 'whirlwind9'],
       itr: { x: 15, y: 21, w: 128, h: 170, move: [0, -18], effect: 'falling', vrest: 200, injury: 75, },
     },
 

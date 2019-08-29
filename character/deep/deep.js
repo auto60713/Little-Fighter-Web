@@ -574,7 +574,7 @@ lf2.derivative.Deep = {
   frame: {
 
     'standing': {
-      pic: ['ball', 0, 0], wait: 1, next: 'flying2', move: [15, 0], center: [40, 41], keep: [10, 'falling'],
+      pic: ['ball', 0, 0], wait: 1, next: 'flying2', move: [15, 0], center: [40, 41], timeToGo: [10, 'falling'],
       itr: { x: 22, y: 27, w: 55, h: 27, move: [7, 0], effect: 'falling', vrest: 10, injury: 55, next: 'falling', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },

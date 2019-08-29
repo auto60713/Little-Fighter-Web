@@ -20,7 +20,7 @@
   <script>
 
     // 圖片row幾格
-    var picrow = 10;
+    var picrow = 8;
     var characterName = 'John';
     var picstart = 0;
 
@@ -230,7 +230,8 @@
       }
 
       else if (element == 'fall:') {
-        array[i + 1] = (array[i + 1] == 70);
+        array[i] = 'effect:';
+        array[i + 1] = (array[i + 1] == 70) ? "'falling'" : "'injured'";
       }
 
       else if (element == 'sound:') {
@@ -246,7 +247,7 @@
           array[i] = 'Delete this itr';
           array[i + 1] = '';
         }
-        else {
+        else if (array[i + 1] != 'falling' && array[i + 1] != 'injured') {
           array[i] = '';
           array[i + 1] = '';
         }

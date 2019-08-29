@@ -88,11 +88,7 @@ lf2.move = (setting, frame, type) => {
   }
   if (frame.move) {
     var m = setting.mirror ? -1 : 1;
-
-    if (frame.move[0] == 550) setting.xSpeed = 0;
-    else if (frame.move[0] != 0) setting.xSpeed = frame.move[0] * m * 0.6;
-    if (frame.move[1] == 550) setting.ySpeed = 0;
-    else if (frame.move[1] != 0) setting.ySpeed = frame.move[1];
+    lf2.asdasdasd(setting, frame.move, m);
   }
 }
 
@@ -102,6 +98,13 @@ lf2.dropDetection = (setting, frame, type) => {
 
 lf2.skyDetection = (setting, frame, type) => {
   return setting.y < lf2.mainMap.limit.y;
+}
+
+lf2.asdasdasd = (setting, move, m) => {
+  if (move[0] == 550) setting.xSpeed = 0;
+  else if (move[0] != 0) setting.xSpeed = move[0] * m * 0.6;
+  if (move[1] == 550) setting.ySpeed = 0;
+  else if (move[1] != 0) setting.ySpeed = move[1];
 }
 
 lf2.mapDetection = (setting, type) => {

@@ -543,7 +543,7 @@ lf2.derivative.Firen = {
       pic: ['grd', 1, 2], wait: 1, next: 'ground_fire8', move: [0, 0], center: [16, 46], 
     },
     'ground_fire8': {
-      pic: ['grd', 1, 3], wait: 1, next: 'ground_fire9', move: [0, 0], center: [16, 47], keep: [30, 'ground_fire11'], 
+      pic: ['grd', 1, 3], wait: 1, next: 'ground_fire9', move: [0, 0], center: [16, 47], timeToGo: [30, 'ground_fire11'], 
     },
     'ground_fire9': {
       pic: ['grd', 0, 0], wait: 1, next: 'ground_fire10', move: [0, 0], center: [16, 47], 

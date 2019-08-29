@@ -100,7 +100,7 @@ lf2.undergroundInformation = (type, name, template) => {
       inSky: false,
       mirror: false,
       keyReaction: [],
-      keep: [0, null],
+      timeToGo: [0, null],
       hitHold: '-',
 
       team: 0,
@@ -131,7 +131,7 @@ lf2.mapTransform = (type, name, template) => {
       element.nowwait = 0;
       element.ySpeed = 0;
       element.xSpeed = 0;
-      element.keep = [0, null];
+      element.timeToGo = [0, null];
 
       if (element.repeat) {
         // 從該屬性的初始值開始

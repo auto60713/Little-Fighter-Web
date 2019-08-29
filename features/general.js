@@ -19,9 +19,9 @@ lf2.variousChangesFrame = (setting, frame, type, thing) => {
     lf2.gotoFrame(thing, setting, type, lf2.ttttt);
   }
   // 循環到期換動作
-  else if (setting.keep[1] && setting.keep[0] <= 0) {
-    lf2.gotoFrame(thing, setting, type, setting.keep[1]);
-    setting.keep[1] = null;
+  else if (setting.timeToGo[1] && setting.timeToGo[0] <= 0) {
+    lf2.gotoFrame(thing, setting, type, setting.timeToGo[1]);
+    setting.timeToGo[1] = null;
   }
   // 自然換動作
   else if (setting.nowwait <= 0) {
@@ -33,8 +33,8 @@ lf2.variousChangesFrame = (setting, frame, type, thing) => {
   }
 
   // 循環動作
-  if (frame.keep && !setting.keep[1]) {
-    setting.keep = frame.keep;
+  if (frame.timeToGo && !setting.timeToGo[1]) {
+    setting.timeToGo = frame.timeToGo;
   }
 
 }
@@ -151,13 +151,13 @@ lf2.amIBeingBeaten = (setting, frame, type, thing) => {
 
                   if (type == 'character') {
                     effect = detFrame.itr.effect;
-                    setting.xSpeed = detFrame.itr.move[0] * m;
-                    setting.ySpeed = detFrame.itr.move[1];
+                    lf2.asdasdasd(setting, detFrame.itr.move , m);
                   }
                   else effect = 'falling';
 
                 }
                 setting.nowHP -= detFrame.itr.injury;
+                if (setting.nowHP > setting.HP) setting.nowHP = setting.HP;
                 throw false;
               }
 
@@ -178,7 +178,7 @@ lf2.counter = (setting, frame, type, thing) => {
   // 幀等待
   setting.nowwait--;
 
-  if (setting.keep[0] > 0) setting.keep[0]--;
+  if (setting.timeToGo[0] > 0) setting.timeToGo[0]--;
 
   if (type == 'character') {
 
@@ -223,24 +223,28 @@ lf2.produceDerivative = (setting, frame, type) => {
 
 
 lf2.strikeEffect = (type, thing, setting, effect) => {
-  var sound, gotoFrame, UI;
+  var sound = null, gotoFrame = null, UI = null;
 
   switch (effect) {
-    case 'falling':
-      sound = '006.wav';
-      gotoFrame = 'falling';
-      UI = 'hit';
-      break;
     case 'injured':
       sound = '001.wav';
       gotoFrame = 'injured';
       UI = 'hit';
       break;
+    case 'falling':
+      sound = '006.wav';
+      gotoFrame = 'falling';
+      UI = 'hit';
+      break;
+    case 'heal':
+      sound = '049.wav';
+      break;
+
   }
 
-  lf2.sound({}, { sound: sound });
-  lf2.gotoFrame(thing, setting, type, gotoFrame);
-  lf2.adjunction('UI', UI, {
+  if (sound) lf2.sound({}, { sound: sound });
+  if (gotoFrame) lf2.gotoFrame(thing, setting, type, gotoFrame);
+  if (UI) lf2.adjunction('UI', UI, {
     x: setting.x,
     y: setting.y,
   });
