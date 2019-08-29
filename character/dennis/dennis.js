@@ -44,10 +44,8 @@ lf2.character.Dennis = {
       },
     },
 
-
     'walking': {
       pic: ['0', 0, 4], wait: 3, next: 999, move: [0, 0], center: [39, 78], flip: true, hitHold: true,
-      itr: { x: 40, y: 16, w: 25, h: 65, },
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -56,7 +54,6 @@ lf2.character.Dennis = {
     },
     'walking2': {
       pic: ['0', 0, 5], wait: 3, next: 999, move: [0, 0], center: [39, 79], flip: true, hitHold: true,
-      itr: { x: 40, y: 16, w: 25, h: 65, },
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -65,7 +62,6 @@ lf2.character.Dennis = {
     },
     'walking3': {
       pic: ['0', 0, 6], wait: 3, next: 999, move: [0, 0], center: [39, 79], flip: true, hitHold: true,
-      itr: { x: 40, y: 16, w: 25, h: 65, },
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -74,7 +70,6 @@ lf2.character.Dennis = {
     },
     'walking4': {
       pic: ['0', 0, 7], wait: 3, next: 999, move: [0, 0], center: [39, 78], flip: true, hitHold: true,
-      itr: { x: 40, y: 16, w: 25, h: 65, },
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -87,7 +82,7 @@ lf2.character.Dennis = {
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'punch', B2: 'defend', B6: 'manyFoot', B5: 'c_foot', B4: 'chaseBall',
+        B1: 'run_attack', B2: 'defend', B6: 'manyFoot', B5: 'c_foot', B4: 'chaseBall',
       },
     },
     'running2': {
@@ -95,7 +90,7 @@ lf2.character.Dennis = {
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'punch', B2: 'defend', B6: 'manyFoot', B5: 'c_foot', B4: 'chaseBall',
+        B1: 'run_attack', B2: 'defend', B6: 'manyFoot', B5: 'c_foot', B4: 'chaseBall',
       },
     },
     'running3': {
@@ -103,10 +98,9 @@ lf2.character.Dennis = {
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'punch', B2: 'defend', B6: 'manyFoot', B5: 'c_foot', B4: 'chaseBall',
+        B1: 'run_attack', B2: 'defend', B6: 'manyFoot', B5: 'c_foot', B4: 'chaseBall',
       },
     },
-
 
     'punch': {
       pic: ['0', 1, 0], wait: 2, next: 'punch2', move: [1, 0], center: [42, 79],
@@ -115,7 +109,7 @@ lf2.character.Dennis = {
     },
     'punch2': {
       pic: ['0', 1, 1], wait: 1, next: 'punch3', move: [0, 0], center: [27, 79], sound: '007.wav',
-      itr: { x: 21, y: 30, w: 54, h: 23, move: [2, 0], fall: false, injury: 30, },
+      itr: { x: 21, y: 30, w: 54, h: 23, move: [2, 0], fall: false, arest: 10, injury: 30, },
       bdy: { x: 16, y: 19, w: 33, h: 59, },
     },
     'punch3': {
@@ -126,6 +120,7 @@ lf2.character.Dennis = {
       pic: ['0', 1, 3], wait: 1, next: 999, move: [0, 0], center: [35, 79],
       bdy: { x: 19, y: 9, w: 36, h: 71, },
     },
+
     'jump_attack': {
       pic: ['0', 3, 7], wait: 2, next: 'jump_attack2', move: [0, 0], center: [38, 75], sound: '007.wav',
       bdy: { x: 10, y: 17, w: 43, h: 52, },
@@ -139,6 +134,7 @@ lf2.character.Dennis = {
       pic: ['0', 3, 7], wait: 3, next: 999, move: [0, 0], center: [36, 76],
       bdy: { x: 10, y: 17, w: 40, h: 52, },
     },
+
     'run_attack': {
       pic: ['1', 3, 2], wait: 1, next: 'run_attack2', move: [6, 0], center: [30, 79],
       bdy: { x: 11, y: 17, w: 37, h: 62, },
@@ -161,6 +157,7 @@ lf2.character.Dennis = {
       pic: ['1', 3, 6], wait: 1, next: 999, move: [0, 0], center: [31, 79],
       bdy: { x: 12, y: 11, w: 36, h: 67, },
     },
+
     'dash_attack': {
       pic: ['1', 3, 7], wait: 2, next: 'dash_attack2', move: [0, 0], center: [26, 78],
       bdy: { x: 15, y: 20, w: 47, h: 51, },
@@ -176,59 +173,79 @@ lf2.character.Dennis = {
     },
 
     'defend': {
-      pic: ['0', 5, 6], wait: 12, next: 999, move: [0, 0], center: [35, 79],
+      pic: ['0', 5, 6], wait: 12, next: 999, move: [0, 0], center: [35, 79], flip: true, hitHold: true,
       bdy: { x: 20, y: 19, w: 38, h: 60, },
+      hit: {
+        B2: 'defend',
+      },
     },
 
     'falling': {
-      pic: ['0', 3, 0], wait: 3, next: 0, move: [0, 0], center: [39, 79],
-      itr: { x: 21, y: 14, w: 29, h: 44, move: [2, 0], fall: true, vrest: 20, injury: 30, },
+      pic: ['0', 3, 0], wait: 3, next: 'falling2', move: [0, 0], center: [39, 79], drop: 'lyingDown',
       bdy: { x: 25, y: 25, w: 21, h: 20, },
     },
     'falling2': {
-      pic: ['0', 3, 1], wait: 3, next: 0, move: [0, 0], center: [37, 85],
-      itr: { x: 8, y: 15, w: 30, h: 32, move: [2, 0], fall: true, vrest: 20, injury: 30, },
-      itr: { x: 27, y: 35, w: 28, h: 21, move: [2, 0], fall: true, vrest: 20, injury: 30, },
+      pic: ['0', 3, 1], wait: 3, next: 'falling3', move: [0, 0], center: [37, 85], drop: 'lyingDown',
       bdy: { x: 22, y: 20, w: 24, h: 23, },
     },
     'falling3': {
-      pic: ['0', 3, 2], wait: 3, next: 0, move: [0, 0], center: [39, 79],
-      itr: { x: 13, y: 18, w: 46, h: 26, move: [2, 0], fall: true, vrest: 20, injury: 30, },
+      pic: ['0', 3, 2], wait: 3, next: 'falling4', move: [0, 0], center: [39, 79], drop: 'lyingDown',
       bdy: { x: 27, y: 22, w: 20, h: 18, },
     },
     'falling4': {
-      pic: ['0', 3, 3], wait: 3, next: 0, move: [0, 0], center: [39, 79],
-      itr: { x: 32, y: 18, w: 33, h: 27, move: [2, 0], fall: true, vrest: 20, injury: 30, },
-      itr: { x: 10, y: 38, w: 38, h: 21, move: [2, 0], fall: true, vrest: 20, injury: 30, },
+      pic: ['0', 3, 3], wait: 3, next: 'falling4', move: [0, 0], center: [39, 79], drop: 'lyingDown',
       bdy: { x: 22, y: 30, w: 27, h: 21, },
     },
-    'falling5': {
-      pic: ['0', 3, 4], wait: 3, next: 0, move: [0, 0], center: [39, 72],
+
+    'lyingDown': {
+      pic: ['0', 3, 4], wait: 10, next: 999, move: [0, 0], center: [39, 72],
     },
 
     'jump': {
-      pic: ['0', 6, 0], wait: 1, next: 'jump2', move: [0, 0], center: [39, 79],
+      pic: ['0', 6, 0], wait: 1, next: 'jump2', move: [0, 0], center: [39, 79], flip: true,
       bdy: { x: 22, y: 24, w: 35, h: 58, },
     },
     'jump2': {
-      pic: ['0', 6, 1], wait: 1, next: 'jump3', move: [0, 0], center: [39, 79], sound: '017.wav',
+      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [0, -8], center: [39, 79], sound: '017.wav', flip: true,
       bdy: { x: 26, y: 26, w: 34, h: 56, },
+      hit: {
+        R: 'jumpingMove', L: 'jumpingMove',
+      },
     },
-    'jump3': {
-      pic: ['0', 6, 2], wait: 1, next: 0, move: [0, 0], center: [39, 79],
+    'jumpingMove': {
+      pic: ['0', 6, 2], wait: 1, next: 'jumping', move: [5, 0], center: [39, 79], flip: true,
       bdy: { x: 20, y: 11, w: 29, h: 61, },
+    },
+    'jumping': {
+      pic: ['0', 6, 2], wait: 1, next: 'jumping', move: [0, 0], center: [39, 79], flip: true,
+      bdy: { x: 20, y: 11, w: 29, h: 61, },
+      hit: {
+        B1: 'jump_attack',
+      },
     },
 
     'dash': {
-      pic: ['0', 6, 3], wait: 8, next: 'dash2', move: [0, 0], center: [39, 79],
+      pic: ['0', 6, 3], wait: 8, next: 'dash2', move: [9, -5], center: [39, 79],
       bdy: { x: 43, y: 5, w: 23, h: 33, },
       bdy: { x: 28, y: 29, w: 21, h: 33, },
       bdy: { x: 18, y: 48, w: 27, h: 21, },
     },
+    'dash2': {
+      pic: ['0', 6, 3], wait: 8, next: 'dash3', move: [0, 0], center: [39, 79],
+      bdy: { x: 43, y: 5, w: 23, h: 33, },
+      bdy: { x: 28, y: 29, w: 21, h: 33, },
+      bdy: { x: 18, y: 48, w: 27, h: 21, },
+      hit: {
+        B1: 'dash_attack',
+      },
+    },
     'dash3': {
-      pic: ['1', 4, 2], wait: 2, next: 0, move: [0, 0], center: [39, 79],
+      pic: ['1', 4, 2], wait: 2, next: 'dash3', move: [0, 0], center: [39, 79],
       bdy: { x: 35, y: 8, w: 27, h: 27, },
       bdy: { x: 16, y: 30, w: 39, h: 37, },
+      hit: {
+        B1: 'dash_attack',
+      },
     },
 
     'injured': {
@@ -241,14 +258,9 @@ lf2.character.Dennis = {
       bdy: { x: 22, y: 37, w: 26, h: 42, },
     },
 
-
-
-
-
     // ==============================================================================
     // 技能
     // ==============================================================================
-
 
     'c_foot': {
       pic: ['2', 3, 0], wait: 1, next: 'c_foot2', move: [0, 0], center: [38, 79],
@@ -272,14 +284,14 @@ lf2.character.Dennis = {
       itr: { x: 3, y: 11, w: 62, h: 65, move: [-4, 0], fall: false, vrest: 7, injury: 35, },
       bdy: { x: 28, y: 9, w: 32, h: 35, },
       hit: {
-        B5: 'c_foot9', B2: 'c_foot9',
+        B2: 'c_foot9', B5: 'c_foot9',
       },
     },
     'c_foot6': {
       pic: ['2', 3, 5], wait: 1, next: 'c_foot7', move: [10, 0], center: [33, 85],
       bdy: { x: 24, y: 6, w: 31, h: 35, },
       hit: {
-        B5: 'c_foot9', B2: 'c_foot9',
+        B2: 'c_foot9', B5: 'c_foot9',
       },
     },
     'c_foot7': {
@@ -287,17 +299,16 @@ lf2.character.Dennis = {
       itr: { x: 25, y: 13, w: 61, h: 56, move: [13, 0], fall: false, vrest: 7, injury: 35, },
       bdy: { x: 18, y: 11, w: 32, h: 30, },
       hit: {
-        B5: 'c_foot9', B2: 'c_foot9',
+        B2: 'c_foot9', B5: 'c_foot9',
       },
     },
     'c_foot8': {
       pic: ['2', 3, 3], wait: 1, next: 'c_foot5', move: [10, 0], center: [31, 85],
       bdy: { x: 22, y: 11, w: 31, h: 32, },
       hit: {
-        B5: 'c_foot9', B2: 'c_foot9',
+        B2: 'c_foot9', B5: 'c_foot9',
       },
     },
-
     'c_foot9': {
       pic: ['2', 3, 7], wait: 1, next: 'c_foot10', move: [3, 0], center: [36, 76],
       bdy: { x: 18, y: 10, w: 37, h: 30, },
@@ -310,6 +321,7 @@ lf2.character.Dennis = {
       pic: ['2', 3, 8], wait: 2, next: 999, move: [0, 0], center: [29, 79],
       bdy: { x: 12, y: 20, w: 36, h: 60, },
     },
+
 
 
   }

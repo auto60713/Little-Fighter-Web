@@ -11,7 +11,6 @@ lf2.character.Davis = {
   },
   frame: {
 
-    // 站
     'standing': {
       pic: ['0', 0, 0], wait: 5, next: 'standing2', move: [0, 0], center: [39, 79], flip: true,
       bdy: { x: 21, y: 18, w: 43, h: 62, },
@@ -45,7 +44,6 @@ lf2.character.Davis = {
       },
     },
 
-    // 走
     'walking': {
       pic: ['0', 0, 4], wait: 3, next: 'walking2', move: [5, 0], center: [39, 78], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
@@ -79,9 +77,8 @@ lf2.character.Davis = {
       },
     },
 
-    // 跑
     'running': {
-      pic: ['0', 2, 0], wait: 3, next: 'running2', move: [10, 0], center: [36, 80], hitHold: true,
+      pic: ['0', 2, 0], wait: 3, next: 'running2', move: [10, 0], center: [36, 80], sound: '003.wav', hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -97,7 +94,7 @@ lf2.character.Davis = {
       },
     },
     'running3': {
-      pic: ['0', 2, 2], wait: 3, next: 'running', move: [10, 0], center: [32, 78], hitHold: true,
+      pic: ['0', 2, 2], wait: 3, next: 'running', move: [10, 0], center: [32, 78], sound: '004.wav', hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -105,14 +102,13 @@ lf2.character.Davis = {
       },
     },
 
-    // 站攻
     'punch': {
       pic: ['0', 1, 0], wait: 1, next: 'punch2', move: [0, 0], center: [42, 79],
       bdy: { x: 28, y: 12, w: 33, h: 70, },
     },
     'punch2': {
-      pic: ['0', 1, 1], wait: 1, next: 'punch3', move: [0, 0], center: [23, 79],
-      itr: { x: 21, y: 31, w: 43, h: 18, move: [2, 0], injury: 20, },
+      pic: ['0', 1, 1], wait: 1, next: 'punch3', move: [0, 0], center: [23, 79], sound: '007.wav',
+      itr: { x: 21, y: 31, w: 43, h: 18, move: [2, 0], fall: false, arest: 10, injury: 20, },
       bdy: { x: 13, y: 11, w: 31, h: 68, },
     },
     'punch3': {
@@ -124,13 +120,12 @@ lf2.character.Davis = {
       bdy: { x: 29, y: 10, w: 32, h: 70, },
     },
 
-    // 跳攻
     'jump_attack': {
       pic: ['1', 6, 2], wait: 1, next: 'jump_attack2', move: [0, 0], center: [36, 75],
       bdy: { x: 18, y: 10, w: 35, h: 57, },
     },
     'jump_attack2': {
-      pic: ['1', 6, 3], wait: 1, next: 'jump_attack3', move: [0, 0], center: [39, 74],
+      pic: ['1', 6, 3], wait: 1, next: 'jump_attack3', move: [0, 0], center: [39, 74], sound: '007.wav',
       bdy: { x: 22, y: 9, w: 35, h: 56, },
     },
     'jump_attack3': {
@@ -152,15 +147,12 @@ lf2.character.Davis = {
       bdy: { x: 21, y: 6, w: 29, h: 58, },
     },
 
-
-
-    // 跑攻
     'run_attack': {
       pic: ['1', 3, 0], wait: 2, next: 'run_attack2', move: [0, 0], center: [35, 79],
       bdy: { x: 17, y: 25, w: 44, h: 54, },
     },
     'run_attack2': {
-      pic: ['1', 3, 1], wait: 1, next: 'run_attack3', move: [16, 0], center: [30, 79],
+      pic: ['1', 3, 1], wait: 1, next: 'run_attack3', move: [16, 0], center: [30, 79], sound: '007.wav',
       bdy: { x: 25, y: 24, w: 31, h: 55, },
     },
     'run_attack3': {
@@ -186,15 +178,12 @@ lf2.character.Davis = {
       bdy: { x: 20, y: 11, w: 31, h: 68, },
     },
 
-
-
-    // 跑跳攻
     'dash_attack': {
       pic: ['1', 6, 2], wait: 1, next: 'dash_attack2', move: [0, 0], center: [36, 75],
       bdy: { x: 18, y: 10, w: 35, h: 57, },
     },
     'dash_attack2': {
-      pic: ['1', 6, 3], wait: 1, next: 'dash_attack3', move: [0, 0], center: [39, 74],
+      pic: ['1', 6, 3], wait: 1, next: 'dash_attack3', move: [0, 0], center: [39, 74], sound: '007.wav',
       bdy: { x: 22, y: 9, w: 35, h: 56, },
     },
     'dash_attack3': {
@@ -216,8 +205,6 @@ lf2.character.Davis = {
       bdy: { x: 21, y: 6, w: 29, h: 58, },
     },
 
-
-    // 防禦
     'defend': {
       pic: ['0', 5, 6], wait: 12, next: 999, move: [0, 0], center: [39, 79], flip: true, hitHold: true,
       bdy: { x: 20, y: 19, w: 38, h: 60, },
@@ -226,7 +213,6 @@ lf2.character.Davis = {
       },
     },
 
-    // 被打飛
     'falling': {
       pic: ['0', 3, 0], wait: 3, next: 'falling2', move: [0, 0], center: [39, 79], drop: 'lyingDown',
       bdy: { x: 25, y: 25, w: 21, h: 20, },
@@ -248,21 +234,20 @@ lf2.character.Davis = {
       pic: ['0', 3, 4], wait: 10, next: 999, move: [0, 0], center: [39, 66],
     },
 
-    // 跳
     'jump': {
-      pic: ['0', 6, 0], wait: 1, next: 'jump2', move: [0, -8], center: [39, 79], flip: true,
+      pic: ['0', 6, 0], wait: 1, next: 'jump2', move: [0, 0], center: [39, 79], flip: true,
       bdy: { x: 22, y: 24, w: 35, h: 58, },
-      hit: {
-        R: 'jump2Move', L: 'jump2Move',
-      },
     },
     'jump2': {
-      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [0, 0], center: [39, 79], flip: true,
+      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [0, -8], center: [39, 79], sound: '017.wav', flip: true,
       bdy: { x: 26, y: 26, w: 34, h: 56, },
+      hit: {
+        R: 'jumpingMove', L: 'jumpingMove',
+      },
     },
-    'jump2Move': {
-      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [5, 0], center: [39, 79], flip: true,
-      bdy: { x: 26, y: 26, w: 34, h: 56, },
+    'jumpingMove': {
+      pic: ['0', 6, 2], wait: 0, next: 'jumping', move: [5, 0], center: [39, 79], flip: true,
+      bdy: { x: 20, y: 11, w: 29, h: 61, },
     },
     'jumping': {
       pic: ['0', 6, 2], wait: 1, next: 'jumping', move: [0, 0], center: [39, 79], flip: true,
@@ -272,7 +257,6 @@ lf2.character.Davis = {
       },
     },
 
-    // 跑跳
     'dash': {
       pic: ['0', 6, 3], wait: 0, next: 'dash2', move: [9, -5], center: [39, 79],
       bdy: { x: 43, y: 5, w: 23, h: 33, },
@@ -297,7 +281,6 @@ lf2.character.Davis = {
       },
     },
 
-
     'injured': {
       pic: ['1', 5, 0], wait: 2, next: 'injured2', move: [0, 0], center: [35, 79],
       bdy: { x: 25, y: 17, w: 29, h: 61, },
@@ -307,8 +290,6 @@ lf2.character.Davis = {
       bdy: { x: 32, y: 16, w: 27, h: 63, },
       bdy: { x: 22, y: 37, w: 26, h: 42, },
     },
-
-
 
     // ==============================================================================
     // 技能
@@ -327,7 +308,7 @@ lf2.character.Davis = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
     'ball4': {
-      pic: ['2', 0, 3], wait: 1, next: 'ball5', move: [0, 0], center: [39, 79],
+      pic: ['2', 0, 3], wait: 1, next: 'ball5', move: [0, 0], center: [39, 79], sound: '048.wav',
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
     'ball5': {
@@ -346,7 +327,7 @@ lf2.character.Davis = {
 
 
     'many_punch': {
-      pic: ['2', 1, 3], wait: 1, next: 'many_punch2', move: [7, 0], center: [37, 79],
+      pic: ['2', 1, 3], wait: 1, next: 'many_punch2', move: [7, 0], center: [37, 79], sound: '007.wav',
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
     'many_punch2': {
@@ -355,7 +336,7 @@ lf2.character.Davis = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
     'many_punch3': {
-      pic: ['2', 1, 5], wait: 1, next: 'many_punch4', move: [3, 0], center: [38, 79],
+      pic: ['2', 1, 5], wait: 1, next: 'many_punch4', move: [3, 0], center: [38, 79], sound: '007.wav',
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
     'many_punch4': {
@@ -368,7 +349,7 @@ lf2.character.Davis = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
     'many_punch6': {
-      pic: ['2', 1, 8], wait: 1, next: 'many_punch7', move: [5, 0], center: [24, 79],
+      pic: ['2', 1, 8], wait: 1, next: 'many_punch7', move: [5, 0], center: [24, 79], sound: '007.wav',
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
     'many_punch7': {
@@ -381,25 +362,48 @@ lf2.character.Davis = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
     'many_punch9': {
-      pic: ['2', 2, 8], wait: 1, next: 'many_punch10', move: [5, 0], center: [22, 79],
+      pic: ['2', 2, 8], wait: 1, next: 'many_punch10', move: [5, 0], center: [22, 79], B6: 'singlong',
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
     'many_punch10': {
-      pic: ['2', 2, 7], wait: 1, next: 'many_punch11', move: [7, 0], center: [26, 79],
+      pic: ['2', 2, 7], wait: 1, next: 'many_punch11', move: [7, 0], center: [26, 79], B6: 'singlong', sound: '007.wav',
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
     'many_punch11': {
       pic: ['2', 2, 6], wait: 1, next: 'many_punch12', move: [3, 0], center: [22, 79],
-      itr: { x: 12, y: 11, w: 70, h: 51, move: [7, -7], fall: true, vrest: 15, injury: 25, },
+      itr: { x: 12, y: 11, w: 70, h: 51, move: [7, -15], fall: true, vrest: 15, injury: 25, },
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
     'many_punch12': {
-      pic: ['2', 2, 5], wait: 2, next: 'many_punch13', move: [3, 0], center: [27, 79],
+      pic: ['2', 2, 5], wait: 2, next: 'many_punch13', move: [3, 0], center: [27, 79], U: 'jumphit',
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
     'many_punch13': {
-      pic: ['2', 2, 4], wait: 3, next: 999, move: [0, 0], center: [34, 79],
+      pic: ['2', 2, 4], wait: 3, next: 999, move: [0, 0], center: [34, 79], U: 'jumphit',
       bdy: { x: 21, y: 18, w: 43, h: 62, },
+    },
+
+    'jumphit': {
+      pic: ['2', 2, 0], wait: 1, next: 'jumphit2', move: [8, -8], center: [32, 75], sound: '017.wav',
+      bdy: { x: 13, y: 8, w: 38, h: 61, },
+    },
+    'jumphit2': {
+      pic: ['2', 2, 1], wait: 2, next: 'jumphit3', move: [0, 0], center: [31, 75],
+      bdy: { x: 15, y: 8, w: 34, h: 62, },
+    },
+    'jumphit3': {
+      pic: ['2', 2, 1], wait: 15, next: 999, move: [0, 0], center: [37, 79], B1: 'jumphit4',
+      bdy: { x: 21, y: 8, w: 34, h: 66, },
+    },
+
+    'jumphit4': {
+      pic: ['2', 2, 2], wait: 3, next: 'jumphit5', move: [0, 0], center: [26, 72], sound: '007.wav',
+      itr: { x: 17, y: 19, w: 44, h: 45, move: [22, 15], fall: true, arest: 12, injury: 50, },
+      bdy: { x: 16, y: 20, w: 46, h: 46, },
+    },
+    'jumphit5': {
+      pic: ['2', 2, 3], wait: 15, next: 999, move: [0, 0], center: [26, 72],
+      bdy: { x: 16, y: 20, w: 46, h: 46, },
     },
 
 
@@ -438,6 +442,7 @@ lf2.character.Davis = {
       pic: ['2', 3, 7], wait: 2, next: 999, move: [0, 0], center: [29, 73],
       bdy: { x: 21, y: 3, w: 33, h: 68, },
     },
+
 
 
 

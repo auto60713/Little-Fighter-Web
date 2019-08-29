@@ -44,10 +44,8 @@ lf2.character.Henry = {
       },
     },
 
-
     'walking': {
       pic: ['0', 0, 4], wait: 3, next: 'walking2', move: [5, 0], center: [35, 78], flip: true, hitHold: true,
-      itr: { x: 40, y: 16, w: 25, h: 65, },
       bdy: { x: 24, y: 7, w: 31, h: 72, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -56,7 +54,6 @@ lf2.character.Henry = {
     },
     'walking2': {
       pic: ['0', 0, 5], wait: 3, next: 'walking3', move: [5, 0], center: [37, 79], flip: true, hitHold: true,
-      itr: { x: 40, y: 16, w: 25, h: 65, },
       bdy: { x: 28, y: 7, w: 26, h: 72, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -65,7 +62,6 @@ lf2.character.Henry = {
     },
     'walking3': {
       pic: ['0', 0, 6], wait: 3, next: 'walking4', move: [5, 0], center: [39, 79], flip: true, hitHold: true,
-      itr: { x: 40, y: 16, w: 25, h: 65, },
       bdy: { x: 26, y: 7, w: 30, h: 72, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -74,7 +70,6 @@ lf2.character.Henry = {
     },
     'walking4': {
       pic: ['0', 0, 7], wait: 3, next: 'walking', move: [5, 0], center: [40, 78], flip: true, hitHold: true,
-      itr: { x: 40, y: 16, w: 25, h: 65, },
       bdy: { x: 28, y: 6, w: 28, h: 74, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -82,13 +77,12 @@ lf2.character.Henry = {
       },
     },
 
-
     'running': {
       pic: ['0', 2, 0], wait: 3, next: 'running2', move: [11, 0], center: [37, 79], sound: '003.wav', hitHold: true,
       bdy: { x: 25, y: 11, w: 39, h: 68, },
       hit: {
         U: 'dash',
-        B1: 'punch', B2: 'defend', B6: 'flute', B5: '', B4: 'superArrow',
+        B1: 'run_attack', B2: 'defend', B6: 'flute', B5: '', B4: 'superArrow',
       },
     },
     'running2': {
@@ -96,7 +90,7 @@ lf2.character.Henry = {
       bdy: { x: 25, y: 10, w: 42, h: 68, },
       hit: {
         U: 'dash',
-        B1: 'punch', B2: 'defend', B6: 'flute', B5: '', B4: 'superArrow',
+        B1: 'run_attack', B2: 'defend', B6: 'flute', B5: '', B4: 'superArrow',
       },
     },
     'running3': {
@@ -104,11 +98,9 @@ lf2.character.Henry = {
       bdy: { x: 29, y: 14, w: 32, h: 64, },
       hit: {
         U: 'dash',
-        B1: 'punch', B2: 'defend', B6: 'flute', B5: '', B4: 'superArrow',
+        B1: 'run_attack', B2: 'defend', B6: 'flute', B5: '', B4: 'superArrow',
       },
     },
-
-
 
     'punch': {
       pic: ['0', 1, 0], wait: 1, next: 'punch2', move: [0, 0], center: [40, 79],
@@ -141,7 +133,6 @@ lf2.character.Henry = {
       bdy: { x: 15, y: 32, w: 51, h: 15, },
     },
 
-
     'jump_attack': {
       pic: ['0', 0, 8], wait: 1, next: 'jump_attack2', move: [0, 0], center: [18, 78],
       bdy: { x: 19, y: 10, w: 39, h: 57, },
@@ -164,7 +155,6 @@ lf2.character.Henry = {
       bdy: { x: 15, y: 10, w: 42, h: 63, },
     },
 
-
     'run_attack': {
       pic: ['0', 3, 7], wait: 1, next: 'run_attack2', move: [5, 0], center: [42, 79],
       bdy: { x: 20, y: 8, w: 35, h: 71, },
@@ -184,7 +174,6 @@ lf2.character.Henry = {
       bdy: { x: 9, y: 19, w: 37, h: 61, },
     },
 
-
     'dash_attack': {
       pic: ['1', 3, 6], wait: 1, next: 'dash_attack2', move: [0, 0], center: [38, 77],
       bdy: { x: 20, y: 3, w: 31, h: 74, },
@@ -195,7 +184,7 @@ lf2.character.Henry = {
       bdy: { x: 9, y: 7, w: 33, h: 70, },
     },
     'dash_attack3': {
-      pic: ['1', 3, 8], wait: 0, next: 0, move: [0, 0], center: [15, 78],
+      pic: ['1', 3, 8], wait: 0, next: 'dash_attack3', move: [0, 0], center: [15, 78],
       bdy: { x: 9, y: 7, w: 33, h: 70, },
     },
 
@@ -206,7 +195,6 @@ lf2.character.Henry = {
         B2: 'defend',
       },
     },
-
 
     'falling': {
       pic: ['0', 3, 0], wait: 3, next: 'falling2', move: [0, 0], center: [39, 79], drop: 'lyingDown',
@@ -224,27 +212,26 @@ lf2.character.Henry = {
       pic: ['0', 3, 3], wait: 3, next: 'falling4', move: [0, 0], center: [39, 79], drop: 'lyingDown',
       bdy: { x: 22, y: 30, w: 27, h: 21, },
     },
+
     'lyingDown': {
       pic: ['0', 3, 4], wait: 10, next: 999, move: [0, 0], center: [39, 72],
     },
 
-
-
-
     'jump': {
-      pic: ['0', 6, 0], wait: 1, next: 'jump2', move: [0, -8], center: [33, 79], flip: true,
+      pic: ['0', 6, 0], wait: 1, next: 'jump2', move: [0, 0], center: [33, 79], flip: true,
       bdy: { x: 18, y: 26, w: 30, h: 54, },
-      hit: {
-        R: 'jump2Move', L: 'jump2Move',
-      },
     },
     'jump2': {
-      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [0, 0], center: [34, 79], sound: '017.wav', flip: true,
+      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [0, -8], center: [34, 79], sound: '017.wav', flip: true,
       bdy: { x: 15, y: 27, w: 35, h: 54, },
+      hit: {
+        R: 'jumpingMove', L: 'jumpingMove',
+      },
     },
-    'jump2Move': {
-      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [5, 0], center: [34, 79], sound: '017.wav', flip: true,
-      bdy: { x: 15, y: 27, w: 35, h: 54, },
+    'jumpingMove': {
+      pic: ['0', 6, 2], wait: 1, next: 'jumping', move: [5, 0], center: [39, 79], flip: true,
+      bdy: { x: 28, y: 3, w: 23, h: 65, },
+      bdy: { x: 18, y: 29, w: 48, h: 17, },
     },
     'jumping': {
       pic: ['0', 6, 2], wait: 1, next: 'jumping', move: [0, 0], center: [39, 79], flip: true,
@@ -255,15 +242,11 @@ lf2.character.Henry = {
       },
     },
 
-
     'dash': {
       pic: ['0', 6, 3], wait: 0, next: 'dash2', move: [9, -4], center: [39, 79],
       bdy: { x: 43, y: 5, w: 23, h: 33, },
       bdy: { x: 28, y: 29, w: 21, h: 33, },
       bdy: { x: 18, y: 48, w: 27, h: 21, },
-      hit: {
-        B1: 'jump_attack',
-      },
     },
     'dash2': {
       pic: ['0', 6, 3], wait: 8, next: 'dash3', move: [0, -0], center: [39, 79],
@@ -271,7 +254,7 @@ lf2.character.Henry = {
       bdy: { x: 28, y: 29, w: 21, h: 33, },
       bdy: { x: 18, y: 48, w: 27, h: 21, },
       hit: {
-        B1: 'jump_attack',
+        B1: 'dash_attack',
       },
     },
     'dash3': {
@@ -279,11 +262,9 @@ lf2.character.Henry = {
       bdy: { x: 35, y: 8, w: 27, h: 27, },
       bdy: { x: 16, y: 30, w: 39, h: 37, },
       hit: {
-        B1: 'jump_attack',
+        B1: 'dash_attackF',
       },
     },
-
-
 
     'injured': {
       pic: ['1', 5, 0], wait: 2, next: 'injured2', move: [0, 0], center: [47, 79],
@@ -294,8 +275,6 @@ lf2.character.Henry = {
       bdy: { x: 32, y: 16, w: 27, h: 63, },
       bdy: { x: 22, y: 37, w: 26, h: 42, },
     },
-
-
 
     // ==============================================================================
     // 技能

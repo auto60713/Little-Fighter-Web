@@ -45,8 +45,6 @@ lf2.character.Rudolf = {
       },
     },
 
-
-
     'walking': {
       pic: ['0', 0, 4], wait: 3, next: 'walking2', move: [6, 0], center: [41, 78], flip: true, hitHold: true,
       bdy: { x: 22, y: 13, w: 34, h: 64, },
@@ -105,7 +103,6 @@ lf2.character.Rudolf = {
       },
     },
 
-
     'punch': {
       pic: ['0', 1, 0], wait: 3, next: 'punch2', move: [0, 0], center: [40, 79],
       bdy: { x: 23, y: 15, w: 31, h: 63, },
@@ -123,8 +120,6 @@ lf2.character.Rudolf = {
       pic: ['0', 1, 3], wait: 4, next: 999, move: [0, 0], center: [41, 79],
       bdy: { x: 23, y: 12, w: 32, h: 69, },
     },
-
-
 
     'jump_attack': {
       pic: ['0', 6, 7], wait: 1, next: 'jump_attack2', move: [0, 0], center: [18, 78],
@@ -159,7 +154,6 @@ lf2.character.Rudolf = {
       bdy: { x: 27, y: 8, w: 39, h: 71, },
     },
 
-
     'run_attack': {
       pic: ['2', 0, 0], wait: 1, next: 'run_attack2', move: [12, 0], center: [36, 85],
       bdy: { x: 21, y: 34, w: 50, h: 52, },
@@ -192,7 +186,6 @@ lf2.character.Rudolf = {
       bdy: { x: 21, y: 15, w: 42, h: 64, },
     },
 
-
     'dash_attack': {
       pic: ['2', 0, 5], wait: 1, next: 'dash_attack2', move: [0, 0], center: [36, 85],
       bdy: { x: 21, y: 34, w: 50, h: 52, },
@@ -216,7 +209,6 @@ lf2.character.Rudolf = {
       bdy: { x: 32, y: 36, w: 45, h: 49, },
     },
 
-
     'defend': {
       pic: ['0', 5, 6], wait: 12, next: 999, move: [0, 0], center: [28, 79], flip: true, hitHold: true,
       bdy: { x: 20, y: 19, w: 38, h: 60, },
@@ -224,8 +216,6 @@ lf2.character.Rudolf = {
         B2: 'defend',
       },
     },
-
-
 
     'falling': {
       pic: ['0', 3, 0], wait: 3, next: 'falling2', move: [0, 0], center: [39, 79], drop: 'lyingDown',
@@ -248,24 +238,25 @@ lf2.character.Rudolf = {
       pic: ['0', 3, 4], wait: 10, next: 999, move: [0, 0], center: [39, 72],
     },
 
-
     'jump': {
-      pic: ['0', 6, 0], wait: 1, next: 'jump2', move: [0, -8], center: [42, 79],
+      pic: ['0', 6, 0], wait: 1, next: 'jump2', move: [0, 0], center: [42, 79], flip: true,
       bdy: { x: 22, y: 28, w: 36, h: 52, },
-      hit: {
-        R: 'jump2Move', L: 'jump2Move',
-      },
+
     },
     'jump2': {
-      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [0, 0], center: [44, 79], sound: '017.wav',
+      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [0, -8], center: [44, 79], sound: '017.wav', flip: true,
       bdy: { x: 27, y: 28, w: 34, h: 52, },
+      hit: {
+        R: 'jumpingMove', L: 'jumpingMove',
+      },
     },
-    'jump2Move': {
-      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [6, 0], center: [44, 79], sound: '017.wav',
-      bdy: { x: 27, y: 28, w: 34, h: 52, },
+    'jumpingMove': {
+      pic: ['0', 6, 2], wait: 1, next: 'jumping', move: [5, 0], center: [39, 79], flip: true,
+      bdy: { x: 28, y: 3, w: 23, h: 65, },
+      bdy: { x: 18, y: 29, w: 48, h: 17, },
     },
     'jumping': {
-      pic: ['0', 6, 2], wait: 1, next: 'jumping', move: [0, 0], center: [39, 79],
+      pic: ['0', 6, 2], wait: 1, next: 'jumping', move: [0, 0], center: [39, 79], flip: true,
       bdy: { x: 28, y: 3, w: 23, h: 65, },
       bdy: { x: 18, y: 29, w: 48, h: 17, },
       hit: {
@@ -280,7 +271,7 @@ lf2.character.Rudolf = {
       bdy: { x: 18, y: 48, w: 27, h: 21, },
     },
     'dash2': {
-      pic: ['0', 6, 3], wait: 8, next: 'dash3', move: [12, -5], center: [39, 79],
+      pic: ['0', 6, 3], wait: 8, next: 'dash3', move: [0, -0], center: [39, 79],
       bdy: { x: 43, y: 5, w: 23, h: 33, },
       bdy: { x: 28, y: 29, w: 21, h: 33, },
       bdy: { x: 18, y: 48, w: 27, h: 21, },
@@ -297,7 +288,6 @@ lf2.character.Rudolf = {
       },
     },
 
-
     'injured': {
       pic: ['1', 5, 0], wait: 2, next: 'injured2', move: [0, 0], center: [47, 79],
       bdy: { x: 25, y: 17, w: 29, h: 61, },
@@ -307,9 +297,6 @@ lf2.character.Rudolf = {
       bdy: { x: 32, y: 16, w: 27, h: 63, },
       bdy: { x: 22, y: 37, w: 26, h: 42, },
     },
-
-
-
 
     // ==============================================================================
     // 技能
@@ -408,7 +395,7 @@ lf2.derivative.Rudolf = {
     },
 
 
-  
+
 
     'injured': {
       pic: ['weapon', 0, 0], wait: 0, next: 'in_the_sky2', move: [-4, -4], center: [24, 40], drop: 1000,

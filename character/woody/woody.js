@@ -6,20 +6,17 @@ lf2.character.Woody = {
       '1': { deputy: 'png', w: 80, h: 80 },
       '2': { deputy: 'png', w: 80, h: 80 },
     },
-    walkingSpeed: 4,
-    jumpPower: 4.5,
     scale: 1,
     HP: 500,
   },
   frame: {
 
-    // 站
     'standing': {
       pic: ['0', 0, 0], wait: 5, next: 'standing2', move: [0, 0], center: [39, 79], flip: true,
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'flyCrash', B4: 'teleport',
+        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
       },
     },
     'standing2': {
@@ -27,7 +24,7 @@ lf2.character.Woody = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'flyCrash', B4: 'teleport',
+        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
       },
     },
     'standing3': {
@@ -35,7 +32,7 @@ lf2.character.Woody = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'flyCrash', B4: 'teleport',
+        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
       },
     },
     'standing4': {
@@ -43,17 +40,16 @@ lf2.character.Woody = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'flyCrash', B4: 'teleport',
+        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
       },
     },
 
-    // 走
     'walking': {
       pic: ['0', 0, 4], wait: 3, next: 'walking2', move: [5, 0], center: [39, 78], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'flyCrash', B4: 'teleport',
+        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
       },
     },
     'walking2': {
@@ -61,7 +57,7 @@ lf2.character.Woody = {
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'flyCrash', B4: 'teleport',
+        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
       },
     },
     'walking3': {
@@ -69,7 +65,7 @@ lf2.character.Woody = {
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'flyCrash', B4: 'teleport',
+        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
       },
     },
     'walking4': {
@@ -77,17 +73,16 @@ lf2.character.Woody = {
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'flyCrash', B4: 'teleport',
+        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
       },
     },
 
-    // 跑
     'running': {
       pic: ['0', 2, 0], wait: 3, next: 'running2', move: [10, 0], center: [36, 80], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'cleg', B5: 'flyCrash', B4: 'teleport',
+        B1: 'run_attack', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
       },
     },
     'running2': {
@@ -95,7 +90,7 @@ lf2.character.Woody = {
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'cleg', B5: 'flyCrash', B4: 'teleport',
+        B1: 'run_attack', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
       },
     },
     'running3': {
@@ -103,18 +98,17 @@ lf2.character.Woody = {
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'cleg', B5: 'flyCrash', B4: 'teleport',
+        B1: 'run_attack', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
       },
     },
 
-    // 站攻
     'punch': {
       pic: ['0', 1, 0], wait: 1, next: 'punch2', move: [1, 0], center: [42, 79],
       bdy: { x: 34, y: 15, w: 24, h: 63, },
     },
     'punch2': {
       pic: ['0', 1, 1], wait: 1, next: 'punch3', move: [0, 0], center: [28, 79],
-      itr: { x: 21, y: 30, w: 54, h: 23, move: [2, 0], injury: 20, },
+      itr: { x: 21, y: 30, w: 54, h: 23, move: [2, 0], fall: false, arest: 10, injury: 20, },
       bdy: { x: 18, y: 14, w: 31, h: 64, },
     },
     'punch3': {
@@ -126,7 +120,6 @@ lf2.character.Woody = {
       bdy: { x: 19, y: 9, w: 36, h: 71, },
     },
 
-    // 跳攻
     'jump_attack': {
       pic: ['0', 3, 7], wait: 2, next: 'jump_attack2', move: [0, 0], center: [38, 77],
       bdy: { x: 23, y: 3, w: 29, h: 74, },
@@ -150,7 +143,6 @@ lf2.character.Woody = {
       bdy: { x: 11, y: 13, w: 28, h: 62, },
     },
 
-    // 跑攻
     'run_attack': {
       pic: ['1', 3, 0], wait: 3, next: 'run_attack2', move: [6, 0], center: [35, 79],
       bdy: { x: 27, y: 6, w: 27, h: 70, },
@@ -169,7 +161,6 @@ lf2.character.Woody = {
       bdy: { x: 27, y: 9, w: 31, h: 71, },
     },
 
-    // 跑跳攻
     'dash_attack': {
       pic: ['1', 3, 8], wait: 2, next: 'dash_attack2', move: [0, 0], center: [26, 78],
       bdy: { x: 15, y: 20, w: 47, h: 51, },
@@ -184,7 +175,6 @@ lf2.character.Woody = {
       bdy: { x: 15, y: 22, w: 55, h: 42, },
     },
 
-    // 防
     'defend': {
       pic: ['0', 5, 6], wait: 12, next: 999, move: [0, 0], center: [39, 79], flip: true, hitHold: true,
       bdy: { x: 20, y: 19, w: 38, h: 60, },
@@ -193,7 +183,6 @@ lf2.character.Woody = {
       },
     },
 
-    // 被打飛
     'falling': {
       pic: ['0', 3, 0], wait: 3, next: 'falling2', move: [0, 0], center: [39, 79], drop: 'lyingDown',
       bdy: { x: 25, y: 25, w: 21, h: 20, },
@@ -212,24 +201,23 @@ lf2.character.Woody = {
     },
 
     'lyingDown': {
-      pic: ['0', 3, 4], wait: 20, next: 999, move: [0, 0], center: [39, 66],
+      pic: ['0', 3, 4], wait: 10, next: 999, move: [0, 0], center: [39, 66],
     },
 
-    // 跳
     'jump': {
-      pic: ['0', 6, 0], wait: 1, next: 'jump2', move: [0, -8], center: [39, 79], flip: true,
+      pic: ['0', 6, 0], wait: 1, next: 'jump2', move: [0, 0], center: [39, 79], flip: true,
       bdy: { x: 22, y: 24, w: 35, h: 58, },
-      hit: {
-        R: 'jump2Move', L: 'jump2Move',
-      },
     },
     'jump2': {
-      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [0, 0], center: [39, 79], flip: true,
+      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [0, -8], center: [39, 79], flip: true,
       bdy: { x: 26, y: 26, w: 34, h: 56, },
+      hit: {
+        R: 'jumpingMove', L: 'jumpingMove',
+      },
     },
-    'jump2Move': {
-      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [4, 0], center: [39, 79], flip: true,
-      bdy: { x: 26, y: 26, w: 34, h: 56, },
+    'jumpingMove': {
+      pic: ['0', 6, 2], wait: 1, next: 'jumping', move: [5, 0], center: [39, 79], flip: true,
+      bdy: { x: 20, y: 11, w: 29, h: 61, },
     },
     'jumping': {
       pic: ['0', 6, 2], wait: 1, next: 'jumping', move: [0, 0], center: [39, 79], flip: true,
@@ -239,7 +227,6 @@ lf2.character.Woody = {
       },
     },
 
-    // 跑跳
     'dash': {
       pic: ['0', 6, 3], wait: 0, next: 'dash2', move: [9, -5], center: [39, 79],
       bdy: { x: 43, y: 5, w: 23, h: 33, },
@@ -274,14 +261,12 @@ lf2.character.Woody = {
       bdy: { x: 22, y: 37, w: 26, h: 42, },
     },
 
-
-
     // ==============================================================================
     // 技能
     // ==============================================================================
 
     'teleport': {
-      pic: ['2', 3, 1], wait: 1, next: 'teleport2', move: [550, 550], center: [39, 79],
+      pic: ['2', 3, 1], wait: 1, next: 'teleport2', move: [550, 550], center: [39, 79], sound: '078.wav',
       bdy: { x: 26, y: 36, w: 29, h: 44, },
     },
     'teleport2': {
@@ -327,6 +312,45 @@ lf2.character.Woody = {
     'teleport14': {
       pic: ['2', 4, 9], wait: 2, next: 999, move: [0, 0], center: [32, 79],
       bdy: { x: 26, y: 36, w: 29, h: 44, },
+    },
+
+
+
+    'fly_crash': {
+      pic: ['2', 1, 2], wait: 1, next: 'fly_crash2', move: [0, 0], center: [32, 79],
+      bdy: { x: 13, y: 22, w: 40, h: 55, },
+    },
+    'fly_crash2': {
+      pic: ['2', 1, 3], wait: 1, next: 'fly_crash3', move: [0, 0], center: [32, 79],
+      bdy: { x: 15, y: 29, w: 41, h: 48, },
+    },
+    'fly_crash3': {
+      pic: ['2', 1, 4], wait: 1, next: 'fly_crash4', move: [0, 0], center: [32, 79], sound: '055.wav',
+      bdy: { x: 14, y: 29, w: 48, h: 50, },
+    },
+    'fly_crash4': {
+      pic: ['2', 1, 5], wait: 1, next: 'fly_crash5', move: [20, -7], center: [32, 69], sound: '099.wav',
+      // opoint: { x: 12, y: 34, name: 'John', move: [-2, 0], frame: 'standing', },
+    },
+    'fly_crash5': {
+      pic: ['2', 1, 5], wait: 1, next: 'fly_crash6', move: [0, 0], center: [32, 68],
+      itr: { x: 19, y: 6, w: 44, h: 61, move: [45, -7], fall: true, vrest: 10, injury: 85, },
+      bdy: { x: 20, y: 6, w: 42, h: 53, },
+    },
+    'fly_crash6': {
+      pic: ['2', 1, 6], wait: 1, next: 'fly_crash7', move: [0, 0], center: [32, 66],
+      itr: { x: 20, y: 5, w: 46, h: 60, move: [39, -7], fall: true, vrest: 10, injury: 70, },
+      bdy: { x: 23, y: 6, w: 38, h: 57, },
+    },
+    'fly_crash7': {
+      pic: ['2', 1, 7], wait: 1, next: 'fly_crash8', move: [0, 0], center: [32, 68],
+      itr: { x: 17, y: 6, w: 48, h: 63, move: [33, -7], fall: true, vrest: 10, injury: 55, },
+      bdy: { x: 23, y: 5, w: 36, h: 55, },
+    },
+    'fly_crash8': {
+      pic: ['2', 1, 8], wait: 4, next: 999, move: [0, 0], center: [32, 66],
+      itr: { x: 17, y: 8, w: 48, h: 60, move: [27, -7], fall: true, vrest: 10, injury: 45, },
+      bdy: { x: 22, y: 7, w: 38, h: 52, },
     },
 
 
