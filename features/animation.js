@@ -54,10 +54,7 @@ lf2.arrange = (type) => {
 
         // 製造衍生物
         lf2.produceDerivative(setting, frame, type);
-
-        // 音效
-        lf2.sound(setting, frame);
-
+        
         // 換動作
         lf2.variousChangesFrame(setting, frame, type, thing);
 

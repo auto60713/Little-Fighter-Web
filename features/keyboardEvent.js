@@ -123,12 +123,12 @@ lf2.sceneKeyEvent = (keyname) => {
 lf2.xxxxx = (keyname, b, f) => {
   // 下一頁
   if (f && keyname == 'B1') {
-    lf2.sound({}, { sound: 'm_ok.wav' });
+    lf2.sound('m_ok.wav');
     lf2.sceneSwitching(f);
   }
   // 上一頁
   else if (b && ((f && keyname == 'B2') || keyname == 'esc')) {
-    lf2.sound({}, { sound: 'm_cancel.wav' });
+    lf2.sound('m_cancel.wav');
     lf2.sceneSwitching(b);
   }
 }

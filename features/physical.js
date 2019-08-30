@@ -1,7 +1,8 @@
 
 // 物理行為
 lf2.physical = (setting, frame, type, thing) => {
-
+  if (!lf2.passOnly(['battleMode', 'shaoguanMode'], ['character', 'derivative'], type)) return;
+  
   // 固定在畫面某處 (通常為UI)
   if (setting.fixedPosition) {
 

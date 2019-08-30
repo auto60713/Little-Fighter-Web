@@ -82,7 +82,7 @@ lf2.strikeEffect = (type, thing, setting, effect) => {
 
   }
 
-  if (sound) lf2.sound({}, { sound: sound });
+  lf2.sound(sound);
   if (gotoFrame) lf2.gotoFrame(thing, setting, type, gotoFrame);
   if (UI) lf2.adjunction('UI', UI, {
     x: setting.x,
@@ -93,8 +93,7 @@ lf2.strikeEffect = (type, thing, setting, effect) => {
 
 // 血量系統
 lf2.HPsystem = (setting, frame, type) => {
-  if (lf2.state != 'battleMode' && lf2.state != 'shaoguanMode') return;
-  if (type != 'character') return;
+  if (!lf2.passOnly(['battleMode', 'shaoguanMode'], ['character'], type)) return;
 
   if (setting.scenesIndex == 1) {
     var pp = setting.nowHP / setting.HP;
@@ -121,6 +120,7 @@ lf2.HPsystem = (setting, frame, type) => {
 
 // 範圍視覺化
 lf2.triggerView = (setting, frame, type) => {
+  if (!lf2.passOnly(['battleMode'], ['character', 'derivative'], type)) return;
 
   if (frame.bdy) {
     var rect = lf2.whereAmI(setting, frame.center, frame.bdy);

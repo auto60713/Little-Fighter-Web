@@ -1,6 +1,8 @@
 
 // 打電腦
 lf2.bot = (setting, frame, type, thing) => {
+  if (!lf2.passOnly(['battleMode', 'shaoguanMode'], ['character'], type)) return;
+
   // 第一個是玩家 其他必為電腦
   if (type == 'character' && setting.scenesIndex > 1) {
 

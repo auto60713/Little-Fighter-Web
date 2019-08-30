@@ -108,7 +108,8 @@ lf2.gotoFrame = (thing, setting, type, next) => {
   setting.nowframe = next;
   setting.nowwait = nextFrame.wait * lf2.waitMagnification;
   setting.alreadyProduced = false;
-  setting.alreadySound = false;
+
+  lf2.sound(nextFrame.sound);
 }
 
 // 計算器
@@ -137,8 +138,7 @@ lf2.counter = (setting, frame, type, thing) => {
 
 // 製造衍生物
 lf2.produceDerivative = (setting, frame, type) => {
-  if (lf2.state != 'battleMode' && lf2.state != 'shaoguanMode') return;
-  if (type != 'character' && type != 'derivative') return;
+  if (!lf2.passOnly(['battleMode', 'shaoguanMode'], ['character', 'derivative'], type)) return;
 
   if (frame.opoint && !setting.alreadyProduced) {
 
@@ -162,12 +162,11 @@ lf2.theFrame = (type, thing, setting, frameName) => {
   return type === 'map' ? thing.component[setting.component][frameName] : thing.frame[frameName];
 }
 
+// 影子系統
 lf2.shadowSystem = (setting, frame, type, thing) => {
-  if (lf2.state != 'battleMode' && lf2.state != 'shaoguanMode') return;
-  if (type != 'character' && type != 'derivative') return;
+  if (!lf2.passOnly(['battleMode', 'shaoguanMode'], ['character', 'derivative'], type)) return;
 
-  if (!frame.shadowHide && (type == 'character' || type == 'derivative')) {
-
+  if (!frame.shadowHide) {
     lf2.shadowSystem2(setting, thing, 'shadow', 0);
 
     if (setting.scenesIndex == 1)
@@ -175,7 +174,6 @@ lf2.shadowSystem = (setting, frame, type, thing) => {
     else if (setting.scenesIndex == 2) {
       lf2.shadowSystem2(setting, thing, 'p2', 10);
     }
-
   }
 }
 lf2.shadowSystem2 = (setting, thing, name, y) => {
@@ -190,4 +188,24 @@ lf2.shadowSystem2 = (setting, thing, name, y) => {
 lf2.ElefollowsCharacter = (ele, char, y) => {
   ele.x = char.x;
   ele.y = lf2.mapLimit.y + y;
+}
+
+
+// 限制模式與種類
+lf2.passOnly = (modeList, typeList, type) => {
+  try {
+    modeList.forEach(name => {
+      // 如果是允許的模式
+      if (lf2.state === name || name === 'all') throw false;
+    });
+  } catch (e) {
+    // 接著檢查
+    try {
+      typeList.forEach(name => {
+        // 如果是允許的類型
+        if (type === name || name === 'all') throw false;
+      });
+    } catch (e) { return true; }
+  }
+  return false;
 }

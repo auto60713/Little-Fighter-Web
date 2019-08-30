@@ -1,13 +1,10 @@
 
 // 音效
-lf2.sound = (setting, frame) => {
-  if (frame.sound && !setting.alreadySound) {
-
-    var horn = new Audio('sound/' + frame.sound);
+lf2.sound = (fileName) => {
+  if (fileName) {
+    var horn = new Audio('sound/' + fileName);
     horn.volume = 0.4;
     horn.play();
-
-    setting.alreadySound = true;
   }
 }
 
