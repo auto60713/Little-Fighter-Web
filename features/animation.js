@@ -79,7 +79,8 @@ lf2.arrange = (type) => {
         // 我是機器人
         // lf2.bot(setting, frame, type, thing);
 
-
+        // 打擊區 受傷區視覺化
+        // lf2.triggerView(setting, frame, type);
 
       });
 

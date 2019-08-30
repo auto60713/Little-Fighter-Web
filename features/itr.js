@@ -14,38 +14,12 @@ lf2.amIBeingBeaten = (setting, frame, type, thing) => {
               // 同隊 但是 物件打同隊
               || (setting.team === det.setting.team && detFrame.itr.team == 'my')) {
 
-              // 我四邊
-              var SL = setting.x + frame.bdy.x;
-              var SR = setting.x + frame.bdy.x + frame.bdy.w;
-              var ST = setting.y + frame.bdy.y;
-              var SB = setting.y + frame.bdy.y + frame.bdy.h;
-
-              // 敵四邊
-              var DL = det.setting.x + detFrame.itr.x;
-              var DR = det.setting.x + detFrame.itr.x + detFrame.itr.w
-              var DT = det.setting.y + detFrame.itr.y
-              var DB = det.setting.y + detFrame.itr.y + detFrame.itr.h
               // https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
-              var rect1 = {
-                x: setting.x + frame.bdy.x, 
-                y: 5, 
-                width: 50, 
-                height: 50
-              }
-              var rect2 = {
-                x: 20, 
-                y: 10, 
-                width: 10, 
-                height: 10
-              }
+              var rect1 = lf2.whereAmI(setting, frame.center, frame.bdy);
+              var rect2 = lf2.whereAmI(det.setting, detFrame.center, detFrame.itr);
 
-              if (rect1.x < rect2.x + rect2.width &&
-                rect1.x + rect1.width > rect2.x &&
-                rect1.y < rect2.y + rect2.height &&
-                rect1.y + rect1.height > rect2.y) {
-                // collision detected!
-              // }
-              // if (((SL >= DL && SL <= DR) || (SR >= DL && SR <= DR)) && ((ST >= DT && ST <= DB) || (SB >= DT && SB <= DB))) {
+              if (rect1.x < rect2.x + rect2.w && rect1.x + rect1.w > rect2.x &&
+                rect1.y < rect2.y + rect2.h && rect1.y + rect1.h > rect2.y) {
 
                 // 被打的中間
                 var sc = setting.x + frame.bdy.x + (frame.bdy.w / 2);
@@ -62,7 +36,7 @@ lf2.amIBeingBeaten = (setting, frame, type, thing) => {
                 // 一般攻擊
                 else {
 
-                  let m = det.setting.mirror ? -1 : 1;;
+                  let m = det.setting.mirror ? -1 : 1;
                   if (detFrame.itr.symmetry && sc * m < dc * m) m = m * -1
 
                   if (type == 'character') {
@@ -141,4 +115,39 @@ lf2.HPsystem = (setting, frame, type) => {
     lf2.gameOver = 180;
   }
 
+}
+
+
+
+// 範圍視覺化
+lf2.triggerView = (setting, frame, type) => {
+
+  if (frame.bdy) {
+    var rect = lf2.whereAmI(setting, frame.center, frame.bdy);
+    lf2.ctx.globalAlpha = 0.6;
+    lf2.ctx.fillStyle = "#49B6E1";
+    lf2.ctx.fillRect(rect.x, rect.y, rect.w, rect.h);
+    lf2.ctx.globalAlpha = 1.0;
+  }
+
+  if (frame.itr) {
+    var rect = lf2.whereAmI(setting, frame.center, frame.itr);
+    lf2.ctx.globalAlpha = 0.6;
+    lf2.ctx.fillStyle = "#E1499B";
+    lf2.ctx.fillRect(rect.x, rect.y, rect.w, rect.h);
+    lf2.ctx.globalAlpha = 1.0;
+  }
+
+}
+
+// 我到底在哪
+lf2.whereAmI = (setting, center, item) => {
+  var m = setting.mirror ? -1 : 1;
+  var anchorPoint = setting.mirror ? item.w : 0;
+  return {
+    x: setting.x + ((item.x - center[0]) * m) - anchorPoint,
+    y: setting.y + item.y - center[1],
+    w: item.w,
+    h: item.h,
+  };
 }
