@@ -1,13 +1,8 @@
 window.lf2 = {
 
-  // 背景數據
-  scenesIndex: 0,
-
   imageOnload: 0,
   imageNum: 0,
   imageCenter: {},
-
-  cameraPos: [0, 0],
 
   state: '',
   gameOver: null,
@@ -25,13 +20,6 @@ window.lf2 = {
   character: {},
   derivative: {},
   shaoguan: {},
-
-  scenes: {
-    map: [],
-    character: [],
-    derivative: [],
-    UI: [],
-  },
 
   // 設定有意思的值
 

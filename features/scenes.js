@@ -52,48 +52,14 @@ lf2.prepareModeSelection = () => {
 // 準備選角畫面的東西
 lf2.prepareRoleSelection = () => {
 
-  lf2.characterListIndex = 0;
-  lf2.characterList = [];
-
-  Object.keys(lf2.character).forEach((name, i) => {
-    lf2.adjunction('UI', name, {
-      x: 100 + (50 * i),
-      y: 100,
-      scale: 0.5,
-    });
-    lf2.characterList.push(name);
-  });
-
-  lf2.adjunction('UI', 'point', {
-    x: 110,
-    y: 130,
-  });
-
-  lf2.mainPoint = lf2.scenes.UI[lf2.scenes.UI.length - 1].setting;
+  lf2.selectionList('character', 50);
   lf2.canvas.style.backgroundColor = lf2.backgroundColor.roleSelection;
 }
 
 // 準備選擇地圖的東西
 lf2.prepareMapSelection = () => {
 
-  lf2.mapListIndex = 0;
-  lf2.mapList = [];
-
-  Object.keys(lf2.map).forEach((name, i) => {
-    lf2.adjunction('UI', name, {
-      x: 100 + (150 * i),
-      y: 100,
-      scale: 0.5,
-    });
-    lf2.mapList.push(name);
-  });
-
-  lf2.adjunction('UI', 'point', {
-    x: 120,
-    y: 140,
-  });
-
-  lf2.mainPoint = lf2.scenes.UI[lf2.scenes.UI.length - 1].setting;
+  lf2.selectionList('map', 150);
   lf2.canvas.style.backgroundColor = lf2.backgroundColor.modeSelection;
 }
 
@@ -101,32 +67,34 @@ lf2.prepareMapSelection = () => {
 lf2.prepareBattleMode = () => {
 
   // 地圖
-  lf2.adjunction('map', Object.keys(lf2.map)[lf2.mapListIndex]);
+  lf2.adjunction('map', Object.keys(lf2.map)[lf2.mapIndex]);
 
-  lf2.mainMap = lf2.scenes.map[0].setting;
-  lf2.canvas.style.backgroundColor = lf2.mainMap.backgroundColor;
+  lf2.mapLimit = lf2.scenes.map[0].setting.limit;
+  lf2.canvas.style.backgroundColor = lf2.scenes.map[0].setting.backgroundColor;
 
   // 主角(即第一個加入的角色)
-  lf2.adjunction('character', Object.keys(lf2.character)[lf2.characterListIndex], {
+  lf2.adjunction('character', Object.keys(lf2.character)[lf2.characterIndex], {
     x: 100,
-    y: lf2.mainMap.limit.y,
+    y: lf2.mapLimit.y,
     team: 0,
   });
-
-  lf2.mainCharacter = lf2.scenes.character[0].setting;
 
   // 另一個角色
   lf2.adjunction('character', 'Davis', {
     x: 600,
-    y: lf2.mainMap.limit.y,
+    y: lf2.mapLimit.y,
     team: 1,
     mirror: true,
   });
 
-  lf2.adjunction('UI', 'hpbar2');
   lf2.adjunction('UI', 'hpbar');
+  lf2.adjunction('UI', 'hpbar', {
+    nowframe: 'standing2',
+  });
   lf2.adjunction('UI', 'otherhpbar');
-  lf2.adjunction('UI', 'otherhpbar2');
+  lf2.adjunction('UI', 'otherhpbar', {
+    nowframe: 'standing2',
+  });
 
   lf2.mainHpbar2 = lf2.scenes.UI[0].setting;
   lf2.otherhpbar = lf2.scenes.UI[2].setting;
@@ -164,7 +132,23 @@ lf2.initialization = () => {
     derivative: [],
     UI: [],
   };
-
-  delete lf2.mainCharacter;
 }
 
+// 建構選擇列表
+lf2.selectionList = (type, w) => {
+
+  lf2[`${type}Index`] = 0;
+
+  Object.keys(lf2[type]).forEach((name, i) => {
+    lf2.adjunction('UI', name, {
+      x: 100 + (w * i),
+      y: 100,
+    });
+  });
+
+  lf2.adjunction('UI', 'point', {
+    x: 120,
+    y: 140,
+  });
+
+}

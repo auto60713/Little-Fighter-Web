@@ -54,14 +54,14 @@ lf2.physical = (setting, frame, type, thing) => {
       if (frame.teleport) {
         var m = setting.mirror ? -1 : 1;
         setting.x = lf2.findEnemyX(setting) - (100 * m);
-        setting.y = setting.y = lf2.mainMap.limit.y;
+        setting.y = setting.y = lf2.mapLimit.y;
       }
 
       // 落地偵測
       if (lf2.dropDetection(setting)) {
         setting.ySpeed = 0;
         setting.xSpeed = 0;
-        setting.y = lf2.mainMap.limit.y;
+        setting.y = lf2.mapLimit.y;
         lf2.gotoFrame(thing, setting, type, 'standing');
       }
 
@@ -69,7 +69,7 @@ lf2.physical = (setting, frame, type, thing) => {
       setting.inSky = lf2.skyDetection(setting);
 
       // 落地換動作
-      if (frame.drop && (setting.ySpeed >= 0 && setting.y == lf2.mainMap.limit.y)) lf2.gotoFrame(thing, setting, type, frame.drop);
+      if (frame.drop && (setting.ySpeed >= 0 && setting.y == lf2.mapLimit.y)) lf2.gotoFrame(thing, setting, type, frame.drop);
 
       // 翻轉允許
       if (frame.flip) {
@@ -97,7 +97,7 @@ lf2.dropDetection = (setting, frame, type) => {
 }
 
 lf2.skyDetection = (setting, frame, type) => {
-  return setting.y < lf2.mainMap.limit.y;
+  return setting.y < lf2.mapLimit.y;
 }
 
 lf2.asdasdasd = (setting, move, m) => {
@@ -110,10 +110,10 @@ lf2.asdasdasd = (setting, move, m) => {
 lf2.mapDetection = (setting, type) => {
   var limit = false;
   if (type == 'derivative') {
-    if (setting.x < -200 || setting.x > lf2.mainMap.limit.x + 200) setting.destroy = true;
+    if (setting.x < -200 || setting.x > lf2.mapLimit.x + 200) setting.destroy = true;
   }
   else if (type == 'character') {
-    if ((setting.x <= 0 && setting.xSpeed < 0) || (setting.x >= lf2.mainMap.limit.x && setting.xSpeed > 0)) limit = true;
+    if ((setting.x <= 0 && setting.xSpeed < 0) || (setting.x >= lf2.mapLimit.x && setting.xSpeed > 0)) limit = true;
   }
 
   return limit;

@@ -182,12 +182,12 @@ lf2.shadowSystem2 = (setting, thing, name, y) => {
   setting2 = lf2['UI'][name].setting;
   frame2 = lf2['UI'][name].frame.standing;
   setting2.x = setting.x;
-  setting2.y = lf2.mainMap.limit.y + y;
+  setting2.y = lf2.mapLimit.y + y;
   lf2.draw(setting2, frame2, 'UI', thing);
 }
 
 // 某物件跟著某角色
 lf2.ElefollowsCharacter = (ele, char, y) => {
   ele.x = char.x;
-  ele.y = lf2.mainMap.limit.y + y;
+  ele.y = lf2.mapLimit.y + y;
 }

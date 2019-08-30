@@ -36,27 +36,9 @@ lf2.UI.shadow = {
   }
 };
 
-// 2P血條
-lf2.UI.otherhpbar = {
-  setting: {
-    name: 'otherhpbar',
-    file: { 'otherhpbar': { deputy: 'png', w: 70, h: 5 }, },
-    scale: 1,
-  },
-  frame: {
-    'standing': { next: 999, pic: ['otherhpbar', 0, 0], center: [35, 2], wait: 100, },
-  }
-};
-lf2.UI.otherhpbar2 = {
-  setting: {
-    name: 'otherhpbar2',
-    file: { 'otherhpbar2': { deputy: 'png', w: 70, h: 5 }, },
-    scale: 1,
-  },
-  frame: {
-    'standing': { next: 999, pic: ['otherhpbar2', 0, 0], center: [35, 2], wait: 100, },
-  }
-};
+
+
+
 
 // p1
 lf2.UI.p1 = {
@@ -117,29 +99,36 @@ lf2.UI.hit = {
 
 
 
-// 血條
+// 1P血條
 lf2.UI.hpbar = {
   setting: {
     name: 'hpbar',
-    file: { 'hpbar': { deputy: 'png', w: 820, h: 258 }, },
+    file: {
+      'hpbar': { deputy: 'png', w: 820, h: 258 },
+      'hpbar2': { deputy: 'png', w: 820, h: 258 },
+    },
     scale: 0.1,
     fixedPosition: [100, 100],
   },
   frame: {
-    'standing': { next: 999, pic: ['hpbar', 0, 0], center: [410, 129], wait: 1, },
+    'standing': { next: 999, pic: ['hpbar2', 0, 0], center: [410, 129], wait: 100, },
+    'standing2': { next: 999, pic: ['hpbar', 0, 0], center: [410, 129], wait: 100, },
   }
 };
 
-// 血條
-lf2.UI.hpbar2 = {
+// 2P血條
+lf2.UI.otherhpbar = {
   setting: {
-    name: 'hpbar2',
-    file: { 'hpbar2': { deputy: 'png', w: 820, h: 258 }, },
-    scale: 0.1,
-    fixedPosition: [100, 100],
+    name: 'otherhpbar',
+    file: {
+      'otherhpbar': { deputy: 'png', w: 70, h: 5 },
+      'otherhpbar2': { deputy: 'png', w: 70, h: 5 },
+    },
+    scale: 1,
   },
   frame: {
-    'standing': { next: 999, pic: ['hpbar2', 0, 0], center: [410, 129], wait: 1, },
+    'standing': { next: 999, pic: ['otherhpbar', 0, 0], center: [35, 2], wait: 100, },
+    'standing2': { next: 999, pic: ['otherhpbar2', 0, 0], center: [35, 2], wait: 100, },
   }
 };
 

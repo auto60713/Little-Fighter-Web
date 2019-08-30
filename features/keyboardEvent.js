@@ -1,3 +1,4 @@
+// 1P控制器
 lf2.keymap = {
   'ArrowUp': 'U',
   'ArrowDown': 'D',
@@ -10,7 +11,7 @@ lf2.keymap = {
   'Escape': 'esc',
   'KeyQ': 'pause',
 };
-
+// 2P控制器
 lf2.keymap2 = {
   'Numpad5': 'U',
   'Numpad2': 'D',
@@ -21,128 +22,113 @@ lf2.keymap2 = {
   'KeyM': 'B3', 'Comma': 'B2', 'Period': 'B1',
 };
 
-
-// 鍵盤控制
+// 鍵盤事件
 lf2.logKey = (e) => {
 
-  const event = window.event || e;
-  const pressing = event.type === 'keydown';
+  const pressing = (window.event || e).type === 'keydown';
 
-
-  // P1
-  if (lf2.keymap[e.code]) lf2.keyToControl(lf2.mainCharacter, pressing, lf2.keymap[e.code]);
-  // P2
-  else lf2.keyToControl(lf2.scenes.character[1].setting, pressing, lf2.keymap2[e.code]);
+  if (lf2.state == 'battleMode') {
+    // P1
+    if (lf2.keymap[e.code]) lf2.operatingCharacter(lf2.scenes.character[0].setting, pressing, lf2.keymap[e.code]);
+    // P2
+    else lf2.operatingCharacter(lf2.scenes.character[1].setting, pressing, lf2.keymap2[e.code]);
+  }
 
   // 場景按鍵事件
   if (pressing && !lf2.keydownLock) lf2.sceneKeyEvent(lf2.keymap[e.code]);
 
-
-  // 按住不連續反應鎖
+  // 第一次keydown鎖
   lf2.keydownLock = pressing;
 }
 
-
-
 // 操作指定角色
-lf2.keyToControl = (setting, pressing, keyname) => {
-  if (setting) {
-    // 正在按序
-    setting.keypress[keyname] = pressing;
-    // 按鍵反應序
-    if (pressing && !lf2.keydownLock) setting.keyReaction.push([keyname, 20]);
-  }
+lf2.operatingCharacter = (setting, pressing, keyname) => {
+  // 正在按序
+  setting.keypress[keyname] = pressing;
+  // 按鍵反應序
+  if (pressing && !lf2.keydownLock) setting.keyReaction.push([keyname, 20]);
 }
 
-
-
-// 每個場景的按鍵控制
+// 每個場景的按鍵控制\
+// FIXME: 會跟著UI大改 先不用整理
 lf2.sceneKeyEvent = (keyname) => {
-
-  const n = [];
-  var m = (a, b) => {
-    n.push([a, b]);
-  }
-  var x = (a, b) => {
-    a.forEach(ttt => {
-      if (keyname == ttt) {
-        if (keyname == 'B1') lf2.sound({}, { sound: 'm_ok.wav' });
-        else lf2.sound({}, { sound: 'm_cancel.wav' });
-
-        lf2.sceneSwitching(b);
-      }
-    });
-  }
 
   switch (lf2.state) {
     // 入口畫面
     case 'entrance':
-      x(['B1'], 'modeSelection')
+      lf2.xxxxx(keyname, null, 'modeSelection');
       break;
     // 選擇模式
     case 'modeSelection':
-      x(['B1'], 'roleSelection')
-      x(['B2', 'esc'], 'entrance')
+      lf2.xxxxx(keyname, 'entrance', 'roleSelection');
       break;
     // 選擇角色
     case 'roleSelection':
-      x(['B1'], 'mapSelection')
-      x(['B2', 'esc'], 'modeSelection')
-      m(['R'], () => {
-        if (lf2.characterListIndex < lf2.characterList.length - 1) lf2.characterListIndex++;
-        else if (lf2.characterListIndex == lf2.characterList.length - 1) lf2.characterListIndex = 0;
-        lf2.mainPoint.x = lf2.scenes.UI[lf2.characterListIndex].setting.x + 15;
-      });
-      m(['L'], () => {
-        if (lf2.characterListIndex > 0) lf2.characterListIndex--;
-        else if (lf2.characterListIndex == 0) lf2.characterListIndex = lf2.characterList.length - 1;
-        lf2.mainPoint.x = lf2.scenes.UI[lf2.characterListIndex].setting.x + 15;
-      });
+      lf2.xxxxx(keyname, 'modeSelection', 'mapSelection');
+
+      var ddd = (nn) => {
+        lf2.characterIndex += nn;
+        if (lf2.characterIndex === Object.keys(lf2.character).length) lf2.characterIndex = 0;
+        else if (lf2.characterIndex === -1) lf2.characterIndex = Object.keys(lf2.character).length - 1;
+        lf2.scenes.UI[lf2.scenes.UI.length - 1].setting.x = lf2.scenes.UI[lf2.characterIndex].setting.x + 15;
+      };
+
+      if (keyname == 'R') {
+        ddd(1);
+      }
+      else if (keyname == 'L') {
+        ddd(-1);
+      }
       break;
     // 選擇地圖
     case 'mapSelection':
-      x(['B1'], 'battleMode')
-      x(['B2', 'esc'], 'roleSelection')
-      m(['R'], () => {
-        if (lf2.mapListIndex < lf2.mapList.length - 1) {
-          lf2.mapListIndex++;
+      lf2.xxxxx(keyname, 'roleSelection', 'battleMode');
+
+      if (keyname == 'R') {
+        if (lf2.mapIndex < Object.keys(lf2.map).length - 1) {
+          lf2.mapIndex++;
           for (let i = 0; i < lf2.scenes.UI.length - 1; i++)
             lf2.scenes.UI[i].setting.x -= 150;
         }
-      });
-      m(['L'], () => {
-        if (lf2.mapListIndex > 0) {
-          lf2.mapListIndex--;
+      } else if (keyname == 'L') {
+        if (lf2.mapIndex > 0) {
+          lf2.mapIndex--;
           for (let i = 0; i < lf2.scenes.UI.length - 1; i++)
             lf2.scenes.UI[i].setting.x += 150;
         }
-      });
+      }
       break;
     // 格鬥模式
     case 'battleMode':
-      x(['esc'], 'roleSelection')
-      m(['B1'], () => {
+      lf2.xxxxx(keyname, 'roleSelection', null)
+
+      if (keyname == 'B1') {
         if (lf2.gameOver < 0) {
           lf2.sceneSwitching('roleSelection');
           lf2.gameOver = null;
         }
-      });
-      m(['pause'], () => {
+      }
+      else if (keyname == 'pause') {
         lf2.pause = !lf2.pause;
-      });
+      }
       break;
     // 闖關模式
     case 'shaoguanMode':
       break;
   }
 
-
-
-  n.forEach(ttt => {
-    if (keyname == ttt[0]) ttt[1]();
-  });
-
-
 }
 
-
+// 按鍵對應場景切換
+lf2.xxxxx = (keyname, b, f) => {
+  // 下一頁
+  if (f && keyname == 'B1') {
+    lf2.sound({}, { sound: 'm_ok.wav' });
+    lf2.sceneSwitching(f);
+  }
+  // 上一頁
+  else if (b && ((f && keyname == 'B2') || keyname == 'esc')) {
+    lf2.sound({}, { sound: 'm_cancel.wav' });
+    lf2.sceneSwitching(b);
+  }
+}
