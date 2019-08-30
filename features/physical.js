@@ -121,18 +121,3 @@ lf2.mapDetection = (setting, type) => {
   return limit;
 }
 
-// 找第一個敵人
-lf2.findEnemyX = (setting, frame, type) => {
-  var someone = lf2.scenes['character'];
-  for (let i = 0; i < someone.length; i++) {
-    if (someone[i].setting.team != setting.team) return someone[i].setting.x;
-  }
-}
-
-// 找抓我的人
-lf2.findScenesIndex = (index) => {
-  var someone = lf2.scenes['character'];
-  for (let i = 0; i < someone.length; i++) {
-    if (someone[i].setting.scenesIndex == index) return someone[i];
-  }
-}

@@ -48,6 +48,7 @@ lf2.collisionDetection = (setting, frame, type, thing) => {
 
                 }
                 setting.nowHP -= detFrame.itr.injury;
+                if (setting.nowHP > setting.HP) setting.nowHP = setting.HP;
                 throw false;
               }
 
@@ -91,42 +92,6 @@ lf2.strikeEffect = (type, thing, setting, effect) => {
 }
 
 
-// 血量系統
-lf2.HPsystem = (setting, frame, type) => {
-  if (!lf2.passOnly(['battleMode', 'shaoguanMode'], ['character'], type)) return;
-
-  if (setting.nowHP > setting.HP) setting.nowHP = setting.HP;
-
-  if (setting.scenesIndex == 1) {
-    var pp = setting.nowHP / setting.HP;
-    if (pp <= 0) pp = -1;
-    lf2.mainHpbar2.file['hpbar2'].w = 820 * pp;
-  }
-  else if (setting.scenesIndex == 2) {
-    var pp = setting.nowHP / setting.HP;
-    if (pp <= 0) pp = -1;
-    lf2.otherhpbar2.file['otherhpbar2'].w = 70 * pp;
-    lf2.ElefollowsCharacter(lf2.otherhpbar, setting, 20);
-    lf2.ElefollowsCharacter(lf2.otherhpbar2, setting, 20);
-
-  }
-
-
-  if (setting.nowHP <= 0 && lf2.gameOver == null) {
-    lf2.adjunction('UI', 'ko');
-    lf2.gameOver = 180;
-  }
-
-}
-
-// 某物件跟著某角色
-lf2.ElefollowsCharacter = (ele, char, y) => {
-  ele.x = char.x;
-  ele.y = lf2.mapLimit.y + y;
-}
-
-
-
 
 // 範圍視覺化
 lf2.triggerView = (setting, frame, type) => {
@@ -150,31 +115,3 @@ lf2.triggerView = (setting, frame, type) => {
 
 }
 
-// 我到底在哪
-lf2.whereAmI = (setting, center, item) => {
-  var m = setting.mirror ? -1 : 1;
-  var anchorPoint = setting.mirror ? item.w : 0;
-  return {
-    x: setting.x + ((item.x - center[0]) * m) - anchorPoint,
-    y: setting.y + item.y - center[1],
-    w: item.w,
-    h: item.h,
-  };
-}
-
-
-// 敵我正反
-lf2.rrrrrrrrrrrrr = (m1, m2) => {
-  m1 = 1;
-  m2 = 1;
-
-  m1 = 1;
-  m2 = -1;
-
-  m1 = -1;
-  m2 = 1;
-
-  m1 = -1;
-  m2 = -1;
-  return 1;
-}

@@ -139,11 +139,11 @@ lf2.produceDerivative = (setting, frame, type) => {
 
   if (frame.opoint) {
 
-    var m = setting.mirror ? -1 : 1;
+    var rect = lf2.whereAmI(setting, frame.center, frame.opoint);
 
     lf2.adjunction('derivative', frame.opoint.name, {
-      x: setting.x - (frame.center[0] * m) + (frame.opoint.x * m),
-      y: setting.y - frame.center[1] + frame.opoint.y,
+      x: rect.x,
+      y: rect.y,
       team: setting.team,
       mirror: setting.mirror,
       nowframe: frame.opoint.frame,
@@ -153,33 +153,101 @@ lf2.produceDerivative = (setting, frame, type) => {
 }
 
 
+// 一些會跟隨角色的視覺
+lf2.SomeThingsFollowTheRole = (setting, frame, type, thing) => {
+  if (!lf2.passOnly(['battleMode', 'shaoguanMode'], ['character', 'derivative'], type)) return;
+
+  // 影子
+  if (!frame.shadowHide) {
+    lf2.paintedAtFoot(setting.x, 0, 'shadow');
+  }
+
+  if (type == 'character') {
+
+    // 主角
+    if (setting.scenesIndex == 1) {
+      // 身份
+      lf2.paintedAtFoot(setting.x, 10, 'p1');
+
+      // 血條
+      var pp = setting.nowHP / setting.HP;
+      if (pp <= 0) pp = -1;
+      lf2.mainHpbar2.file['protagHPbarVal'].w = 820 * pp;
+    }
+
+    // 其他人
+    else if (setting.scenesIndex == 2) {
+      // 身份
+      lf2.paintedAtFoot(setting.x, 10, 'p2');
+
+      // 血條
+      var pp = setting.nowHP / setting.HP;
+      if (pp <= 0) pp = -1;
+
+      lf2.paintedAtFoot(setting.x, 20, 'otherHPbar');
+      lf2.paintedAtFoot(setting.x, 20, 'otherHPbar', 'standing2', 70 * pp);
+    }
+
+    // 遊戲結束
+    if (setting.nowHP <= 0 && lf2.gameOver == null) {
+      lf2.adjunction('UI', 'ko');
+      lf2.gameOver = 180;
+    }
+
+  }
+
+}
+// 畫一些東西在腳邊
+lf2.paintedAtFoot = (x, y, name, f = 'standing', w) => {
+
+  var template = JSON.parse(JSON.stringify(lf2['UI'][name]));
+
+  var setting = template.setting;
+  var frame = template.frame[f];
+  setting.x = x;
+  setting.y = lf2.mapLimit.y + y;
+
+  // 血條特規
+  if (w) setting.file['otherHPbarVal'].w = w;
+
+  lf2.draw(setting, frame, 'UI');
+}
+
+
+
+
+
+
+// 我到底在哪
+lf2.whereAmI = (setting, center, item) => {
+  var m = setting.mirror ? -1 : 1;
+  var anchorPoint = setting.mirror ? (item.w || 0) : 0;
+  return {
+    x: setting.x - (center[0] * m) + (item.x * m) - anchorPoint,
+    y: setting.y - center[1] + item.y,
+    w: item.w,
+    h: item.h,
+  };
+}
+
+// 找第一個敵人座標
+lf2.findEnemyX = (setting) => {
+  var someone = lf2.scenes['character'];
+  for (let i = 0; i < someone.length; i++)
+    if (someone[i].setting.team != setting.team) return someone[i].setting.x;
+}
+
+// 序號找人
+lf2.findScenesIndex = (index) => {
+  var someone = lf2.scenes['character'];
+  for (let i = 0; i < someone.length; i++)
+    if (someone[i].setting.scenesIndex == index) return someone[i];
+}
+
+// 找frame
 lf2.theFrame = (type, thing, setting, frameName) => {
   return type === 'map' ? thing.component[setting.component][frameName] : thing.frame[frameName];
 }
-
-// 影子系統
-lf2.shadowSystem = (setting, frame, type, thing) => {
-  if (!lf2.passOnly(['battleMode', 'shaoguanMode'], ['character', 'derivative'], type)) return;
-
-  if (!frame.shadowHide) {
-    lf2.shadowSystem2(setting, thing, 'shadow', 0);
-
-    if (setting.scenesIndex == 1)
-      lf2.shadowSystem2(setting, thing, 'p1', 10);
-    else if (setting.scenesIndex == 2) {
-      lf2.shadowSystem2(setting, thing, 'p2', 10);
-    }
-  }
-}
-lf2.shadowSystem2 = (setting, thing, name, y) => {
-  setting2 = lf2['UI'][name].setting;
-  frame2 = lf2['UI'][name].frame.standing;
-  setting2.x = setting.x;
-  setting2.y = lf2.mapLimit.y + y;
-  lf2.draw(setting2, frame2, 'UI', thing);
-}
-
-
 
 // 限制模式與種類
 lf2.passOnly = (modeList, typeList, type) => {

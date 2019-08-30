@@ -7,7 +7,7 @@ lf2.UI.logo = {
     fixedPosition: [400, 150],
   },
   frame: {
-    'standing': { next: 999, pic: ['logo', 0, 0], center: [178, 42], wait: 1, },
+    'standing': { next: 'standing', pic: ['logo', 0, 0], center: [178, 42], wait: 100, },
   }
 };
 
@@ -20,9 +20,37 @@ lf2.UI.startgame = {
     fixedPosition: [400, 400],
   },
   frame: {
-    'standing': { next: 999, pic: ['start', 0, 0], center: [113, 37], wait: 1, },
+    'standing': { next: 'standing', pic: ['start', 0, 0], center: [113, 37], wait: 100, },
   }
 };
+
+
+// 格鬥模式按鈕
+lf2.UI.battleModeButton = {
+  setting: {
+    name: 'battleModeButton',
+    file: { 'battleModeButton': { deputy: 'png', w: 265, h: 59 }, },
+    scale: 0.5,
+  },
+  frame: {
+    'standing': { next: 'standing', pic: ['battleModeButton', 0, 0], center: [132, 29], wait: 100, },
+  }
+};
+
+
+// 闖關模式按鈕
+lf2.UI.shaoguanModeButton = {
+  setting: {
+    name: 'shaoguanModeButton',
+    file: { 'shaoguanModeButton': { deputy: 'png', w: 265, h: 59 }, },
+    scale: 0.5,
+  },
+  frame: {
+    'standing': { next: 'standing', pic: ['shaoguanModeButton', 0, 0], center: [132, 29], wait: 100, },
+  }
+};
+
+
 
 // 影子
 lf2.UI.shadow = {
@@ -32,13 +60,9 @@ lf2.UI.shadow = {
     scale: 1,
   },
   frame: {
-    'standing': { next: 999, pic: ['s', 0, 0], center: [18, 4], wait: 100, },
+    'standing': { next: 'standing', pic: ['s', 0, 0], center: [18, 4], wait: 100, },
   }
 };
-
-
-
-
 
 // p1
 lf2.UI.p1 = {
@@ -48,10 +72,9 @@ lf2.UI.p1 = {
     scale: 1,
   },
   frame: {
-    'standing': { next: 999, pic: ['p1', 0, 0], center: [7, 5], wait: 100, },
+    'standing': { next: 'standing', pic: ['p1', 0, 0], center: [7, 5], wait: 100, },
   }
 };
-
 
 // p2
 lf2.UI.p2 = {
@@ -61,9 +84,44 @@ lf2.UI.p2 = {
     scale: 1,
   },
   frame: {
-    'standing': { next: 999, pic: ['p2', 0, 0], center: [7, 5], wait: 100, },
+    'standing': { next: 'standing', pic: ['p2', 0, 0], center: [7, 5], wait: 100, },
   }
 };
+
+// 1P血條
+lf2.UI.protagHPbar = {
+  setting: {
+    name: 'protagHPbar',
+    file: {
+      'protagHPbarVal': { deputy: 'png', w: 820, h: 258 },
+      'protagHPbarArmor': { deputy: 'png', w: 820, h: 258 },
+    },
+    scale: 0.1,
+    fixedPosition: [100, 100],
+  },
+  frame: {
+    'standing': { next: 'standing', pic: ['protagHPbarVal', 0, 0], center: [410, 129], wait: 100, },
+    'standing2': { next: 'standing2', pic: ['protagHPbarArmor', 0, 0], center: [410, 129], wait: 100, },
+  }
+};
+
+// 2P血條
+lf2.UI.otherHPbar = {
+  setting: {
+    name: 'otherHPbar',
+    file: {
+      'otherHPbarTank': { deputy: 'png', w: 70, h: 5 },
+      'otherHPbarVal': { deputy: 'png', w: 70, h: 5 },
+    },
+    scale: 1,
+  },
+  frame: {
+    'standing': { next: 'standing', pic: ['otherHPbarTank', 0, 0], center: [35, 2], wait: 100, },
+    'standing2': { next: 'standing2', pic: ['otherHPbarVal', 0, 0], center: [35, 2], wait: 100, },
+  }
+};
+
+
 
 
 // 選角手
@@ -74,7 +132,7 @@ lf2.UI.point = {
     scale: 0.1,
   },
   frame: {
-    'standing': { next: 999, pic: ['point', 0, 0], center: [0, 0], wait: 1, },
+    'standing': { next: 'standing', pic: ['point', 0, 0], center: [0, 0], wait: 100, },
   }
 };
 
@@ -94,67 +152,6 @@ lf2.UI.hit = {
     'flash5': { next: 'flash6', pic: ['hit', 4, 0], center: [96, 192], wait: 0, },
     'flash6': { next: 'flash7', pic: ['hit', 0, 1], center: [96, 192], wait: 0, },
     'flash7': { next: 1000, pic: ['hit', 1, 1], center: [96, 192], wait: 0, },
-  }
-};
-
-
-
-// 1P血條
-lf2.UI.hpbar = {
-  setting: {
-    name: 'hpbar',
-    file: {
-      'hpbar': { deputy: 'png', w: 820, h: 258 },
-      'hpbar2': { deputy: 'png', w: 820, h: 258 },
-    },
-    scale: 0.1,
-    fixedPosition: [100, 100],
-  },
-  frame: {
-    'standing': { next: 'standing', pic: ['hpbar2', 0, 0], center: [410, 129], wait: 100, },
-    'standing2': { next: 'standing2', pic: ['hpbar', 0, 0], center: [410, 129], wait: 100, },
-  }
-};
-
-// 2P血條
-lf2.UI.otherhpbar = {
-  setting: {
-    name: 'otherhpbar',
-    file: {
-      'otherhpbar': { deputy: 'png', w: 70, h: 5 },
-      'otherhpbar2': { deputy: 'png', w: 70, h: 5 },
-    },
-    scale: 1,
-  },
-  frame: {
-    'standing': { next: 'standing', pic: ['otherhpbar', 0, 0], center: [35, 2], wait: 100, },
-    'standing2': { next: 'standing2', pic: ['otherhpbar2', 0, 0], center: [35, 2], wait: 100, },
-  }
-};
-
-
-// 格鬥模式按鈕
-lf2.UI.battleModeButton = {
-  setting: {
-    name: 'battleModeButton',
-    file: { 'battleModeButton': { deputy: 'png', w: 265, h: 59 }, },
-    scale: 0.5,
-  },
-  frame: {
-    'standing': { next: 999, pic: ['battleModeButton', 0, 0], center: [132, 29], wait: 1, },
-  }
-};
-
-
-// 闖關模式按鈕
-lf2.UI.shaoguanModeButton = {
-  setting: {
-    name: 'shaoguanModeButton',
-    file: { 'shaoguanModeButton': { deputy: 'png', w: 265, h: 59 }, },
-    scale: 0.5,
-  },
-  frame: {
-    'standing': { next: 999, pic: ['shaoguanModeButton', 0, 0], center: [132, 29], wait: 1, },
   }
 };
 

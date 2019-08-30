@@ -58,17 +58,14 @@ lf2.arrange = (type) => {
         // 換動作
         lf2.variousChangesFrame(setting, frame, type, thing);
 
-        // 影子系統
-        lf2.shadowSystem(setting, frame, type, thing);
+        // 角色跟隨視覺
+        lf2.SomeThingsFollowTheRole(setting, frame, type, thing);
 
         // 秀在畫面上
         lf2.draw(setting, frame, type, thing);
 
         // 計算器
         lf2.counter(setting, frame, type, thing);
-
-        // 血量 (跟著角色跑要每幀跑)
-        lf2.HPsystem(setting, frame, type);
 
         // 我是機器人
         // lf2.bot(setting, frame, type, thing);
