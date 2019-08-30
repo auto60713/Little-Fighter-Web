@@ -1,6 +1,8 @@
 
 // 攝影機
 lf2.camera = () => {
+  if (!lf2.passOnly(['battleMode', 'shaoguanMode'], ['all'], null)) return;
+
   if (lf2.scenes.character[0]) {
 
     // 距離畫面邊界多少 將拖動攝影機

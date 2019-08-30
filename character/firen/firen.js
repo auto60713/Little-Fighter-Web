@@ -519,85 +519,85 @@ lf2.derivative.Firen = {
 
 
     'ground_fire': {
-      pic: ['grd', 0, 0], wait: 1, next: 'ground_fire2', move: [0, 0], center: [16, 47], 
+      pic: ['grd', 0, 0], wait: 1, next: 'ground_fire2', move: [0, 0], center: [16, 47],
     },
     'ground_fire2': {
-      pic: ['grd', 0, 1], wait: 1, next: 'ground_fire3', move: [0, 0], center: [16, 47], 
+      pic: ['grd', 0, 1], wait: 1, next: 'ground_fire3', move: [0, 0], center: [16, 47],
       opoint: { x: -1, y: 47, name: 'Firen', move: [0, 0], frame: 'ground_fire5', },
     },
 
     'ground_fire3': {
-      pic: ['grd', 0, 2], wait: 1, next: 'ground_fire4', move: [0, 0], center: [16, 46], 
+      pic: ['grd', 0, 2], wait: 1, next: 'ground_fire4', move: [0, 0], center: [16, 46],
       itr: { x: 0, y: 15, w: 36, h: 32, move: [-1, -6], effect: 'falling', vrest: 20, injury: 20, },
     },
     'ground_fire4': {
-      pic: ['grd', 0, 3], wait: 1, next: 'ground_fire5', move: [0, 0], center: [16, 46], 
+      pic: ['grd', 0, 3], wait: 1, next: 'ground_fire5', move: [0, 0], center: [16, 46],
     },
     'ground_fire5': {
-      pic: ['grd', 1, 0], wait: 1, next: 'ground_fire6', move: [0, 0], center: [16, 46], 
+      pic: ['grd', 1, 0], wait: 1, next: 'ground_fire6', move: [0, 0], center: [16, 46],
     },
     'ground_fire6': {
-      pic: ['grd', 1, 1], wait: 1, next: 'ground_fire7', move: [0, 0], center: [16, 47], 
+      pic: ['grd', 1, 1], wait: 1, next: 'ground_fire7', move: [0, 0], center: [16, 47],
     },
     'ground_fire7': {
-      pic: ['grd', 1, 2], wait: 1, next: 'ground_fire8', move: [0, 0], center: [16, 46], 
+      pic: ['grd', 1, 2], wait: 1, next: 'ground_fire8', move: [0, 0], center: [16, 46],
     },
     'ground_fire8': {
-      pic: ['grd', 1, 3], wait: 1, next: 'ground_fire9', move: [0, 0], center: [16, 47], timeToGo: [30, 'ground_fire11'], 
+      pic: ['grd', 1, 3], wait: 1, next: 'ground_fire9', move: [0, 0], center: [16, 47], timeToGo: [30, 'ground_fire11'],
     },
     'ground_fire9': {
-      pic: ['grd', 0, 0], wait: 1, next: 'ground_fire10', move: [0, 0], center: [16, 47], 
+      pic: ['grd', 0, 0], wait: 1, next: 'ground_fire10', move: [0, 0], center: [16, 47],
     },
     'ground_fire10': {
-      pic: ['grd', 0, 1], wait: 1, next: 'ground_fire3', move: [0, 0], center: [16, 47], 
+      pic: ['grd', 0, 1], wait: 1, next: 'ground_fire3', move: [0, 0], center: [16, 47],
     },
 
     'ground_fire11': {
-      pic: ['grd', 2, 0], wait: 1, next: 'ground_fire12', move: [0, 0], center: [16, 47], 
+      pic: ['grd', 2, 0], wait: 1, next: 'ground_fire12', move: [0, 0], center: [16, 47],
     },
     'ground_fire12': {
-      pic: ['grd', 2, 1], wait: 1, next: 'ground_fire13', move: [0, 0], center: [16, 47], 
+      pic: ['grd', 2, 1], wait: 1, next: 'ground_fire13', move: [0, 0], center: [16, 47],
     },
     'ground_fire13': {
-      pic: ['grd', 2, 2], wait: 1, next: 'ground_fire14', move: [0, 0], center: [16, 47], 
+      pic: ['grd', 2, 2], wait: 1, next: 'ground_fire14', move: [0, 0], center: [16, 47],
     },
     'ground_fire14': {
-      pic: ['grd', 3, 3], wait: 1, next: 1000, move: [0, 0], center: [16, 47], 
+      pic: ['grd', 3, 3], wait: 1, next: 1000, move: [0, 0], center: [16, 47],
     },
-    
+
 
 
     'explosion': {
       pic: ['exp', 0, 0], wait: 1, next: 'explosion2', move: [0, 0], center: [78, 148],
-      itr: { x: 23, y: 36, w: 112, h: 110, move: [-12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
+      itr: { x: 23, y: 36, w: 112, h: 110, move: [12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
     },
     'explosion2': {
       pic: ['exp', 0, 1], wait: 1, next: 'explosion3', move: [0, 0], center: [78, 148],
-      itr: { x: 20, y: 16, w: 122, h: 135, move: [-12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
+      itr: { x: 20, y: 16, w: 122, h: 135, move: [12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
     },
     'explosion3': {
       pic: ['exp', 0, 2], wait: 1, next: 'explosion4', move: [0, 0], center: [78, 148],
-      itr: { x: 19, y: 18, w: 127, h: 131, move: [-12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
+      itr: { x: 19, y: 18, w: 127, h: 131, move: [12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
     },
     'explosion4': {
       pic: ['exp', 0, 3], wait: 1, next: 'explosion5', move: [0, 0], center: [78, 148],
-      itr: { x: 7, y: 16, w: 146, h: 132, move: [-12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
+      itr: { x: 7, y: 16, w: 146, h: 132, move: [12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
     },
     'explosion5': {
       pic: ['exp', 0, 4], wait: 1, next: 'explosion6', move: [0, 0], center: [78, 150],
-      itr: { x: 13, y: 13, w: 137, h: 132, move: [-12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
+      itr: { x: 13, y: 13, w: 137, h: 132, move: [12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
     },
     'explosion6': {
       pic: ['exp', 1, 0], wait: 1, next: 'explosion7', move: [0, 0], center: [78, 155],
-      itr: { x: 7, y: 14, w: 145, h: 117, move: [-12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
+      itr: { x: 7, y: 14, w: 145, h: 117, move: [12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
     },
     'explosion7': {
       pic: ['exp', 1, 1], wait: 1, next: 'explosion8', move: [0, 0], center: [78, 157],
-      itr: { x: 15, y: 6, w: 128, h: 123, move: [-12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
+      itr: { x: 15, y: 6, w: 128, h: 123, move: [12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
     },
     'explosion8': {
       pic: ['exp', 1, 2], wait: 1, next: 'explosion9', move: [0, 0], center: [78, 164],
-      itr: { x: 15, y: 6, w: 128, h: 123, move: [-12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
+      itr: { x: 15, y: 6, w: 128, h: 123, move: [12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
     },
     'explosion9': {
       pic: ['exp', 1, 3], wait: 1, next: 'explosion10', move: [0, 0], center: [78, 171],

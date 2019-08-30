@@ -1,8 +1,8 @@
 
 // 物理行為
 lf2.physical = (setting, frame, type, thing) => {
-  if (!lf2.passOnly(['battleMode', 'shaoguanMode'], ['character', 'derivative'], type)) return;
-  
+  if (!lf2.passOnly(['battleMode', 'shaoguanMode'], ['all'], type)) return;
+
   // 固定在畫面某處 (通常為UI)
   if (setting.fixedPosition) {
 
@@ -83,13 +83,14 @@ lf2.physical = (setting, frame, type, thing) => {
 
 
 lf2.move = (setting, frame, type) => {
+
   // 地上無慣性 / 空中有慣性
   if (type == 'character' && !setting.inSky) {
     setting.xSpeed = setting.xSpeed * 0.7;
   }
   if (frame.move) {
     var m = setting.mirror ? -1 : 1;
-    lf2.asdasdasd(setting, frame.move, m);
+    lf2.moveSpeed(setting, frame.move, m);
   }
 }
 
@@ -101,7 +102,7 @@ lf2.skyDetection = (setting, frame, type) => {
   return setting.y < lf2.mapLimit.y;
 }
 
-lf2.asdasdasd = (setting, move, m) => {
+lf2.moveSpeed = (setting, move, m) => {
   if (move[0] == 550) setting.xSpeed = 0;
   else if (move[0] != 0) setting.xSpeed = move[0] * m * 0.6;
   if (move[1] == 550) setting.ySpeed = 0;

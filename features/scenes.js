@@ -119,6 +119,11 @@ lf2.adjunction = (type, name, data = {}) => {
     template.setting[key] = data[key];
   });
 
+  if (template.setting.fixedPosition) {
+    template.setting.x = template.setting.fixedPosition[0];
+    template.setting.y = template.setting.fixedPosition[1];
+  }
+
   lf2.scenes[type].push(template);
 }
 

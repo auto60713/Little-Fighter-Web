@@ -105,7 +105,7 @@ lf2.undergroundInformation = (type, name, template) => {
 
       team: 0,
 
-      hitCD: {},
+      strikeCD: {},
       keypress: {},
 
       x: 0,

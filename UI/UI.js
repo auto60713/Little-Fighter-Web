@@ -111,8 +111,8 @@ lf2.UI.hpbar = {
     fixedPosition: [100, 100],
   },
   frame: {
-    'standing': { next: 999, pic: ['hpbar2', 0, 0], center: [410, 129], wait: 100, },
-    'standing2': { next: 999, pic: ['hpbar', 0, 0], center: [410, 129], wait: 100, },
+    'standing': { next: 'standing', pic: ['hpbar2', 0, 0], center: [410, 129], wait: 100, },
+    'standing2': { next: 'standing2', pic: ['hpbar', 0, 0], center: [410, 129], wait: 100, },
   }
 };
 
@@ -127,8 +127,8 @@ lf2.UI.otherhpbar = {
     scale: 1,
   },
   frame: {
-    'standing': { next: 999, pic: ['otherhpbar', 0, 0], center: [35, 2], wait: 100, },
-    'standing2': { next: 999, pic: ['otherhpbar2', 0, 0], center: [35, 2], wait: 100, },
+    'standing': { next: 'standing', pic: ['otherhpbar', 0, 0], center: [35, 2], wait: 100, },
+    'standing2': { next: 'standing2', pic: ['otherhpbar2', 0, 0], center: [35, 2], wait: 100, },
   }
 };
 
