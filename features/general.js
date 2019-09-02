@@ -139,6 +139,54 @@ lf2.counter = (setting, frame, type, thing) => {
 
 }
 
+// 物件位置
+lf2.location = (setting, frame, type, thing) => {
+
+  // 固定在畫面某處 (通常為UI)
+  if (setting.fixedPosition) {
+    lf2.updateLocation(setting, type, [lf2.cameraPos[0] + setting.fixedPosition[0], lf2.cameraPos[1] + setting.fixedPosition[1]], true)
+  }
+  // 如果使用瞬間移動
+  else if (frame.teleport) {
+    var m = setting.mirror ? -1 : 1;
+    lf2.updateLocation(setting, type, [lf2.findEnemyX(setting) - (100 * m), setting.y = lf2.mapLimit.y], true)
+  }
+  // 根據目前速度移動物件
+  else {
+    lf2.updateLocation(setting, type, [setting.xSpeed, setting.ySpeed], false)
+  }
+
+}
+
+// 更新物件位置
+lf2.updateLocation = (setting, type, speed, absolute) => {
+
+  if (absolute) {
+    setting.x = speed[0];
+    setting.y = speed[1];
+  } else {
+    // 邊界偵測
+    if (!lf2.mapDetection(setting, type)) setting.x += speed[0];
+    setting.y += speed[1];
+  }
+
+}
+
+// 邊界偵測
+lf2.mapDetection = (setting, type) => {
+  var limit = false;
+  if (type == 'derivative') {
+    if (setting.x < -200 || setting.x > lf2.mapLimit.x + 200) setting.destroy = true;
+  }
+  else if (type == 'character') {
+    if ((setting.x <= 0 && setting.xSpeed < 0) || (setting.x >= lf2.mapLimit.x && setting.xSpeed > 0)) limit = true;
+  }
+
+  return limit;
+}
+
+
+
 // 製造衍生物
 lf2.produceDerivative = (setting, frame, type) => {
   if (!lf2.passOnly(['battleMode', 'shaoguanMode'], ['character', 'derivative'], type)) return;

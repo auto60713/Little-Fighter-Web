@@ -10,12 +10,17 @@ lf2.sceneSwitching = (state) => {
     case 'entrance': lf2.prepareEntrance(); break;
     // 選擇模式
     case 'modeSelection': lf2.prepareModeSelection(); break;
+
     // 選擇角色
     case 'roleSelection': lf2.prepareRoleSelection(); break;
+
     // 選擇地圖
     case 'mapSelection': lf2.prepareMapSelection(); break;
     // 格鬥模式
     case 'battleMode': lf2.prepareBattleMode(); break;
+
+    // 選擇副本
+    case 'shaoguanSelection': lf2.prepareShaoguanSelection(); break;
     // 闖關模式
     case 'shaoguanMode': lf2.prepareShaoguanMode('stage1'); break;
   }
@@ -27,38 +32,23 @@ lf2.sceneSwitching = (state) => {
 lf2.prepareEntrance = () => {
   lf2.adjunction('UI', 'logo');
   lf2.adjunction('UI', 'startgame');
-
   lf2.canvas.style.backgroundColor = lf2.backgroundColor.entrance;
 }
 
 // 準備選擇模式的東西
 lf2.prepareModeSelection = () => {
-  lf2.adjunction('UI', 'point', {
-    x: 400,
-    y: 250,
-  });
-  lf2.adjunction('UI', 'battleModeButton', {
-    x: 400,
-    y: 200,
-  });
-  lf2.adjunction('UI', 'shaoguanModeButton', {
-    x: 400,
-    y: 400,
-  });
-
+  lf2.selectionList('mode', 100);
   lf2.canvas.style.backgroundColor = lf2.backgroundColor.modeSelection;
 }
 
 // 準備選角畫面的東西
 lf2.prepareRoleSelection = () => {
-
   lf2.selectionList('character', 50);
   lf2.canvas.style.backgroundColor = lf2.backgroundColor.roleSelection;
 }
 
 // 準備選擇地圖的東西
 lf2.prepareMapSelection = () => {
-
   lf2.selectionList('map', 150);
   lf2.canvas.style.backgroundColor = lf2.backgroundColor.modeSelection;
 }
@@ -96,11 +86,48 @@ lf2.prepareBattleMode = () => {
 
 }
 
+// 準備選擇副本的東西
+lf2.prepareShaoguanSelection = () => {
+  lf2.selectionList('shaoguan', 150);
+  lf2.canvas.style.backgroundColor = lf2.backgroundColor.modeSelection;
+}
+
 // 準備闖關模式的東西
 lf2.prepareShaoguanMode = (stagename) => {
 
-  lf2.shaoguanBorn(stagename);
+  // 地圖
+  lf2.adjunction('map', Object.keys(lf2.map)[1]);
+
+  lf2.mapLimit = lf2.scenes.map[0].setting.limit;
+  lf2.canvas.style.backgroundColor = lf2.scenes.map[0].setting.backgroundColor;
+
+  // 主角(即第一個加入的角色)
+  lf2.adjunction('character', Object.keys(lf2.character)[lf2.characterIndex], {
+    x: 100,
+    y: lf2.mapLimit.y,
+    team: 0,
+  });
+
+  // 另一個角色
+  lf2.adjunction('character', 'Davis', {
+    x: 600,
+    y: lf2.mapLimit.y,
+    team: 1,
+    mirror: true,
+  });
+
+  lf2.adjunction('UI', 'protagHPbar');
+  lf2.adjunction('UI', 'protagHPbar', {
+    nowframe: 'standing2',
+  });
+
+  lf2.mainHpbar2 = lf2.scenes.UI[0].setting;
+
+
+  // lf2.shaoguanBorn(stagename);
 }
+
+
 
 // 將物件加到場景中
 lf2.adjunction = (type, name, data = {}) => {

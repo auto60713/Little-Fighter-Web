@@ -2,7 +2,7 @@
 // 事前準備
 lf2.loader = () => {
 
-  ['map', 'character', 'derivative', 'UI'].forEach(type => {
+  ['map', 'shaoguan', 'character', 'derivative', 'UI'].forEach(type => {
     Object.keys(lf2[type]).forEach(name => {
 
       const template = lf2[type][name];
@@ -53,40 +53,52 @@ lf2.portraitUI = (type, name, template) => {
       frame: { 'standing': { next: 999, pic: ['mapface', 0, 0], center: [0, 0], wait: 100, }, }
     };
   }
+  else if (type == 'shaoguan') {
+    lf2.UI[name] = {
+      setting: {
+        name: name,
+        file: { 'shaoguanface': { deputy: 'png', w: 200, h: 150 }, },
+        scale: 1,
+      },
+      frame: { 'standing': { next: 999, pic: ['shaoguanface', 0, 0], center: [0, 0], wait: 100, }, }
+    };
+  }
 }
 
 lf2.fileManager = (type, name, template) => {
 
-  Object.keys(template.setting.file).forEach(key => {
+  if (template.setting.file)
+    Object.keys(template.setting.file).forEach(key => {
 
-    var file = template.setting.file[key];
-    var img = new Image();
+      var file = template.setting.file[key];
+      var img = new Image();
 
-    lf2.imageNum++;
+      lf2.imageNum++;
 
-    img.onload = function () {
-      lf2.imageOnload++;
-      if (lf2.imageOnload == lf2.imageNum) {
-        lf2.sceneSwitching('entrance');
-        lf2.eachFrame();
+      img.onload = function () {
+        lf2.imageOnload++;
+        if (lf2.imageOnload == lf2.imageNum) {
+          lf2.sceneSwitching('entrance');
+          lf2.eachFrame();
+        }
       }
-    }
 
-    // UI類別裡的角色頭像 需要去角色資料夾找
-    if (type == 'UI') {
-      if (key == 'face') img.src = `character/${name}/${key}.${file.deputy}`;
-      else if (key == 'mapface') img.src = `map/${name}/${key}.${file.deputy}`;
-      else img.src = `${type}/${key}.${file.deputy}`;
-    }
-    else if (type == 'derivative') img.src = `character/${name}/${key}.${file.deputy}`;
-    else img.src = `${type}/${name}/${key}.${file.deputy}`;
+      // UI類別裡的角色頭像 需要去角色資料夾找
+      if (type == 'UI') {
+        if (key == 'face') img.src = `character/${name}/${key}.${file.deputy}`;
+        else if (key == 'mapface') img.src = `map/${name}/${key}.${file.deputy}`;
+        else if (key == 'shaoguanface') img.src = `shaoguan/${name}/${key}.${file.deputy}`;
+        else img.src = `${type}/${key}.${file.deputy}`;
+      }
+      else if (type == 'derivative') img.src = `character/${name}/${key}.${file.deputy}`;
+      else img.src = `${type}/${name}/${key}.${file.deputy}`;
 
-    lf2.imageCenter[name + '_' + key] = img;
-  });
+      lf2.imageCenter[name + '_' + key] = img;
+    });
 }
 
 lf2.undergroundInformation = (type, name, template) => {
-  if (type !== 'map') {
+  if (type !== 'map' && type !== 'shaoguan') {
 
     const data = {
 

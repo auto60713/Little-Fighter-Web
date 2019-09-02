@@ -55,6 +55,9 @@ lf2.arrange = (type) => {
         // 物理行為
         lf2.physical(setting, frame, type, thing);
 
+        // 物件位置
+        lf2.location(setting, frame, type, thing);
+
         // 換動作
         lf2.variousChangesFrame(setting, frame, type, thing);
 

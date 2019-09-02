@@ -25,31 +25,6 @@ lf2.UI.startgame = {
 };
 
 
-// 格鬥模式按鈕
-lf2.UI.battleModeButton = {
-  setting: {
-    name: 'battleModeButton',
-    file: { 'battleModeButton': { deputy: 'png', w: 265, h: 59 }, },
-    scale: 0.5,
-  },
-  frame: {
-    'standing': { next: 'standing', pic: ['battleModeButton', 0, 0], center: [132, 29], wait: 100, },
-  }
-};
-
-
-// 闖關模式按鈕
-lf2.UI.shaoguanModeButton = {
-  setting: {
-    name: 'shaoguanModeButton',
-    file: { 'shaoguanModeButton': { deputy: 'png', w: 265, h: 59 }, },
-    scale: 0.5,
-  },
-  frame: {
-    'standing': { next: 'standing', pic: ['shaoguanModeButton', 0, 0], center: [132, 29], wait: 100, },
-  }
-};
-
 
 
 // 影子
@@ -135,6 +110,31 @@ lf2.UI.point = {
     'standing': { next: 'standing', pic: ['point', 0, 0], center: [0, 0], wait: 100, },
   }
 };
+
+// 格鬥模式按鈕
+lf2.UI.mapSelection = {
+  setting: {
+    name: 'mapSelection',
+    file: { 'mapSelection': { deputy: 'png', w: 265, h: 59 }, },
+    scale: 0.5,
+  },
+  frame: {
+    'standing': { next: 'standing', pic: ['mapSelection', 0, 0], center: [132, 29], wait: 100, },
+  }
+};
+
+// 闖關模式按鈕
+lf2.UI.shaoguanSelection = {
+  setting: {
+    name: 'shaoguanSelection',
+    file: { 'shaoguanSelection': { deputy: 'png', w: 265, h: 59 }, },
+    scale: 0.5,
+  },
+  frame: {
+    'standing': { next: 'standing', pic: ['shaoguanSelection', 0, 0], center: [132, 29], wait: 100, },
+  }
+};
+
 
 
 // 打擊特效

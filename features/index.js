@@ -6,12 +6,21 @@ window.lf2 = {
 
   state: '',
   gameOver: null,
+
+  mode: {
+    'mapSelection': '',
+    'shaoguanSelection': '',
+  },
   backgroundColor: {
     'entrance': '#102463',
     'modeSelection': '#102463',
+
     'roleSelection': '#102463',
+
     'mapSelection': '#102463',
     'battleMode': '',
+
+    'shaoguanSelection': '#102463',
     'shaoguanMode': '',
   },
 
@@ -26,9 +35,9 @@ window.lf2 = {
   // wait等於幾幀
   waitMagnification: 3,
   // 重力
-  gravity: 0.33,
+  gravity: 0.35,
   // 落下最大速度
-  maxFallingSpeed: 10.5,
+  maxFallingSpeed: 10.7,
 
 };
 

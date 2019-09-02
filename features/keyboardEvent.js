@@ -61,10 +61,27 @@ lf2.sceneKeyEvent = (keyname) => {
     // 選擇模式
     case 'modeSelection':
       lf2.xxxxx(keyname, 'entrance', 'roleSelection');
+
+      var ddd = (nn) => {
+        lf2.modeIndex += nn;
+        if (lf2.modeIndex === Object.keys(lf2.mode).length) lf2.modeIndex = 0;
+        else if (lf2.modeIndex === -1) lf2.modeIndex = Object.keys(lf2.mode).length - 1;
+        lf2.scenes.UI[lf2.scenes.UI.length - 1].setting.x = lf2.scenes.UI[lf2.modeIndex].setting.x + 15;
+      };
+
+      if (keyname == 'R') {
+        ddd(1);
+      }
+      else if (keyname == 'L') {
+        ddd(-1);
+      }
       break;
+
+
+
     // 選擇角色
     case 'roleSelection':
-      lf2.xxxxx(keyname, 'modeSelection', 'mapSelection');
+      lf2.xxxxx(keyname, 'modeSelection', Object.keys(lf2.mode)[lf2.modeIndex]);
 
       var ddd = (nn) => {
         lf2.characterIndex += nn;
@@ -80,6 +97,8 @@ lf2.sceneKeyEvent = (keyname) => {
         ddd(-1);
       }
       break;
+
+
     // 選擇地圖
     case 'mapSelection':
       lf2.xxxxx(keyname, 'roleSelection', 'battleMode');
@@ -110,6 +129,27 @@ lf2.sceneKeyEvent = (keyname) => {
       }
       else if (keyname == 'pause') {
         lf2.pause = !lf2.pause;
+      }
+      break;
+
+
+
+    // 選擇副本
+    case 'shaoguanSelection':
+      lf2.xxxxx(keyname, 'entrance', 'roleSelection');
+
+      var ddd = (nn) => {
+        lf2.shaoguanIndex += nn;
+        if (lf2.shaoguanIndex === Object.keys(lf2.shaoguan).length) lf2.shaoguanIndex = 0;
+        else if (lf2.shaoguanIndex === -1) lf2.shaoguanIndex = Object.keys(lf2.shaoguan).length - 1;
+        lf2.scenes.UI[lf2.scenes.UI.length - 1].setting.y = lf2.scenes.UI[lf2.shaoguanIndex].setting.y + 15;
+      };
+
+      if (keyname == 'U') {
+        ddd(1);
+      }
+      else if (keyname == 'D') {
+        ddd(-1);
       }
       break;
     // 闖關模式
