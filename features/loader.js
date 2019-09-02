@@ -87,7 +87,9 @@ lf2.fileManager = (type, name, template) => {
       if (type == 'UI') {
         if (key == 'face') img.src = `character/${name}/${key}.${file.deputy}`;
         else if (key == 'mapface') img.src = `map/${name}/${key}.${file.deputy}`;
-        else if (key == 'shaoguanface') img.src = `shaoguan/${name}/${key}.${file.deputy}`;
+        else if (key == 'shaoguanface') {
+          img.src = `shaoguan/${name}/${key}.${file.deputy}`;
+        }
         else img.src = `${type}/${key}.${file.deputy}`;
       }
       else if (type == 'derivative') img.src = `character/${name}/${key}.${file.deputy}`;

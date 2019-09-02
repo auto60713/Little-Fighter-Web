@@ -3,39 +3,24 @@
 lf2.eachFrame = () => {
 
   if (!lf2.pause) {
+
     // 清空畫布
     lf2.ctx.clearRect(0, 0, lf2.canvas.width, lf2.canvas.height);
 
-    // 目前模式
-    switch (lf2.state) {
-      case 'entrance':
-      case 'modeSelection':
-      case 'roleSelection':
-      case 'mapSelection':
-        lf2.thisFrame(['UI']);
-        break;
-      case 'battleMode':
-      case 'shaoguanMode':
-        lf2.thisFrame(['map', 'character', 'derivative', 'UI']);
-        break;
-    }
+    // 要運算的圖層
+    ['map', 'character', 'derivative', 'UI'].forEach(layer => {
+      lf2.arrange(layer);
+    });
+
+    // 攝影機
+    lf2.camera();
+
+    if (lf2.gameOver != null) lf2.gameOver--;
+
   }
   // 60FPS
   setTimeout(lf2.eachFrame, 1000 / 60);
 };
-
-lf2.thisFrame = (layer) => {
-  // 要運算的圖層
-  layer.forEach(l => {
-    lf2.arrange(l);
-  });
-
-  // 攝影機
-  lf2.camera();
-
-  if (lf2.gameOver != null) lf2.gameOver--;
-}
-
 
 lf2.arrange = (type) => {
 

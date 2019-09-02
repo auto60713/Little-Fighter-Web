@@ -11,18 +11,6 @@ window.lf2 = {
     'mapSelection': '',
     'shaoguanSelection': '',
   },
-  backgroundColor: {
-    'entrance': '#102463',
-    'modeSelection': '#102463',
-
-    'roleSelection': '#102463',
-
-    'mapSelection': '#102463',
-    'battleMode': '',
-
-    'shaoguanSelection': '#102463',
-    'shaoguanMode': '',
-  },
 
   UI: {},
   map: {},

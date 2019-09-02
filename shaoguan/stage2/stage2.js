@@ -2,6 +2,7 @@ lf2.shaoguan.stage2 = {
   setting: {
     name: 'stage2',
     initmap: 'de',
+    file:{},
   },
   part: {
 

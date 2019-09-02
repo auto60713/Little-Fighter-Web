@@ -4,57 +4,34 @@ lf2.sceneSwitching = (state) => {
 
   lf2.initialization();
 
-  // 準備該場景需要的東西
-  switch (state) {
-    // 入口畫面
-    case 'entrance': lf2.prepareEntrance(); break;
-    // 選擇模式
-    case 'modeSelection': lf2.prepareModeSelection(); break;
-
-    // 選擇角色
-    case 'roleSelection': lf2.prepareRoleSelection(); break;
-
-    // 選擇地圖
-    case 'mapSelection': lf2.prepareMapSelection(); break;
-    // 格鬥模式
-    case 'battleMode': lf2.prepareBattleMode(); break;
-
-    // 選擇副本
-    case 'shaoguanSelection': lf2.prepareShaoguanSelection(); break;
-    // 闖關模式
-    case 'shaoguanMode': lf2.prepareShaoguanMode('stage1'); break;
-  }
+  lf2[`prepare${state}`]();
 
   lf2.state = state;
 }
 
 // 準備入口畫面的東西
-lf2.prepareEntrance = () => {
+lf2.prepareentrance = () => {
   lf2.adjunction('UI', 'logo');
   lf2.adjunction('UI', 'startgame');
-  lf2.canvas.style.backgroundColor = lf2.backgroundColor.entrance;
 }
 
 // 準備選擇模式的東西
-lf2.prepareModeSelection = () => {
+lf2.preparemodeSelection = () => {
   lf2.selectionList('mode', 100);
-  lf2.canvas.style.backgroundColor = lf2.backgroundColor.modeSelection;
 }
 
 // 準備選角畫面的東西
-lf2.prepareRoleSelection = () => {
+lf2.prepareroleSelection = () => {
   lf2.selectionList('character', 50);
-  lf2.canvas.style.backgroundColor = lf2.backgroundColor.roleSelection;
 }
 
 // 準備選擇地圖的東西
-lf2.prepareMapSelection = () => {
+lf2.preparemapSelection = () => {
   lf2.selectionList('map', 150);
-  lf2.canvas.style.backgroundColor = lf2.backgroundColor.modeSelection;
 }
 
 // 準備格鬥模式的東西
-lf2.prepareBattleMode = () => {
+lf2.preparebattleMode = () => {
 
   // 地圖
   lf2.adjunction('map', Object.keys(lf2.map)[lf2.mapIndex]);
@@ -87,13 +64,12 @@ lf2.prepareBattleMode = () => {
 }
 
 // 準備選擇副本的東西
-lf2.prepareShaoguanSelection = () => {
+lf2.prepareshaoguanSelection = () => {
   lf2.selectionList('shaoguan', 150);
-  lf2.canvas.style.backgroundColor = lf2.backgroundColor.modeSelection;
 }
 
 // 準備闖關模式的東西
-lf2.prepareShaoguanMode = (stagename) => {
+lf2.prepareshaoguanMode = (stagename) => {
 
   // 地圖
   lf2.adjunction('map', Object.keys(lf2.map)[1]);
@@ -159,6 +135,7 @@ lf2.initialization = () => {
     derivative: [],
     UI: [],
   };
+  lf2.canvas.style.backgroundColor = '#102463';
 }
 
 // 建構選擇列表
