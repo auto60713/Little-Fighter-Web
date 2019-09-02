@@ -195,7 +195,7 @@ lf2.character.Louis = {
       bdy: { x: 18, y: 50, w: 47, h: 28, },
     },
     'dash_attack6': {
-      pic: ['1', 6, 6], wait: 2, next: 'dash3', move: [0, 0], center: [31, 74],
+      pic: ['1', 6, 6], wait: 2, next: 999, move: [0, 0], center: [31, 74],
       bdy: { x: 38, y: 24, w: 24, h: 55, },
       bdy: { x: 15, y: 46, w: 34, h: 32, },
     },

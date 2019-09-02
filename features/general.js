@@ -129,6 +129,12 @@ lf2.counter = (setting, frame, type, thing) => {
     Object.keys(setting.strikeCD).forEach(k => {
       setting.strikeCD[k]--;
     });
+
+    // 翻轉允許
+    if (frame.flip) {
+      if (setting.keypress['R']) setting.mirror = false;
+      else if (setting.keypress['L']) setting.mirror = true;
+    }
   }
 
 }

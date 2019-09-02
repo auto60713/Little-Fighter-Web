@@ -42,7 +42,7 @@ lf2.collisionDetection = (setting, frame, type, thing) => {
 
                   if (type == 'character') {
                     effect = detFrame.itr.effect;
-                    lf2.moveSpeed(setting, detFrame.itr.move, m2 * m3);
+                    lf2.updateSpeed(setting, detFrame.itr.move, m2 * m3);
                   }
                   else effect = 'falling';
 
