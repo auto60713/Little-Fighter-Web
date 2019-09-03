@@ -119,7 +119,6 @@ lf2.counter = (setting, frame, type, thing) => {
   if (lf2.state == 'shaoguanMode') {
     if (lf2.enemyClear == lf2.enemyClearGoal){
       lf2.enemyBorn();
-      console.log(8);
     } 
   }
 
