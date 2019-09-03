@@ -2,13 +2,16 @@
 // 事前準備
 lf2.loader = () => {
 
+  lf2.imageOnload = 0;
+  lf2.imageNum = 0;
+
   ['map', 'shaoguan', 'character', 'derivative', 'UI'].forEach(type => {
     Object.keys(lf2[type]).forEach(name => {
 
       const template = lf2[type][name];
 
       // 將每個角色/地圖的頭像匯入UI
-      lf2.portraitUI(type, name, template);
+      lf2.portraitUI(type, name);
 
       // 根據路徑將圖檔匯入圖檔中心
       lf2.fileManager(type, name, template);
@@ -32,7 +35,7 @@ lf2.loader = () => {
 }
 
 
-lf2.portraitUI = (type, name, template) => {
+lf2.portraitUI = (type, name) => {
   if (type == 'character') {
     lf2.UI[name] = {
       setting: {

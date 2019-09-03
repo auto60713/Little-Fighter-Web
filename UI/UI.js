@@ -17,7 +17,7 @@ lf2.UI.startgame = {
     fixedPosition: [400, 400],
   },
   frame: {
-    'standing': { next: 'standing', pic: ['start', 0, 0], center: [113, 37], wait: 100, },
+    'standing': { next: 'standing', pic: ['startgame', 0, 0], center: [113, 37], wait: 100, },
   }
 };
 

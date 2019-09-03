@@ -1,22 +1,20 @@
 window.lf2 = {
 
-  imageOnload: 0,
-  imageNum: 0,
-  imageCenter: {},
-
-  state: '',
-  gameOver: null,
-
   mode: {
     'mapSelection': '',
     'shaoguanSelection': '',
   },
 
-  UI: {},
-  map: {},
+  gameOver: null,
+
   character: {},
   derivative: {},
+  map: {},
+  UI: {},
   shaoguan: {},
+
+  imageCenter: {},
+
 
   // 設定有意思的值
 
