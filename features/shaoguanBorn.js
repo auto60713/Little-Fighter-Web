@@ -47,8 +47,8 @@ lf2.enemyBorn = () => {
     // 產生敵人
     lf2.stageIndex.enemy.forEach(e => {
       lf2.adjunction('character', e.name, {
-        HP: e.HP,
-        nowHP: e.HP,
+        hp: e.hp,
+        nowhp: e.hp,
         x: e.x,
         y: lf2.mapLimit.y,
         team: 1,

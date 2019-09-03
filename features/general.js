@@ -85,13 +85,13 @@ lf2.gotoFrame = (thing, setting, type, next) => {
   }
 
   if (next == 999) {
-    if (type == 'character' && setting.nowHP <= 0) next = 'lyingDown';
+    if (type == 'character' && setting.nowhp <= 0) next = 'lyingDown';
     else if (type == 'character' && setting.inSky) next = 'jumping';
     else next = 'standing';
     setting.hitHold = '-';
 
     // 副本敵人死亡消失
-    if (lf2.state == 'shaoguanMode' && setting.nowHP <= 0 && setting.nowframe == 'lyingDown') {
+    if (lf2.state == 'shaoguanMode' && setting.nowhp <= 0 && setting.nowframe == 'lyingDown') {
       setting.destroy = true;
       lf2.enemyClear++;
     }
@@ -238,9 +238,9 @@ lf2.SomeThingsFollowTheRole = (setting, frame, type, thing) => {
       lf2.paintedAtFoot(setting.x, 10, 'p1');
 
       // 血條
-      var pp = setting.nowHP / setting.HP;
+      var pp = setting.nowhp / setting.hp;
       if (pp <= 0) pp = -1;
-      lf2.mainHpbar2.file['protagHPbarVal'].w = 820 * pp;
+      lf2.mainhpbar2.file['protaghpbarVal'].w = 820 * pp;
     }
 
     // 其他人
@@ -254,23 +254,23 @@ lf2.SomeThingsFollowTheRole = (setting, frame, type, thing) => {
       lf2.paintedAtFoot(xxx, 10, 'p2');
 
       // 血條
-      var pp = setting.nowHP / setting.HP;
+      var pp = setting.nowhp / setting.hp;
       if (pp <= 0) pp = -1;
 
-      lf2.paintedAtFoot(setting.x, 20, 'otherHPbar');
-      lf2.paintedAtFoot(setting.x, 20, 'otherHPbar', 'standing2', 70 * pp);
+      lf2.paintedAtFoot(setting.x, 20, 'otherhpbar');
+      lf2.paintedAtFoot(setting.x, 20, 'otherhpbar', 'standing2', 70 * pp);
     }
 
     switch (lf2.state) {
       case 'battleMode':
         // 遊戲結束
-        if (setting.nowHP <= 0 && lf2.gameOver == null) {
+        if (setting.nowhp <= 0 && lf2.gameOver == null) {
           lf2.adjunction('UI', 'ko');
           lf2.gameOver = 180;
         }
         break;
       case 'shaoguanMode':
-        // if (setting.nowHP <= 0 && lf2.gameOver == null) {
+        // if (setting.nowhp <= 0 && lf2.gameOver == null) {
         //   setting.destroy = true;
         // }
         break;
@@ -292,7 +292,7 @@ lf2.paintedAtFoot = (x, y, name, f = 'standing', w) => {
   setting.y = lf2.mapLimit.y + y;
 
   // 血條特規
-  if (w) setting.file['otherHPbarVal'].w = w;
+  if (w) setting.file['otherhpbarVal'].w = w;
 
   lf2.draw(setting, frame, 'UI');
 }

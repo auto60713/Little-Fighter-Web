@@ -10,16 +10,16 @@ lf2.shaoguan.stage1 = {
     'standing': {
       next: 'aaaaaa2', openx: 800,
       enemy: [
-        { name: 'Freeze', HP: 50, x: 200, y: 300, },
-        { name: 'Henry', HP: 50, x: 300, y: 300, },
-        { name: 'John', HP: 50, x: 400, y: 300, },
+        { name: 'Freeze', hp: 50, x: 200, y: 300, },
+        { name: 'Henry', hp: 50, x: 300, y: 300, },
+        { name: 'John', hp: 50, x: 400, y: 300, },
       ],
     },
     // 1-2
     'aaaaaa2': {
       next: 'bbbbb1', openx: 1600,
       enemy: [
-        { name: 'Davis', HP: 50, x: 1200, y: 300, },
+        { name: 'Davis', hp: 50, x: 1200, y: 300, },
       ],
     },
 
@@ -29,7 +29,7 @@ lf2.shaoguan.stage1 = {
     'bbbbb1': {
       next: 999, openx: 800, map: 'hkc',
       enemy: [
-        { name: 'Deep', HP: 50, x: 400, y: 250, boss: true, },
+        { name: 'Deep', hp: 50, x: 400, y: 250, boss: true, },
       ],
     },
 

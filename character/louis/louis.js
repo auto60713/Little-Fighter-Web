@@ -7,7 +7,7 @@ lf2.character.Louis = {
     },
     walkingSpeed: 4,
     jumpPower: 4.5,
-    HP: 500,
+    hp: 500,
   },
   frame: {
 

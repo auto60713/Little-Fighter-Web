@@ -51,12 +51,12 @@ lf2.preparebattleMode = () => {
     mirror: true,
   });
 
-  lf2.adjunction('UI', 'protagHPbar');
-  lf2.adjunction('UI', 'protagHPbar', {
+  lf2.adjunction('UI', 'protaghpbar');
+  lf2.adjunction('UI', 'protaghpbar', {
     nowframe: 'standing2',
   });
 
-  lf2.mainHpbar2 = lf2.scenes.UI[0].setting;
+  lf2.mainhpbar2 = lf2.scenes.UI[0].setting;
 
 }
 
@@ -78,12 +78,12 @@ lf2.prepareshaoguanMode = () => {
     team: 0,
   });
 
-  lf2.adjunction('UI', 'protagHPbar');
-  lf2.adjunction('UI', 'protagHPbar', {
+  lf2.adjunction('UI', 'protaghpbar');
+  lf2.adjunction('UI', 'protaghpbar', {
     nowframe: 'standing2',
   });
 
-  lf2.mainHpbar2 = lf2.scenes.UI[0].setting;
+  lf2.mainhpbar2 = lf2.scenes.UI[0].setting;
 
   lf2.shaoguanBorn();
 }

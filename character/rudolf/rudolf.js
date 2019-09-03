@@ -6,7 +6,7 @@ lf2.character.Rudolf = {
       '2': { deputy: 'png', w: 150, h: 88 },
       '3': { deputy: 'png', w: 95, h: 65 },
     },
-    HP: 500,
+    hp: 500,
   },
   frame: {
 

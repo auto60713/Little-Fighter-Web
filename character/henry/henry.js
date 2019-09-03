@@ -5,7 +5,7 @@ lf2.character.Henry = {
       '1': { deputy: 'png', w: 80, h: 80 },
       '2': { deputy: 'png', w: 80, h: 80 },
     },
-    HP: 500,
+    hp: 500,
   },
   frame: {
 

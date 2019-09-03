@@ -100,7 +100,7 @@ lf2.undergroundInformation = (type, name, template) => {
 
       nowframe: 'standing',
       nowwait: template.frame['standing'].wait * lf2.waitMagnification,
-      nowHP: template.setting.HP,
+      nowhp: template.setting.hp,
 
       ySpeed: 0,
       xSpeed: 0,

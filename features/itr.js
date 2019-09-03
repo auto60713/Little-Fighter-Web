@@ -47,8 +47,8 @@ lf2.collisionDetection = (setting, frame, type, thing) => {
                   else effect = 'falling';
 
                 }
-                setting.nowHP -= detFrame.itr.injury;
-                if (setting.nowHP > setting.HP) setting.nowHP = setting.HP;
+                setting.nowhp -= detFrame.itr.injury;
+                if (setting.nowhp > setting.hp) setting.nowhp = setting.hp;
                 throw false;
               }
 

@@ -56,31 +56,31 @@ lf2.UI.p2 = {
 };
 
 // 1P血條
-lf2.UI.protagHPbar = {
+lf2.UI.protaghpbar = {
   setting: {
     file: {
-      'protagHPbarVal': { deputy: 'png', w: 820, h: 258 },
-      'protagHPbarArmor': { deputy: 'png', w: 820, h: 258 },
+      'protaghpbarVal': { deputy: 'png', w: 820, h: 258 },
+      'protaghpbarArmor': { deputy: 'png', w: 820, h: 258 },
     },
     fixedPosition: [100, 100],
   },
   frame: {
-    'standing': { next: 'standing', pic: ['protagHPbarVal', 0, 0], center: [410, 129], wait: 100, },
-    'standing2': { next: 'standing2', pic: ['protagHPbarArmor', 0, 0], center: [410, 129], wait: 100, },
+    'standing': { next: 'standing', pic: ['protaghpbarVal', 0, 0], center: [410, 129], wait: 100, },
+    'standing2': { next: 'standing2', pic: ['protaghpbarArmor', 0, 0], center: [410, 129], wait: 100, },
   }
 };
 
 // 2P血條
-lf2.UI.otherHPbar = {
+lf2.UI.otherhpbar = {
   setting: {
     file: {
-      'otherHPbarTank': { deputy: 'png', w: 70, h: 5 },
-      'otherHPbarVal': { deputy: 'png', w: 70, h: 5 },
+      'otherhpbarTank': { deputy: 'png', w: 70, h: 5 },
+      'otherhpbarVal': { deputy: 'png', w: 70, h: 5 },
     },
   },
   frame: {
-    'standing': { next: 'standing', pic: ['otherHPbarTank', 0, 0], center: [35, 2], wait: 100, },
-    'standing2': { next: 'standing2', pic: ['otherHPbarVal', 0, 0], center: [35, 2], wait: 100, },
+    'standing': { next: 'standing', pic: ['otherhpbarTank', 0, 0], center: [35, 2], wait: 100, },
+    'standing2': { next: 'standing2', pic: ['otherhpbarVal', 0, 0], center: [35, 2], wait: 100, },
   }
 };
 
