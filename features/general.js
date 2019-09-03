@@ -91,7 +91,7 @@ lf2.gotoFrame = (thing, setting, type, next) => {
     setting.hitHold = '-';
 
     // 副本敵人死亡消失
-    if (lf2.state == 'shaoguanMode' && setting.nowHP <= 0) {
+    if (lf2.state == 'shaoguanMode' && setting.nowHP <= 0 && setting.nowframe == 'lyingDown') {
       setting.destroy = true;
       lf2.enemyClear++;
     }
@@ -115,6 +115,13 @@ lf2.counter = (setting, frame, type, thing) => {
 
   // 幀等待
   setting.nowwait--;
+
+  if (lf2.state == 'shaoguanMode') {
+    if (lf2.enemyClear == lf2.enemyClearGoal){
+      lf2.enemyBorn();
+      console.log(8);
+    } 
+  }
 
   // 循環動作
   if (setting.timeToGo[0] > 0) setting.timeToGo[0]--;
@@ -162,6 +169,8 @@ lf2.location = (setting, frame, type, thing) => {
     lf2.updateLocation(setting, type, [setting.xSpeed, setting.ySpeed], false)
   }
 
+  if (lf2.passOnly(['battleMode', 'shaoguanMode'], ['character'], 'character'))
+    if (setting.y > lf2.mapLimit.y) setting.y = lf2.mapLimit.y;
 }
 
 // 更新物件位置

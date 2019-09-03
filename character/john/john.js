@@ -178,19 +178,19 @@ lf2.character.John = {
     },
 
     'falling': {
-      pic: ['0', 3, 0], wait: 3, next: 'falling2', move: [0, 0], center: [39, 79],
+      pic: ['0', 3, 0], wait: 3, next: 'falling2', move: [0, 0], center: [39, 79], drop: 'lyingDown',
       bdy: { x: 25, y: 25, w: 21, h: 20, },
     },
     'falling2': {
-      pic: ['0', 3, 1], wait: 3, next: 'falling3', move: [0, 0], center: [39, 79],
+      pic: ['0', 3, 1], wait: 3, next: 'falling3', move: [0, 0], center: [39, 79], drop: 'lyingDown',
       bdy: { x: 22, y: 20, w: 24, h: 23, },
     },
     'falling3': {
-      pic: ['0', 3, 2], wait: 3, next: 'falling4', move: [0, 0], center: [39, 79],
+      pic: ['0', 3, 2], wait: 3, next: 'falling4', move: [0, 0], center: [39, 79], drop: 'lyingDown',
       bdy: { x: 27, y: 22, w: 20, h: 18, },
     },
     'falling4': {
-      pic: ['0', 3, 3], wait: 3, next: 'falling4', move: [0, 0], center: [39, 79],
+      pic: ['0', 3, 3], wait: 3, next: 'falling4', move: [0, 0], center: [39, 79], drop: 'lyingDown',
       bdy: { x: 22, y: 30, w: 27, h: 21, },
     },
 

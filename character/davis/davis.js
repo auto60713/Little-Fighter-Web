@@ -134,12 +134,12 @@ lf2.character.Davis = {
     },
     'jump_attack4': {
       pic: ['1', 6, 5], wait: 3, next: 'jump_attack5', move: [0, 0], center: [25, 70],
-      itr: { x: 17, y: 37, w: 52, h: 17, move: [9, -5], arest: 15, injury: 60, },
+      itr: { x: 17, y: 37, w: 52, h: 17, move: [9, -5], effect: 'falling', arest: 15, injury: 60, },
       bdy: { x: 11, y: 2, w: 29, h: 63, },
     },
     'jump_attack5': {
       pic: ['1', 6, 6], wait: 1, next: 'jump_attack6', move: [0, 0], center: [25, 71],
-      itr: { x: 32, y: 40, w: 36, h: 16, move: [9, -5], arest: 15, injury: 60, },
+      itr: { x: 32, y: 40, w: 36, h: 16, move: [9, -5], effect: 'falling', arest: 15, injury: 60, },
       bdy: { x: 11, y: 5, w: 28, h: 63, },
     },
     'jump_attack6': {
@@ -192,12 +192,12 @@ lf2.character.Davis = {
     },
     'dash_attack4': {
       pic: ['1', 6, 5], wait: 7, next: 'dash_attack5', move: [0, 0], center: [25, 70],
-      itr: { x: 17, y: 37, w: 52, h: 17, move: [14, -5], arest: 9, injury: 80, },
+      itr: { x: 17, y: 37, w: 52, h: 17, move: [14, -5], arest: 9, injury: 80, effect: 'falling', },
       bdy: { x: 11, y: 2, w: 29, h: 63, },
     },
     'dash_attack5': {
       pic: ['1', 6, 6], wait: 1, next: 'dash_attack6', move: [0, 0], center: [25, 71],
-      itr: { x: 32, y: 40, w: 36, h: 16, move: [14, -5], arest: 9, injury: 80, },
+      itr: { x: 32, y: 40, w: 36, h: 16, move: [14, -5], arest: 9, injury: 80, effect: 'falling', },
       bdy: { x: 11, y: 5, w: 28, h: 63, },
     },
     'dash_attack6': {
