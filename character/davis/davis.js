@@ -1,12 +1,10 @@
 lf2.character.Davis = {
   setting: {
-    name: 'Davis',
     file: {
       '0': { deputy: 'png', w: 80, h: 80 },
       '1': { deputy: 'png', w: 80, h: 80 },
       '2': { deputy: 'png', w: 80, h: 80 },
     },
-    scale: 1,
     HP: 500,
   },
   frame: {
@@ -466,11 +464,9 @@ lf2.character.Davis = {
 
 lf2.derivative.Davis = {
   setting: {
-    name: 'Davis',
     file: {
       'ball': { deputy: 'png', w: 82, h: 47 },
     },
-    scale: 1,
   },
   frame: {
 

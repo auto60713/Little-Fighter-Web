@@ -1,6 +1,5 @@
 lf2.map.gw = {
   setting: {
-    name: 'gw',
     file: {
     
     },

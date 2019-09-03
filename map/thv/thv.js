@@ -1,6 +1,5 @@
 lf2.map.thv = {
   setting: {
-    name: 'thv',
     file: {
   
     },

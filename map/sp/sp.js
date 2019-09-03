@@ -1,6 +1,5 @@
 lf2.map.sp = {
   setting: {
-    name: 'sp',
     file: {
      
     },

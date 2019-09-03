@@ -36,9 +36,7 @@ lf2.portraitUI = (type, name, template) => {
   if (type == 'character') {
     lf2.UI[name] = {
       setting: {
-        name: name,
         file: { 'face': { deputy: 'png', w: 100, h: 100 }, },
-        scale: 1,
       },
       frame: { 'standing': { next: 999, pic: ['face', 0, 0], center: [0, 0], wait: 100, }, }
     };
@@ -46,9 +44,7 @@ lf2.portraitUI = (type, name, template) => {
   else if (type == 'map') {
     lf2.UI[name] = {
       setting: {
-        name: name,
         file: { 'mapface': { deputy: 'png', w: 200, h: 150 }, },
-        scale: 1,
       },
       frame: { 'standing': { next: 999, pic: ['mapface', 0, 0], center: [0, 0], wait: 100, }, }
     };
@@ -56,9 +52,7 @@ lf2.portraitUI = (type, name, template) => {
   else if (type == 'shaoguan') {
     lf2.UI[name] = {
       setting: {
-        name: name,
         file: { 'shaoguanface': { deputy: 'png', w: 200, h: 150 }, },
-        scale: 1,
       },
       frame: { 'standing': { next: 999, pic: ['shaoguanface', 0, 0], center: [0, 0], wait: 100, }, }
     };
@@ -147,14 +141,10 @@ lf2.mapTransform = (type, name, template) => {
       element.xSpeed = 0;
       element.timeToGo = [0, null];
 
-      if (element.repeat) {
-        // 從該屬性的初始值開始
-        const start = element[element.repeat.attr];
-
-        // 每一次加上repeat.numer
-        for (let i = 0; i < element.repeat.times; i++) {
+      if (element.loop) {
+        for (let i = 0; i < element.loop[1]; i++) {
           var clone = JSON.parse(JSON.stringify(element));
-          clone[clone.repeat.attr] = start + (clone.repeat.numer * i);
+          clone.x = element.x + (element.loop[0] * i);
           decorate.push(clone);
         }
       }

@@ -1,12 +1,10 @@
 lf2.character.Deep = {
   setting: {
-    name: 'Deep',
     file: {
       '0': { deputy: 'png', w: 80, h: 80 },
       '1': { deputy: 'png', w: 80, h: 80 },
       '2': { deputy: 'png', w: 80, h: 80 },
     },
-    scale: 1,
     HP: 500,
   },
   frame: {
@@ -565,11 +563,9 @@ lf2.character.Deep = {
 
 lf2.derivative.Deep = {
   setting: {
-    name: 'Deep',
     file: {
       'ball': { deputy: 'png', w: 82, h: 83 },
     },
-    scale: 1,
   },
   frame: {
 

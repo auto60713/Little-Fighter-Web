@@ -1,15 +1,11 @@
 lf2.character.John = {
   setting: {
-    name: 'John',
     file: {
       '0': { deputy: 'png', w: 80, h: 80 },
       '1': { deputy: 'png', w: 80, h: 80 },
       '2': { deputy: 'png', w: 80, h: 80 },
       '3': { deputy: 'png', w: 110, h: 110 },
     },
-    walkingSpeed: 4,
-    jumpPower: 4.5,
-    scale: 1,
     HP: 500,
   },
   frame: {
@@ -387,11 +383,9 @@ lf2.character.John = {
 
 lf2.derivative.John = {
   setting: {
-    name: 'John',
     file: {
       'ball': { deputy: 'png', w: 82, h: 83 },
     },
-    scale: 1,
   },
   frame: {
 

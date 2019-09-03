@@ -1,6 +1,5 @@
 lf2.map.ft = {
   setting: {
-    name: 'ft',
     file: {
  
     },

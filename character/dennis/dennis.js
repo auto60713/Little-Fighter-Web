@@ -1,12 +1,10 @@
 lf2.character.Dennis = {
   setting: {
-    name: 'Dennis',
     file: {
       '0': { deputy: 'png', w: 80, h: 80 },
       '1': { deputy: 'png', w: 80, h: 80 },
       '2': { deputy: 'png', w: 80, h: 80 },
     },
-    scale: 1,
     HP: 500,
   },
   frame: {

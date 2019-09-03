@@ -3,7 +3,6 @@
 lf2.draw = (setting, frame, type, thing) => {
 
   var file = type == 'map' ? thing.setting.file[frame.pic[0]] : setting.file[frame.pic[0]];
-  // FIXME: 有計畫將name拿掉 直接是類別名稱
   var name = type == 'map' ? thing.setting.name : setting.name;
   var image = lf2.imageCenter[name + '_' + frame.pic[0]];
   var sx = frame.pic[2] * file.w;
@@ -15,16 +14,16 @@ lf2.draw = (setting, frame, type, thing) => {
   var dWidth = sWidth;
   var dHeight = sHeight;
 
-  var scale = setting.scale;
 
-  var ct = [frame.center[0] * scale, frame.center[1] * scale];
+
+  var ct = type == 'map' ? [0, 0] : [frame.center[0], frame.center[1]];
 
   var m = setting.mirror ? -1 : 1;
   var asd = setting.mirror ? sWidth : 0;
 
   lf2.ctx.save();
-  lf2.ctx.scale(m * scale, 1 * scale);
-  lf2.ctx.drawImage(image, sx, sy, sWidth, sHeight, ((dx * m) - ct[0] + asd) / scale, (dy - ct[1]) / scale, dWidth * m, dHeight);
+  lf2.ctx.scale(m, 1);
+  lf2.ctx.drawImage(image, sx, sy, sWidth, sHeight, (dx * m) - ct[0] + asd, dy - ct[1], dWidth * m, dHeight);
   lf2.ctx.restore();
 }
 

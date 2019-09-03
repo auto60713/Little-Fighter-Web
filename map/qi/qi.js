@@ -1,6 +1,5 @@
 lf2.map.qi = {
   setting: {
-    name: 'qi',
     file: {
     
     },

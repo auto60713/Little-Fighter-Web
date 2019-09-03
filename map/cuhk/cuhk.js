@@ -1,6 +1,5 @@
 lf2.map.cuhk = {
   setting: {
-    name: 'cuhk',
     file: {
      
     },

@@ -1,12 +1,10 @@
 lf2.character.Henry = {
   setting: {
-    name: 'Henry',
     file: {
       '0': { deputy: 'png', w: 80, h: 80 },
       '1': { deputy: 'png', w: 80, h: 80 },
       '2': { deputy: 'png', w: 80, h: 80 },
     },
-    scale: 1,
     HP: 500,
   },
   frame: {
@@ -379,12 +377,10 @@ lf2.character.Henry = {
 
 lf2.derivative.Henry = {
   setting: {
-    name: 'Henry',
     file: {
       'arrow': { deputy: 'png', w: 49, h: 49 },
       'arrow2': { deputy: 'png', w: 49, h: 48 },
     },
-    scale: 1,
   },
   frame: {
 

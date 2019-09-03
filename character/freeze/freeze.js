@@ -1,12 +1,10 @@
 lf2.character.Freeze = {
   setting: {
-    name: 'Freeze',
     file: {
       '0': { deputy: 'png', w: 80, h: 80 },
       '1': { deputy: 'png', w: 80, h: 80 },
       '2': { deputy: 'png', w: 80, h: 80 },
     },
-    scale: 1,
     HP: 500,
   },
   frame: {
@@ -373,13 +371,11 @@ lf2.character.Freeze = {
 
 lf2.derivative.Freeze = {
   setting: {
-    name: 'Freeze',
     file: {
       'ball': { deputy: 'png', w: 82, h: 83 },
       'col': { deputy: 'png', w: 110, h: 110 },
       'ww': { deputy: 'png', w: 160, h: 160 },
     },
-    scale: 1,
   },
   frame: {
 

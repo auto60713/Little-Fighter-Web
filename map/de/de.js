@@ -1,6 +1,5 @@
 lf2.map.de = {
   setting: {
-    name: 'de',
     file: {
       'g1': { src: 'map/de/g1.png', w: 69, h: 69 },
       'g2': { src: 'map/de/g2.png', w: 69, h: 69 },
@@ -17,7 +16,7 @@ lf2.map.de = {
   },
   // 擺設 (相當於人物的setting)
   decorate: [
-    { component: 'g1', scale: 1, x: 0, y: 400, repeat: { attr: 'x', numer: 69, times: 20, }, },
+    { component: 'g1', x: 0, y: 400, repeat: { attr: 'x', numer: 69, times: 20, }, },
   ],
 }
 

@@ -287,6 +287,7 @@ lf2.paintedAtFoot = (x, y, name, f = 'standing', w) => {
 
   var setting = template.setting;
   var frame = template.frame[f];
+  setting.name = name;
   setting.x = x;
   setting.y = lf2.mapLimit.y + y;
 

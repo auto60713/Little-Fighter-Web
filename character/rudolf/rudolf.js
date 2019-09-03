@@ -1,13 +1,11 @@
 lf2.character.Rudolf = {
   setting: {
-    name: 'Rudolf',
     file: {
       '0': { deputy: 'png', w: 80, h: 80 },
       '1': { deputy: 'png', w: 80, h: 80 },
       '2': { deputy: 'png', w: 150, h: 88 },
       '3': { deputy: 'png', w: 95, h: 65 },
     },
-    scale: 1,
     HP: 500,
   },
   frame: {
@@ -405,11 +403,9 @@ lf2.character.Rudolf = {
 
 lf2.derivative.Rudolf = {
   setting: {
-    name: 'Rudolf',
     file: {
       'weapon': { deputy: 'png', w: 49, h: 49 },
     },
-    scale: 1,
   },
   frame: {
 
