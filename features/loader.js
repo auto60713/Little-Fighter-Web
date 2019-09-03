@@ -17,7 +17,7 @@ lf2.loader = () => {
       lf2.fileManager(type, name, template);
 
       // 填入背景資訊(不需要特別設定的)
-      lf2.undergroundInformation(type, name, template);
+      lf2.undergroundInformation(type, template);
 
       // 轉換地圖腳本的設定
       lf2.mapTransform(type, name, template);
@@ -32,20 +32,20 @@ lf2.loader = () => {
   document.addEventListener('keydown', lf2.logKey);
 }
 
-
+// 將每個角色/地圖的頭像匯入UI
 lf2.portraitUI = (type, name) => {
   if (!lf2.passOnly(['all'], ['character', 'map', 'shaoguan'], type)) return;
 
-  var nnn = type == 'character' ? 'face' : `${type}face`;
+  var whichFace = type == 'character' ? 'face' : `${type}face`;
 
   lf2.UI[name] = {
     setting: { file: {} },
-    frame: { 'standing': { next: 'standing', pic: [nnn, 0, 0], center: [0, 0], wait: 100, }, }
+    frame: { 'standing': { next: 'standing', pic: [whichFace, 0, 0], center: [0, 0], wait: 100, }, }
   };
-  lf2.UI[name].setting.file[nnn] = { deputy: 'png', w: 200, h: 150 };
-
+  lf2.UI[name].setting.file[whichFace] = { deputy: 'png', w: 200, h: 150 };
 }
 
+// 根據路徑將圖檔匯入圖檔中心
 lf2.fileManager = (type, name, template) => {
 
   if (template.setting.file)
@@ -53,11 +53,11 @@ lf2.fileManager = (type, name, template) => {
 
       var file = template.setting.file[key];
       var img = new Image();
-
       lf2.imageNum++;
 
       img.onload = function () {
         lf2.imageOnload++;
+        // 載入完成
         if (lf2.imageOnload == lf2.imageNum) {
           lf2.sceneSwitching('entrance');
           lf2.eachFrame();
@@ -74,11 +74,12 @@ lf2.fileManager = (type, name, template) => {
       else if (type == 'derivative') img.src = `character/${name}/${key}.${file.deputy}`;
       else img.src = `${type}/${name}/${key}.${file.deputy}`;
 
-      lf2.imageCenter[name + '_' + key] = img;
+      lf2.imageCenter[`${name}_${key}`] = img;
     });
 }
 
-lf2.undergroundInformation = (type, name, template) => {
+// 填入背景資訊(不需要特別設定的)
+lf2.undergroundInformation = (type, template) => {
   if (type !== 'map' && type !== 'shaoguan') {
 
     const data = {

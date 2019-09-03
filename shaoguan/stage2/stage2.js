@@ -1,7 +1,6 @@
 lf2.shaoguan.stage2 = {
   setting: {
     initmap: 'de',
-    file:{},
   },
   part: {
 
