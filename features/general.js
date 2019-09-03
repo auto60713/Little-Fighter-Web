@@ -23,9 +23,9 @@ lf2.variousChangesFrame = (setting, frame, type, thing) => {
     lf2.gotoFrame(thing, setting, type, skill);
   }
   // 循環到期換動作 (通常為衍生物)
-  else if (setting.timeToGo[1] && setting.timeToGo[0] <= 0) {
+  else if (setting.timeToGo && setting.timeToGo[0] <= 0) {
     lf2.gotoFrame(thing, setting, type, setting.timeToGo[1]);
-    setting.timeToGo[1] = null;
+    setting.timeToGo = null;
   }
   // 被抓換動作
   else if (setting.catching) {
@@ -123,9 +123,9 @@ lf2.counter = (setting, frame, type, thing) => {
   }
 
   // 循環動作
-  if (setting.timeToGo[0] > 0) setting.timeToGo[0]--;
+  if (setting.timeToGo) setting.timeToGo[0]--;
 
-  if (frame.timeToGo && !setting.timeToGo[1]) {
+  if (frame.timeToGo && !setting.timeToGo) {
     setting.timeToGo = frame.timeToGo;
   }
 
