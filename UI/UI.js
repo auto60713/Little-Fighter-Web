@@ -1,5 +1,4 @@
 
-
 // LOGO
 lf2.UI.logo = {
   setting: {
@@ -14,7 +13,7 @@ lf2.UI.logo = {
 // 開始按鈕
 lf2.UI.startgame = {
   setting: {
-    file: { 'start': { deputy: 'png', w: 227, h: 74 }, },
+    file: { 'startgame': { deputy: 'png', w: 227, h: 74 }, },
     fixedPosition: [400, 400],
   },
   frame: {
@@ -23,15 +22,13 @@ lf2.UI.startgame = {
 };
 
 
-
-
 // 影子
 lf2.UI.shadow = {
   setting: {
-    file: { 's': { deputy: 'bmp', w: 37, h: 9 }, },
+    file: { 'shadow': { deputy: 'bmp', w: 37, h: 9 }, },
   },
   frame: {
-    'standing': { next: 'standing', pic: ['s', 0, 0], center: [18, 4], wait: 100, },
+    'standing': { next: 'standing', pic: ['shadow', 0, 0], center: [18, 4], wait: 100, },
   }
 };
 
