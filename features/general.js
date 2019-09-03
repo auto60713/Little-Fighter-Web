@@ -117,9 +117,9 @@ lf2.counter = (setting, frame, type, thing) => {
   setting.nowwait--;
 
   if (lf2.state == 'shaoguanMode') {
-    if (lf2.enemyClear == lf2.enemyClearGoal){
+    if (lf2.enemyClear == lf2.enemyClearGoal) {
       lf2.enemyBorn();
-    } 
+    }
   }
 
   // 循環動作
@@ -245,8 +245,13 @@ lf2.SomeThingsFollowTheRole = (setting, frame, type, thing) => {
 
     // 其他人
     else {
+      // 在畫面外提示
+      var xxx;
+      if (setting.x > lf2.cameraPos[0] + 800) xxx = lf2.cameraPos[0] + 800 - 20;
+      else if (setting.x < lf2.cameraPos[0]) xxx = lf2.cameraPos[0] + 20;
+      else xxx = setting.x;
       // 身份
-      lf2.paintedAtFoot(setting.x, 10, 'p2');
+      lf2.paintedAtFoot(xxx, 10, 'p2');
 
       // 血條
       var pp = setting.nowHP / setting.HP;
