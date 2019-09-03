@@ -330,6 +330,7 @@ lf2.findScenesIndex = (index) => {
 
 // 找frame
 lf2.theFrame = (type, thing, setting, frameName) => {
+
   return type === 'map' ? thing.component[setting.component][frameName] : thing.frame[frameName];
 }
 

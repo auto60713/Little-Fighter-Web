@@ -25,10 +25,8 @@ lf2.loader = () => {
     });
   });
 
-  const canvas = document.getElementById('canvas');
-  const ctx = canvas.getContext('2d');
-  lf2.canvas = canvas;
-  lf2.ctx = ctx;
+  lf2.canvas = document.getElementById('canvas');
+  lf2.ctx = lf2.canvas.getContext('2d');
 
   document.addEventListener('keyup', lf2.logKey);
   document.addEventListener('keydown', lf2.logKey);
@@ -36,30 +34,16 @@ lf2.loader = () => {
 
 
 lf2.portraitUI = (type, name) => {
-  if (type == 'character') {
-    lf2.UI[name] = {
-      setting: {
-        file: { 'face': { deputy: 'png', w: 100, h: 100 }, },
-      },
-      frame: { 'standing': { next: 999, pic: ['face', 0, 0], center: [0, 0], wait: 100, }, }
-    };
-  }
-  else if (type == 'map') {
-    lf2.UI[name] = {
-      setting: {
-        file: { 'mapface': { deputy: 'png', w: 200, h: 150 }, },
-      },
-      frame: { 'standing': { next: 999, pic: ['mapface', 0, 0], center: [0, 0], wait: 100, }, }
-    };
-  }
-  else if (type == 'shaoguan') {
-    lf2.UI[name] = {
-      setting: {
-        file: { 'shaoguanface': { deputy: 'png', w: 200, h: 150 }, },
-      },
-      frame: { 'standing': { next: 999, pic: ['shaoguanface', 0, 0], center: [0, 0], wait: 100, }, }
-    };
-  }
+  if (!lf2.passOnly(['all'], ['character', 'map', 'shaoguan'], type)) return;
+
+  var nnn = type == 'character' ? 'face' : `${type}face`;
+
+  lf2.UI[name] = {
+    setting: { file: {} },
+    frame: { 'standing': { next: 'standing', pic: [nnn, 0, 0], center: [0, 0], wait: 100, }, }
+  };
+  lf2.UI[name].setting.file[nnn] = { deputy: 'png', w: 200, h: 150 };
+
 }
 
 lf2.fileManager = (type, name, template) => {
@@ -84,9 +68,7 @@ lf2.fileManager = (type, name, template) => {
       if (type == 'UI') {
         if (key == 'face') img.src = `character/${name}/${key}.${file.deputy}`;
         else if (key == 'mapface') img.src = `map/${name}/${key}.${file.deputy}`;
-        else if (key == 'shaoguanface') {
-          img.src = `shaoguan/${name}/${key}.${file.deputy}`;
-        }
+        else if (key == 'shaoguanface') img.src = `shaoguan/${name}/${key}.${file.deputy}`;
         else img.src = `${type}/${key}.${file.deputy}`;
       }
       else if (type == 'derivative') img.src = `character/${name}/${key}.${file.deputy}`;
