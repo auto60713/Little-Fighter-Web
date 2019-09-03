@@ -8,12 +8,11 @@ lf2.physical = (setting, frame, type, thing) => {
     var enemy = lf2.findScenesIndex(setting.catching);
     var enemyFrame = enemy.frame[enemy.setting.nowframe];
     setting.mirror = enemy.setting.mirror;
-    var m = enemy.setting.mirror ? -1 : 1;
     if (enemyFrame.cpoint) {
       // FIXME: 與衍生物相同 if (setting.catching)相同
       var rect = lf2.whereAmI(enemy.setting, enemyFrame.center, enemyFrame.cpoint);
 
-      // var asd = enemy.setting.mirror ? (enemy.setting.file[enemyFrame.pic[0]].w) : 0;
+      // var asd = enemy.setting.mirror<0 ? (enemy.setting.file[enemyFrame.pic[0]].w) : 0;
       lf2.updateLocation(
         setting,
         type,
@@ -21,9 +20,7 @@ lf2.physical = (setting, frame, type, thing) => {
         true
       );
       if (enemyFrame.cpoint.move) {
-        const m = enemy.setting.mirror ? -1 : 1;
-        const m2 = setting.mirror ? -1 : 1;
-        lf2.updateSpeed(setting, [enemyFrame.cpoint.move[0], enemyFrame.cpoint.move[1]], m * m2);
+        lf2.updateSpeed(setting, [enemyFrame.cpoint.move[0], enemyFrame.cpoint.move[1]], enemy.setting.mirror * setting.mirror);
       }
     }
     // 鬆開
@@ -69,8 +66,7 @@ lf2.move = (setting, frame, type, thing) => {
 
     // move加速度
     if (frame.move) {
-      var m = setting.mirror ? -1 : 1;
-      lf2.updateSpeed(setting, frame.move, m);
+      lf2.updateSpeed(setting, frame.move, setting.mirror);
     }
   }
   // 滯空偵測

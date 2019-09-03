@@ -14,16 +14,13 @@ lf2.draw = (setting, frame, type, thing) => {
   var dWidth = sWidth;
   var dHeight = sHeight;
 
-
-
   var ct = type == 'map' ? [0, 0] : [frame.center[0], frame.center[1]];
 
-  var m = setting.mirror ? -1 : 1;
-  var asd = setting.mirror ? sWidth : 0;
+  var asd = setting.mirror < 0 ? sWidth : 0;
 
   lf2.ctx.save();
-  lf2.ctx.scale(m, 1);
-  lf2.ctx.drawImage(image, sx, sy, sWidth, sHeight, (dx * m) - ct[0] + asd, dy - ct[1], dWidth * m, dHeight);
+  lf2.ctx.scale(setting.mirror, 1);
+  lf2.ctx.drawImage(image, sx, sy, sWidth, sHeight, (dx * setting.mirror) - ct[0] + asd, dy - ct[1], dWidth * setting.mirror, dHeight);
   lf2.ctx.restore();
 }
 

@@ -52,7 +52,7 @@ lf2.enemyBorn = () => {
         x: e.x,
         y: lf2.mapLimit.y,
         team: 1,
-        mirror: true,
+        mirror: -1,
       });
     });
   }

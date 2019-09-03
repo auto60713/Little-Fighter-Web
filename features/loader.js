@@ -91,7 +91,7 @@ lf2.undergroundInformation = (type, name, template) => {
       xSpeed: 0,
 
       inSky: false,
-      mirror: false,
+      mirror: 1,
       keyReaction: [],
       hitHold: '-',
 
@@ -123,6 +123,7 @@ lf2.mapTransform = (type, name, template) => {
       element.nowwait = 0;
       element.ySpeed = 0;
       element.xSpeed = 0;
+      element.mirror = 1;
 
       if (element.loop) {
         for (let i = 0; i < element.loop[1]; i++) {

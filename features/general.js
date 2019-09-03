@@ -80,7 +80,7 @@ lf2.gotoFrame = (thing, setting, type, next) => {
 
   // next翻轉
   if (next < 0) {
-    setting.mirror = !setting.mirror;
+    setting.mirror = setting.mirror * -1;
     next = next * -1;
   }
 
@@ -150,8 +150,8 @@ lf2.counter = (setting, frame, type, thing) => {
 
     // 翻轉允許
     if (frame.flip) {
-      if (setting.keypress['R']) setting.mirror = false;
-      else if (setting.keypress['L']) setting.mirror = true;
+      if (setting.keypress['R']) setting.mirror = 1;
+      else if (setting.keypress['L']) setting.mirror = -1;
     }
   }
 
@@ -274,8 +274,7 @@ lf2.location = (setting, frame, type) => {
   }
   // 如果使用瞬間移動
   else if (frame.teleport) {
-    var m = setting.mirror ? -1 : 1;
-    lf2.updateLocation(setting, type, [lf2.findEnemyX(setting) - (100 * m), setting.y = lf2.mapLimit.y], true)
+    lf2.updateLocation(setting, type, [lf2.findEnemyX(setting) - (100 * setting.mirror), setting.y = lf2.mapLimit.y], true)
   }
   // 根據目前速度移動物件
   else {
@@ -326,10 +325,9 @@ lf2.mapDetection = (setting, type) => {
 
 // 我到底在哪
 lf2.whereAmI = (setting, center, item) => {
-  var m = setting.mirror ? -1 : 1;
-  var anchorPoint = setting.mirror ? (item.w || 0) : 0;
+  var anchorPoint = setting.mirror < 0 ? (item.w || 0) : 0;
   return {
-    x: setting.x - (center[0] * m) + (item.x * m) - anchorPoint,
+    x: setting.x - (center[0] * setting.mirror) + (item.x * setting.mirror) - anchorPoint,
     y: setting.y - center[1] + item.y,
     w: item.w,
     h: item.h,

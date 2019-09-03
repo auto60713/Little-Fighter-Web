@@ -38,11 +38,10 @@ lf2.collisionDetection = (setting, frame, type, thing) => {
 
                   // 對稱擊飛
                   let m3 = (detFrame.itr.symmetry && rect1.x + (rect1.w / 2) < rect2.x + (rect2.w / 2)) ? -1 : 1;
-                  let m2 = det.setting.mirror ? -1 : 1;
 
                   if (type == 'character') {
                     effect = detFrame.itr.effect;
-                    lf2.updateSpeed(setting, detFrame.itr.move, m2 * m3);
+                    lf2.updateSpeed(setting, detFrame.itr.move, det.setting.mirror * m3);
                   }
                   else effect = 'falling';
 

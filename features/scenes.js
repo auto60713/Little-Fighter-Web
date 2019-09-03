@@ -48,7 +48,7 @@ lf2.preparebattleMode = () => {
     x: 600,
     y: lf2.mapLimit.y,
     team: 1,
-    mirror: true,
+    mirror: -1,
   });
 
   lf2.adjunction('UI', 'protaghpbar');
