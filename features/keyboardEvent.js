@@ -27,7 +27,7 @@ lf2.logKey = (e) => {
 
   const pressing = (window.event || e).type === 'keydown';
 
-  if (lf2.state == 'battleMode') {
+  if (lf2.passOnly(['battleMode', 'shaoguanMode'], ['character'], 'character')) {
     // P1
     if (lf2.keymap[e.code]) lf2.operatingCharacter(lf2.scenes.character[0].setting, pressing, lf2.keymap[e.code]);
     // P2
@@ -68,7 +68,7 @@ lf2.sceneKeyEvent = (keyname) => {
     // 選擇模式
     case 'modeSelection':
       lf2.xxxxx(keyname, 'entrance', 'roleSelection');
-      
+
       if (keyname == 'R') ddd('mode', 1);
       else if (keyname == 'L') ddd('mode', -1);
       break;
@@ -86,7 +86,7 @@ lf2.sceneKeyEvent = (keyname) => {
       lf2.xxxxx(keyname, 'roleSelection', 'battleMode');
 
       if (keyname == 'R') ddd('map', 1);
-      else if (keyname == 'L') ddd('map', 1);
+      else if (keyname == 'L') ddd('map', -1);
       break;
     // 格鬥模式
     case 'battleMode':
@@ -103,17 +103,24 @@ lf2.sceneKeyEvent = (keyname) => {
       }
       break;
 
-
-
     // 選擇副本
     case 'shaoguanSelection':
       lf2.xxxxx(keyname, 'roleSelection', 'shaoguanMode');
 
       if (keyname == 'R') ddd('shaoguan', 1);
-      else if (keyname == 'L') ddd('shaoguan', 1);
+      else if (keyname == 'L') ddd('shaoguan', -1);
       break;
     // 闖關模式
     case 'shaoguanMode':
+      if (keyname == 'B1') {
+        if (lf2.gameOver < 0) {
+          lf2.sceneSwitching('roleSelection');
+          lf2.gameOver = null;
+        }
+      }
+      else if (keyname == 'pause') {
+        lf2.pause = !lf2.pause;
+      }
       break;
   }
 

@@ -36,9 +36,6 @@ lf2.preparebattleMode = () => {
   // 地圖
   lf2.adjunction('map', Object.keys(lf2.map)[lf2.mapIndex]);
 
-  lf2.mapLimit = lf2.scenes.map[0].setting.limit;
-  lf2.canvas.style.backgroundColor = lf2.scenes.map[0].setting.backgroundColor;
-
   // 主角(即第一個加入的角色)
   lf2.adjunction('character', Object.keys(lf2.character)[lf2.characterIndex], {
     x: 100,
@@ -69,27 +66,16 @@ lf2.prepareshaoguanSelection = () => {
 }
 
 // 準備闖關模式的東西
-lf2.prepareshaoguanMode = (stagename) => {
+lf2.prepareshaoguanMode = () => {
 
   // 地圖
   lf2.adjunction('map', Object.keys(lf2.map)[1]);
-
-  lf2.mapLimit = lf2.scenes.map[0].setting.limit;
-  lf2.canvas.style.backgroundColor = lf2.scenes.map[0].setting.backgroundColor;
 
   // 主角(即第一個加入的角色)
   lf2.adjunction('character', Object.keys(lf2.character)[lf2.characterIndex], {
     x: 100,
     y: lf2.mapLimit.y,
     team: 0,
-  });
-
-  // 另一個角色
-  lf2.adjunction('character', 'Davis', {
-    x: 600,
-    y: lf2.mapLimit.y,
-    team: 1,
-    mirror: true,
   });
 
   lf2.adjunction('UI', 'protagHPbar');
@@ -99,8 +85,7 @@ lf2.prepareshaoguanMode = (stagename) => {
 
   lf2.mainHpbar2 = lf2.scenes.UI[0].setting;
 
-
-  // lf2.shaoguanBorn(stagename);
+  lf2.shaoguanBorn();
 }
 
 
@@ -120,6 +105,11 @@ lf2.adjunction = (type, name, data = {}) => {
   if (template.setting.fixedPosition) {
     template.setting.x = template.setting.fixedPosition[0];
     template.setting.y = template.setting.fixedPosition[1];
+  }
+
+  if (type == 'map') {
+    lf2.mapLimit = template.setting.limit;
+    lf2.canvas.style.backgroundColor = template.setting.backgroundColor;
   }
 
   lf2.scenes[type].push(template);

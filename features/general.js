@@ -89,6 +89,12 @@ lf2.gotoFrame = (thing, setting, type, next) => {
     else if (type == 'character' && setting.inSky) next = 'jumping';
     else next = 'standing';
     setting.hitHold = '-';
+
+    // 副本敵人死亡消失
+    if (lf2.state == 'shaoguanMode' && setting.nowHP <= 0) {
+      setting.destroy = true;
+      lf2.enemyClear++;
+    }
   }
   else if (next == 1000) {
     setting.destroy = true;
@@ -230,7 +236,7 @@ lf2.SomeThingsFollowTheRole = (setting, frame, type, thing) => {
     }
 
     // 其他人
-    else if (setting.scenesIndex == 2) {
+    else {
       // 身份
       lf2.paintedAtFoot(setting.x, 10, 'p2');
 
@@ -242,11 +248,21 @@ lf2.SomeThingsFollowTheRole = (setting, frame, type, thing) => {
       lf2.paintedAtFoot(setting.x, 20, 'otherHPbar', 'standing2', 70 * pp);
     }
 
-    // 遊戲結束
-    if (setting.nowHP <= 0 && lf2.gameOver == null) {
-      lf2.adjunction('UI', 'ko');
-      lf2.gameOver = 180;
+    switch (lf2.state) {
+      case 'battleMode':
+        // 遊戲結束
+        if (setting.nowHP <= 0 && lf2.gameOver == null) {
+          lf2.adjunction('UI', 'ko');
+          lf2.gameOver = 180;
+        }
+        break;
+      case 'shaoguanMode':
+        // if (setting.nowHP <= 0 && lf2.gameOver == null) {
+        //   setting.destroy = true;
+        // }
+        break;
     }
+
 
   }
 
