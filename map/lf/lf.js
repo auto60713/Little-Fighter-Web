@@ -12,15 +12,15 @@ lf2.map.lf = {
   component: {
     // 天空
     'forests': {
-      'standing': { next: 999, pic: ['forests', 0, 0], wait: 100, },
+      'standing': { next: 'standing', pic: ['forests', 0, 0], wait: 100, },
     },
     // 山
     'forestm1': {
-      'standing': { next: 999, pic: ['forestm1', 0, 0], wait: 100, },
+      'standing': { next: 'standing', pic: ['forestm1', 0, 0], wait: 100, },
     },
     // 樹
     'forestt': {
-      'standing': { next: 999, pic: ['forestt', 0, 0], wait: 100, },
+      'standing': { next: 'standing', pic: ['forestt', 0, 0], wait: 100, },
     },
   },
   // 擺設 (相當於人物的setting)

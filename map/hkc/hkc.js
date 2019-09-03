@@ -12,7 +12,7 @@ lf2.map.hkc = {
   component: {
     // 燈
     'back1': {
-      'standing': { next: 999, pic: ['back1', 0, 0], wait: 100, },
+      'standing': { next: 'standing', pic: ['back1', 0, 0], wait: 100, },
     },
     // 觀眾
     'back2': {

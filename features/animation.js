@@ -41,7 +41,7 @@ lf2.arrange = (type) => {
         lf2.physical(setting, frame, type, thing);
 
         // 物件位置
-        lf2.location(setting, frame, type, thing);
+        lf2.location(setting, frame, type);
 
         // 換動作
         lf2.variousChangesFrame(setting, frame, type, thing);

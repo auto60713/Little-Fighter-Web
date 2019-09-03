@@ -11,7 +11,7 @@ lf2.map.de = {
   // 物件 (相當於人物的frame)
   component: {
     'g1': {
-      'standing': { next: 999, pic: ['g1', 0, 0], center: [0, 0], wait: 1, },
+      'standing': { next: 'standing', pic: ['g1', 0, 0], center: [0, 0], wait: 1, },
     }
   },
   // 擺設 (相當於人物的setting)

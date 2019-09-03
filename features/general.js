@@ -84,10 +84,14 @@ lf2.gotoFrame = (thing, setting, type, next) => {
     next = next * -1;
   }
 
-  if (next == 999) {
-    if (type == 'character' && setting.nowhp <= 0) next = 'lyingDown';
-    else if (type == 'character' && setting.inSky) next = 'jumping';
+  // 除了type:character之外 其餘物件不得使用next:999
+  // 因為角色會因為狀況不同而切換動作 但其他物件都無此需求 請直接指定next:(動作)
+  if (next == 999 && type == 'character') {
+
+    if (setting.nowhp <= 0) next = 'lyingDown';
+    else if (setting.inSky) next = 'jumping';
     else next = 'standing';
+
     setting.hitHold = '-';
 
     // 副本敵人死亡消失
@@ -95,10 +99,11 @@ lf2.gotoFrame = (thing, setting, type, next) => {
       setting.destroy = true;
       lf2.enemyClear++;
     }
+
   }
   else if (next == 1000) {
     setting.destroy = true;
-    next = 'standing';
+    return;
   }
 
   var nextFrame = lf2.theFrame(type, thing, setting, next);
@@ -116,6 +121,7 @@ lf2.counter = (setting, frame, type, thing) => {
   // 幀等待
   setting.nowwait--;
 
+  // 副本模式 是否下一階段
   if (lf2.state == 'shaoguanMode') {
     if (lf2.enemyClear == lf2.enemyClearGoal) {
       lf2.enemyBorn();
@@ -151,53 +157,6 @@ lf2.counter = (setting, frame, type, thing) => {
 
 }
 
-// 物件位置
-lf2.location = (setting, frame, type, thing) => {
-
-  // 固定在畫面某處 (通常為UI)
-  if (setting.fixedPosition) {
-    lf2.updateLocation(setting, type, [lf2.cameraPos[0] + setting.fixedPosition[0], lf2.cameraPos[1] + setting.fixedPosition[1]], true)
-  }
-  // 如果使用瞬間移動
-  else if (frame.teleport) {
-    var m = setting.mirror ? -1 : 1;
-    lf2.updateLocation(setting, type, [lf2.findEnemyX(setting) - (100 * m), setting.y = lf2.mapLimit.y], true)
-  }
-  // 根據目前速度移動物件
-  else {
-    lf2.updateLocation(setting, type, [setting.xSpeed, setting.ySpeed], false)
-  }
-
-  if (lf2.passOnly(['battleMode', 'shaoguanMode'], ['character'], 'character'))
-    if (setting.y > lf2.mapLimit.y) setting.y = lf2.mapLimit.y;
-}
-
-// 更新物件位置
-lf2.updateLocation = (setting, type, speed, absolute) => {
-
-  if (absolute) {
-    setting.x = speed[0];
-    setting.y = speed[1];
-  } else {
-    // 邊界偵測
-    if (!lf2.mapDetection(setting, type)) setting.x += speed[0];
-    setting.y += speed[1];
-  }
-
-}
-
-// 邊界偵測
-lf2.mapDetection = (setting, type) => {
-  var limit = false;
-  if (type == 'derivative') {
-    if (setting.x < -200 || setting.x > lf2.mapLimit.x + 200) setting.destroy = true;
-  }
-  else if (type == 'character') {
-    if ((setting.x <= 0 && setting.xSpeed < 0) || (setting.x >= lf2.mapLimit.x && setting.xSpeed > 0)) limit = true;
-  }
-
-  return limit;
-}
 
 
 
@@ -296,6 +255,69 @@ lf2.paintedAtFoot = (x, y, name, f = 'standing', w) => {
 
   lf2.draw(setting, frame, 'UI');
 }
+
+
+
+
+
+
+
+
+
+
+// 物件位置
+lf2.location = (setting, frame, type) => {
+
+  // 固定在畫面某處 (通常為UI)
+  if (setting.fixedPosition) {
+    lf2.updateLocation(setting, type, [lf2.cameraPos[0] + setting.fixedPosition[0], lf2.cameraPos[1] + setting.fixedPosition[1]], true)
+  }
+  // 如果使用瞬間移動
+  else if (frame.teleport) {
+    var m = setting.mirror ? -1 : 1;
+    lf2.updateLocation(setting, type, [lf2.findEnemyX(setting) - (100 * m), setting.y = lf2.mapLimit.y], true)
+  }
+  // 根據目前速度移動物件
+  else {
+    lf2.updateLocation(setting, type, [setting.xSpeed, setting.ySpeed], false)
+  }
+
+  if (lf2.passOnly(['battleMode', 'shaoguanMode'], ['character'], 'character'))
+    if (setting.y > lf2.mapLimit.y) setting.y = lf2.mapLimit.y;
+}
+
+// 更新物件位置
+lf2.updateLocation = (setting, type, speed, absolute) => {
+
+  if (absolute) {
+    setting.x = speed[0];
+    setting.y = speed[1];
+  } else {
+    // 邊界偵測
+    if (!lf2.mapDetection(setting, type)) setting.x += speed[0];
+    setting.y += speed[1];
+  }
+
+}
+
+// 邊界偵測
+lf2.mapDetection = (setting, type) => {
+  var limit = false;
+  if (type == 'derivative') {
+    if (setting.x < -200 || setting.x > lf2.mapLimit.x + 200) setting.destroy = true;
+  }
+  else if (type == 'character') {
+    if ((setting.x <= 0 && setting.xSpeed < 0) || (setting.x >= lf2.mapLimit.x && setting.xSpeed > 0)) limit = true;
+  }
+
+  return limit;
+}
+
+
+
+
+
+
 
 
 
