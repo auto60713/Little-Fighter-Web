@@ -389,7 +389,7 @@ lf2.character.Dennis = {
     },
     'chase_ball4': {
       pic: ['2', 4, 4], wait: 1, next: 'chase_ball5', move: [6, 0], center: [31, 79],
-      // opoint: { x: 88, y: 42, name: 'Freeze', move: [0, 0], frame: 'standing', },
+      // opoint: { x: 88, y: 42, move: [0, 0], frame: 'standing', },
       bdy: { x: 12, y: 20, w: 36, h: 60, },
     },
     'chase_ball5': {

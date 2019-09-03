@@ -111,7 +111,7 @@ lf2.character.Rudolf = {
     },
     'punch3': {
       pic: ['0', 1, 2], wait: 1, next: 'punch4', move: [0, 0], center: [40, 79],
-      opoint: { x: 75, y: 57, name: 'Rudolf', move: [19, -3], frame: 'fly', },
+      opoint: { x: 75, y: 57, move: [19, -3], frame: 'fly', },
       bdy: { x: 26, y: 16, w: 30, h: 64, },
     },
     'punch4': {
@@ -388,7 +388,7 @@ lf2.character.Rudolf = {
     },
     '+man12': {
       pic: ['1', 0, 9], wait: 1, next: 999, move: [0, 0], center: [41, 79],
-      // opoint: { x: 40, y: 79, name: 'Freeze', move: [0, 0], frame: 'standing', },
+      // opoint: { x: 40, y: 79, move: [0, 0], frame: 'standing', },
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
 

@@ -311,7 +311,7 @@ lf2.character.Davis = {
     },
     'ball5': {
       pic: ['2', 0, 4], wait: 1, next: 'ball6', move: [0, 0], center: [30, 79],
-      opoint: { x: 90, y: 43, name: 'Davis', move: [0, 0], frame: 'standing', },
+      opoint: { x: 90, y: 43, move: [0, 0], frame: 'standing', },
       bdy: { x: 21, y: 18, w: 43, h: 62, },
     },
     'ball6': {

@@ -275,7 +275,7 @@ lf2.character.Firen = {
     },
     'ball4': {
       pic: ['2', 0, 2], wait: 1, next: 'ball5', move: [0, 0], center: [33, 79],
-      opoint: { x: 68, y: 44, name: 'Firen', move: [0, 0], frame: 'standing', },
+      opoint: { x: 68, y: 44, move: [0, 0], frame: 'standing', },
       bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
     'ball5': {
@@ -304,7 +304,7 @@ lf2.character.Firen = {
     },
     'ball10': {
       pic: ['2', 0, 9], wait: 1, next: 'ball11', move: [0, 0], center: [32, 79],
-      opoint: { x: 59, y: 44, name: 'Firen', move: [0, 0], frame: 'standing', },
+      opoint: { x: 59, y: 44,  move: [0, 0], frame: 'standing', },
       bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
     'ball11': {
@@ -333,7 +333,7 @@ lf2.character.Firen = {
     },
     'ball16': {
       pic: ['2', 1, 4], wait: 1, next: 'ball17', move: [0, 0], center: [34, 79],
-      opoint: { x: 71, y: 43, name: 'Firen', move: [0, 0], frame: 'standing', },
+      opoint: { x: 71, y: 43, move: [0, 0], frame: 'standing', },
       bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
     'ball17': {
@@ -356,7 +356,7 @@ lf2.character.Firen = {
     },
     'burn_run3': {
       pic: ['2', 2, 5], wait: 2, next: 'burn_run7', move: [10, 0], center: [32, 79], sound: '004.wav',
-      opoint: { x: 18, y: 81, name: 'Firen', move: [0, 0], frame: 'ground_fire', },
+      opoint: { x: 18, y: 81,  move: [0, 0], frame: 'ground_fire', },
       itr: { x: 20, y: 11, w: 49, h: 70, move: [10, -10], effect: 'falling', vrest: 10, injury: 45, },
       bdy: { x: 18, y: 14, w: 43, h: 65, },
       hit: {
@@ -366,7 +366,7 @@ lf2.character.Firen = {
 
     'burn_run4': {
       pic: ['2', 2, 0], wait: 2, next: 'burn_run5', move: [10, 0], center: [32, 79], sound: '003.wav',
-      opoint: { x: 18, y: 81, name: 'Firen', move: [0, 0], frame: 'ground_fire', },
+      opoint: { x: 18, y: 81,  move: [0, 0], frame: 'ground_fire', },
       itr: { x: 20, y: 11, w: 49, h: 70, move: [10, -10], effect: 'falling', vrest: 10, injury: 45, },
       bdy: { x: 12, y: 10, w: 51, h: 70, },
       hit: {
@@ -375,7 +375,7 @@ lf2.character.Firen = {
     },
     'burn_run5': {
       pic: ['2', 2, 1], wait: 2, next: 'burn_run6', move: [10, 0], center: [37, 79], sound: '070.wav',
-      opoint: { x: 18, y: 81, name: 'Firen', move: [0, 0], frame: 'ground_fire', },
+      opoint: { x: 18, y: 81,  move: [0, 0], frame: 'ground_fire', },
       itr: { x: 20, y: 11, w: 49, h: 70, move: [10, -10], effect: 'falling', vrest: 10, injury: 45, },
       bdy: { x: 19, y: 12, w: 50, h: 68, },
       hit: {
@@ -384,7 +384,7 @@ lf2.character.Firen = {
     },
     'burn_run6': {
       pic: ['2', 2, 2], wait: 2, next: 'burn_run7', move: [10, 0], center: [33, 79], sound: '004.wav',
-      opoint: { x: 18, y: 81, name: 'Firen', move: [0, 0], frame: 'ground_fire', },
+      opoint: { x: 18, y: 81,  move: [0, 0], frame: 'ground_fire', },
       itr: { x: 20, y: 11, w: 49, h: 70, move: [10, -10], effect: 'falling', vrest: 10, injury: 45, },
       bdy: { x: 16, y: 11, w: 47, h: 69, },
       hit: {
@@ -393,7 +393,7 @@ lf2.character.Firen = {
     },
     'burn_run7': {
       pic: ['2', 2, 1], wait: 2, next: 'burn_run4', move: [10, 0], center: [37, 79], sound: '071.wav',
-      opoint: { x: 18, y: 81, name: 'Firen', move: [0, 0], frame: 'ground_fire', },
+      opoint: { x: 18, y: 81,  move: [0, 0], frame: 'ground_fire', },
       itr: { x: 20, y: 11, w: 49, h: 70, move: [10, -10], effect: 'falling', vrest: 10, injury: 45, },
       bdy: { x: 20, y: 12, w: 47, h: 68, },
       hit: {
@@ -427,7 +427,7 @@ lf2.character.Firen = {
     },
     'explosion5': {
       pic: ['2', 3, 9], wait: 1, next: 'explosion6', move: [0, 0], center: [46, 79], sound: '071.wav',
-      opoint: { x: 48, y: 81, name: 'Firen', move: [0, 0], frame: 'explosion', },
+      opoint: { x: 48, y: 81,  move: [0, 0], frame: 'explosion', },
       bdy: { x: 8, y: 19, w: 41, h: 60, },
     },
     'explosion6': {
@@ -519,7 +519,7 @@ lf2.derivative.Firen = {
     },
     'ground_fire2': {
       pic: ['grd', 0, 1], wait: 1, next: 'ground_fire3', move: [0, 0], center: [16, 47],
-      opoint: { x: -1, y: 47, name: 'Firen', move: [0, 0], frame: 'ground_fire5', },
+      opoint: { x: -1, y: 47,  move: [0, 0], frame: 'ground_fire5', },
     },
 
     'ground_fire3': {

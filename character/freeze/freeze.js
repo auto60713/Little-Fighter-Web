@@ -272,7 +272,7 @@ lf2.character.Freeze = {
     },
     'ball4': {
       pic: ['2', 0, 3], wait: 1, next: 'ball5', move: [3, 0], center: [37, 79],
-      opoint: { x: 80, y: 46, name: 'Freeze', move: [0, 0], frame: 'standing', },
+      opoint: { x: 80, y: 46,  move: [0, 0], frame: 'standing', },
       bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
     'ball5': {
@@ -307,7 +307,7 @@ lf2.character.Freeze = {
     },
     'Down_punch6': {
       pic: ['1', 4, 5], wait: 2, next: 'Down_punch7', move: [1, 0], center: [32, 79],
-      opoint: { x: 105, y: 77, name: 'Freeze', move: [0, 0], frame: 'column_mother', },
+      opoint: { x: 105, y: 77,  move: [0, 0], frame: 'column_mother', },
       bdy: { x: 24, y: 14, w: 31, h: 64, },
     },
     'Down_punch7': {
@@ -342,7 +342,7 @@ lf2.character.Freeze = {
     },
     'Whirlwind6': {
       pic: ['2', 1, 5], wait: 2, next: 'Whirlwind7', move: [0, 0], center: [33, 71],
-      opoint: { x: 33, y: 71, name: 'Freeze', move: [0, 0], frame: 'whirlwind', },
+      opoint: { x: 33, y: 71,move: [0, 0], frame: 'whirlwind', },
       bdy: { x: 24, y: 14, w: 31, h: 64, },
     },
     'Whirlwind7': {
@@ -430,15 +430,15 @@ lf2.derivative.Freeze = {
     },
     'column_mother2': {
       pic: ['col', 0, 6], wait: 5, next: 'column_mother3', move: [6, 0], center: [1, 0], shadowHide: true,
-      opoint: { x: -13, y: 5, name: 'Freeze', move: [0, 0], frame: 'columnS', },
+      opoint: { x: -13, y: 5, move: [0, 0], frame: 'columnS', },
     },
     'column_mother3': {
       pic: ['col', 0, 6], wait: 5, next: 'column_mother4', move: [6, 0], center: [1, 0], shadowHide: true,
-      opoint: { x: -5, y: 5, name: 'Freeze', move: [0, 0], frame: 'columnM', },
+      opoint: { x: -5, y: 5,  move: [0, 0], frame: 'columnM', },
     },
     'column_mother4': {
       pic: ['col', 0, 6], wait: 1, next: 1000, move: [6, 0], center: [1, 0], shadowHide: true,
-      opoint: { x: 29, y: 5, name: 'Freeze', move: [0, 0], frame: 'columnL', },
+      opoint: { x: 29, y: 5,  move: [0, 0], frame: 'columnL', },
     },
 
 

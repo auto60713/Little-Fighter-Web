@@ -209,13 +209,13 @@ lf2.produceDerivative = (setting, frame, type) => {
 
     var rect = lf2.whereAmI(setting, frame.center, frame.opoint);
 
-    lf2.adjunction('derivative', frame.opoint.name, {
+    lf2.adjunction('derivative', setting.name, {
       x: rect.x,
       y: rect.y,
       team: setting.team,
       mirror: setting.mirror,
       nowframe: frame.opoint.frame,
-      nowwait: lf2.derivative[frame.opoint.name].frame[frame.opoint.frame].wait * lf2.waitMagnification,
+      nowwait: lf2.derivative[setting.name].frame[frame.opoint.frame].wait * lf2.waitMagnification,
     });
   }
 }

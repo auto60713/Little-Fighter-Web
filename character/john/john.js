@@ -281,7 +281,7 @@ lf2.character.John = {
     },
     'DAA_action12': {
       pic: ['3', 0, 1], wait: 1, next: 'DAA_action13', move: [0, 0], center: [31, 109],
-      opoint: { x: 95, y: 78, name: 'John', move: [0, 0], frame: 'standing', },
+      opoint: { x: 95, y: 78, move: [0, 0], frame: 'standing', },
       bdy: { x: 9, y: 43, w: 37, h: 65, },
       bdy: { x: 4, y: 67, w: 57, h: 19, },
     },
@@ -329,7 +329,7 @@ lf2.character.John = {
     },
     'force_field7': {
       pic: ['2', 2, 8], wait: 1, next: 'force_field8', move: [0, 0], center: [22, 78],
-      opoint: { x: 73, y: 40, name: 'John', move: [0, 0], frame: 'force_field', },
+      opoint: { x: 73, y: 40, move: [0, 0], frame: 'force_field', },
       bdy: { x: 17, y: 16, w: 39, h: 64, },
     },
     'force_field8': {
@@ -364,7 +364,7 @@ lf2.character.John = {
     },
     'heal_other6': {
       pic: ['2', 1, 2], wait: 2, next: 'heal_other7', move: [0, 0], center: [36, 79],
-      opoint: { x: 78, y: 36, name: 'John', move: [0, 0], frame: 'healball', },
+      opoint: { x: 78, y: 36,  move: [0, 0], frame: 'healball', },
       bdy: { x: 18, y: 11, w: 37, h: 68, },
     },
     'heal_other7': {
@@ -463,12 +463,12 @@ lf2.derivative.John = {
     },
     'healball2': {
       pic: ['ball', 3, 1], wait: 3, next: 'healball3', move: [0, 0], center: [40, 26],
-      opoint: { x: 40, y: 39, name: 'John', move: [0, 0], frame: 'stars3', },
+      opoint: { x: 40, y: 39,  move: [0, 0], frame: 'stars3', },
       itr: { x: 25, y: 13, w: 32, h: 34, move: [0, 0], injury: -100, effect: 'heal', vrest: 10, next: 'stars', team: 'my' },
     },
     'healball3': {
       pic: ['ball', 3, 2], wait: 3, next: 'healball4', move: [0, 0], center: [40, 26],
-      opoint: { x: 40, y: 39, name: 'John', move: [0, 0], frame: 'stars3', },
+      opoint: { x: 40, y: 39,  move: [0, 0], frame: 'stars3', },
       itr: { x: 25, y: 13, w: 32, h: 34, move: [0, 0], injury: -100, effect: 'heal', vrest: 10, next: 'stars', team: 'my' },
     },
     'healball4': {
@@ -477,7 +477,7 @@ lf2.derivative.John = {
     },
     'healball5': {
       pic: ['ball', 3, 3], wait: 3, next: 'healball2', move: [0, 0], center: [40, 26],
-      opoint: { x: 40, y: 39, name: 'John', move: [0, 0], frame: 'stars3', },
+      opoint: { x: 40, y: 39,  move: [0, 0], frame: 'stars3', },
       itr: { x: 25, y: 13, w: 32, h: 34, move: [0, 0], injury: -100, effect: 'heal', vrest: 10, next: 'stars', team: 'my' },
     },
 
@@ -497,7 +497,7 @@ lf2.derivative.John = {
     },
     'stars2': {
       pic: ['ball', 2, 1], wait: 3, next: 'stars3', move: [0, 0], center: [40, 41],
-      opoint: { x: 40, y: 39, name: 'John', move: [0, 0], frame: 'stars5', },
+      opoint: { x: 40, y: 39, move: [0, 0], frame: 'stars5', },
     },
     'stars3': {
       pic: ['ball', 2, 2], wait: 3, next: 'stars4', move: [0, 0], center: [40, 41],

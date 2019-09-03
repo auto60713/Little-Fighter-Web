@@ -121,7 +121,7 @@ lf2.character.Henry = {
     },
     'punch5': {
       pic: ['0', 1, 4], wait: 1, next: 'punch6', move: [0, 0], center: [39, 78], sound: '024.wav',
-      opoint: { x: 95, y: 57, name: 'Henry', move: [22, -3], frame: 'fly', },
+      opoint: { x: 95, y: 57,  move: [22, -3], frame: 'fly', },
       bdy: { x: 22, y: 7, w: 35, h: 71, },
       bdy: { x: 26, y: 22, w: 47, h: 29, },
     },
@@ -149,7 +149,7 @@ lf2.character.Henry = {
     },
     'jump_attack5': {
       pic: ['0', 5, 9], wait: 11, next: 999, move: [0, 0], center: [18, 79], sound: '024.wav',
-      opoint: { x: 80, y: 77, name: 'Henry', move: [12, 9], frame: 'fly2', },
+      opoint: { x: 80, y: 77,  move: [12, 9], frame: 'fly2', },
       bdy: { x: 15, y: 10, w: 42, h: 63, },
     },
 
@@ -308,7 +308,7 @@ lf2.character.Henry = {
     },
     'super_arrow8': {
       pic: ['2', 0, 6], wait: 1, next: 'super_arrow9', move: [0, 0], center: [39, 78], sound: '024.wav',
-      opoint: { x: 95, y: 41, name: 'Henry', move: [22, 0], frame: 'SParrow', },
+      opoint: { x: 95, y: 41, move: [22, 0], frame: 'SParrow', },
       bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
     'super_arrow9': {

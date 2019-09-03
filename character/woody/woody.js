@@ -328,7 +328,7 @@ lf2.character.Woody = {
     },
     'fly_crash4': {
       pic: ['2', 1, 5], wait: 1, next: 'fly_crash5', move: [20, -7], center: [32, 69], sound: '099.wav',
-      // opoint: { x: 12, y: 34, name: 'John', move: [-2, 0], frame: 'standing', },
+      // opoint: { x: 12, y: 34,  move: [-2, 0], frame: 'standing', },
     },
     'fly_crash5': {
       pic: ['2', 1, 5], wait: 1, next: 'fly_crash6', move: [0, 0], center: [32, 68],
