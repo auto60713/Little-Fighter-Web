@@ -105,13 +105,6 @@ lf2.adjunction = (type, name, data = {}) => {
     template.setting[key] = data[key];
   });
 
-
-
-  // if (template.setting.fixedPosition) {
-  //   template.setting.x = template.setting.fixedPosition[0];
-  //   template.setting.y = template.setting.fixedPosition[1];
-  // }
-
   if (type == 'map') {
     lf2.mapLimit = template.setting.limit;
     lf2.canvas.style.backgroundColor = template.setting.backgroundColor;

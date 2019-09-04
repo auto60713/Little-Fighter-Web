@@ -74,7 +74,7 @@ lf2.fileManager = (type, name, template) => {
 
 // 填入背景資訊(不需要特別設定的)
 lf2.undergroundInformation = (type, name, template) => {
-  if (!lf2.passOnly(['all'], ['character', 'derivative', 'UI' , 'map'], type)) return;
+  if (!lf2.passOnly(['all'], ['character', 'derivative', 'UI', 'map'], type)) return;
 
   const data = {
     nowframe: 'standing',
@@ -110,6 +110,7 @@ lf2.mapTransform = (type, name, template) => {
     template.decorate.forEach(element => {
 
       // 背景資訊
+      // FIXME: 背景物件 需要一個動畫起點 但叫standing怪怪的
       element.nowframe = 'standing';
       element.nowwait = 0;
       element.ySpeed = 0;
