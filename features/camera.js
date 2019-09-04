@@ -1,7 +1,7 @@
 
 // 攝影機
 lf2.camera = () => {
-  if (!lf2.passOnly(['battleMode', 'shaoguanMode'], ['all'], null)) return;
+  if (!lf2.passOnly(['battleMode', 'shaoguanMode'], ['all'])) return;
 
   if (lf2.scenes.character[0]) {
 

@@ -14,6 +14,8 @@ lf2.eachFrame = () => {
 
     // 攝影機
     lf2.camera();
+    // 副本模式 是否下一階段
+    lf2.enemyFinished();
 
     if (lf2.gameOver != null) lf2.gameOver--;
 
@@ -53,7 +55,7 @@ lf2.arrange = (type) => {
         lf2.draw(setting, frame, type, thing);
 
         // 計算器
-        lf2.counter(setting, frame, type, thing);
+        lf2.counter(setting, frame, type);
 
         // 我是機器人
         // lf2.bot(setting, frame, type, thing);

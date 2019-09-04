@@ -94,7 +94,6 @@ lf2.undergroundInformation = (type, template) => {
       inSky: false,
       mirror: 1,
       keyReaction: [],
-      hitHold: '-',
 
       team: 0,
 

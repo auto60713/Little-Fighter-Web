@@ -58,3 +58,20 @@ lf2.enemyBorn = () => {
   }
 
 }
+
+// 副本模式 是否下一階段
+lf2.enemyFinished = () => {
+  if (!lf2.passOnly(['shaoguanMode'], ['all'])) return;
+
+  if (lf2.enemyClear == lf2.enemyClearGoal) lf2.enemyBorn();
+}
+
+// 副本敵人死亡消失
+lf2.death = (setting, type) => {
+  if (!lf2.passOnly(['shaoguanMode'], ['character'], type)) return;
+
+  if (setting.nowhp <= 0 && setting.nowframe == 'lyingDown') {
+    setting.destroy = true;
+    lf2.enemyClear++;
+  }
+}

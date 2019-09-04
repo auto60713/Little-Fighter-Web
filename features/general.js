@@ -8,6 +8,7 @@ lf2.variousChangesFrame = (setting, frame, type, thing) => {
   // 長壓保持動作
   if (frame.hitHold && !setting.keypress[setting.hitHold]) {
     lf2.gotoFrame(thing, setting, type, 999);
+    setting.hitHold = '-';
   }
   // 自然換動作
   else if (setting.nowwait <= 0) {
@@ -41,9 +42,8 @@ lf2.skill = (setting, frame, type, thing) => {
   if (!lf2.passOnly(['battleMode', 'shaoguanMode'], ['character'], type)) return;
 
   if (frame.hit) {
-    var hit = Object.keys(frame.hit);
     try {
-      hit.forEach(btName => {
+      Object.keys(frame.hit).forEach(btName => {
         var skillName = frame.hit[btName];
         var nextFrame = lf2.theFrame(type, thing, setting, skillName);
 
@@ -92,14 +92,8 @@ lf2.gotoFrame = (thing, setting, type, next) => {
     else if (setting.inSky) next = 'jumping';
     else next = 'standing';
 
-    setting.hitHold = '-';
-
     // 副本敵人死亡消失
-    if (lf2.state == 'shaoguanMode' && setting.nowhp <= 0 && setting.nowframe == 'lyingDown') {
-      setting.destroy = true;
-      lf2.enemyClear++;
-    }
-
+    lf2.death(setting, type);
   }
   else if (next == 1000) {
     setting.destroy = true;
@@ -116,26 +110,17 @@ lf2.gotoFrame = (thing, setting, type, next) => {
 }
 
 // 計算器
-lf2.counter = (setting, frame, type, thing) => {
+lf2.counter = (setting, frame, type) => {
 
   // 幀等待
   setting.nowwait--;
 
-  // 副本模式 是否下一階段
-  if (lf2.state == 'shaoguanMode') {
-    if (lf2.enemyClear == lf2.enemyClearGoal) {
-      lf2.enemyBorn();
-    }
-  }
-
   // 循環動作
   if (setting.timeToGo) setting.timeToGo[0]--;
+  else if (frame.timeToGo) setting.timeToGo = frame.timeToGo;
 
-  if (frame.timeToGo && !setting.timeToGo) {
-    setting.timeToGo = frame.timeToGo;
-  }
 
-  if (type == 'character') {
+  if (lf2.passOnly(['battleMode', 'shaoguanMode'], ['character'], type)) {
 
     // 按鍵反應表
     setting.keyReaction.forEach((k, i, o) => {
@@ -153,11 +138,8 @@ lf2.counter = (setting, frame, type, thing) => {
       if (setting.keypress['R']) setting.mirror = 1;
       else if (setting.keypress['L']) setting.mirror = -1;
     }
-  }
-
+  };
 }
-
-
 
 
 // 製造衍生物
@@ -165,7 +147,6 @@ lf2.produceDerivative = (setting, frame, type) => {
   if (!lf2.passOnly(['battleMode', 'shaoguanMode'], ['character', 'derivative'], type)) return;
 
   if (frame.opoint) {
-
     var rect = lf2.whereAmI(setting, frame.center, frame.opoint);
 
     lf2.adjunction('derivative', setting.name, {
@@ -274,15 +255,12 @@ lf2.location = (setting, frame, type) => {
   }
   // 如果使用瞬間移動
   else if (frame.teleport) {
-    lf2.updateLocation(setting, type, [lf2.findEnemyX(setting) - (100 * setting.mirror), setting.y = lf2.mapLimit.y], true)
+    lf2.updateLocation(setting, type, [lf2.findEnemyX(setting) - (100 * setting.mirror), lf2.mapLimit.y], true)
   }
   // 根據目前速度移動物件
   else {
     lf2.updateLocation(setting, type, [setting.xSpeed, setting.ySpeed], false)
   }
-
-  if (lf2.passOnly(['battleMode', 'shaoguanMode'], ['character'], 'character'))
-    if (setting.y > lf2.mapLimit.y) setting.y = lf2.mapLimit.y;
 }
 
 // 更新物件位置
@@ -297,6 +275,9 @@ lf2.updateLocation = (setting, type, speed, absolute) => {
     setting.y += speed[1];
   }
 
+  // 防止潛入地底
+  if (lf2.passOnly(['battleMode', 'shaoguanMode'], ['character'], type))
+    if (setting.y > lf2.mapLimit.y) setting.y = lf2.mapLimit.y;
 }
 
 // 邊界偵測
@@ -350,7 +331,6 @@ lf2.findScenesIndex = (index) => {
 
 // 找frame
 lf2.theFrame = (type, thing, setting, frameName) => {
-
   return type === 'map' ? thing.component[setting.component][frameName] : thing.frame[frameName];
 }
 

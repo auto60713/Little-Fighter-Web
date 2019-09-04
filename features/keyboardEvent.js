@@ -27,7 +27,7 @@ lf2.logKey = (e) => {
 
   const pressing = (window.event || e).type === 'keydown';
 
-  if (lf2.passOnly(['battleMode', 'shaoguanMode'], ['character'], 'character')) {
+  if (lf2.passOnly(['battleMode', 'shaoguanMode'], ['all'])) {
     // P1
     if (lf2.keymap[e.code]) lf2.operatingCharacter(lf2.scenes.character[0].setting, pressing, lf2.keymap[e.code]);
     // P2
