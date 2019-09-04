@@ -30,12 +30,7 @@ lf2.physical = (setting, frame, type, thing) => {
     }
 
   }
-  else {
-
-    // 計算物件速度
-    lf2.move(setting, frame, type, thing);
-
-  }
+  else lf2.move(setting, frame, type, thing);
 }
 
 // 物件速度計算
@@ -65,9 +60,7 @@ lf2.move = (setting, frame, type, thing) => {
     }
 
     // move加速度
-    if (frame.move) {
-      lf2.updateSpeed(setting, frame.move, setting.mirror);
-    }
+    if (frame.move) lf2.updateSpeed(setting, frame.move, setting.mirror);
   }
   // 滯空偵測
   setting.inSky = lf2.skyDetection(setting, frame, type);
@@ -85,11 +78,9 @@ lf2.updateSpeed = (setting, move, m) => {
 lf2.dropDetection = (setting, frame, type) => {
   if ((type == 'character' || frame.physical) && setting.ySpeed >= 0)
     return setting.inSky != lf2.skyDetection(setting, frame, type) && !lf2.skyDetection(setting, frame, type);
-  else return false;
 }
 
 lf2.skyDetection = (setting, frame, type) => {
   if (type == 'character' || frame.physical) return setting.y < lf2.mapLimit.y;
-  else return false;
 }
 
