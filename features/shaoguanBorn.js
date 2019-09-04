@@ -12,7 +12,7 @@ lf2.shaoguanBorn = () => {
 
 lf2.enemyBorn = () => {
 
-  var template = JSON.parse(JSON.stringify(lf2.shaoguan[Object.keys(lf2.shaoguan)[lf2.shaoguanIndex]]));
+  const template = JSON.parse(JSON.stringify(lf2.shaoguan[Object.keys(lf2.shaoguan)[lf2.shaoguanIndex]]));
 
   if (!lf2.stageIndex) lf2.stageIndex = template.part.standing;
   else {

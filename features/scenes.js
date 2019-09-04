@@ -92,7 +92,7 @@ lf2.prepareshaoguanMode = () => {
 
 // 將物件加到場景中
 lf2.adjunction = (type, name, data = {}) => {
-  var template = JSON.parse(JSON.stringify(lf2[type][name]));
+  const template = JSON.parse(JSON.stringify(lf2[type][name]));
 
   template.setting.scenesIndex = lf2.scenesIndex;
   lf2.scenesIndex++;

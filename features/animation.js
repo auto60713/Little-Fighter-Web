@@ -49,7 +49,7 @@ lf2.arrange = (type) => {
         lf2.variousChangesFrame(setting, frame, type, thing);
 
         // 角色跟隨視覺
-        lf2.SomeThingsFollowTheRole(setting, frame, type, thing);
+        lf2.SomeThingsFollowTheRole(setting, frame, type);
 
         // 秀在畫面上
         lf2.draw(setting, frame, type, thing);

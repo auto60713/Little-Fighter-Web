@@ -93,10 +93,12 @@ lf2.undergroundInformation = (type, template) => {
 
       inSky: false,
       mirror: 1,
-      keyReaction: [],
 
       team: 0,
 
+      // 按鍵反應表 (會重複 需順序性 故用array)
+      keyReaction: [],
+      // 被打等待 (唯一 故用Object)
       strikeCD: {},
       keypress: {},
 

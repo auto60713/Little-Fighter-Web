@@ -2,7 +2,7 @@
 // 換動作判斷
 lf2.variousChangesFrame = (setting, frame, type, thing) => {
 
-  var effect = lf2.collisionDetection(setting, frame, type, thing);
+  var effect = lf2.collisionDetection(setting, frame, type);
   var skill = lf2.skill(setting, frame, type, thing);
 
   // 長壓保持動作
@@ -88,7 +88,7 @@ lf2.gotoFrame = (thing, setting, type, next) => {
   // 因為角色會因為狀況不同而切換動作 但其他物件都無此需求 請直接指定next:(動作)
   if (next == 999 && type == 'character') {
 
-    if (setting.nowhp <= 0) next = 'lyingDown';
+    if (setting.nowhp === 0) next = 'lyingDown';
     else if (setting.inSky) next = 'jumping';
     else next = 'standing';
 
@@ -122,15 +122,16 @@ lf2.counter = (setting, frame, type) => {
 
   if (lf2.passOnly(['battleMode', 'shaoguanMode'], ['character'], type)) {
 
-    // 按鍵反應表
-    setting.keyReaction.forEach((k, i, o) => {
-      k[1]--;
-      if (k[1] <= 0) o.splice(i, 1);
+    // 按鍵反應表 (會重複 需順序性 故用array)
+    setting.keyReaction.forEach((keyname, index, list) => {
+      if (keyname[1] <= 0) list.splice(index, 1);
+      else keyname[1]--;
     });
 
-    // 被打等待
-    Object.keys(setting.strikeCD).forEach(k => {
-      setting.strikeCD[k]--;
+    // 被打等待 (唯一 故用Object)
+    Object.keys(setting.strikeCD).forEach(who => {
+      if (setting.strikeCD[who] <= 0) delete setting.strikeCD[who];
+      else setting.strikeCD[who]--;
     });
 
     // 翻轉允許
@@ -162,13 +163,11 @@ lf2.produceDerivative = (setting, frame, type) => {
 
 
 // 一些會跟隨角色的視覺
-lf2.SomeThingsFollowTheRole = (setting, frame, type, thing) => {
+lf2.SomeThingsFollowTheRole = (setting, frame, type) => {
   if (!lf2.passOnly(['battleMode', 'shaoguanMode'], ['character', 'derivative'], type)) return;
 
   // 影子
-  if (!frame.shadowHide) {
-    lf2.paintedAtFoot(setting.x, 0, 'shadow');
-  }
+  if (!frame.shadowHide) lf2.paintedAtFoot(setting.x, 0, 'shadow');
 
   if (type == 'character') {
 
@@ -176,43 +175,36 @@ lf2.SomeThingsFollowTheRole = (setting, frame, type, thing) => {
     if (setting.scenesIndex == 1) {
       // 身份
       lf2.paintedAtFoot(setting.x, 10, 'p1');
-
       // 血條
-      var pp = setting.nowhp / setting.hp;
-      if (pp <= 0) pp = -1;
-      lf2.mainhpbar2.file['protaghpbarVal'].w = 820 * pp;
+      lf2.mainhpbar2.file['protaghpbarVal'].w = 820 * (setting.nowhp / setting.hp);
     }
 
     // 其他人
     else {
       // 在畫面外提示
-      var xxx;
-      if (setting.x > lf2.cameraPos[0] + 800) xxx = lf2.cameraPos[0] + 800 - 20;
-      else if (setting.x < lf2.cameraPos[0]) xxx = lf2.cameraPos[0] + 20;
-      else xxx = setting.x;
+      var nameTagPos;
+      if (setting.x > lf2.cameraPos[0] + 800) nameTagPos = lf2.cameraPos[0] + 800 - 20;
+      else if (setting.x < lf2.cameraPos[0]) nameTagPos = lf2.cameraPos[0] + 20;
+      else nameTagPos = setting.x;
+
       // 身份
-      lf2.paintedAtFoot(xxx, 10, 'p2');
+      lf2.paintedAtFoot(nameTagPos, 10, 'p2');
 
       // 血條
-      var pp = setting.nowhp / setting.hp;
-      if (pp <= 0) pp = -1;
-
       lf2.paintedAtFoot(setting.x, 20, 'otherhpbar');
-      lf2.paintedAtFoot(setting.x, 20, 'otherhpbar', 'standing2', 70 * pp);
+      lf2.paintedAtFoot(setting.x, 20, 'otherhpbar', 'standing2', 70 * (setting.nowhp / setting.hp));
     }
 
     switch (lf2.state) {
       case 'battleMode':
         // 遊戲結束
-        if (setting.nowhp <= 0 && lf2.gameOver == null) {
+        if (setting.nowhp === 0 && lf2.gameOver == null) {
           lf2.adjunction('UI', 'ko');
           lf2.gameOver = 180;
         }
         break;
       case 'shaoguanMode':
-        // if (setting.nowhp <= 0 && lf2.gameOver == null) {
-        //   setting.destroy = true;
-        // }
+
         break;
     }
 
@@ -223,7 +215,7 @@ lf2.SomeThingsFollowTheRole = (setting, frame, type, thing) => {
 // 畫一些東西在腳邊
 lf2.paintedAtFoot = (x, y, name, f = 'standing', w) => {
 
-  var template = JSON.parse(JSON.stringify(lf2['UI'][name]));
+  const template = JSON.parse(JSON.stringify(lf2['UI'][name]));
 
   var setting = template.setting;
   var frame = template.frame[f];
@@ -282,15 +274,12 @@ lf2.updateLocation = (setting, type, speed, absolute) => {
 
 // 邊界偵測
 lf2.mapDetection = (setting, type) => {
-  var limit = false;
   if (type == 'derivative') {
     if (setting.x < -200 || setting.x > lf2.mapLimit.x + 200) setting.destroy = true;
   }
   else if (type == 'character') {
-    if ((setting.x <= 0 && setting.xSpeed < 0) || (setting.x >= lf2.mapLimit.x && setting.xSpeed > 0)) limit = true;
+    if ((setting.x <= 0 && setting.xSpeed < 0) || (setting.x >= lf2.mapLimit.x && setting.xSpeed > 0)) return true;
   }
-
-  return limit;
 }
 
 
