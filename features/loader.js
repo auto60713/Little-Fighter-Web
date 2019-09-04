@@ -77,12 +77,10 @@ lf2.undergroundInformation = (type, name, template) => {
   if (!lf2.passOnly(['all'], ['character', 'derivative', 'UI', 'map'], type)) return;
 
   const data = {
-    nowframe: 'standing',
+
     name: name,
     nowhp: template.setting.hp,
 
-    x: 0,
-    y: 0,
     ySpeed: 0,
     xSpeed: 0,
 
@@ -102,32 +100,30 @@ lf2.undergroundInformation = (type, name, template) => {
 }
 
 lf2.mapTransform = (type, name, template) => {
-  if (type === 'map') {
+  if (!lf2.passOnly(['all'], ['map'], type)) return;
 
-    const decorate = [];
+  const decorate = [];
 
-    // 展開重複布置
-    template.decorate.forEach(element => {
+  // 展開重複布置
+  template.decorate.forEach(element => {
 
-      // 背景資訊
-      // FIXME: 背景物件 需要一個動畫起點 但叫standing怪怪的
-      element.nowframe = 'standing';
-      element.nowwait = 0;
-      element.ySpeed = 0;
-      element.xSpeed = 0;
-      element.mirror = 1;
+    // 背景資訊
+    element.nowwait = template.component[element.nowframe].wait;
+    element.ySpeed = 0;
+    element.xSpeed = 0;
+    element.mirror = 1;
 
-      if (element.loop) {
-        for (let i = 0; i < element.loop[1]; i++) {
-          var clone = JSON.parse(JSON.stringify(element));
-          clone.x = element.x + (element.loop[0] * i);
-          decorate.push(clone);
-        }
+    if (element.loop) {
+      for (let i = 0; i < element.loop[1]; i++) {
+        var clone = JSON.parse(JSON.stringify(element));
+        clone.x = element.x + (element.loop[0] * i);
+        decorate.push(clone);
       }
-      else decorate.push(element);
-    });
+    }
+    else decorate.push(element);
+  });
 
-    // 覆蓋回decorate
-    template.decorate = decorate;
-  }
+  // 覆蓋回decorate
+  template.decorate = decorate;
+
 }

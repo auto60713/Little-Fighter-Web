@@ -11,19 +11,16 @@ lf2.map.hkc = {
   // 物件 (相當於人物的frame)
   component: {
     // 燈
-    'back1': {
-      'standing': { next: 'standing', pic: ['back1', 0, 0], wait: 100, },
-    },
+    'back1': { next: 'back1', pic: ['back1', 0, 0], wait: 100, },
+
     // 觀眾
-    'back2': {
-      'standing': { next: 'standing2', pic: ['back2', 0, 0], wait: 20, },
-      'standing2': { next: 'standing', pic: ['back22', 0, 0], wait: 20, },
-    },
+    'back2': { next: 'back22', pic: ['back2', 0, 0], wait: 20, },
+    'back22': { next: 'back2', pic: ['back22', 0, 0], wait: 20, },
   },
   // 擺設 (相當於人物的setting)
   decorate: [
-    { component: 'back1', x: 0, y: 0, },
-    { component: 'back2', x: 0, y: 101, },
+    { nowframe: 'back1', x: 0, y: 0, },
+    { nowframe: 'back2', x: 0, y: 101, },
   ],
 }
 

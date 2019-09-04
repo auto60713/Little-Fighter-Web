@@ -11,23 +11,19 @@ lf2.map.lf = {
   // 物件 (相當於人物的frame)
   component: {
     // 天空
-    'forests': {
-      'standing': { next: 'standing', pic: ['forests', 0, 0], wait: 100, },
-    },
+    'forests': { next: 'forests', pic: ['forests', 0, 0], wait: 100, },
+
     // 山
-    'forestm1': {
-      'standing': { next: 'standing', pic: ['forestm1', 0, 0], wait: 100, },
-    },
+    'forestm1': { next: 'forestm1', pic: ['forestm1', 0, 0], wait: 100, },
+
     // 樹
-    'forestt': {
-      'standing': { next: 'standing', pic: ['forestt', 0, 0], wait: 100, },
-    },
+    'forestt': { next: 'forestt', pic: ['forestt', 0, 0], wait: 100, },
   },
   // 擺設 (相當於人物的setting)
   decorate: [
-    { component: 'forests',  x: 0, y: 0, loop: [800, 2], },
-    { component: 'forestm1',  x: 0, y: 18, loop: [800, 2], },
-    { component: 'forestt', x: 0, y: 101, loop: [253, 20], },
+    { nowframe: 'forests', x: 0, y: 0, loop: [800, 2], },
+    { nowframe: 'forestm1', x: 0, y: 18, loop: [800, 2], },
+    { nowframe: 'forestt', x: 0, y: 101, loop: [253, 20], },
   ],
 }
 

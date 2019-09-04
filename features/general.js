@@ -156,7 +156,6 @@ lf2.produceDerivative = (setting, frame, type) => {
       team: setting.team,
       mirror: setting.mirror,
       nowframe: frame.opoint.frame,
-      nowwait: lf2.derivative[setting.name].frame[frame.opoint.frame].wait * lf2.waitMagnification,
     });
   }
 }
@@ -320,7 +319,7 @@ lf2.findScenesIndex = (index) => {
 
 // 找frame
 lf2.theFrame = (type, thing, setting, frameName) => {
-  return type === 'map' ? thing.component[setting.component][frameName] : thing.frame[frameName];
+  return type === 'map' ? thing.component[setting.nowframe] : thing.frame[frameName];
 }
 
 // 限制模式與種類

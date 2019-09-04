@@ -98,13 +98,14 @@ lf2.adjunction = (type, name, data = {}) => {
   lf2.scenesIndex++;
 
   // FIXME: 應該要為name 但目前都是standing 就standing
-  data.nowframe = 'standing';
+  if (type == 'UI' || type == 'character') data.nowframe = 'standing';
 
   // 將加入時的設定需求寫入物件中
   Object.keys(data).forEach(key => {
     template.setting[key] = data[key];
   });
 
+  // FIXME: 設置地圖可以有特規
   if (type == 'map') {
     lf2.mapLimit = template.setting.limit;
     lf2.canvas.style.backgroundColor = template.setting.backgroundColor;

@@ -44,7 +44,7 @@ lf2.collisionDetection = (setting, frame, type) => {
                 // 血量變化
                 setting.nowhp -= detFrame.itr.injury;
                 if (setting.nowhp > setting.hp) setting.nowhp = setting.hp;
-                else if (setting.nowhp < 0) setting.nowhp = 0;
+                else if (setting.nowhp <= 0) setting.nowhp = -1;
                 throw effect;
               }
 
