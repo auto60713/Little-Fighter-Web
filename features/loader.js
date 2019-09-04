@@ -40,7 +40,7 @@ lf2.portraitUI = (type, name) => {
 
   lf2.UI[name] = {
     setting: { file: {} },
-    frame: { 'standing': { next: 'standing', pic: [whichFace, 0, 0], center: [0, 0], wait: 100, }, }
+    frame: { 'standing': { next: 'standing', pic: [whichFace, 0, 0],  wait: 100, }, }
   };
   lf2.UI[name].setting.file[whichFace] = { deputy: 'png', w: 200, h: 150 };
 }
