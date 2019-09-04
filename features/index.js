@@ -9,8 +9,8 @@ window.lf2 = {
 
   character: {},
   derivative: {},
-  map: {},
   UI: {},
+  map: {},
   shaoguan: {},
 
   imageCenter: {},

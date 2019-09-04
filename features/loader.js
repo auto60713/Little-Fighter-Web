@@ -39,8 +39,8 @@ lf2.portraitUI = (type, name) => {
   var whichFace = type == 'character' ? 'face' : `${type}face`;
 
   lf2.UI[name] = {
-    setting: { file: {} },
-    frame: { 'standing': { next: 'standing', pic: [whichFace, 0, 0],  wait: 100, }, }
+    setting: { file: {}, type: type },
+    frame: { 'standing': { next: 'standing', pic: [whichFace, 0, 0], wait: 100, }, }
   };
   lf2.UI[name].setting.file[whichFace] = { deputy: 'png', w: 200, h: 150 };
 }
@@ -64,15 +64,9 @@ lf2.fileManager = (type, name, template) => {
         }
       }
 
-      // UI類別裡的角色頭像 需要去角色資料夾找
-      if (type == 'UI') {
-        if (key == 'face') img.src = `character/${name}/${key}.${file.deputy}`;
-        else if (key == 'mapface') img.src = `map/${name}/${key}.${file.deputy}`;
-        else if (key == 'shaoguanface') img.src = `shaoguan/${name}/${key}.${file.deputy}`;
-        else img.src = `${type}/${key}.${file.deputy}`;
-      }
-      else if (type == 'derivative') img.src = `character/${name}/${key}.${file.deputy}`;
-      else img.src = `${type}/${name}/${key}.${file.deputy}`;
+      img.src = type == 'UI' ?
+        (`${template.setting.type ? `${template.setting.type}/${name}` : type}/${key}.${file.deputy}`) :
+        (`${type == 'derivative' ? 'character' : type}/${name}/${key}.${file.deputy}`);
 
       lf2.imageCenter[`${name}_${key}`] = img;
     });
@@ -80,36 +74,35 @@ lf2.fileManager = (type, name, template) => {
 
 // 填入背景資訊(不需要特別設定的)
 lf2.undergroundInformation = (type, template) => {
-  if (type !== 'map' && type !== 'shaoguan') {
+  if (!lf2.passOnly(['all'], ['character', 'derivative', 'UI'], type)) return;
 
-    const data = {
+  const data = {
 
-      nowframe: 'standing',
-      nowwait: template.frame['standing'].wait * lf2.waitMagnification,
-      nowhp: template.setting.hp,
+    nowframe: 'standing',
+    nowwait: template.frame['standing'].wait * lf2.waitMagnification,
+    nowhp: template.setting.hp,
 
-      ySpeed: 0,
-      xSpeed: 0,
+    x: 0,
+    y: 0,
+    ySpeed: 0,
+    xSpeed: 0,
 
-      inSky: false,
-      mirror: 1,
+    inSky: false,
+    mirror: 1,
 
-      team: 0,
+    team: 0,
 
-      // 按鍵反應表 (會重複 需順序性 故用array)
-      keyReaction: [],
-      // 被打等待 (唯一 故用Object)
-      strikeCD: {},
-      keypress: {},
+    // 按鍵反應表 (會重複 需順序性 故用array)
+    keyReaction: [],
+    // 被打等待 (唯一 故用Object)
+    strikeCD: {},
+    keypress: {},
+  };
 
-      x: 0,
-      y: 0,
-    };
+  Object.keys(data).forEach(key => {
+    template.setting[key] = data[key];
+  });
 
-    Object.keys(data).forEach(key => {
-      template.setting[key] = data[key];
-    });
-  }
 }
 
 lf2.mapTransform = (type, name, template) => {
