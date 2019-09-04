@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>原版腳本轉換工具</title>
+  <title>地圖腳本轉換工具(圖檔)</title>
   <style>
     textarea {
       width: 99%;
@@ -37,7 +37,7 @@
     function scriptConversion() {
 
       var str = document.getElementById('originalScript').value;
-      array = str.replace(/\n/g, '').replace(/<frame_end>/g, ' <frame_end> ').split(" ");
+      array = str.replace(/\n/g, '').replace(/layer_end/g, ' layer_end ').split(" ");
 
       OrgframeIndex = null;
       frameIndex = 1;
@@ -45,84 +45,44 @@
 
       for (i = 0; i < array.length; i++) {
         element = array[i];
-
-        // 開頭
-        if (element == '<frame>') {
-          // 傳給next用
-          if (!skillname) skillname = array[i + 2];
-          if (!OrgframeIndex) OrgframeIndex = array[i + 1];
-
-          // 第一個不用序號
-          array[i] = '';
-          array[i + 1] = "'";
-          array[i + 2] = skillname + (frameIndex != 1 ? frameIndex : '') + "': {";
-          frameIndex++;
-        }
-
-        // 忽略標籤
-        if (tagsIgnore([
-          'wpoint',
-          'bpoint',
-        ])) { }
-        // 保留標籤
-        else if (tagsReserved([
-          'itr',
-          'opoint',
-          'cpoint',
-          'bdy',
-        ])) { };
+        console.log(element);
 
         if (ignoreLock) array[i] = '';
 
+        // 忽略標籤
+        if (tagsIgnore([
+
+        ])) { }
+        // 保留標籤
+        else if (tagsReserved([
+          'layer',
+
+        ])) { };
+
         // 替換屬性
         changename([
-          ['action:', 'name:', characterName],
-          ['oid:', 'frame:', 'standing'],
-          ['vaction:', 'frame:', ''],
+          ['bg\\sys\\', 'nowframe:'],
         ]);
 
         // 忽略屬性
         if (attributeIgnore([
-          'state',
-          'dvz',
-          'kind',
-          'bdefend',
-          'mp:',
-          'facing',
-          'cover',
+          'transparency',
+          'rect',
+          'width',
+          'height',
+          'loop:',
         ], 2)) { }
         // 忽略屬性
         else if (attributeIgnore([
-          'catchingact',
-          'caughtact',
-          'throwvz:',
-          'throwinjury:',
-          'dircontrol:',
-          'decrease:',
-          'zwidth:',
+
         ], 3)) { }
         // 保留屬性
         else if (attributeRetention([
-          'pic:',
-          'sound:',
-          'wait:',
-          'next:',
-          'hit_',
-          'fall:',
-          'vrest:',
-          'arest:',
-          'injury:',
-          'effect:',
           'x:',
           'y:',
-          'w:',
-          'h:',
+      
         ])) { }
 
-        // 座標類合併 (不另寫保留)
-        attributeMerge('move', 'dvx', 'dvy');
-        attributeMerge('center', 'centerx', 'centery');
-        attributeMerge('move', 'throwvx', 'throwvy');
 
       }
 
@@ -154,12 +114,14 @@
     // 忽略標籤
     function tagsIgnore(list) {
       try {
+
         list.forEach(tagName => {
+          console.log(`${tagName}_end`);
           switch (element) {
             case `${tagName}:`:
               ignoreLock = true;
               throw false;
-            case `${tagName}_end:`:
+            case `${tagName}_end`:
               ignoreLock = false;
               array[i] = '';
               throw false;
@@ -178,13 +140,10 @@
         list.forEach(tagName => {
           switch (element) {
             case `${tagName}:`:
-              array[i] = `\n  ${tagName}: { `;
+              array[i] = `\n  `;
               throw false;
-            case `${tagName}_end:`:
+            case `${tagName}_end`:
               array[i] = '},';
-              throw false;
-            case `<frame_end>`:
-              array[i] = '\n},\n';
               throw false;
           }
         });
@@ -214,66 +173,20 @@
     // 保留屬性
     function attributeRetention(list) {
 
-      if (element == 'pic:') {
-        var n = array[i + 1] - picstart;
-        var filename = Math.floor(n / 70);
-        var col = Math.floor((n - (filename * 70)) / picrow);
-        var row = (n % picrow);
-
-        array[i] = `\n  pic:`;
-        array[i + 1] = `['${filename}', ${col}, ${row}]`;
+      if (element == 'loop:') {
+        array[i + 1] = `[${array[i + 1]}, 99]`;
       }
 
-      else if (element == 'next:') {
-        if (array[i + 1] != 999 && array[i + 1] != -999 && array[i + 1] != 1000 && array[i + 1] != 0)
-          array[i + 1] = "'" + skillname + (array[i + 1] - OrgframeIndex + 1) + "'";
+      if (element == 'x:') {
+        array[i] = `w:`;
+        array[i + 1] = `1000`;
       }
 
-      else if (element == 'fall:') {
-        array[i] = 'effect:';
-        array[i + 1] = (array[i + 1] == 70) ? "'falling'" : "'injured'";
+      if (element == 'y:') {
+        array[i] = `h:`;
+        array[i + 1] = `1000`;
       }
 
-      else if (element == 'sound:') {
-        array[i + 1] = "'" + array[i + 1].replace(/data\\/g, '') + "'";
-      }
-
-      else if (element == 'injury:' && array[i + 1] < 0) {
-        array[i + 1] = array[i + 1] * -1;
-      }
-
-      else if (element == 'effect:') {
-        if (array[i + 1] == 4) {
-          array[i] = 'Delete this itr';
-          array[i + 1] = '';
-        }
-        else if (array[i + 1] != 'falling' && array[i + 1] != 'injured') {
-          array[i] = '';
-          array[i + 1] = '';
-        }
-      }
-
-      else if (element.indexOf('hit_') == 0) {
-        if (array[i + 1] != 0) {
-          switch (element) {
-            case 'hit_Ua:': array[i] = 'B6:'; break;
-            case 'hit_Fa:': array[i] = 'B6:'; break;
-            case 'hit_Da:': array[i] = 'B5:'; break;
-            case 'hit_Fj:': array[i] = 'B5:'; break;
-            case 'hit_Uj:': array[i] = 'B4:'; break;
-            case 'hit_Dj:': array[i] = 'B4:'; break;
-            case 'hit_a:': array[i] = 'B1:'; break;
-            case 'hit_d:': array[i] = 'B2:'; break;
-            case 'hit_j:': array[i] = 'U:'; break;
-          }
-          if (array[i + 1] != 999 && array[i + 1] != 1000)
-            array[i + 1] = "'" + skillname + (array[i + 1] - OrgframeIndex + 1) + "'";
-        }
-        else {
-          array[i] = '';
-          array[i + 1] = '';
-        }
-      }
 
       // 後面補逗點
       try {
@@ -291,33 +204,19 @@
     function changename(list) {
       try {
         list.forEach(attrName => {
-          // 如果該值不為0
-          if (element == attrName[0]) {
-            array[i] = attrName[1] + ' ';
-            array[i + 1] = "'" + attrName[2] + "', ";
+          if (element.indexOf(attrName[0]) == 0) {
+            var sss = element.split("\\");
+            var qqq = sss[sss.length - 1].split(".")[0];
+
+            array[i] = `'${qqq}': { deputy: 'bmp', `;
+            array[i + 1] = "";
+
             throw false;
           }
         });
       } catch (e) { return true; }
     }
 
-    // 座標合併
-    function attributeMerge(n1, n2, n3) {
-
-      if (ignoreLock) return;
-
-      if (element == `${n2}:`) {
-        array[i] = `${n1}: `;
-        array[i + 1] = `[${array[i + 1]}, `;
-
-        // 如果沒有第二座標 補上0
-        if (array[i + 3] != `${n3}:`) array[i + 1] += `0], `;
-      }
-      else if (element == `${n3}:`) {
-        array[i] = '';
-        array[i + 1] += `], `;
-      }
-    }
 
   </script>
 </body>

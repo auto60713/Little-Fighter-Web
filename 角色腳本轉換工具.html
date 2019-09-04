@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>角色腳本轉換工具</title>
+  <style>
+    textarea {
+      width: 99%;
+    }
+  </style>
+</head>
+
+<body onload="scriptConversion()">
+  <textarea rows="6" id="originalScript" placeholder="貼上原版腳本" onchange="scriptConversion()"
+    onfocus="(e => {e.value='';})(this)"></textarea>
+  <pre id="newScript"></pre>
+  <script>
+
+    // 圖片row幾格
+    var picrow = 8;
+    var characterName = 'John';
+    var picstart = 0;
+
+    // FIXME: 出版前要在包裝一下 例如參數設定欄 複製提示等
+
+    var ignoreLock;
+    var skillname;
+    var OrgframeIndex;
+    var frameIndex;
+    var array;
+    var i;
+    var element;
+
+    function scriptConversion() {
+
+      var str = document.getElementById('originalScript').value;
+      array = str.replace(/\n/g, '').replace(/<frame_end>/g, ' <frame_end> ').split(" ");
+
+      OrgframeIndex = null;
+      frameIndex = 1;
+      skillname = null;
+
+      for (i = 0; i < array.length; i++) {
+        element = array[i];
+
+        // 開頭
+        if (element == '<frame>') {
+          // 傳給next用
+          if (!skillname) skillname = array[i + 2];
+          if (!OrgframeIndex) OrgframeIndex = array[i + 1];
+
+          // 第一個不用序號
+          array[i] = '';
+          array[i + 1] = "'";
+          array[i + 2] = skillname + (frameIndex != 1 ? frameIndex : '') + "': {";
+          frameIndex++;
+        }
+
+        // 忽略標籤
+        if (tagsIgnore([
+          'wpoint',
+          'bpoint',
+        ])) { }
+        // 保留標籤
+        else if (tagsReserved([
+          'itr',
+          'opoint',
+          'cpoint',
+          'bdy',
+        ])) { };
+
+        if (ignoreLock) array[i] = '';
+
+        // 替換屬性
+        changename([
+          ['action:', 'name:', characterName],
+          ['oid:', 'frame:', 'standing'],
+          ['vaction:', 'frame:', ''],
+        ]);
+
+        // 忽略屬性
+        if (attributeIgnore([
+          'state',
+          'dvz',
+          'kind',
+          'bdefend',
+          'mp:',
+          'facing',
+          'cover',
+        ], 2)) { }
+        // 忽略屬性
+        else if (attributeIgnore([
+          'catchingact',
+          'caughtact',
+          'throwvz:',
+          'throwinjury:',
+          'dircontrol:',
+          'decrease:',
+          'zwidth:',
+        ], 3)) { }
+        // 保留屬性
+        else if (attributeRetention([
+          'pic:',
+          'sound:',
+          'wait:',
+          'next:',
+          'hit_',
+          'fall:',
+          'vrest:',
+          'arest:',
+          'injury:',
+          'effect:',
+          'x:',
+          'y:',
+          'w:',
+          'h:',
+        ])) { }
+
+        // 座標類合併 (不另寫保留)
+        attributeMerge('move', 'dvx', 'dvy');
+        attributeMerge('center', 'centerx', 'centery');
+        attributeMerge('move', 'throwvx', 'throwvy');
+
+      }
+
+      // 印出
+      document.getElementById("newScript").innerText = '';
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] != '' && array[i] != ' ') document.getElementById("newScript").innerText += array[i];
+      }
+
+      // 自動複製新腳本
+      copyText("newScript");
+    }
+
+    // =====================================================================
+    // API
+    // =====================================================================
+
+    // 複製新腳本
+    function copyText(element) {
+      var text = document.getElementById(element);
+      var selection = window.getSelection();
+      var range = document.createRange();
+      range.selectNodeContents(text);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      document.execCommand('copy');
+    }
+
+    // 忽略標籤
+    function tagsIgnore(list) {
+      try {
+        list.forEach(tagName => {
+          switch (element) {
+            case `${tagName}:`:
+              ignoreLock = true;
+              throw false;
+            case `${tagName}_end:`:
+              ignoreLock = false;
+              array[i] = '';
+              throw false;
+            case `<frame_end>`:
+              ignoreLock = false;
+              array[i] = '\n},\n';
+              throw false;
+          }
+        });
+      } catch (e) { return true; }
+    }
+
+    // 保留標籤
+    function tagsReserved(list) {
+      try {
+        list.forEach(tagName => {
+          switch (element) {
+            case `${tagName}:`:
+              array[i] = `\n  ${tagName}: { `;
+              throw false;
+            case `${tagName}_end:`:
+              array[i] = '},';
+              throw false;
+            case `<frame_end>`:
+              array[i] = '\n},\n';
+              throw false;
+          }
+        });
+      } catch (e) { return true; }
+    }
+
+    // 忽略屬性
+    function attributeIgnore(list, sptime) {
+      try {
+        list.forEach(attrName => {
+          if (element.indexOf(attrName) == 0) {
+            // 開始消除
+            for (let j = 0; j < sptime; j++) {
+              // note: dircontrol, decrease不對齊特規
+              if (array[i + j] != 'dircontrol:' && array[i + j] != 'decrease:')
+                array[i + j] = '';
+              else if (attrName == 'dircontrol:' || attrName == 'decrease:')
+                array[i] = '';
+            }
+            // 消除完畢 跳出
+            throw false;
+          }
+        });
+      } catch (e) { return true; }
+    }
+
+    // 保留屬性
+    function attributeRetention(list) {
+
+      if (element == 'pic:') {
+        var n = array[i + 1] - picstart;
+        var filename = Math.floor(n / 70);
+        var col = Math.floor((n - (filename * 70)) / picrow);
+        var row = (n % picrow);
+
+        array[i] = `\n  pic:`;
+        array[i + 1] = `['${filename}', ${col}, ${row}]`;
+      }
+
+      else if (element == 'next:') {
+        if (array[i + 1] != 999 && array[i + 1] != -999 && array[i + 1] != 1000 && array[i + 1] != 0)
+          array[i + 1] = "'" + skillname + (array[i + 1] - OrgframeIndex + 1) + "'";
+      }
+
+      else if (element == 'fall:') {
+        array[i] = 'effect:';
+        array[i + 1] = (array[i + 1] == 70) ? "'falling'" : "'injured'";
+      }
+
+      else if (element == 'sound:') {
+        array[i + 1] = "'" + array[i + 1].replace(/data\\/g, '') + "'";
+      }
+
+      else if (element == 'injury:' && array[i + 1] < 0) {
+        array[i + 1] = array[i + 1] * -1;
+      }
+
+      else if (element == 'effect:') {
+        if (array[i + 1] == 4) {
+          array[i] = 'Delete this itr';
+          array[i + 1] = '';
+        }
+        else if (array[i + 1] != 'falling' && array[i + 1] != 'injured') {
+          array[i] = '';
+          array[i + 1] = '';
+        }
+      }
+
+      else if (element.indexOf('hit_') == 0) {
+        if (array[i + 1] != 0) {
+          switch (element) {
+            case 'hit_Ua:': array[i] = 'B6:'; break;
+            case 'hit_Fa:': array[i] = 'B6:'; break;
+            case 'hit_Da:': array[i] = 'B5:'; break;
+            case 'hit_Fj:': array[i] = 'B5:'; break;
+            case 'hit_Uj:': array[i] = 'B4:'; break;
+            case 'hit_Dj:': array[i] = 'B4:'; break;
+            case 'hit_a:': array[i] = 'B1:'; break;
+            case 'hit_d:': array[i] = 'B2:'; break;
+            case 'hit_j:': array[i] = 'U:'; break;
+          }
+          if (array[i + 1] != 999 && array[i + 1] != 1000)
+            array[i + 1] = "'" + skillname + (array[i + 1] - OrgframeIndex + 1) + "'";
+        }
+        else {
+          array[i] = '';
+          array[i + 1] = '';
+        }
+      }
+
+      // 後面補逗點
+      try {
+        list.forEach(attrName => {
+          if ((array[i + 1] !== '') && element.indexOf(attrName) == 0) {
+            array[i] += ' ';
+            array[i + 1] += ', ';
+            throw false;
+          }
+        });
+      } catch (e) { return true; }
+    }
+
+    // 更換屬性
+    function changename(list) {
+      try {
+        list.forEach(attrName => {
+          // 如果該值不為0
+          if (element == attrName[0]) {
+            array[i] = attrName[1] + ' ';
+            array[i + 1] = "'" + attrName[2] + "', ";
+            throw false;
+          }
+        });
+      } catch (e) { return true; }
+    }
+
+    // 座標合併
+    function attributeMerge(n1, n2, n3) {
+
+      if (ignoreLock) return;
+
+      if (element == `${n2}:`) {
+        array[i] = `${n1}: `;
+        array[i + 1] = `[${array[i + 1]}, `;
+
+        // 如果沒有第二座標 補上0
+        if (array[i + 3] != `${n3}:`) array[i + 1] += `0], `;
+      }
+      else if (element == `${n3}:`) {
+        array[i] = '';
+        array[i + 1] += `], `;
+      }
+    }
+
+  </script>
+</body>
+
+</html>
