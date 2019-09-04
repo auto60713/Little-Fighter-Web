@@ -17,7 +17,7 @@ lf2.loader = () => {
       lf2.fileManager(type, name, template);
 
       // 填入背景資訊(不需要特別設定的)
-      lf2.undergroundInformation(type, template);
+      lf2.undergroundInformation(type, name, template);
 
       // 轉換地圖腳本的設定
       lf2.mapTransform(type, name, template);
@@ -73,13 +73,12 @@ lf2.fileManager = (type, name, template) => {
 }
 
 // 填入背景資訊(不需要特別設定的)
-lf2.undergroundInformation = (type, template) => {
-  if (!lf2.passOnly(['all'], ['character', 'derivative', 'UI'], type)) return;
+lf2.undergroundInformation = (type, name, template) => {
+  if (!lf2.passOnly(['all'], ['character', 'derivative', 'UI' , 'map'], type)) return;
 
   const data = {
-
     nowframe: 'standing',
-    nowwait: template.frame['standing'].wait * lf2.waitMagnification,
+    name: name,
     nowhp: template.setting.hp,
 
     x: 0,
@@ -87,10 +86,7 @@ lf2.undergroundInformation = (type, template) => {
     ySpeed: 0,
     xSpeed: 0,
 
-    inSky: false,
     mirror: 1,
-
-    team: 0,
 
     // 按鍵反應表 (會重複 需順序性 故用array)
     keyReaction: [],

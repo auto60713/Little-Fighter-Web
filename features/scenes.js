@@ -97,22 +97,26 @@ lf2.adjunction = (type, name, data = {}) => {
   template.setting.scenesIndex = lf2.scenesIndex;
   lf2.scenesIndex++;
 
-  template.setting.name = name;
+  // FIXME: 應該要為name 但目前都是standing 就standing
+  data.nowframe = 'standing';
 
   // 將加入時的設定需求寫入物件中
   Object.keys(data).forEach(key => {
     template.setting[key] = data[key];
   });
 
-  if (template.setting.fixedPosition) {
-    template.setting.x = template.setting.fixedPosition[0];
-    template.setting.y = template.setting.fixedPosition[1];
-  }
+
+
+  // if (template.setting.fixedPosition) {
+  //   template.setting.x = template.setting.fixedPosition[0];
+  //   template.setting.y = template.setting.fixedPosition[1];
+  // }
 
   if (type == 'map') {
     lf2.mapLimit = template.setting.limit;
     lf2.canvas.style.backgroundColor = template.setting.backgroundColor;
   }
+  else template.setting.nowwait = template.frame[template.setting.nowframe].wait * lf2.waitMagnification;
 
   lf2.scenes[type].push(template);
 }

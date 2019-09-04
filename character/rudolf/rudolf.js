@@ -434,7 +434,7 @@ lf2.derivative.Rudolf = {
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
     'throwing4': {
-      pic: ['weapon', 0, 3], wait: 1, next: 999, move: [0, 0], center: [24, 40], drop: 1000, physical: true,
+      pic: ['weapon', 0, 3], wait: 1, next: 'standing', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
       itr: { x: 3, y: 4, w: 40, h: 39, move: [2, 0], effect: 'injured', injury: 22, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
