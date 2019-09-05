@@ -69,9 +69,9 @@ lf2.move = (setting, frame, type, thing) => {
 // 更新物件速度
 lf2.updateSpeed = (setting, move, m) => {
   if (move[0] == 550) setting.xSpeed = 0;
-  else if (move[0] != 0) setting.xSpeed = move[0] * m * 0.6;
+  else if (move[0] != 0) setting.xSpeed = move[0] * m;
   if (move[1] == 550) setting.ySpeed = 0;
-  else if (move[1] != 0) setting.ySpeed = move[1] * 0.9;
+  else if (move[1] != 0) setting.ySpeed = move[1];
 }
 
 // 滯空狀態發生變換 且是變成不滯空 (預防跳的瞬間就落地)

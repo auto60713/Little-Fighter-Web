@@ -1,21 +1,12 @@
 
-// 換動作判斷
+// 換動作判斷 (有優先順序 如果條件同時成立 越上方的情況優先權越大)
 lf2.variousChangesFrame = (setting, frame, type, thing) => {
 
   var effect = lf2.collisionDetection(setting, frame, type);
   var skill = lf2.skill(setting, frame, type, thing);
 
-  // 長壓保持動作
-  if (frame.hitHold && !setting.keypress[setting.hitHold]) {
-    lf2.gotoFrame(thing, setting, type, 999);
-    setting.hitHold = '-';
-  }
-  // 自然換動作
-  else if (setting.nowwait <= 0) {
-    lf2.gotoFrame(thing, setting, type, frame.next);
-  }
   // 被打偵測
-  else if (effect) {
+  if (effect) {
     // 不同的打擊效果 會有不同的特效
     lf2.strikeEffect(type, thing, setting, effect);
   }
@@ -23,10 +14,19 @@ lf2.variousChangesFrame = (setting, frame, type, thing) => {
   else if (skill) {
     lf2.gotoFrame(thing, setting, type, skill);
   }
+  // 長壓保持動作
+  else if (frame.hitHold && !setting.keypress[setting.hitHold]) {
+    lf2.gotoFrame(thing, setting, type, 999);
+    setting.hitHold = '-';
+  }
   // 循環到期換動作 (通常為衍生物)
   else if (setting.timeToGo && setting.timeToGo[0] <= 0) {
     lf2.gotoFrame(thing, setting, type, setting.timeToGo[1]);
     setting.timeToGo = null;
+  }
+  // 自然換動作
+  else if (setting.nowwait <= 0) {
+    lf2.gotoFrame(thing, setting, type, frame.next);
   }
   // 被抓換動作
   else if (setting.catching) {
@@ -177,6 +177,7 @@ lf2.SomeThingsFollowTheRole = (setting, frame, type) => {
       // 身份
       lf2.paintedAtFoot(setting.x, 10, 'identity', 'standing');
       // 血條
+      // FIXME: 血條長度不該寫死
       lf2.mainhpbar2.file['protaghpbarVal'].w = 820 * (setting.nowhp / setting.hp);
     }
 

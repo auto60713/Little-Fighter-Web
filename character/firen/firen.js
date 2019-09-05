@@ -493,7 +493,7 @@ lf2.derivative.Firen = {
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
     'flying6': {
-      pic: ['ball', 1, 1], wait: 1, next: 999, move: [23, 0], center: [54, 41],
+      pic: ['ball', 1, 1], wait: 1, next: 'standing', move: [23, 0], center: [54, 41],
       itr: { x: 22, y: 27, w: 55, h: 27, move: [10, -10], effect: 'falling', vrest: 10, injury: 45, next: 'falling', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },

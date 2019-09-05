@@ -26,7 +26,7 @@ lf2.shaoguan.stage1 = {
     // 第二張圖
     // 2-1
     'bbbbb1': {
-      next: 999, openx: 800, map: 'hkc',
+      next: 999, openx: 800, map: 'bc',
       enemy: [
         { name: 'Deep', hp: 50, x: 400, y: 250, boss: true, },
       ],

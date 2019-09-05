@@ -20,11 +20,11 @@ window.lf2 = {
 
   themeColor: '#4172A5',
   // wait等於幾幀
-  waitMagnification: 3,
+  waitMagnification: 1,
   // 重力
-  gravity: 0.35,
+  gravity: 0.37,
   // 落下最大速度
-  maxFallingSpeed: 10.7,
+  maxFallingSpeed: 11,
 
 };
 
