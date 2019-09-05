@@ -9,7 +9,7 @@ lf2.shaoguan.stage1 = {
     'standing': {
       next: 'aaaaaa2', openx: 800,
       enemy: [
-        { name: 'Freeze', hp: 50, x: 200, y: 300, },
+        { name: 'Firen', hp: 50, x: 200, y: 300, },
         { name: 'Henry', hp: 50, x: 300, y: 300, },
         { name: 'John', hp: 50, x: 400, y: 300, },
       ],
@@ -18,7 +18,7 @@ lf2.shaoguan.stage1 = {
     'aaaaaa2': {
       next: 'bbbbb1', openx: 1600,
       enemy: [
-        { name: 'Davis', hp: 50, x: 1200, y: 300, },
+        { name: 'Woody', hp: 50, x: 1200, y: 300, },
       ],
     },
 

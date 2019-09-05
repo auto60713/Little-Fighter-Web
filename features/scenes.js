@@ -17,17 +17,35 @@ lf2.prepareentrance = () => {
 
 // 準備選擇模式的東西
 lf2.preparemodeSelection = () => {
-  lf2.selectionList('mode', 100);
+
+  lf2[`modeIndex`] = 0;
+
+  lf2.adjunction('UI', 'button', {
+    x: 250,
+    y: 250,
+    nowframe: 'standing',
+  });
+
+  lf2.adjunction('UI', 'button', {
+    x: 450,
+    y: 250,
+    nowframe: 'standing2',
+  });
+
+  lf2.adjunction('UI', 'point', {
+    x: 250,
+    y: 350,
+  });
 }
 
 // 準備選角畫面的東西
 lf2.prepareroleSelection = () => {
-  lf2.selectionList('character', 50);
+  lf2.selectionList('character', 200);
 }
 
 // 準備選擇地圖的東西
 lf2.preparemapSelection = () => {
-  lf2.selectionList('map', 150);
+  lf2.selectionList('map', 200);
 }
 
 // 準備格鬥模式的東西
@@ -44,7 +62,7 @@ lf2.preparebattleMode = () => {
   });
 
   // 另一個角色
-  lf2.adjunction('character', 'Davis', {
+  lf2.adjunction('character', 'Firen', {
     x: 600,
     y: lf2.mapLimit.y,
     team: 1,
@@ -62,7 +80,7 @@ lf2.preparebattleMode = () => {
 
 // 準備選擇副本的東西
 lf2.prepareshaoguanSelection = () => {
-  lf2.selectionList('shaoguan', 150);
+  lf2.selectionList('shaoguan', 200);
 }
 
 // 準備闖關模式的東西
@@ -98,7 +116,7 @@ lf2.adjunction = (type, name, data = {}) => {
   lf2.scenesIndex++;
 
   // FIXME: 應該要為name 但目前都是standing 就standing
-  if (type == 'UI' || type == 'character') data.nowframe = 'standing';
+  if (type == 'UI' || type == 'character') template.setting.nowframe = 'standing';
 
   // 將加入時的設定需求寫入物件中
   Object.keys(data).forEach(key => {
@@ -125,7 +143,7 @@ lf2.initialization = () => {
     derivative: [],
     UI: [],
   };
-  lf2.canvas.style.backgroundColor = '#102463';
+  lf2.canvas.style.backgroundColor = lf2.themeColor;
 }
 
 // 建構選擇列表
@@ -135,14 +153,14 @@ lf2.selectionList = (type, w) => {
 
   Object.keys(lf2[type]).forEach((name, i) => {
     lf2.adjunction('UI', name, {
-      x: 100 + (w * i),
-      y: 100,
+      x: 250 + (w * i),
+      y: 250,
     });
   });
 
   lf2.adjunction('UI', 'point', {
-    x: 120,
-    y: 140,
+    x: 250,
+    y: 350,
   });
 
 }

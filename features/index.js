@@ -18,6 +18,7 @@ window.lf2 = {
 
   // 設定有意思的值
 
+  themeColor: '#4172A5',
   // wait等於幾幀
   waitMagnification: 3,
   // 重力

@@ -45,7 +45,6 @@
 
       for (i = 0; i < array.length; i++) {
         element = array[i];
-        console.log(element);
 
         if (ignoreLock) array[i] = '';
 
@@ -115,7 +114,6 @@
       try {
 
         list.forEach(tagName => {
-          console.log(`${tagName}_end`);
           switch (element) {
             case `${tagName}:`:
               ignoreLock = true;

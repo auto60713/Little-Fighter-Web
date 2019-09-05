@@ -38,11 +38,13 @@ lf2.portraitUI = (type, name) => {
 
   var whichFace = type == 'character' ? 'face' : `${type}face`;
 
+  var cqer = type == 'character' ? [50, 50] : [100, 75];
+
   lf2.UI[name] = {
     setting: { file: {}, type: type },
-    frame: { 'standing': { next: 'standing', pic: [whichFace, 0, 0], wait: 100, }, }
+    frame: { 'standing': { next: 'standing', pic: [whichFace, 0, 0], center: cqer, wait: 100, }, }
   };
-  lf2.UI[name].setting.file[whichFace] = { deputy: 'png', w: 200, h: 150 };
+  lf2.UI[name].setting.file[whichFace] = { deputy: 'png', w: cqer[0] * 2, h: cqer[1] * 2 };
 }
 
 // 根據路徑將圖檔匯入圖檔中心

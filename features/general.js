@@ -119,6 +119,8 @@ lf2.counter = (setting, frame, type) => {
   if (setting.timeToGo) setting.timeToGo[0]--;
   else if (frame.timeToGo) setting.timeToGo = frame.timeToGo;
 
+  // 選單滑動
+  if (type == 'UI' && setting.newX) setting.x += (setting.newX - setting.x) * 0.5;
 
   if (lf2.passOnly(['battleMode', 'shaoguanMode'], ['character'], type)) {
 
@@ -173,7 +175,7 @@ lf2.SomeThingsFollowTheRole = (setting, frame, type) => {
     // 主角
     if (setting.scenesIndex == 1) {
       // 身份
-      lf2.paintedAtFoot(setting.x, 10, 'p1');
+      lf2.paintedAtFoot(setting.x, 10, 'identity', 'standing');
       // 血條
       lf2.mainhpbar2.file['protaghpbarVal'].w = 820 * (setting.nowhp / setting.hp);
     }
@@ -187,7 +189,7 @@ lf2.SomeThingsFollowTheRole = (setting, frame, type) => {
       else nameTagPos = setting.x;
 
       // 身份
-      lf2.paintedAtFoot(nameTagPos, 10, 'p2');
+      lf2.paintedAtFoot(nameTagPos, 10, 'identity', 'standing2');
 
       // 血條
       lf2.paintedAtFoot(setting.x, 20, 'otherhpbar');

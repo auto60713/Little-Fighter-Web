@@ -57,7 +57,12 @@ lf2.sceneKeyEvent = (keyname) => {
     lf2[`${aaa}Index`] += nn;
     if (lf2[`${aaa}Index`] === Object.keys(lf2[aaa]).length) lf2[`${aaa}Index`] = 0;
     else if (lf2[`${aaa}Index`] === -1) lf2[`${aaa}Index`] = Object.keys(lf2[aaa]).length - 1;
-    lf2.scenes.UI[lf2.scenes.UI.length - 1].setting.x = lf2.scenes.UI[lf2[`${aaa}Index`]].setting.x + 15;
+
+    for (let i = 0; i < lf2.scenes.UI.length - 1; i++) {
+      const u = lf2.scenes.UI[i];
+
+      u.setting.newX = 250 + ((i - lf2[`${aaa}Index`]) * 200);
+    }
   };
 
   switch (lf2.state) {

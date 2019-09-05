@@ -2,24 +2,66 @@
 // LOGO
 lf2.UI.logo = {
   setting: {
-    file: { 'logo': { deputy: 'png', w: 356, h: 84 }, },
-    fixedPosition: [400, 150],
+    file: { 'logo': { deputy: 'png', w: 423, h: 130 }, },
+    fixedPosition: [400, 200],
   },
   frame: {
-    'standing': { next: 'standing', pic: ['logo', 0, 0], center: [178, 42], wait: 100, },
+    'standing': { next: 'standing', pic: ['logo', 0, 0], center: [211, 65], wait: 100, },
   }
 };
 
 // 開始按鈕
 lf2.UI.startgame = {
   setting: {
-    file: { 'startgame': { deputy: 'png', w: 227, h: 74 }, },
+    file: { 'startgame': { deputy: 'png', w: 150, h: 60 }, },
     fixedPosition: [400, 400],
   },
   frame: {
-    'standing': { next: 'standing', pic: ['startgame', 0, 0], center: [113, 37], wait: 100, },
+    'standing': { next: 'standing', pic: ['startgame', 0, 0], center: [75, 30], wait: 100, },
   }
 };
+
+
+
+// 選角手
+lf2.UI.point = {
+  setting: {
+    file: { 'point': { deputy: 'png', w: 29, h: 36 }, },
+  },
+  frame: {
+    'standing': { next: 'standing', pic: ['point', 0, 0], center: [14, 18], wait: 100, },
+  }
+};
+
+// 模式按鈕
+lf2.UI.button = {
+  setting: {
+    file: { 
+      'mapSelection': { deputy: 'png', w: 170, h: 170 }, 
+      'shaoguanSelection': { deputy: 'png', w: 170, h: 170 },
+    },
+  },
+  frame: {
+    'standing': { next: 'standing', pic: ['mapSelection', 0, 0], center: [85, 85], wait: 100, },
+    'standing2': { next: 'standing2', pic: ['shaoguanSelection', 0, 0], center: [85, 85], wait: 100, },
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // 影子
@@ -32,23 +74,15 @@ lf2.UI.shadow = {
   }
 };
 
-// p1
-lf2.UI.p1 = {
+// 身分
+lf2.UI.identity = {
   setting: {
-    file: { 'p1': { deputy: 'png', w: 14, h: 10 }, },
+    file: { 'identity': { deputy: 'png', w: 28, h: 10 }, },
   },
   frame: {
-    'standing': { next: 'standing', pic: ['p1', 0, 0], center: [7, 5], wait: 100, },
-  }
-};
-
-// p2
-lf2.UI.p2 = {
-  setting: {
-    file: { 'p2': { deputy: 'png', w: 14, h: 10 }, },
-  },
-  frame: {
-    'standing': { next: 'standing', pic: ['p2', 0, 0], center: [7, 5], wait: 100, },
+    'standing': { next: 'standing', pic: ['identity', 0, 0], center: [14, 5], wait: 100, },
+    'standing2': { next: 'standing2', pic: ['identity', 1, 0], center: [14, 5], wait: 100, },
+    'com': { next: 'com', pic: ['identity', 3, 0], center: [14, 5], wait: 100, },
   }
 };
 
@@ -56,14 +90,14 @@ lf2.UI.p2 = {
 lf2.UI.protaghpbar = {
   setting: {
     file: {
-      'protaghpbarVal': { deputy: 'png', w: 820, h: 258 },
-      'protaghpbarArmor': { deputy: 'png', w: 820, h: 258 },
+      'protaghpbarVal': { deputy: 'png', w: 123, h: 39 },
+      'protaghpbarArmor': { deputy: 'png', w: 123, h: 39 },
     },
-    fixedPosition: [100, 100],
+    fixedPosition: [30, 50],
   },
   frame: {
-    'standing': { next: 'standing', pic: ['protaghpbarVal', 0, 0], center: [410, 129], wait: 100, },
-    'standing2': { next: 'standing2', pic: ['protaghpbarArmor', 0, 0], center: [410, 129], wait: 100, },
+    'standing': { next: 'standing', pic: ['protaghpbarVal', 0, 0], center: [0, 0], wait: 100, },
+    'standing2': { next: 'standing2', pic: ['protaghpbarArmor', 0, 0], center: [0, 0], wait: 100, },
   }
 };
 
@@ -83,36 +117,6 @@ lf2.UI.otherhpbar = {
 
 
 
-
-// 選角手
-lf2.UI.point = {
-  setting: {
-    file: { 'point': { deputy: 'png', w: 288, h: 360 }, },
-  },
-  frame: {
-    'standing': { next: 'standing', pic: ['point', 0, 0], center: [0, 0], wait: 100, },
-  }
-};
-
-// 格鬥模式按鈕
-lf2.UI.mapSelection = {
-  setting: {
-    file: { 'mapSelection': { deputy: 'png', w: 265, h: 59 }, },
-  },
-  frame: {
-    'standing': { next: 'standing', pic: ['mapSelection', 0, 0], center: [132, 29], wait: 100, },
-  }
-};
-
-// 闖關模式按鈕
-lf2.UI.shaoguanSelection = {
-  setting: {
-    file: { 'shaoguanSelection': { deputy: 'png', w: 265, h: 59 }, },
-  },
-  frame: {
-    'standing': { next: 'standing', pic: ['shaoguanSelection', 0, 0], center: [132, 29], wait: 100, },
-  }
-};
 
 
 
