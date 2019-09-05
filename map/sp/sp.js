@@ -1,21 +1,21 @@
 lf2.map.sp = {
   setting: {
     file: {
-      'wall': { deputy: 'bmp', w: 1000, h: 1000, },
+      'wall': { deputy: 'png', w: 1000, h: 1000, },
 
-      'wall4': { deputy: 'bmp', w: 1000, h: 1000, cc: 6, c1: 0, c2: 2, },
+      'wall4': { deputy: 'png', w: 1000, h: 1000, cc: 6, c1: 0, c2: 2, },
 
-      'wall3': { deputy: 'bmp', w: 1000, h: 1000, cc: 16, c1: 4, c2: 7, },
-      'wall2': { deputy: 'bmp', w: 1000, h: 1000, cc: 16, c1: 8, c2: 11, },
-      'wall3': { deputy: 'bmp', w: 1000, h: 1000, cc: 16, c1: 12, c2: 15, },
+      'wall3': { deputy: 'png', w: 1000, h: 1000, cc: 16, c1: 4, c2: 7, },
+      'wall2': { deputy: 'png', w: 1000, h: 1000, cc: 16, c1: 8, c2: 11, },
+      'wall3': { deputy: 'png', w: 1000, h: 1000, cc: 16, c1: 12, c2: 15, },
 
-      'fire1': { deputy: 'bmp', w: 1000, h: 1000, cc: 14, c1: 0, c2: 1, },
-      'fire2': { deputy: 'bmp', w: 1000, h: 1000, cc: 14, c1: 2, c2: 3, },
-      'fire3': { deputy: 'bmp', w: 1000, h: 1000, cc: 14, c1: 4, c2: 5, },
-      'fire4': { deputy: 'bmp', w: 1000, h: 1000, cc: 14, c1: 6, c2: 7, },
-      'fire5': { deputy: 'bmp', w: 1000, h: 1000, cc: 14, c1: 8, c2: 9, },
-      'fire6': { deputy: 'bmp', w: 1000, h: 1000, cc: 14, c1: 10, c2: 11, },
-      'fire7': { deputy: 'bmp', w: 1000, h: 1000, cc: 14, c1: 12, c2: 13, },
+      'fire1': { deputy: 'png', w: 1000, h: 1000, cc: 14, c1: 0, c2: 1, },
+      'fire2': { deputy: 'png', w: 1000, h: 1000, cc: 14, c1: 2, c2: 3, },
+      'fire3': { deputy: 'png', w: 1000, h: 1000, cc: 14, c1: 4, c2: 5, },
+      'fire4': { deputy: 'png', w: 1000, h: 1000, cc: 14, c1: 6, c2: 7, },
+      'fire5': { deputy: 'png', w: 1000, h: 1000, cc: 14, c1: 8, c2: 9, },
+      'fire6': { deputy: 'png', w: 1000, h: 1000, cc: 14, c1: 10, c2: 11, },
+      'fire7': { deputy: 'png', w: 1000, h: 1000, cc: 14, c1: 12, c2: 13, },
 
       'g': { deputy: 'png', w: 1000, h: 1000, cc: 14, c1: 12, c2: 13, },
     },

@@ -1,15 +1,15 @@
 lf2.map.lf = {
   setting: {
     file: {
-      'forests': { deputy: 'bmp', w: 1000, h: 1000, },
+      'forests': { deputy: 'png', w: 1000, h: 1000, },
       'forestm1': { deputy: 'png', w: 1000, h: 1000, },
-      'forestm2': { deputy: 'bmp', w: 1000, h: 1000, },
-      'forestm3': { deputy: 'bmp', w: 1000, h: 1000, },
-      'forestm4': { deputy: 'bmp', w: 1000, h: 1000, },
+      'forestm2': { deputy: 'png', w: 1000, h: 1000, },
+      'forestm3': { deputy: 'png', w: 1000, h: 1000, },
+      'forestm4': { deputy: 'png', w: 1000, h: 1000, },
       'forestt': { deputy: 'png', w: 1000, h: 1000, },
-      'land1': { deputy: 'bmp', w: 1000, h: 1000, },
-      'land2': { deputy: 'bmp', w: 1000, h: 1000, },
-      'land4': { deputy: 'bmp', w: 1000, h: 1000, },
+      'land1': { deputy: 'png', w: 1000, h: 1000, },
+      'land2': { deputy: 'png', w: 1000, h: 1000, },
+      'land4': { deputy: 'png', w: 1000, h: 1000, },
       'g': { deputy: 'png', w: 1000, h: 1000, },
     },
     limit: { x: 1600, y: 400, },

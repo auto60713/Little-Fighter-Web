@@ -1,11 +1,11 @@
 lf2.map.bc = {
   setting: {
     file: {
-      'bc1': { deputy: 'bmp', w: 1000, h: 1000, },
-      'bc2': { deputy: 'bmp', w: 1000, h: 1000, },
-      'bc3': { deputy: 'bmp', w: 1000, h: 1000, },
-      'bc4': { deputy: 'bmp', w: 1000, h: 1000, },
-      'bc5': { deputy: 'bmp', w: 1000, h: 1000, },
+      'bc1': { deputy: 'png', w: 1000, h: 1000, },
+      'bc2': { deputy: 'png', w: 1000, h: 1000, },
+      'bc3': { deputy: 'png', w: 1000, h: 1000, },
+      'bc4': { deputy: 'png', w: 1000, h: 1000, },
+      'bc5': { deputy: 'png', w: 1000, h: 1000, },
     },
     limit: { x: 1500, y: 300, },
     backgroundColor: '#000000',
