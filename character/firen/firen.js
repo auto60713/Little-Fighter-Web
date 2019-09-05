@@ -43,7 +43,7 @@ lf2.character.Firen = {
     },
 
     'walking': {
-      pic: ['0', 0, 4], wait: 3, next: 'walking2', move: [5, 0], center: [39, 78], flip: true, hitHold: true,
+      pic: ['0', 0, 4], wait: 3, next: 'walking2', move: [4, 0], center: [39, 78], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -51,7 +51,7 @@ lf2.character.Firen = {
       },
     },
     'walking2': {
-      pic: ['0', 0, 5], wait: 3, next: 'walking3', move: [5, 0], center: [39, 79], flip: true, hitHold: true,
+      pic: ['0', 0, 5], wait: 3, next: 'walking3', move: [4, 0], center: [39, 79], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -59,7 +59,7 @@ lf2.character.Firen = {
       },
     },
     'walking3': {
-      pic: ['0', 0, 6], wait: 3, next: 'walking4', move: [5, 0], center: [39, 79], flip: true, hitHold: true,
+      pic: ['0', 0, 6], wait: 3, next: 'walking4', move: [4, 0], center: [39, 79], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -67,7 +67,7 @@ lf2.character.Firen = {
       },
     },
     'walking4': {
-      pic: ['0', 0, 7], wait: 3, next: 'walking', move: [5, 0], center: [39, 78], flip: true, hitHold: true,
+      pic: ['0', 0, 7], wait: 3, next: 'walking', move: [4, 0], center: [39, 78], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -76,7 +76,7 @@ lf2.character.Firen = {
     },
 
     'running': {
-      pic: ['0', 2, 0], wait: 3, next: 'running2', move: [10, 0], center: [35, 79], sound: '003.wav', hitHold: true,
+      pic: ['0', 2, 0], wait: 3, next: 'running2', move: [8, 0], center: [35, 79], sound: '003.wav', hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -84,7 +84,7 @@ lf2.character.Firen = {
       },
     },
     'running2': {
-      pic: ['0', 2, 1], wait: 3, next: 'running3', move: [10, 0], center: [41, 79], hitHold: true,
+      pic: ['0', 2, 1], wait: 3, next: 'running3', move: [8, 0], center: [41, 79], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -92,7 +92,7 @@ lf2.character.Firen = {
       },
     },
     'running3': {
-      pic: ['0', 2, 2], wait: 3, next: 'running', move: [10, 0], center: [36, 79], sound: '004.wav', hitHold: true,
+      pic: ['0', 2, 2], wait: 3, next: 'running', move: [8, 0], center: [36, 79], sound: '004.wav', hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -210,7 +210,7 @@ lf2.character.Firen = {
       },
     },
     'jumpingMove': {
-      pic: ['0', 6, 2], wait: 1, next: 'jumping', move: [5, 0], center: [39, 79], flip: true,
+      pic: ['0', 6, 2], wait: 1, next: 'jumping', move: [4, 0], center: [39, 79], flip: true,
       bdy: { x: 28, y: 3, w: 23, h: 65, },
       bdy: { x: 18, y: 29, w: 48, h: 17, },
     },
@@ -224,7 +224,7 @@ lf2.character.Firen = {
     },
 
     'dash': {
-      pic: ['0', 6, 3], wait: 0, next: 'dash2', move: [9, -5], center: [39, 79],
+      pic: ['0', 6, 3], wait: 0, next: 'dash2', move: [8, -5], center: [39, 79],
       bdy: { x: 43, y: 5, w: 23, h: 33, },
       bdy: { x: 28, y: 29, w: 21, h: 33, },
       bdy: { x: 18, y: 48, w: 27, h: 21, },

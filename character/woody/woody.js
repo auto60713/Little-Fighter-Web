@@ -5,7 +5,7 @@ lf2.character.Woody = {
       '1': { deputy: 'png', w: 80, h: 80 },
       '2': { deputy: 'png', w: 80, h: 80 },
     },
-    hp: 500,
+    hp: 550,
   },
   frame: {
 
@@ -43,7 +43,7 @@ lf2.character.Woody = {
     },
 
     'walking': {
-      pic: ['0', 0, 4], wait: 3, next: 'walking2', move: [5, 0], center: [39, 78], flip: true, hitHold: true,
+      pic: ['0', 0, 4], wait: 3, next: 'walking2', move: [4, 0], center: [39, 78], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -51,7 +51,7 @@ lf2.character.Woody = {
       },
     },
     'walking2': {
-      pic: ['0', 0, 5], wait: 3, next: 'walking3', move: [5, 0], center: [39, 79], flip: true, hitHold: true,
+      pic: ['0', 0, 5], wait: 3, next: 'walking3', move: [4, 0], center: [39, 79], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -59,7 +59,7 @@ lf2.character.Woody = {
       },
     },
     'walking3': {
-      pic: ['0', 0, 6], wait: 3, next: 'walking4', move: [5, 0], center: [39, 79], flip: true, hitHold: true,
+      pic: ['0', 0, 6], wait: 3, next: 'walking4', move: [4, 0], center: [39, 79], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -67,7 +67,7 @@ lf2.character.Woody = {
       },
     },
     'walking4': {
-      pic: ['0', 0, 7], wait: 3, next: 'walking', move: [5, 0], center: [39, 78], flip: true, hitHold: true,
+      pic: ['0', 0, 7], wait: 3, next: 'walking', move: [4, 0], center: [39, 78], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -76,7 +76,7 @@ lf2.character.Woody = {
     },
 
     'running': {
-      pic: ['0', 2, 0], wait: 3, next: 'running2', move: [10, 0], center: [36, 80], hitHold: true,
+      pic: ['0', 2, 0], wait: 3, next: 'running2', move: [9, 0], center: [36, 80], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -84,7 +84,7 @@ lf2.character.Woody = {
       },
     },
     'running2': {
-      pic: ['0', 2, 1], wait: 3, next: 'running3', move: [10, 0], center: [41, 79], hitHold: true,
+      pic: ['0', 2, 1], wait: 3, next: 'running3', move: [9, 0], center: [41, 79], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -92,7 +92,7 @@ lf2.character.Woody = {
       },
     },
     'running3': {
-      pic: ['0', 2, 2], wait: 3, next: 'running', move: [10, 0], center: [40, 81], hitHold: true,
+      pic: ['0', 2, 2], wait: 3, next: 'running', move: [9, 0], center: [40, 81], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -214,7 +214,7 @@ lf2.character.Woody = {
       },
     },
     'jumpingMove': {
-      pic: ['0', 6, 2], wait: 1, next: 'jumping', move: [5, 0], center: [39, 79], flip: true,
+      pic: ['0', 6, 2], wait: 1, next: 'jumping', move: [4, 0], center: [39, 79], flip: true,
       bdy: { x: 20, y: 11, w: 29, h: 61, },
     },
     'jumping': {

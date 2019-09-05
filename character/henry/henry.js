@@ -5,7 +5,7 @@ lf2.character.Henry = {
       '1': { deputy: 'png', w: 80, h: 80 },
       '2': { deputy: 'png', w: 80, h: 80 },
     },
-    hp: 500,
+    hp: 300,
   },
   frame: {
 
@@ -76,7 +76,7 @@ lf2.character.Henry = {
     },
 
     'running': {
-      pic: ['0', 2, 0], wait: 3, next: 'running2', move: [11, 0], center: [37, 79], sound: '003.wav', hitHold: true,
+      pic: ['0', 2, 0], wait: 3, next: 'running2', move: [10, 0], center: [37, 79], sound: '003.wav', hitHold: true,
       bdy: { x: 25, y: 11, w: 39, h: 68, },
       hit: {
         U: 'dash',
@@ -84,7 +84,7 @@ lf2.character.Henry = {
       },
     },
     'running2': {
-      pic: ['0', 2, 1], wait: 3, next: 'running3', move: [11, 0], center: [37, 79], hitHold: true,
+      pic: ['0', 2, 1], wait: 3, next: 'running3', move: [10, 0], center: [37, 79], hitHold: true,
       bdy: { x: 25, y: 10, w: 42, h: 68, },
       hit: {
         U: 'dash',
@@ -92,7 +92,7 @@ lf2.character.Henry = {
       },
     },
     'running3': {
-      pic: ['0', 2, 2], wait: 3, next: 'running', move: [11, 0], center: [39, 79], sound: '004.wav', hitHold: true,
+      pic: ['0', 2, 2], wait: 3, next: 'running', move: [10, 0], center: [39, 79], sound: '004.wav', hitHold: true,
       bdy: { x: 29, y: 14, w: 32, h: 64, },
       hit: {
         U: 'dash',
@@ -220,7 +220,7 @@ lf2.character.Henry = {
       bdy: { x: 18, y: 26, w: 30, h: 54, },
     },
     'jump2': {
-      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [0, -8], center: [34, 79], sound: '017.wav', flip: true,
+      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [0, -9], center: [34, 79], sound: '017.wav', flip: true,
       bdy: { x: 15, y: 27, w: 35, h: 54, },
       hit: {
         R: 'jumpingMove', L: 'jumpingMove',
@@ -241,7 +241,7 @@ lf2.character.Henry = {
     },
 
     'dash': {
-      pic: ['0', 6, 3], wait: 0, next: 'dash2', move: [9, -4], center: [39, 79],
+      pic: ['0', 6, 3], wait: 0, next: 'dash2', move: [9, -5], center: [39, 79],
       bdy: { x: 43, y: 5, w: 23, h: 33, },
       bdy: { x: 28, y: 29, w: 21, h: 33, },
       bdy: { x: 18, y: 48, w: 27, h: 21, },

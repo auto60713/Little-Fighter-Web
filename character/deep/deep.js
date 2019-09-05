@@ -5,12 +5,12 @@ lf2.character.Deep = {
       '1': { deputy: 'png', w: 80, h: 80 },
       '2': { deputy: 'png', w: 80, h: 80 },
     },
-    hp: 500,
+    hp: 650,
   },
   frame: {
 
     'standing': {
-      pic: ['0', 0, 0], wait: 4, next: 'standing2', move: [0, 0], center: [37, 79], flip: true,
+      pic: ['0', 0, 0], wait: 12, next: 'standing2', move: [0, 0], center: [37, 79], flip: true,
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
@@ -18,7 +18,7 @@ lf2.character.Deep = {
       },
     },
     'standing2': {
-      pic: ['0', 0, 1], wait: 4, next: 'standing3', move: [0, 0], center: [37, 79], flip: true,
+      pic: ['0', 0, 1], wait: 12, next: 'standing3', move: [0, 0], center: [37, 79], flip: true,
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
@@ -26,7 +26,7 @@ lf2.character.Deep = {
       },
     },
     'standing3': {
-      pic: ['0', 0, 2], wait: 4, next: 'standing4', move: [0, 0], center: [37, 79], flip: true,
+      pic: ['0', 0, 2], wait: 12, next: 'standing4', move: [0, 0], center: [37, 79], flip: true,
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
@@ -34,7 +34,7 @@ lf2.character.Deep = {
       },
     },
     'standing4': {
-      pic: ['0', 0, 3], wait: 4, next: 999, move: [0, 0], center: [37, 79], flip: true,
+      pic: ['0', 0, 3], wait: 12, next: 999, move: [0, 0], center: [37, 79], flip: true,
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
@@ -43,7 +43,7 @@ lf2.character.Deep = {
     },
 
     'walking': {
-      pic: ['0', 0, 4], wait: 3, next: 'walking2', move: [5, 0], center: [28, 78], flip: true, hitHold: true,
+      pic: ['0', 0, 4], wait: 9, next: 'walking2', move: [3, 0], center: [28, 78], flip: true, hitHold: true,
       bdy: { x: 9, y: 11, w: 32, h: 69, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -51,7 +51,7 @@ lf2.character.Deep = {
       },
     },
     'walking2': {
-      pic: ['0', 0, 5], wait: 3, next: 'walking3', move: [5, 0], center: [31, 79], flip: true, hitHold: true,
+      pic: ['0', 0, 5], wait: 9, next: 'walking3', move: [3, 0], center: [31, 79], flip: true, hitHold: true,
       bdy: { x: 16, y: 11, w: 29, h: 69, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -59,7 +59,7 @@ lf2.character.Deep = {
       },
     },
     'walking3': {
-      pic: ['0', 0, 6], wait: 3, next: 'walking4', move: [5, 0], center: [28, 79], flip: true, hitHold: true,
+      pic: ['0', 0, 6], wait: 9, next: 'walking4', move: [3, 0], center: [28, 79], flip: true, hitHold: true,
       bdy: { x: 14, y: 11, w: 26, h: 69, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -67,7 +67,7 @@ lf2.character.Deep = {
       },
     },
     'walking4': {
-      pic: ['0', 0, 7], wait: 3, next: 'walking', move: [5, 0], center: [26, 78], flip: true, hitHold: true,
+      pic: ['0', 0, 7], wait: 9, next: 'walking', move: [3, 0], center: [26, 78], flip: true, hitHold: true,
       bdy: { x: 10, y: 10, w: 29, h: 68, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -76,7 +76,7 @@ lf2.character.Deep = {
     },
 
     'running': {
-      pic: ['0', 2, 0], wait: 3, next: 'running2', move: [8, 0], center: [32, 79], sound: '003.wav', hitHold: true,
+      pic: ['0', 2, 0], wait: 9, next: 'running2', move: [6, 0], center: [32, 79], sound: '003.wav', hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -84,7 +84,7 @@ lf2.character.Deep = {
       },
     },
     'running2': {
-      pic: ['0', 2, 1], wait: 3, next: 'running3', move: [8, 0], center: [32, 79], hitHold: true,
+      pic: ['0', 2, 1], wait: 9, next: 'running3', move: [6, 0], center: [32, 79], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -92,7 +92,7 @@ lf2.character.Deep = {
       },
     },
     'running3': {
-      pic: ['0', 2, 2], wait: 3, next: 'running', move: [8, 0], center: [26, 79], sound: '004.wav', hitHold: true,
+      pic: ['0', 2, 2], wait: 9, next: 'running', move: [6, 0], center: [26, 79], sound: '004.wav', hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -101,75 +101,75 @@ lf2.character.Deep = {
     },
 
     'punch': {
-      pic: ['0', 1, 0], wait: 3, next: 'punch2', move: [0, 0], center: [40, 79],
+      pic: ['0', 1, 0], wait: 9, next: 'punch2', move: [0, 0], center: [40, 79],
       itr: { x: 21, y: 57, w: 37, h: 24, vrest: 1, },
       bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
     'punch2': {
-      pic: ['0', 1, 8], wait: 1, next: 'punch3', move: [0, 0], center: [23, 79], sound: '007.wav',
+      pic: ['0', 1, 8], wait: 3, next: 'punch3', move: [0, 0], center: [23, 79], sound: '007.wav',
       itr: { x: 8, y: 47, w: 43, h: 17, move: [2, 0], effect: 'injured', arest: 10, injury: 35, },
       bdy: { x: 7, y: 14, w: 30, h: 65, },
       bdy: { x: 2, y: 38, w: 60, h: 18, },
     },
     'punch3': {
-      pic: ['0', 1, 1], wait: 1, next: 999, move: [0, 0], center: [24, 79],
+      pic: ['0', 1, 1], wait: 3, next: 999, move: [0, 0], center: [24, 79],
       itr: { x: 31, y: 32, w: 47, h: 26, move: [2, 0], effect: 'injured', arest: 10, injury: 35, },
       bdy: { x: 9, y: 14, w: 31, h: 67, },
       bdy: { x: 2, y: 38, w: 60, h: 18, },
     },
 
     'jump_attack': {
-      pic: ['0', 1, 4], wait: 1, next: 'jump_attack2', move: [0, 0], center: [28, 80], sound: '007.wav',
+      pic: ['0', 1, 4], wait: 3, next: 'jump_attack2', move: [0, 0], center: [28, 80], sound: '007.wav',
       bdy: { x: 12, y: 12, w: 30, h: 63, },
     },
     'jump_attack2': {
-      pic: ['0', 1, 5], wait: 1, next: 'jump_attack3', move: [0, 0], center: [21, 78],
+      pic: ['0', 1, 5], wait: 3, next: 'jump_attack3', move: [0, 0], center: [21, 78],
       itr: { x: 32, y: 16, w: 45, h: 75, move: [7, 7], effect: 'falling', arest: 15, injury: 60, },
       bdy: { x: 11, y: 7, w: 39, h: 69, },
     },
     'jump_attack3': {
-      pic: ['0', 1, 6], wait: 11, next: 999, move: [0, 0], center: [29, 77],
+      pic: ['0', 1, 6], wait: 33, next: 999, move: [0, 0], center: [29, 77],
       bdy: { x: 24, y: 9, w: 32, h: 68, },
     },
 
     'run_attack': {
-      pic: ['1', 3, 2], wait: 4, next: 'run_attack2', move: [6, 0], center: [31, 79],
+      pic: ['1', 3, 2], wait: 12, next: 'run_attack2', move: [6, 0], center: [31, 79],
       bdy: { x: 16, y: 10, w: 29, h: 68, },
     },
     'run_attack2': {
-      pic: ['1', 3, 3], wait: 2, next: 'run_attack3', move: [4, 0], center: [19, 79], sound: '007.wav',
+      pic: ['1', 3, 3], wait: 6, next: 'run_attack3', move: [4, 0], center: [19, 79], sound: '007.wav',
       itr: { x: 41, y: 4, w: 36, h: 50, move: [-3, 12], injury: 60, },
       bdy: { x: 8, y: 51, w: 38, h: 27, },
       bdy: { x: 14, y: 16, w: 27, h: 36, },
     },
     'run_attack3': {
-      pic: ['1', 3, 4], wait: 3, next: 'run_attack4', move: [0, 0], center: [14, 79],
+      pic: ['1', 3, 4], wait: 9, next: 'run_attack4', move: [0, 0], center: [14, 79],
       itr: { x: 43, y: 37, w: 40, h: 42, move: [5, 12], effect: 'falling', vrest: 15, injury: 15, },
       bdy: { x: 2, y: 57, w: 41, h: 22, },
       bdy: { x: 18, y: 26, w: 33, h: 38, },
     },
     'run_attack4': {
-      pic: ['1', 3, 5], wait: 3, next: 999, move: [0, 0], center: [14, 79],
+      pic: ['1', 3, 5], wait: 9, next: 999, move: [0, 0], center: [14, 79],
       bdy: { x: 2, y: 57, w: 41, h: 22, },
       bdy: { x: 20, y: 21, w: 27, h: 42, },
     },
 
     'dash_attack': {
-      pic: ['1', 3, 6], wait: 1, next: 'dash_attack2', move: [0, 0], center: [40, 77], sound: '007.wav',
+      pic: ['1', 3, 6], wait: 3, next: 'dash_attack2', move: [0, 0], center: [40, 77], sound: '007.wav',
       bdy: { x: 22, y: 7, w: 44, h: 62, },
     },
     'dash_attack2': {
-      pic: ['1', 3, 7], wait: 2, next: 'dash_attack3', move: [0, 0], center: [15, 78],
+      pic: ['1', 3, 7], wait: 6, next: 'dash_attack3', move: [0, 0], center: [15, 78],
       itr: { x: 22, y: 5, w: 58, h: 64, move: [12, 12], effect: 'falling', vrest: 12, injury: 70, },
       bdy: { x: 5, y: 9, w: 34, h: 59, },
     },
     'dash_attack3': {
-      pic: ['1', 3, 8], wait: 0, next: 'dash_attack3', move: [0, 0], center: [22, 78],
+      pic: ['1', 3, 8], wait: 10, next: 'dash_attack3', move: [0, 0], center: [22, 78],
       bdy: { x: 17, y: 12, w: 41, h: 63, },
     },
 
     'defend': {
-      pic: ['0', 5, 6], wait: 12, next: 999, move: [0, 0], center: [37, 79], flip: true, hitHold: true,
+      pic: ['0', 5, 6], wait: 10, next: 999, move: [0, 0], center: [37, 79], flip: true, hitHold: true,
       bdy: { x: 20, y: 19, w: 38, h: 60, },
       hit: {
         B2: 'defend',
@@ -177,45 +177,45 @@ lf2.character.Deep = {
     },
 
     'falling': {
-      pic: ['0', 3, 0], wait: 3, next: 'falling2', move: [0, 0], center: [39, 79], drop: 'lyingDown',
+      pic: ['0', 3, 0], wait: 9, next: 'falling2', move: [0, 0], center: [39, 79], drop: 'lyingDown',
       bdy: { x: 25, y: 25, w: 21, h: 20, },
     },
     'falling2': {
-      pic: ['0', 3, 1], wait: 3, next: 'falling3', move: [0, 0], center: [39, 79], drop: 'lyingDown',
+      pic: ['0', 3, 1], wait: 9, next: 'falling3', move: [0, 0], center: [39, 79], drop: 'lyingDown',
       bdy: { x: 22, y: 20, w: 24, h: 23, },
     },
     'falling3': {
-      pic: ['0', 3, 2], wait: 3, next: 'falling4', move: [0, 0], center: [39, 79], drop: 'lyingDown',
+      pic: ['0', 3, 2], wait: 9, next: 'falling4', move: [0, 0], center: [39, 79], drop: 'lyingDown',
       bdy: { x: 27, y: 22, w: 20, h: 18, },
     },
     'falling4': {
-      pic: ['0', 3, 3], wait: 3, next: 'falling4', move: [0, 0], center: [39, 79], drop: 'lyingDown',
+      pic: ['0', 3, 3], wait: 9, next: 'falling4', move: [0, 0], center: [39, 79], drop: 'lyingDown',
       bdy: { x: 22, y: 30, w: 27, h: 21, },
     },
 
     'lyingDown': {
-      pic: ['0', 3, 4], wait: 10, next: 999, move: [0, 0], center: [39, 72],
+      pic: ['0', 3, 4], wait: 30, next: 999, move: [0, 0], center: [39, 72],
     },
 
 
     'jump': {
-      pic: ['0', 6, 0], wait: 1, next: 'jump2', move: [0, 0], center: [33, 79], flip: true,
+      pic: ['0', 6, 0], wait: 3, next: 'jump2', move: [0, 0], center: [33, 79], flip: true,
       bdy: { x: 18, y: 26, w: 30, h: 54, },
     },
     'jump2': {
-      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [0, -8], center: [34, 79], sound: '017.wav', flip: true,
+      pic: ['0', 6, 1], wait: 1, next: 'jumping', move: [0, -7], center: [34, 79], sound: '017.wav', flip: true,
       bdy: { x: 15, y: 27, w: 35, h: 54, },
       hit: {
         R: 'jumpingMove', L: 'jumpingMove',
       },
     },
     'jumpingMove': {
-      pic: ['0', 6, 2], wait: 1, next: 'jumping', move: [5, 0], center: [39, 79], flip: true,
+      pic: ['0', 6, 2], wait: 1, next: 'jumping', move: [3, 0], center: [39, 79], flip: true,
       bdy: { x: 21, y: 3, w: 30, h: 77, },
       bdy: { x: 31, y: 24, w: 36, h: 21, },
     },
     'jumping': {
-      pic: ['0', 6, 2], wait: 1, next: 'jumping', move: [0, 0], center: [39, 79], flip: true,
+      pic: ['0', 6, 2], wait: 10, next: 'jumping', move: [0, 0], center: [39, 79], flip: true,
       bdy: { x: 21, y: 3, w: 30, h: 77, },
       bdy: { x: 31, y: 24, w: 36, h: 21, },
       hit: {
@@ -225,12 +225,12 @@ lf2.character.Deep = {
 
 
     'dash': {
-      pic: ['0', 6, 3], wait: 0, next: 'dash2', move: [7, -5], center: [46, 79],
+      pic: ['0', 6, 3], wait: 1, next: 'dash2', move: [6, -5], center: [46, 79],
       bdy: { x: 39, y: 6, w: 30, h: 68, },
       bdy: { x: 20, y: 34, w: 33, h: 12, },
     },
     'dash2': {
-      pic: ['0', 6, 3], wait: 8, next: 'dash3', move: [0, 0], center: [46, 79],
+      pic: ['0', 6, 3], wait: 24, next: 'dash3', move: [0, 0], center: [46, 79],
       bdy: { x: 39, y: 6, w: 30, h: 68, },
       bdy: { x: 20, y: 34, w: 33, h: 12, },
       hit: {
@@ -238,7 +238,7 @@ lf2.character.Deep = {
       },
     },
     'dash3': {
-      pic: ['1', 4, 2], wait: 2, next: 'dash3', move: [0, 0], center: [50, 79],
+      pic: ['1', 4, 2], wait: 24, next: 'dash3', move: [0, 0], center: [50, 79],
       bdy: { x: 37, y: 5, w: 32, h: 68, },
       bdy: { x: 16, y: 29, w: 37, h: 11, },
       hit: {
@@ -247,11 +247,11 @@ lf2.character.Deep = {
     },
 
     'injured': {
-      pic: ['1', 5, 0], wait: 2, next: 'injured2', move: [0, 0], center: [47, 79],
+      pic: ['1', 5, 0], wait: 6, next: 'injured2', move: [0, 0], center: [47, 79],
       bdy: { x: 25, y: 17, w: 29, h: 61, },
     },
     'injured2': {
-      pic: ['1', 5, 1], wait: 3, next: 999, move: [0, 0], center: [42, 79],
+      pic: ['1', 5, 1], wait: 9, next: 999, move: [0, 0], center: [42, 79],
       bdy: { x: 32, y: 16, w: 27, h: 63, },
       bdy: { x: 22, y: 37, w: 26, h: 42, },
     },
@@ -261,30 +261,30 @@ lf2.character.Deep = {
     // ==============================================================================
 
     'blast': {
-      pic: ['1', 6, 5], wait: 1, next: 'blast2', move: [0, 0], center: [34, 79], sound: '043.wav',
+      pic: ['1', 6, 5], wait: 3, next: 'blast2', move: [0, 0], center: [34, 79], sound: '043.wav',
       bdy: { x: 17, y: 14, w: 31, h: 66, },
       bdy: { x: 13, y: 43, w: 39, h: 19, },
     },
     'blast2': {
-      pic: ['1', 6, 6], wait: 2, next: 'blast3', move: [0, 0], center: [15, 79], sound: '007.wav',
+      pic: ['1', 6, 6], wait: 6, next: 'blast3', move: [0, 0], center: [15, 79], sound: '007.wav',
       itr: { x: 44, y: 12, w: 33, h: 55, move: [10, 0], effect: 'injured', injury: 15, },
       bdy: { x: 2, y: 13, w: 35, h: 67, },
       bdy: { x: 22, y: 39, w: 44, h: 15, },
     },
     'blast3': {
-      pic: ['1', 6, 7], wait: 1, next: 'blast4', move: [0, 0], center: [42, 79],
+      pic: ['1', 6, 7], wait: 3, next: 'blast4', move: [0, 0], center: [42, 79],
       opoint: { x: 92, y: 45, move: [0, 0], frame: 'standing', },
       bdy: { x: 16, y: 10, w: 34, h: 27, },
       bdy: { x: 25, y: 20, w: 38, h: 61, },
     },
     'blast4': {
-      pic: ['1', 6, 8], wait: 1, next: 'blast5', move: [0, 0], center: [42, 79],
+      pic: ['1', 6, 8], wait: 3, next: 'blast5', move: [0, 0], center: [42, 79],
       itr: { x: 15, y: 11, w: 21, h: 19, move: [2, 0], effect: 'injured', injury: 15, },
       bdy: { x: 25, y: 19, w: 37, h: 62, },
       bdy: { x: 16, y: 32, w: 35, h: 14, },
     },
     'blast5': {
-      pic: ['1', 6, 9], wait: 2, next: 999, move: [0, 0], center: [46, 79],
+      pic: ['1', 6, 9], wait: 6, next: 999, move: [0, 0], center: [46, 79],
       bdy: { x: 27, y: 11, w: 33, h: 70, },
       hit: {
         B1: 'blast6', B4: 'blast6',
@@ -292,12 +292,12 @@ lf2.character.Deep = {
     },
 
     'blast6': {
-      pic: ['1', 0, 8], wait: 1, next: 'blast7', move: [0, 0], center: [50, 79], sound: '043.wav',
+      pic: ['1', 0, 8], wait: 3, next: 'blast7', move: [0, 0], center: [50, 79], sound: '043.wav',
       bdy: { x: 32, y: 9, w: 30, h: 72, },
       bdy: { x: 18, y: 39, w: 38, h: 12, },
     },
     'blast7': {
-      pic: ['1', 0, 9], wait: 1, next: 'blast8', move: [0, 0], center: [48, 79], sound: '007.wav',
+      pic: ['1', 0, 9], wait: 3, next: 'blast8', move: [0, 0], center: [48, 79], sound: '007.wav',
       bdy: { x: 32, y: 11, w: 31, h: 70, },
       bdy: { x: 21, y: 21, w: 44, h: 15, },
     },
