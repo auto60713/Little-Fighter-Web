@@ -76,7 +76,7 @@ lf2.character.Henry = {
     },
 
     'running': {
-      pic: ['0', 2, 0], wait: 3 * 3, next: 'running2', move: [10, 0], center: [37, 79], sound: '003.wav', hitHold: true,
+      pic: ['0', 2, 0], wait: 5, next: 'running2', move: [8, 0], center: [37, 79], sound: '003.wav', hitHold: true,
       bdy: { x: 25, y: 11, w: 39, h: 68, },
       hit: {
         U: 'dash',
@@ -84,7 +84,7 @@ lf2.character.Henry = {
       },
     },
     'running2': {
-      pic: ['0', 2, 1], wait: 3 * 3, next: 'running3', move: [10, 0], center: [37, 79], hitHold: true,
+      pic: ['0', 2, 1], wait: 5, next: 'running3', move: [8, 0], center: [37, 79], hitHold: true,
       bdy: { x: 25, y: 10, w: 42, h: 68, },
       hit: {
         U: 'dash',
@@ -92,7 +92,7 @@ lf2.character.Henry = {
       },
     },
     'running3': {
-      pic: ['0', 2, 2], wait: 3 * 3, next: 'running', move: [10, 0], center: [39, 79], sound: '004.wav', hitHold: true,
+      pic: ['0', 2, 2], wait: 5, next: 'running', move: [8, 0], center: [39, 79], sound: '004.wav', hitHold: true,
       bdy: { x: 29, y: 14, w: 32, h: 64, },
       hit: {
         U: 'dash',
@@ -101,56 +101,59 @@ lf2.character.Henry = {
     },
 
     'punch': {
-      pic: ['0', 1, 0], wait: 3 * 1, next: 'punch2', move: [0, 0], center: [40, 79],
+      pic: ['0', 1, 0], wait: 2, next: 'punch2', move: [0, 0], center: [40, 79],
       itr: { x: 21, y: 57, w: 37, h: 24, vrest: 1, },
       bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
     'punch2': {
-      pic: ['0', 1, 1], wait: 3 * 1, next: 'punch3', move: [0, 0], center: [31, 79],
+      pic: ['0', 1, 1], wait: 2, next: 'punch3', move: [0, 0], center: [31, 79],
       bdy: { x: 15, y: 5, w: 35, h: 73, },
     },
     'punch3': {
-      pic: ['0', 1, 2], wait: 3 * 1, next: 'punch4', move: [0, 0], center: [24, 78], sound: '022.wav',
+      pic: ['0', 1, 2], wait: 4, next: 'punch4', move: [0, 0], center: [24, 78], sound: '022.wav',
       bdy: { x: 9, y: 9, w: 35, h: 71, },
       bdy: { x: 23, y: 36, w: 41, h: 16, },
     },
     'punch4': {
-      pic: ['0', 1, 3], wait: 3 * 1, next: 'punch5', move: [0, 0], center: [38, 78],
+      pic: ['0', 1, 3], wait: 6, next: 'punch5', move: [0, 0], center: [38, 78],
       bdy: { x: 24, y: 10, w: 33, h: 68, },
       bdy: { x: 28, y: 34, w: 42, h: 19, },
     },
     'punch5': {
-      pic: ['0', 1, 4], wait: 3 * 1, next: 'punch6', move: [0, 0], center: [39, 78], sound: '024.wav',
-      opoint: { x: 95, y: 57, move: [22, -3], frame: 'fly', },
+      pic: ['0', 1, 4], wait: 2, next: 'punch6', move: [0, 0], center: [39, 78], sound: '024.wav',
+      opoint: { x: 95, y: 57, frame: 'fly', },
       bdy: { x: 22, y: 7, w: 35, h: 71, },
       bdy: { x: 26, y: 22, w: 47, h: 29, },
     },
     'punch6': {
-      pic: ['0', 1, 5], wait: 3 * 1, next: 999, move: [0, 0], center: [35, 78],
+      pic: ['0', 1, 5], wait: 2, next: 999, move: [0, 0], center: [35, 78],
       bdy: { x: 23, y: 9, w: 33, h: 70, },
       bdy: { x: 15, y: 32, w: 51, h: 15, },
     },
 
     'jump_attack': {
-      pic: ['0', 0, 8], wait: 3 * 1, next: 'jump_attack2', move: [0, 0], center: [18, 78],
+      pic: ['0', 0, 8], wait: 3, next: 'jump_attack2', move: [0, 0], center: [18, 78],
       bdy: { x: 19, y: 10, w: 39, h: 57, },
     },
     'jump_attack2': {
-      pic: ['0', 0, 9], wait: 3 * 1, next: 'jump_attack3', move: [0, 0], center: [18, 78],
+      pic: ['0', 0, 9], wait: 3, next: 'jump_attack3', move: [0, 0], center: [18, 78],
       bdy: { x: 19, y: 12, w: 38, h: 59, },
     },
     'jump_attack3': {
-      pic: ['0', 4, 9], wait: 3 * 1, next: 'jump_attack4', move: [0, 0], center: [18, 79], sound: '022.wav',
+      pic: ['0', 4, 9], wait: 3, next: 'jump_attack4', move: [0, 0], center: [18, 79], sound: '022.wav',
       bdy: { x: 18, y: 12, w: 38, h: 58, },
     },
     'jump_attack4': {
-      pic: ['0', 5, 8], wait: 3 * 1, next: 'jump_attack5', move: [-1, -3], center: [18, 79],
+      pic: ['0', 5, 8], wait: 8, next: 'jump_attack5', move: [-1, -1], center: [18, 79],
       bdy: { x: 12, y: 7, w: 44, h: 63, },
     },
     'jump_attack5': {
-      pic: ['0', 5, 9], wait: 3 * 11, next: 999, move: [0, 0], center: [18, 79], sound: '024.wav',
-      opoint: { x: 80, y: 77, move: [12, 9], frame: 'fly2', },
+      pic: ['0', 5, 9], wait: 30, next: 999, move: [0, 0], center: [18, 79], sound: '024.wav',
+      opoint: { x: 80, y: 85, frame: 'fly2', },
       bdy: { x: 15, y: 10, w: 42, h: 63, },
+      hit: {
+        B1: 'jump_attack',
+      },
     },
 
     'run_attack': {
@@ -308,7 +311,7 @@ lf2.character.Henry = {
     },
     'super_arrow8': {
       pic: ['2', 0, 6], wait: 3 * 1, next: 'super_arrow9', move: [0, 0], center: [39, 78], sound: '024.wav',
-      opoint: { x: 95, y: 41, move: [22, 0], frame: 'SParrow', },
+      opoint: { x: 95, y: 41, frame: 'SParrow', },
       bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
     'super_arrow9': {
@@ -386,51 +389,51 @@ lf2.derivative.Henry = {
 
 
     'fly': {
-      pic: ['arrow', 0, 0], wait: 3 * 0, next: 'standing', move: [20, -4], center: [24, 40], drop: 1000, physical: true,
+      pic: ['arrow', 0, 0], wait: 0, next: 'standing', move: [13, -2], center: [24, 40], drop: 1000, physical: true,
       itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], effect: 'injured', injury: 40, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
 
     'fly2': {
-      pic: ['arrow', 0, 4], wait: 3 * 3, next: 'throwing6', move: [13, 10], center: [24, 40], drop: 1000, physical: true,
+      pic: ['arrow', 0, 4], wait: 0, next: 'throwing5', move: [11, 5], center: [24, 40], drop: 1000, physical: true,
       itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], effect: 'injured', injury: 40, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
 
 
     'standing': {
-      pic: ['arrow', 0, 0], wait: 3 * 3, next: 'throwing2', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], effect: 'injured', injury: 40, next: 'falling', },
+      pic: ['arrow', 0, 0], wait: 3, next: 'throwing2', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [20, 0], effect: 'injured', injury: 40, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
     'throwing2': {
-      pic: ['arrow', 0, 1], wait: 3 * 5, next: 'throwing3', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], effect: 'injured', injury: 40, next: 'falling', },
+      pic: ['arrow', 0, 1], wait: 7, next: 'throwing3', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [20, 0], effect: 'injured', injury: 40, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
     'throwing3': {
-      pic: ['arrow', 0, 2], wait: 3 * 4, next: 'throwing4', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], effect: 'injured', injury: 40, next: 'falling', },
+      pic: ['arrow', 0, 2], wait: 7, next: 'throwing4', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [20, 0], effect: 'injured', injury: 40, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
     'throwing4': {
-      pic: ['arrow', 0, 3], wait: 3 * 3, next: 'throwing5', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], effect: 'injured', injury: 40, next: 'falling', },
+      pic: ['arrow', 0, 3], wait: 9, next: 'throwing5', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [20, 0], effect: 'injured', injury: 40, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
     'throwing5': {
-      pic: ['arrow', 0, 4], wait: 3 * 3, next: 'throwing6', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], effect: 'injured', injury: 40, next: 'falling', },
+      pic: ['arrow', 0, 4], wait: 8, next: 'throwing6', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [20, 0], effect: 'injured', injury: 40, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
     'throwing6': {
-      pic: ['arrow', 0, 5], wait: 3 * 3, next: 'throwing7', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], effect: 'injured', injury: 40, next: 'falling', },
+      pic: ['arrow', 0, 5], wait: 7, next: 'throwing7', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [20, 0], effect: 'injured', injury: 40, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
     'throwing7': {
-      pic: ['arrow', 0, 6], wait: 3 * 0, next: 'throwing7', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
-      itr: { x: 3, y: 4, w: 40, h: 39, move: [9, 0], effect: 'injured', injury: 40, next: 'falling', },
+      pic: ['arrow', 0, 6], wait: 7, next: 'throwing7', move: [0, 0], center: [24, 40], drop: 1000, physical: true,
+      itr: { x: 3, y: 4, w: 40, h: 39, move: [20, 0], effect: 'injured', injury: 40, next: 'falling', },
       bdy: { x: 3, y: 4, w: 40, h: 39, },
     },
 

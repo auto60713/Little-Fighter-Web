@@ -14,13 +14,18 @@ lf2.camera = () => {
     // 攝影機往右跑
     if (mx - cx >= 800 - distance && mx < lf2.mapLimit.x - distance) {
       if (lf2.cameraPos[0] < mx - (800 - distance))
-        lf2.cameraPos[0] += (mx - (800 - distance) - lf2.cameraPos[0]) * 0.3;
+        lf2.cameraPos[0] += (mx - (800 - distance) - lf2.cameraPos[0]) * 0.5;
     }
+    else if (mx >= lf2.mapLimit.x - distance)
+      lf2.cameraPos[0] = lf2.mapLimit.x - 800;
+
     // 攝影機往左跑
     if (mx - cx < distance && mx > distance) {
       if (lf2.cameraPos[0] > mx - distance)
-        lf2.cameraPos[0] -= (lf2.cameraPos[0] - (mx - distance)) * 0.3;
+        lf2.cameraPos[0] -= (lf2.cameraPos[0] - (mx - distance)) * 0.5;
     }
+    else if (mx <= distance)
+      lf2.cameraPos[0] = 0;
 
   } else lf2.cameraPos[0] = 0;
 }

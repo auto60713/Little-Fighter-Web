@@ -47,7 +47,7 @@ lf2.character.Firen = {
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'singlong', B5: 'burn_run', B4: 'ball',
+        B1: 'punch', B2: 'defend', B6: 'explosion', B5: 'burn_run', B4: 'ball',
       },
     },
     'walking2': {
@@ -55,7 +55,7 @@ lf2.character.Firen = {
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'singlong', B5: 'burn_run', B4: 'ball',
+        B1: 'punch', B2: 'defend', B6: 'explosion', B5: 'burn_run', B4: 'ball',
       },
     },
     'walking3': {
@@ -63,7 +63,7 @@ lf2.character.Firen = {
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'singlong', B5: 'burn_run', B4: 'ball',
+        B1: 'punch', B2: 'defend', B6: 'explosion', B5: 'burn_run', B4: 'ball',
       },
     },
     'walking4': {
@@ -71,32 +71,32 @@ lf2.character.Firen = {
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'singlong', B5: 'burn_run', B4: 'ball',
+        B1: 'punch', B2: 'defend', B6: 'explosion', B5: 'burn_run', B4: 'ball',
       },
     },
 
     'running': {
-      pic: ['0', 2, 0], wait: 3 * 3, next: 'running2', move: [8, 0], center: [35, 79], sound: '003.wav', hitHold: true,
+      pic: ['0', 2, 0], wait: 3 * 3, next: 'running2', move: [6, 0], center: [35, 79], sound: '003.wav', hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'addMan', B5: 'jump_sword', B4: '',
+        B1: 'run_attack', B2: 'defend', B6: 'addMan', B5: 'burn_run', B4: '',
       },
     },
     'running2': {
-      pic: ['0', 2, 1], wait: 3 * 3, next: 'running3', move: [8, 0], center: [41, 79], hitHold: true,
+      pic: ['0', 2, 1], wait: 3 * 3, next: 'running3', move: [6, 0], center: [41, 79], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'addMan', B5: 'jump_sword', B4: '',
+        B1: 'run_attack', B2: 'defend', B6: 'addMan', B5: 'burn_run', B4: '',
       },
     },
     'running3': {
-      pic: ['0', 2, 2], wait: 3 * 3, next: 'running', move: [8, 0], center: [36, 79], sound: '004.wav', hitHold: true,
+      pic: ['0', 2, 2], wait: 3 * 3, next: 'running', move: [6, 0], center: [36, 79], sound: '004.wav', hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'addMan', B5: 'jump_sword', B4: '',
+        B1: 'run_attack', B2: 'defend', B6: 'addMan', B5: 'burn_run', B4: '',
       },
     },
 
@@ -107,22 +107,21 @@ lf2.character.Firen = {
     },
     'punch2': {
       pic: ['0', 1, 1], wait: 3 * 3, next: 999, move: [0, 0], center: [36, 79], sound: '007.wav',
-      itr: { x: 33, y: 33, w: 42, h: 16, move: [2, 0], effect: 'injured', arest: 10, injury: 20, },
+      itr: { x: 33, y: 33, w: 42, h: 16, move: [10, 0], effect: 'injured', arest: 10, injury: 20, },
       bdy: { x: 25, y: 11, w: 35, h: 69, },
     },
 
     'jump_attack': {
-      pic: ['0', 1, 4], wait: 3 * 2, next: 'jump_attack2', move: [0, 0], center: [32, 75], sound: '007.wav',
+      pic: ['0', 1, 4], wait: 6, next: 'jump_attack2', move: [0, 0], center: [32, 85], sound: '007.wav',
       bdy: { x: 15, y: 10, w: 39, h: 63, },
     },
     'jump_attack2': {
-      pic: ['0', 1, 5], wait: 3 * 3, next: 'jump_attack3', move: [0, 0], center: [33, 76],
+      pic: ['0', 1, 5], wait: 5, next: 'jump_attack3', move: [0, 0], center: [33, 84],
       itr: { x: 30, y: 44, w: 42, h: 27, move: [7, 0], effect: 'falling', arest: 15, injury: 35, },
       bdy: { x: 21, y: 14, w: 33, h: 57, },
     },
     'jump_attack3': {
-      pic: ['0', 1, 6], wait: 3 * 5, next: 999, move: [0, 0], center: [35, 74],
-      itr: { x: 28, y: 36, w: 44, h: 22, move: [7, 0], effect: 'falling', arest: 15, injury: 35, },
+      pic: ['0', 1, 6], wait: 4, next: 'jump_attack3', move: [0, 0], center: [35, 84],
       bdy: { x: 17, y: 13, w: 39, h: 58, },
     },
 
@@ -157,13 +156,13 @@ lf2.character.Firen = {
     },
     'dash_attack2': {
       pic: ['1', 3, 7], wait: 3 * 1, next: 'dash_attack3', move: [0, 0], center: [31, 78], sound: '007.wav',
-      itr: { x: 27, y: 38, w: 53, h: 23, move: [12, 0], effect: 'falling', arest: 20, injury: 70, },
+      itr: { x: 27, y: 38, w: 53, h: 23, move: [12, -3], effect: 'falling', arest: 20, injury: 70, },
       bdy: { x: 22, y: 40, w: 33, h: 26, },
       bdy: { x: 24, y: 6, w: 30, h: 34, },
     },
     'dash_attack3': {
       pic: ['1', 3, 8], wait: 3 * 3, next: 'dash3', move: [0, 0], center: [33, 77],
-      itr: { x: 27, y: 38, w: 53, h: 23, move: [12, 0], effect: 'falling', arest: 20, injury: 70, },
+      itr: { x: 27, y: 38, w: 53, h: 23, move: [12, -3], effect: 'falling', arest: 20, injury: 70, },
       bdy: { x: 23, y: 38, w: 28, h: 25, },
       bdy: { x: 22, y: 36, w: 50, h: 18, },
       bdy: { x: 24, y: 6, w: 30, h: 34, },
@@ -275,7 +274,7 @@ lf2.character.Firen = {
     },
     'ball4': {
       pic: ['2', 0, 2], wait: 3 * 1, next: 'ball5', move: [0, 0], center: [33, 79],
-      opoint: { x: 68, y: 44, move: [0, 0], frame: 'standing', },
+      opoint: { x: 68, y: 44, frame: 'standing', },
       bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
     'ball5': {
@@ -304,7 +303,7 @@ lf2.character.Firen = {
     },
     'ball10': {
       pic: ['2', 0, 9], wait: 3 * 1, next: 'ball11', move: [0, 0], center: [32, 79],
-      opoint: { x: 59, y: 44, move: [0, 0], frame: 'standing', },
+      opoint: { x: 59, y: 44, frame: 'standing', },
       bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
     'ball11': {
@@ -333,7 +332,7 @@ lf2.character.Firen = {
     },
     'ball16': {
       pic: ['2', 1, 4], wait: 3 * 1, next: 'ball17', move: [0, 0], center: [34, 79],
-      opoint: { x: 71, y: 43, move: [0, 0], frame: 'standing', },
+      opoint: { x: 71, y: 43, frame: 'standing', },
       bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
     'ball17': {
@@ -347,57 +346,57 @@ lf2.character.Firen = {
 
 
     'burn_run': {
-      pic: ['2', 2, 3], wait: 3 * 2, next: 'burn_run2', move: [0, 0], center: [32, 79], sound: '003.wav',
+      pic: ['2', 2, 3], wait: 5, next: 'burn_run2', move: [0, 0], center: [32, 79], sound: '003.wav',
       bdy: { x: 17, y: 15, w: 41, h: 62, },
     },
     'burn_run2': {
-      pic: ['2', 2, 4], wait: 3 * 2, next: 'burn_run3', move: [10, 0], center: [36, 79], sound: '070.wav',
+      pic: ['2', 2, 4], wait: 5, next: 'burn_run3', move: [6, 0], center: [36, 79], sound: '070.wav',
       bdy: { x: 30, y: 16, w: 31, h: 62, },
     },
     'burn_run3': {
-      pic: ['2', 2, 5], wait: 3 * 2, next: 'burn_run7', move: [10, 0], center: [32, 79], sound: '004.wav',
-      opoint: { x: 18, y: 81, move: [0, 0], frame: 'ground_fire', },
-      itr: { x: 20, y: 11, w: 49, h: 70, move: [10, -10], effect: 'falling', vrest: 10, injury: 45, },
+      pic: ['2', 2, 5], wait: 5, next: 'burn_run7', move: [6, 0], center: [32, 79], sound: '004.wav',
+      opoint: { x: 18, y: 81, frame: 'ground_fire', },
+      itr: { x: 20, y: 11, w: 49, h: 70, move: [2, -4], effect: 'falling', vrest: 20, injury: 45, },
       bdy: { x: 18, y: 14, w: 43, h: 65, },
       hit: {
-        B2: 'stop_running', B5: 'stop_running',
+        B2: 'stop_running',
       },
     },
 
     'burn_run4': {
-      pic: ['2', 2, 0], wait: 3 * 2, next: 'burn_run5', move: [10, 0], center: [32, 79], sound: '003.wav',
-      opoint: { x: 18, y: 81, move: [0, 0], frame: 'ground_fire', },
-      itr: { x: 20, y: 11, w: 49, h: 70, move: [10, -10], effect: 'falling', vrest: 10, injury: 45, },
+      pic: ['2', 2, 0], wait: 3 * 2, next: 'burn_run5', move: [6, 0], center: [32, 79], sound: '003.wav',
+      opoint: { x: 18, y: 81, frame: 'ground_fire', },
+      itr: { x: 20, y: 11, w: 49, h: 70, move: [2, -4], effect: 'falling', vrest: 20, injury: 45, },
       bdy: { x: 12, y: 10, w: 51, h: 70, },
       hit: {
-        B2: 'stop_running', B5: 'stop_running',
+        B2: 'stop_running',
       },
     },
     'burn_run5': {
-      pic: ['2', 2, 1], wait: 3 * 2, next: 'burn_run6', move: [10, 0], center: [37, 79], sound: '070.wav',
-      opoint: { x: 18, y: 81, move: [0, 0], frame: 'ground_fire', },
-      itr: { x: 20, y: 11, w: 49, h: 70, move: [10, -10], effect: 'falling', vrest: 10, injury: 45, },
+      pic: ['2', 2, 1], wait: 3 * 2, next: 'burn_run6', move: [6, 0], center: [37, 79], sound: '070.wav',
+      opoint: { x: 18, y: 81, frame: 'ground_fire', },
+      itr: { x: 20, y: 11, w: 49, h: 70, move: [2, -4], effect: 'falling', vrest: 20, injury: 45, },
       bdy: { x: 19, y: 12, w: 50, h: 68, },
       hit: {
-        B2: 'stop_running', B5: 'stop_running',
+        B2: 'stop_running',
       },
     },
     'burn_run6': {
-      pic: ['2', 2, 2], wait: 3 * 2, next: 'burn_run7', move: [10, 0], center: [33, 79], sound: '004.wav',
-      opoint: { x: 18, y: 81, move: [0, 0], frame: 'ground_fire', },
-      itr: { x: 20, y: 11, w: 49, h: 70, move: [10, -10], effect: 'falling', vrest: 10, injury: 45, },
+      pic: ['2', 2, 2], wait: 3 * 2, next: 'burn_run7', move: [6, 0], center: [33, 79], sound: '004.wav',
+      opoint: { x: 18, y: 81, frame: 'ground_fire', },
+      itr: { x: 20, y: 11, w: 49, h: 70, move: [2, -4], effect: 'falling', vrest: 20, injury: 45, },
       bdy: { x: 16, y: 11, w: 47, h: 69, },
       hit: {
-        B2: 'stop_running', B5: 'stop_running',
+        B2: 'stop_running',
       },
     },
     'burn_run7': {
-      pic: ['2', 2, 1], wait: 3 * 2, next: 'burn_run4', move: [10, 0], center: [37, 79], sound: '071.wav',
-      opoint: { x: 18, y: 81, move: [0, 0], frame: 'ground_fire', },
-      itr: { x: 20, y: 11, w: 49, h: 70, move: [10, -10], effect: 'falling', vrest: 10, injury: 45, },
+      pic: ['2', 2, 1], wait: 3 * 2, next: 'burn_run4', move: [6, 0], center: [37, 79], sound: '071.wav',
+      opoint: { x: 18, y: 81, frame: 'ground_fire', },
+      itr: { x: 20, y: 11, w: 49, h: 70, move: [2, -4], effect: 'falling', vrest: 20, injury: 45, },
       bdy: { x: 20, y: 12, w: 47, h: 68, },
       hit: {
-        B2: 'stop_running', B5: 'stop_running',
+        B2: 'stop_running',
       },
     },
 
@@ -427,7 +426,7 @@ lf2.character.Firen = {
     },
     'explosion5': {
       pic: ['2', 3, 9], wait: 3 * 1, next: 'explosion6', move: [0, 0], center: [46, 79], sound: '071.wav',
-      opoint: { x: 48, y: 81, move: [0, 0], frame: 'explosion', },
+      opoint: { x: 48, y: 81, frame: 'explosion', },
       bdy: { x: 8, y: 19, w: 41, h: 60, },
     },
     'explosion6': {
@@ -468,48 +467,47 @@ lf2.derivative.Firen = {
 
 
     'standing': {
-      pic: ['ball', 0, 0], wait: 3 * 1, next: 'flying2', move: [23, 0], center: [51, 41],
+      pic: ['ball', 0, 0], wait: 1, next: 'flying2', move: [10, 0], center: [51, 41],
       itr: { x: 22, y: 27, w: 55, h: 27, move: [10, -10], effect: 'falling', vrest: 10, injury: 45, next: 'falling', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
     'flying2': {
-      pic: ['ball', 0, 1], wait: 3 * 1, next: 'flying3', move: [23, 0], center: [53, 41],
+      pic: ['ball', 0, 1], wait: 1, next: 'flying3', move: [10, 0], center: [53, 41],
       itr: { x: 22, y: 27, w: 55, h: 27, move: [10, -10], effect: 'falling', vrest: 10, injury: 45, next: 'falling', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
     'flying3': {
-      pic: ['ball', 0, 2], wait: 3 * 1, next: 'flying4', move: [23, 0], center: [51, 41],
+      pic: ['ball', 0, 2], wait: 1, next: 'flying4', move: [10, 0], center: [51, 41],
       itr: { x: 22, y: 27, w: 55, h: 27, move: [10, -10], effect: 'falling', vrest: 10, injury: 45, next: 'falling', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
     'flying4': {
-      pic: ['ball', 0, 3], wait: 3 * 1, next: 'flying5', move: [23, 0], center: [54, 41],
+      pic: ['ball', 0, 3], wait: 1, next: 'flying5', move: [10, 0], center: [54, 41],
       itr: { x: 22, y: 27, w: 55, h: 27, move: [10, -10], effect: 'falling', vrest: 10, injury: 45, next: 'falling', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
     'flying5': {
-      pic: ['ball', 1, 0], wait: 3 * 1, next: 'flying6', move: [23, 0], center: [55, 41],
+      pic: ['ball', 1, 0], wait: 1, next: 'flying6', move: [10, 0], center: [55, 41],
       itr: { x: 22, y: 27, w: 55, h: 27, move: [10, -10], effect: 'falling', vrest: 10, injury: 45, next: 'falling', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
     'flying6': {
-      pic: ['ball', 1, 1], wait: 3 * 1, next: 'standing', move: [23, 0], center: [54, 41],
+      pic: ['ball', 1, 1], wait: 1, next: 'standing', move: [10, 0], center: [54, 41],
       itr: { x: 22, y: 27, w: 55, h: 27, move: [10, -10], effect: 'falling', vrest: 10, injury: 45, next: 'falling', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
 
-
     'falling': {
-      pic: ['ball', 2, 0], wait: 3 * 1, next: 'hiting2', move: [0, 0], center: [40, 43],
+      pic: ['ball', 2, 0], wait: 3, next: 'hiting2', move: [550, 0], center: [40, 43],
     },
     'hiting2': {
-      pic: ['ball', 2, 1], wait: 3 * 1, next: 'hiting3', move: [0, 0], center: [40, 42],
+      pic: ['ball', 2, 1], wait: 3, next: 'hiting3', move: [0, 0], center: [40, 42],
     },
     'hiting3': {
-      pic: ['ball', 2, 2], wait: 3 * 1, next: 'hiting4', move: [0, 0], center: [44, 41],
+      pic: ['ball', 2, 2], wait: 3, next: 'hiting4', move: [0, 0], center: [44, 41],
     },
     'hiting4': {
-      pic: ['ball', 2, 3], wait: 3 * 1, next: 1000, move: [0, 0], center: [52, 40],
+      pic: ['ball', 2, 3], wait: 3, next: 1000, move: [0, 0], center: [52, 40],
     },
 
 
@@ -519,12 +517,12 @@ lf2.derivative.Firen = {
     },
     'ground_fire2': {
       pic: ['grd', 0, 1], wait: 3 * 1, next: 'ground_fire3', move: [0, 0], center: [16, 47],
-      opoint: { x: -1, y: 47, move: [0, 0], frame: 'ground_fire5', },
+      opoint: { x: -1, y: 47, frame: 'ground_fire5', },
     },
 
     'ground_fire3': {
       pic: ['grd', 0, 2], wait: 3 * 1, next: 'ground_fire4', move: [0, 0], center: [16, 46],
-      itr: { x: 0, y: 15, w: 36, h: 32, move: [-1, -6], effect: 'falling', vrest: 20, injury: 20, },
+      itr: { x: 0, y: 15, w: 36, h: 32, move: [0, 0], effect: 'injured', vrest: 20, injury: 20, },
     },
     'ground_fire4': {
       pic: ['grd', 0, 3], wait: 3 * 1, next: 'ground_fire5', move: [0, 0], center: [16, 46],
@@ -539,7 +537,7 @@ lf2.derivative.Firen = {
       pic: ['grd', 1, 2], wait: 3 * 1, next: 'ground_fire8', move: [0, 0], center: [16, 46],
     },
     'ground_fire8': {
-      pic: ['grd', 1, 3], wait: 3 * 1, next: 'ground_fire9', move: [0, 0], center: [16, 47], timeToGo: [30, 'ground_fire11'],
+      pic: ['grd', 1, 3], wait: 3 * 1, next: 'ground_fire9', move: [0, 0], center: [16, 47], timeToGo: [50, 'ground_fire11'],
     },
     'ground_fire9': {
       pic: ['grd', 0, 0], wait: 3 * 1, next: 'ground_fire10', move: [0, 0], center: [16, 47],
@@ -564,45 +562,45 @@ lf2.derivative.Firen = {
 
 
     'explosion': {
-      pic: ['exp', 0, 0], wait: 3 * 1, next: 'explosion2', move: [0, 0], center: [78, 148],
-      itr: { x: 23, y: 36, w: 112, h: 110, move: [12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
+      pic: ['exp', 0, 0], wait: 3, next: 'explosion2', move: [0, 0], center: [78, 148],
+      itr: { x: 23, y: 36, w: 112, h: 110, move: [12, -10], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
     },
     'explosion2': {
-      pic: ['exp', 0, 1], wait: 3 * 1, next: 'explosion3', move: [0, 0], center: [78, 148],
-      itr: { x: 20, y: 16, w: 122, h: 135, move: [12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
+      pic: ['exp', 0, 1], wait: 3, next: 'explosion3', move: [0, 0], center: [78, 148],
+      itr: { x: 20, y: 16, w: 122, h: 135, move: [12, -10], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
     },
     'explosion3': {
-      pic: ['exp', 0, 2], wait: 3 * 1, next: 'explosion4', move: [0, 0], center: [78, 148],
-      itr: { x: 19, y: 18, w: 127, h: 131, move: [12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
+      pic: ['exp', 0, 2], wait: 3, next: 'explosion4', move: [0, 0], center: [78, 148],
+      itr: { x: 19, y: 18, w: 127, h: 131, move: [12, -10], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
     },
     'explosion4': {
-      pic: ['exp', 0, 3], wait: 3 * 1, next: 'explosion5', move: [0, 0], center: [78, 148],
-      itr: { x: 7, y: 16, w: 146, h: 132, move: [12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
+      pic: ['exp', 0, 3], wait: 3, next: 'explosion5', move: [0, 0], center: [78, 148],
+      itr: { x: 7, y: 16, w: 146, h: 132, move: [12, -10], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
     },
     'explosion5': {
-      pic: ['exp', 0, 4], wait: 3 * 1, next: 'explosion6', move: [0, 0], center: [78, 150],
-      itr: { x: 13, y: 13, w: 137, h: 132, move: [12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
+      pic: ['exp', 0, 4], wait: 3, next: 'explosion6', move: [0, 0], center: [78, 150],
+      itr: { x: 13, y: 13, w: 137, h: 132, move: [12, -10], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
     },
     'explosion6': {
-      pic: ['exp', 1, 0], wait: 3 * 1, next: 'explosion7', move: [0, 0], center: [78, 155],
-      itr: { x: 7, y: 14, w: 145, h: 117, move: [12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
+      pic: ['exp', 1, 0], wait: 3, next: 'explosion7', move: [0, 0], center: [78, 155],
+      itr: { x: 7, y: 14, w: 145, h: 117, move: [12, -10], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
     },
     'explosion7': {
-      pic: ['exp', 1, 1], wait: 3 * 1, next: 'explosion8', move: [0, 0], center: [78, 157],
-      itr: { x: 15, y: 6, w: 128, h: 123, move: [12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
+      pic: ['exp', 1, 1], wait: 3, next: 'explosion8', move: [0, 0], center: [78, 157],
+      itr: { x: 15, y: 6, w: 128, h: 123, move: [12, -10], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
     },
     'explosion8': {
-      pic: ['exp', 1, 2], wait: 3 * 1, next: 'explosion9', move: [0, 0], center: [78, 164],
-      itr: { x: 15, y: 6, w: 128, h: 123, move: [12, -18], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
+      pic: ['exp', 1, 2], wait: 3, next: 'explosion9', move: [0, 0], center: [78, 164],
+      itr: { x: 15, y: 6, w: 128, h: 123, move: [12, -10], effect: 'falling', vrest: 300, injury: 125, symmetry: true, },
     },
     'explosion9': {
-      pic: ['exp', 1, 3], wait: 3 * 1, next: 'explosion10', move: [0, 0], center: [78, 171],
+      pic: ['exp', 1, 3], wait: 3, next: 'explosion10', move: [0, 0], center: [78, 171],
     },
     'explosion10': {
-      pic: ['exp', 1, 4], wait: 3 * 1, next: 'explosion11', move: [0, 0], center: [78, 177],
+      pic: ['exp', 1, 4], wait: 3, next: 'explosion11', move: [0, 0], center: [78, 177],
     },
     'explosion11': {
-      pic: ['exp', 2, 0], wait: 3 * 1, next: 1000, move: [0, 0], center: [76, 172],
+      pic: ['exp', 2, 0], wait: 3, next: 1000, move: [0, 0], center: [76, 172],
     },
 
 

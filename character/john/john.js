@@ -44,7 +44,7 @@ lf2.character.John = {
     },
 
     'walking': {
-      pic: ['0', 0, 4], wait: 3 * 3, next: 'walking2', move: [4, 0], center: [39, 78], flip: true, hitHold: true,
+      pic: ['0', 0, 4], wait: 7, next: 'walking2', move: [3, 0], center: [39, 78], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -52,7 +52,7 @@ lf2.character.John = {
       },
     },
     'walking2': {
-      pic: ['0', 0, 5], wait: 3 * 3, next: 'walking3', move: [4, 0], center: [41, 79], flip: true, hitHold: true,
+      pic: ['0', 0, 5], wait: 7, next: 'walking3', move: [3, 0], center: [41, 79], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -60,7 +60,7 @@ lf2.character.John = {
       },
     },
     'walking3': {
-      pic: ['0', 0, 6], wait: 3 * 3, next: 'walking4', move: [4, 0], center: [41, 79], flip: true, hitHold: true,
+      pic: ['0', 0, 6], wait: 7, next: 'walking4', move: [3, 0], center: [41, 79], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -68,7 +68,7 @@ lf2.character.John = {
       },
     },
     'walking4': {
-      pic: ['0', 0, 7], wait: 3 * 3, next: 'walking', move: [4, 0], center: [42, 78], flip: true, hitHold: true,
+      pic: ['0', 0, 7], wait: 7, next: 'walking', move: [3, 0], center: [42, 78], flip: true, hitHold: true,
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
@@ -77,7 +77,7 @@ lf2.character.John = {
     },
 
     'running': {
-      pic: ['0', 2, 0], wait: 3 * 3, next: 'running2', move: [8, 0], center: [32, 79], sound: '003.wav', hitHold: true,
+      pic: ['0', 2, 0], wait: 8, next: 'running2', move: [6, 0], center: [32, 79], sound: '003.wav', hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -85,7 +85,7 @@ lf2.character.John = {
       },
     },
     'running2': {
-      pic: ['0', 2, 1], wait: 3 * 3, next: 'running3', move: [8, 0], center: [32, 79], hitHold: true,
+      pic: ['0', 2, 1], wait: 8, next: 'running3', move: [6, 0], center: [32, 79], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -93,7 +93,7 @@ lf2.character.John = {
       },
     },
     'running3': {
-      pic: ['0', 2, 2], wait: 3 * 3, next: 'running', move: [8, 0], center: [26, 79], sound: '004.wav', hitHold: true,
+      pic: ['0', 2, 2], wait: 8, next: 'running', move: [6, 0], center: [26, 79], sound: '004.wav', hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -102,13 +102,13 @@ lf2.character.John = {
     },
 
     'punch': {
-      pic: ['0', 1, 0], wait: 3 * 2, next: 'punch2', move: [1, 0], center: [35, 79],
+      pic: ['0', 1, 0], wait: 5, next: 'punch2', move: [0, 0], center: [39, 79],
       itr: { x: 21, y: 57, w: 37, h: 24, vrest: 1, },
       bdy: { x: 26, y: 12, w: 27, h: 68, },
     },
     'punch2': {
-      pic: ['0', 1, 1], wait: 3 * 3, next: 999, move: [0, 0], center: [21, 79], sound: '007.wav',
-      itr: { x: 26, y: 37, w: 52, h: 14, move: [2, 0], effect: 'injured', arest: 10, injury: 20, },
+      pic: ['0', 1, 1], wait: 5, next: 999, move: [0, 0], center: [25, 79], sound: '007.wav',
+      itr: { x: 26, y: 37, w: 52, h: 14, move: [10, 0], effect: 'injured', arest: 10, injury: 5, },
       bdy: { x: 13, y: 12, w: 29, h: 68, },
       bdy: { x: 2, y: 38, w: 60, h: 18, },
     },
@@ -259,39 +259,38 @@ lf2.character.John = {
     // ==============================================================================
 
     'DA_action': {
-      pic: ['1', 6, 2], wait: 3 * 1, next: 'DA_action2', move: [0, 0], center: [25, 79],
+      pic: ['1', 6, 2], wait: 8, next: 'DA_action2', move: [0, 0], center: [25, 79],
       bdy: { x: 8, y: 39, w: 61, h: 23, },
       bdy: { x: 11, y: 12, w: 34, h: 66, },
     },
     'DA_action2': {
-      pic: ['1', 6, 3], wait: 3 * 1, next: 'DA_action3', move: [0, 0], center: [24, 79], sound: '018.wav',
+      pic: ['1', 6, 3], wait: 7, next: 'DA_action3', move: [0, 0], center: [24, 79], sound: '018.wav',
       bdy: { x: 8, y: 39, w: 61, h: 23, },
       bdy: { x: 9, y: 13, w: 33, h: 66, },
     },
     'DA_action3': {
-      pic: ['1', 6, 4], wait: 3 * 1, next: 'DAA_action1', move: [0, 0], center: [24, 79],
+      pic: ['1', 6, 4], wait: 6, next: 'DA_action4', move: [0, 0], center: [24, 79],
       bdy: { x: 8, y: 39, w: 61, h: 23, },
       bdy: { x: 8, y: 12, w: 34, h: 68, },
     },
-
-    'DAA_action1': {
-      pic: ['3', 0, 0], wait: 3 * 1, next: 'DAA_action12', move: [-4, 0], center: [39, 109], sound: '019.wav',
+    'DA_action4': {
+      pic: ['3', 0, 0], wait: 5, next: 'DA_action5', move: [-4, 0], center: [39, 109], sound: '019.wav',
       bdy: { x: 19, y: 42, w: 38, h: 68, },
       bdy: { x: 10, y: 66, w: 58, h: 19, },
     },
-    'DAA_action12': {
-      pic: ['3', 0, 1], wait: 3 * 1, next: 'DAA_action13', move: [0, 0], center: [31, 109],
-      opoint: { x: 95, y: 78, move: [0, 0], frame: 'standing', },
+    'DA_action5': {
+      pic: ['3', 0, 1], wait: 4, next: 'DA_action6', move: [0, 0], center: [31, 109],
+      opoint: { x: 95, y: 78, frame: 'standing', },
       bdy: { x: 9, y: 43, w: 37, h: 65, },
       bdy: { x: 4, y: 67, w: 57, h: 19, },
     },
-    'DAA_action13': {
-      pic: ['3', 0, 2], wait: 3 * 1, next: 'DAA_action14', move: [0, 0], center: [28, 109],
+    'DA_action6': {
+      pic: ['3', 0, 2], wait: 3, next: 'DA_action7', move: [0, 0], center: [28, 109],
       bdy: { x: 0, y: 68, w: 63, h: 16, },
       bdy: { x: 12, y: 42, w: 31, h: 69, },
     },
-    'DAA_action14': {
-      pic: ['3', 0, 3], wait: 3 * 1, next: 999, move: [0, 0], center: [28, 109],
+    'DA_action7': {
+      pic: ['3', 0, 3], wait: 3, next: 999, move: [0, 0], center: [28, 109],
       bdy: { x: 13, y: 42, w: 30, h: 69, },
       bdy: { x: 4, y: 75, w: 54, h: 13, },
     },
@@ -300,75 +299,79 @@ lf2.character.John = {
 
 
     'force_field': {
-      pic: ['2', 2, 1], wait: 3 * 1, next: 'force_field2', move: [0, 0], center: [39, 79], sound: '018.wav',
+      pic: ['2', 2, 0], wait: 6, next: 'force_field2', move: [0, 0], center: [39, 79],
       bdy: { x: 17, y: 16, w: 39, h: 64, },
     },
     'force_field2': {
-      pic: ['2', 2, 3], wait: 3 * 1, next: 'force_field3', move: [0, 0], center: [39, 79], sound: '052.wav',
+      pic: ['2', 2, 1], wait: 6, next: 'force_field3', move: [0, 0], center: [39, 79], sound: '018.wav',
       bdy: { x: 17, y: 16, w: 39, h: 64, },
     },
     'force_field3': {
-      pic: ['2', 2, 4], wait: 3 * 1, next: 'force_field4', move: [0, 0], center: [23, 78],
-      itr: { x: 34, y: 49, w: 28, h: 18, move: [2, 0], injury: 20, },
+      pic: ['2', 2, 2], wait: 6, next: 'force_field4', move: [0, 0], center: [39, 79],
       bdy: { x: 17, y: 16, w: 39, h: 64, },
     },
     'force_field4': {
-      pic: ['2', 2, 5], wait: 3 * 1, next: 'force_field5', move: [0, 0], center: [22, 78],
-      itr: { x: 45, y: 28, w: 33, h: 35, move: [2, 0], injury: 20, },
+      pic: ['2', 2, 3], wait: 3, next: 'force_field5', move: [0, 0], center: [39, 79], sound: '052.wav',
       bdy: { x: 17, y: 16, w: 39, h: 64, },
     },
     'force_field5': {
-      pic: ['2', 2, 6], wait: 3 * 1, next: 'force_field6', move: [0, 0], center: [22, 78],
-      itr: { x: 61, y: 26, w: 18, h: 33, move: [2, 0], injury: 20, },
+      pic: ['2', 2, 4], wait: 3, next: 'force_field6', move: [0, 0], center: [23, 78],
       bdy: { x: 17, y: 16, w: 39, h: 64, },
     },
     'force_field6': {
-      pic: ['2', 2, 7], wait: 3 * 1, next: 'force_field7', move: [0, 0], center: [22, 78],
-      itr: { x: 61, y: 25, w: 17, h: 34, move: [2, 0], injury: 20, },
+      pic: ['2', 2, 5], wait: 3, next: 'force_field7', move: [0, 0], center: [22, 78],
       bdy: { x: 17, y: 16, w: 39, h: 64, },
     },
     'force_field7': {
-      pic: ['2', 2, 8], wait: 3 * 1, next: 'force_field8', move: [0, 0], center: [22, 78],
-      opoint: { x: 73, y: 40, move: [0, 0], frame: 'force_field', },
+      pic: ['2', 2, 6], wait: 3, next: 'force_field8', move: [0, 0], center: [22, 78],
       bdy: { x: 17, y: 16, w: 39, h: 64, },
     },
     'force_field8': {
-      pic: ['2', 2, 9], wait: 3 * 1, next: 'force_field9', move: [0, 0], center: [22, 78],
+      pic: ['2', 2, 7], wait: 3, next: 'force_field9', move: [0, 0], center: [22, 78],
       bdy: { x: 17, y: 16, w: 39, h: 64, },
     },
     'force_field9': {
-      pic: ['2', 0, 6], wait: 3 * 1, next: 999, move: [0, 0], center: [35, 79],
+      pic: ['2', 2, 8], wait: 3, next: 'force_field10', move: [0, 0], center: [22, 78],
+      opoint: { x: 73, y: 40, frame: 'force_field', },
+      bdy: { x: 17, y: 16, w: 39, h: 64, },
+    },
+    'force_field10': {
+      pic: ['2', 2, 9], wait: 3, next: 'force_field11', move: [0, 0], center: [22, 78],
+      bdy: { x: 17, y: 16, w: 39, h: 64, },
+    },
+    'force_field11': {
+      pic: ['2', 0, 6], wait: 5, next: 999, move: [0, 0], center: [35, 79],
       bdy: { x: 17, y: 16, w: 39, h: 64, },
     },
 
 
     'heal_other': {
-      pic: ['2', 0, 0], wait: 3 * 2, next: 'heal_other2', move: [0, 0], center: [39, 79], sound: '050.wav',
+      pic: ['2', 0, 0], wait: 6, next: 'heal_other2', move: [0, 0], center: [39, 79], sound: '050.wav',
       bdy: { x: 20, y: 13, w: 37, h: 67, },
     },
     'heal_other2': {
-      pic: ['2', 0, 1], wait: 3 * 2, next: 'heal_other3', move: [0, 0], center: [39, 79], sound: '052.wav',
+      pic: ['2', 0, 1], wait: 6, next: 'heal_other3', move: [0, 0], center: [39, 79], sound: '052.wav',
       bdy: { x: 18, y: 14, w: 39, h: 66, },
     },
     'heal_other3': {
-      pic: ['2', 0, 2], wait: 3 * 2, next: 'heal_other4', move: [0, 0], center: [39, 79],
+      pic: ['2', 0, 2], wait: 3, next: 'heal_other4', move: [0, 0], center: [39, 79],
       bdy: { x: 18, y: 14, w: 38, h: 66, },
     },
     'heal_other4': {
-      pic: ['2', 1, 0], wait: 3 * 2, next: 'heal_other5', move: [0, 0], center: [39, 79],
+      pic: ['2', 1, 0], wait: 3, next: 'heal_other5', move: [0, 0], center: [39, 79],
       bdy: { x: 17, y: 16, w: 39, h: 64, },
     },
     'heal_other5': {
-      pic: ['2', 1, 1], wait: 3 * 2, next: 'heal_other6', move: [0, 0], center: [36, 79],
+      pic: ['2', 1, 1], wait: 3, next: 'heal_other6', move: [0, 0], center: [36, 79],
       bdy: { x: 15, y: 15, w: 42, h: 65, },
     },
     'heal_other6': {
-      pic: ['2', 1, 2], wait: 3 * 2, next: 'heal_other7', move: [0, 0], center: [36, 79],
-      opoint: { x: 78, y: 36, move: [0, 0], frame: 'healball', },
+      pic: ['2', 1, 2], wait: 3, next: 'heal_other7', move: [0, 0], center: [36, 79],
+      opoint: { x: 78, y: 36, frame: 'healball', },
       bdy: { x: 18, y: 11, w: 37, h: 68, },
     },
     'heal_other7': {
-      pic: ['2', 1, 3], wait: 3 * 2, next: 999, move: [0, 0], center: [36, 79],
+      pic: ['2', 1, 3], wait: 5, next: 999, move: [0, 0], center: [36, 79],
       bdy: { x: 20, y: 10, w: 36, h: 69, },
     },
 
@@ -390,23 +393,23 @@ lf2.derivative.John = {
   frame: {
 
     'standing': {
-      pic: ['ball', 0, 0], wait: 3 * 1, next: 'flying2', move: [18, 0], center: [40, 41],
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], effect: 'falling', vrest: 10, injury: 55, next: 'falling', },
+      pic: ['ball', 0, 0], wait: 3 * 1, next: 'flying2', move: [12, 0], center: [40, 41],
+      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], effect: 'falling', vrest: 10, injury: 80, next: 'falling', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
     'flying2': {
-      pic: ['ball', 0, 1], wait: 3 * 1, next: 'flying3', move: [18, 0], center: [40, 41],
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], effect: 'falling', vrest: 10, injury: 55, next: 'falling', },
+      pic: ['ball', 0, 1], wait: 3 * 1, next: 'flying3', move: [12, 0], center: [40, 41],
+      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], effect: 'falling', vrest: 10, injury: 80, next: 'falling', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
     'flying3': {
-      pic: ['ball', 0, 2], wait: 3 * 1, next: 'flying4', move: [18, 0], center: [40, 41],
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], effect: 'falling', vrest: 10, injury: 55, next: 'falling', },
+      pic: ['ball', 0, 2], wait: 3 * 1, next: 'flying4', move: [12, 0], center: [40, 41],
+      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], effect: 'falling', vrest: 10, injury: 80, next: 'falling', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
     'flying4': {
-      pic: ['ball', 0, 1], wait: 3 * 1, next: 'standing', move: [18, 0], center: [40, 41],
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], effect: 'falling', vrest: 10, injury: 55, next: 'falling', },
+      pic: ['ball', 0, 1], wait: 3 * 1, next: 'standing', move: [12, 0], center: [40, 41],
+      itr: { x: 22, y: 27, w: 55, h: 27, move: [9, 0], effect: 'falling', vrest: 10, injury: 80, next: 'falling', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
 
@@ -425,24 +428,24 @@ lf2.derivative.John = {
 
 
     'force_field': {
-      pic: ['ball', 4, 0], wait: 3 * 2, next: 'force_field2', move: [0, 0], center: [41, 44],
-      itr: { x: 46, y: 30, w: 10, h: 32, move: [10, 0], vrest: 8, injury: 40, effect: 'falling', next: 'force_field6', },
+      pic: ['ball', 4, 0], wait: 3 * 2, next: 'force_field2', move: [0.2, 0], center: [41, 44],
+      itr: { x: 46, y: 30, w: 10, h: 32, move: [10, 0], vrest: 8, injury: 50, effect: 'falling', next: 'force_field6', },
     },
     'force_field2': {
       pic: ['ball', 4, 1], wait: 3 * 2, next: 'force_field3', move: [0, 0], center: [41, 45],
-      itr: { x: 41, y: 21, w: 19, h: 47, move: [10, 0], vrest: 8, injury: 40, effect: 'falling', next: 'force_field6', },
+      itr: { x: 41, y: 21, w: 19, h: 47, move: [10, 0], vrest: 8, injury: 50, effect: 'falling', next: 'force_field6', },
     },
     'force_field3': {
       pic: ['ball', 4, 2], wait: 3 * 1, next: 'force_field4', move: [0, 0], center: [35, 41], sound: '051.wav',
-      itr: { x: 33, y: 15, w: 26, h: 55, move: [10, 0], vrest: 8, injury: 40, effect: 'falling', next: 'force_field6', },
+      itr: { x: 33, y: 15, w: 26, h: 55, move: [10, 0], vrest: 8, injury: 50, effect: 'falling', next: 'force_field6', },
     },
     'force_field4': {
       pic: ['ball', 4, 3], wait: 3 * 1, next: 'force_field5', move: [0, 0], center: [37, 41],
-      itr: { x: 38, y: 16, w: 21, h: 53, move: [10, 0], vrest: 8, injury: 40, effect: 'falling', next: 'force_field6', },
+      itr: { x: 38, y: 16, w: 21, h: 53, move: [10, 0], vrest: 8, injury: 50, effect: 'falling', next: 'force_field6', },
     },
     'force_field5': {
       pic: ['ball', 4, 4], wait: 3 * 1, next: 'force_field3', move: [0, 0], center: [37, 41], timeToGo: [200, 'force_field6'],
-      itr: { x: 36, y: 14, w: 23, h: 55, move: [10, 0], vrest: 8, injury: 40, effect: 'falling', next: 'force_field6', },
+      itr: { x: 36, y: 14, w: 23, h: 55, move: [10, 0], vrest: 8, injury: 50, effect: 'falling', next: 'force_field6', },
     },
 
 
@@ -458,37 +461,37 @@ lf2.derivative.John = {
 
 
     'healball': {
-      pic: ['ball', 3, 0], wait: 3 * 3, next: 'healball2', move: [0, 0], center: [40, 26], timeToGo: [200, 'healball6'],
+      pic: ['ball', 3, 4], wait: 7, next: 'healball2', move: [0, 0], center: [40, 26], timeToGo: [200, 'healball6'],
       itr: { x: 25, y: 13, w: 32, h: 34, move: [0, 0], injury: -100, effect: 'heal', vrest: 10, next: 'stars', team: 'my' },
     },
     'healball2': {
-      pic: ['ball', 3, 1], wait: 3 * 3, next: 'healball3', move: [0, 0], center: [40, 26],
-      opoint: { x: 40, y: 39, move: [0, 0], frame: 'stars3', },
+      pic: ['ball', 3, 1], wait: 7, next: 'healball3', move: [0, 0], center: [40, 26],
+      opoint: { x: 40, y: 39, frame: 'stars3', },
       itr: { x: 25, y: 13, w: 32, h: 34, move: [0, 0], injury: -100, effect: 'heal', vrest: 10, next: 'stars', team: 'my' },
     },
     'healball3': {
-      pic: ['ball', 3, 2], wait: 3 * 3, next: 'healball4', move: [0, 0], center: [40, 26],
-      opoint: { x: 40, y: 39, move: [0, 0], frame: 'stars3', },
+      pic: ['ball', 3, 3], wait: 7, next: 'healball4', move: [0, 0], center: [40, 26],
+      opoint: { x: 40, y: 39, frame: 'stars3', },
       itr: { x: 25, y: 13, w: 32, h: 34, move: [0, 0], injury: -100, effect: 'heal', vrest: 10, next: 'stars', team: 'my' },
     },
     'healball4': {
-      pic: ['ball', 3, 4], wait: 3 * 3, next: 'healball5', move: [0, 0], center: [40, 26],
+      pic: ['ball', 3, 0], wait: 7, next: 'healball5', move: [0, 0], center: [40, 26],
       itr: { x: 25, y: 13, w: 32, h: 34, move: [0, 0], injury: -100, effect: 'heal', vrest: 10, next: 'stars', team: 'my' },
     },
     'healball5': {
-      pic: ['ball', 3, 3], wait: 3 * 3, next: 'healball2', move: [0, 0], center: [40, 26],
-      opoint: { x: 40, y: 39, move: [0, 0], frame: 'stars3', },
+      pic: ['ball', 3, 2], wait: 7, next: 'healball2', move: [0, 0], center: [40, 26],
+      opoint: { x: 40, y: 39, frame: 'stars3', },
       itr: { x: 25, y: 13, w: 32, h: 34, move: [0, 0], injury: -100, effect: 'heal', vrest: 10, next: 'stars', team: 'my' },
     },
 
     'healball6': {
-      pic: ['ball', 3, 5], wait: 3 * 2, next: 'healball7', move: [0, 0], center: [40, 26],
+      pic: ['ball', 3, 5], wait: 5, next: 'healball7', move: [0, 0], center: [40, 26],
     },
     'healball7': {
-      pic: ['ball', 3, 6], wait: 3 * 1, next: 'healball8', move: [0, 0], center: [40, 26],
+      pic: ['ball', 3, 6], wait: 3, next: 'healball8', move: [0, 0], center: [40, 26],
     },
     'healball8': {
-      pic: ['ball', 3, 7], wait: 3 * 1, next: 1000, move: [0, 0], center: [40, 26],
+      pic: ['ball', 3, 7], wait: 3, next: 1000, move: [0, 0], center: [40, 26],
     },
 
 
@@ -497,7 +500,7 @@ lf2.derivative.John = {
     },
     'stars2': {
       pic: ['ball', 2, 1], wait: 3 * 3, next: 'stars3', move: [0, 0], center: [40, 41],
-      opoint: { x: 40, y: 39, move: [0, 0], frame: 'stars5', },
+      opoint: { x: 40, y: 39, frame: 'stars5', },
     },
     'stars3': {
       pic: ['ball', 2, 2], wait: 3 * 3, next: 'stars4', move: [0, 0], center: [40, 41],

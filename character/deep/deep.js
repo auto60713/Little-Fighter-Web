@@ -107,13 +107,13 @@ lf2.character.Deep = {
     },
     'punch2': {
       pic: ['0', 1, 8], wait: 3, next: 'punch3', move: [0, 0], center: [23, 79], sound: '007.wav',
-      itr: { x: 8, y: 47, w: 43, h: 17, move: [2, 0], effect: 'injured', arest: 10, injury: 35, },
+      itr: { x: 8, y: 47, w: 43, h: 17, move: [10, 0], effect: 'injured', arest: 10, injury: 35, },
       bdy: { x: 7, y: 14, w: 30, h: 65, },
       bdy: { x: 2, y: 38, w: 60, h: 18, },
     },
     'punch3': {
       pic: ['0', 1, 1], wait: 3, next: 999, move: [0, 0], center: [24, 79],
-      itr: { x: 31, y: 32, w: 47, h: 26, move: [2, 0], effect: 'injured', arest: 10, injury: 35, },
+      itr: { x: 31, y: 32, w: 47, h: 26, move: [10, 0], effect: 'injured', arest: 10, injury: 35, },
       bdy: { x: 9, y: 14, w: 31, h: 67, },
       bdy: { x: 2, y: 38, w: 60, h: 18, },
     },
@@ -273,7 +273,7 @@ lf2.character.Deep = {
     },
     'blast3': {
       pic: ['1', 6, 7], wait: 3, next: 'blast4', move: [0, 0], center: [42, 79],
-      opoint: { x: 92, y: 45, move: [0, 0], frame: 'standing', },
+      opoint: { x: 92, y: 45, frame: 'standing', },
       bdy: { x: 16, y: 10, w: 34, h: 27, },
       bdy: { x: 25, y: 20, w: 38, h: 61, },
     },
@@ -308,7 +308,7 @@ lf2.character.Deep = {
     },
     'blast9': {
       pic: ['1', 1, 9], wait: 3, next: 'blast10', move: [0, 0], center: [25, 79],
-      opoint: { x: 79, y: 53, move: [0, 0], frame: 'standing', },
+      opoint: { x: 79, y: 53, frame: 'standing', },
       bdy: { x: 10, y: 15, w: 32, h: 65, },
     },
     'blast10': {
@@ -336,7 +336,7 @@ lf2.character.Deep = {
     },
     'blast14': {
       pic: ['1', 4, 1], wait: 3 * 1, next: 'blast15', move: [0, 0], center: [25, 79],
-      opoint: { x: 78, y: 41, move: [0, 0], frame: 'standing', },
+      opoint: { x: 78, y: 41, frame: 'standing', },
       bdy: { x: 15, y: 18, w: 34, h: 60, },
     },
     'blast15': {
