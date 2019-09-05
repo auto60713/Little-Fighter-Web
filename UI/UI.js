@@ -2,7 +2,7 @@
 // LOGO
 lf2.UI.logo = {
   setting: {
-    file: { 'logo': { deputy: 'png', w: 423, h: 130 }, },
+    file: { 'logo': { w: 423, h: 130 }, },
     fixedPosition: [400, 200],
   },
   frame: {
@@ -13,7 +13,7 @@ lf2.UI.logo = {
 // 開始按鈕
 lf2.UI.startgame = {
   setting: {
-    file: { 'startgame': { deputy: 'png', w: 150, h: 60 }, },
+    file: { 'startgame': { w: 150, h: 60 }, },
     fixedPosition: [400, 400],
   },
   frame: {
@@ -26,7 +26,7 @@ lf2.UI.startgame = {
 lf2.UI.title = {
   setting: {
     file: {
-      'title': { deputy: 'png', w: 300, h: 90 },
+      'title': { w: 300, h: 90 },
     },
   },
   frame: {
@@ -43,7 +43,7 @@ lf2.UI.title = {
 // 選角手
 lf2.UI.point = {
   setting: {
-    file: { 'point': { deputy: 'png', w: 29, h: 36 }, },
+    file: { 'point': { w: 29, h: 36 }, },
   },
   frame: {
     'standing': { next: 'standing', pic: ['point', 0, 0], center: [14, 18], wait: 100, },
@@ -55,8 +55,8 @@ lf2.UI.point = {
 lf2.UI.button = {
   setting: {
     file: { 
-      'mapSelection': { deputy: 'png', w: 170, h: 170 }, 
-      'shaoguanSelection': { deputy: 'png', w: 170, h: 170 },
+      'mapSelection': { w: 170, h: 170 }, 
+      'shaoguanSelection': { w: 170, h: 170 },
     },
   },
   frame: {
@@ -81,7 +81,7 @@ lf2.UI.shadow = {
 // 身分
 lf2.UI.identity = {
   setting: {
-    file: { 'identity': { deputy: 'png', w: 28, h: 10 }, },
+    file: { 'identity': { w: 28, h: 10 }, },
   },
   frame: {
     'standing': { next: 'standing', pic: ['identity', 0, 0], center: [14, 5], wait: 100, },
@@ -94,7 +94,7 @@ lf2.UI.identity = {
 lf2.UI.protaghpbar = {
   setting: {
     file: {
-      'protaghpbar': { deputy: 'png', w: 125, h: 40 },
+      'protaghpbar': { w: 125, h: 40 },
     },
     fixedPosition: [30, 50],
   },
@@ -108,7 +108,7 @@ lf2.UI.protaghpbar = {
 lf2.UI.otherhpbar = {
   setting: {
     file: {
-      'otherhpbar': { deputy: 'png', w: 70, h: 5 },
+      'otherhpbar': { w: 70, h: 5 },
     },
   },
   frame: {
@@ -125,7 +125,7 @@ lf2.UI.otherhpbar = {
 // 打擊特效
 lf2.UI.hit = {
   setting: {
-    file: { 'hit': { deputy: 'png', w: 192, h: 192 }, },
+    file: { 'hit': { w: 192, h: 192 }, },
   },
   frame: {
     'standing': { next: 'flash2', pic: ['hit', 0, 0], center: [96, 192], wait: 0, },
@@ -142,7 +142,7 @@ lf2.UI.hit = {
 
 lf2.UI.ko = {
   setting: {
-    file: { 'ko': { deputy: 'png', w: 590, h: 267 }, },
+    file: { 'ko': { w: 590, h: 267 }, },
     fixedPosition: [400, 300],
   },
   frame: {

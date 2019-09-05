@@ -1,9 +1,9 @@
 lf2.character.Woody = {
   setting: {
     file: {
-      '0': { deputy: 'png', w: 80, h: 80 },
-      '1': { deputy: 'png', w: 80, h: 80 },
-      '2': { deputy: 'png', w: 80, h: 80 },
+      '0': { w: 80, h: 80 },
+      '1': { w: 80, h: 80 },
+      '2': { w: 80, h: 80 },
     },
     hp: 550,
   },

@@ -44,7 +44,7 @@ lf2.portraitUI = (type, name) => {
     setting: { file: {}, type: type },
     frame: { 'standing': { next: 'standing', pic: [whichFace, 0, 0], center: cqer, wait: 100, }, }
   };
-  lf2.UI[name].setting.file[whichFace] = { deputy: 'png', w: cqer[0] * 2, h: cqer[1] * 2 };
+  lf2.UI[name].setting.file[whichFace] = { w: cqer[0] * 2, h: cqer[1] * 2 };
 }
 
 // 根據路徑將圖檔匯入圖檔中心
@@ -52,8 +52,7 @@ lf2.fileManager = (type, name, template) => {
 
   if (template.setting.file)
     Object.keys(template.setting.file).forEach(key => {
-
-      var file = template.setting.file[key];
+      
       var img = new Image();
       lf2.imageNum++;
 
@@ -67,8 +66,8 @@ lf2.fileManager = (type, name, template) => {
       }
 
       img.src = type == 'UI' ?
-        (`${template.setting.type ? `${template.setting.type}/${name}` : type}/${key}.${file.deputy}`) :
-        (`${type == 'derivative' ? 'character' : type}/${name}/${key}.${file.deputy}`);
+        (`${template.setting.type ? `${template.setting.type}/${name}` : type}/${key}.png`) :
+        (`${type == 'derivative' ? 'character' : type}/${name}/${key}.png`);
 
       lf2.imageCenter[`${name}_${key}`] = img;
     });

@@ -1,10 +1,10 @@
 lf2.character.John = {
   setting: {
     file: {
-      '0': { deputy: 'png', w: 80, h: 80 },
-      '1': { deputy: 'png', w: 80, h: 80 },
-      '2': { deputy: 'png', w: 80, h: 80 },
-      '3': { deputy: 'png', w: 110, h: 110 },
+      '0': { w: 80, h: 80 },
+      '1': { w: 80, h: 80 },
+      '2': { w: 80, h: 80 },
+      '3': { w: 110, h: 110 },
     },
     hp: 400,
   },
@@ -387,7 +387,7 @@ lf2.character.John = {
 lf2.derivative.John = {
   setting: {
     file: {
-      'ball': { deputy: 'png', w: 82, h: 83 },
+      'ball': { w: 82, h: 83 },
     },
   },
   frame: {

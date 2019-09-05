@@ -1,9 +1,9 @@
 lf2.character.Firen = {
   setting: {
     file: {
-      '0': { deputy: 'png', w: 80, h: 80 },
-      '1': { deputy: 'png', w: 80, h: 80 },
-      '2': { deputy: 'png', w: 80, h: 80 },
+      '0': { w: 80, h: 80 },
+      '1': { w: 80, h: 80 },
+      '2': { w: 80, h: 80 },
     },
     hp: 500,
   },
@@ -458,9 +458,9 @@ lf2.character.Firen = {
 lf2.derivative.Firen = {
   setting: {
     file: {
-      'ball': { deputy: 'png', w: 82, h: 83 },
-      'grd': { deputy: 'png', w: 36, h: 50 },
-      'exp': { deputy: 'png', w: 160, h: 160 },
+      'ball': { w: 82, h: 83 },
+      'grd': { w: 36, h: 50 },
+      'exp': { w: 160, h: 160 },
     },
   },
   frame: {
