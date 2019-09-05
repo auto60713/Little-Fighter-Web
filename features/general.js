@@ -45,6 +45,8 @@ lf2.skill = (setting, frame, type, thing) => {
     try {
       Object.keys(frame.hit).forEach(btName => {
         var skillName = frame.hit[btName];
+        // FIXME: 也要考慮空中的情況
+        if (skillName == 999) skillName = 'standing';
         var nextFrame = lf2.theFrame(type, thing, setting, skillName);
 
         // 確認技能是否存在 (可能還沒被做出來 但先有按法)
@@ -178,7 +180,8 @@ lf2.SomeThingsFollowTheRole = (setting, frame, type) => {
       lf2.paintedAtFoot(setting.x, 10, 'identity', 'standing');
       // 血條
       // FIXME: 血條長度不該寫死
-      lf2.mainhpbar2.file['protaghpbar'].w = 820 * (setting.nowhp / setting.hp);
+      var qqqq = 820 * (setting.nowhp / setting.hp);
+      lf2.mainhpbar2.file['protaghpbar'].w = qqqq === 0 ? -1 : qqqq;
     }
 
     // 其他人
@@ -193,9 +196,9 @@ lf2.SomeThingsFollowTheRole = (setting, frame, type) => {
       lf2.paintedAtFoot(nameTagPos, 10, 'identity', 'standing2');
 
       // 血條
-
-      lf2.paintedAtFoot(setting.x, 20, 'otherhpbar', 'standing2',);
-      lf2.paintedAtFoot(setting.x, 20, 'otherhpbar', 'standing', 70 * (setting.nowhp / setting.hp));
+      var qqqq = 70 * (setting.nowhp / setting.hp);
+      lf2.paintedAtFoot(setting.x, 20, 'otherhpbar', 'standing2');
+      lf2.paintedAtFoot(setting.x, 20, 'otherhpbar', 'standing', qqqq === 0 ? -1 : qqqq);
     }
 
     switch (lf2.state) {

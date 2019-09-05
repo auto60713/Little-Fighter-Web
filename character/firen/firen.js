@@ -76,27 +76,27 @@ lf2.character.Firen = {
     },
 
     'running': {
-      pic: ['0', 2, 0], wait: 3 * 3, next: 'running2', move: [6, 0], center: [35, 79], sound: '003.wav', hitHold: true,
+      pic: ['0', 2, 0], wait: 5, next: 'running2', move: [6, 0], center: [35, 79], sound: '003.wav', hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'addMan', B5: 'burn_run', B4: '',
+        B1: 'run_attack', B2: 'defend', B6: 'explosion', B5: 'burn_run', B4: 'ball',
       },
     },
     'running2': {
-      pic: ['0', 2, 1], wait: 3 * 3, next: 'running3', move: [6, 0], center: [41, 79], hitHold: true,
+      pic: ['0', 2, 1], wait: 5, next: 'running3', move: [6, 0], center: [41, 79], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'addMan', B5: 'burn_run', B4: '',
+        B1: 'run_attack', B2: 'defend', B6: 'explosion', B5: 'burn_run', B4: 'ball',
       },
     },
     'running3': {
-      pic: ['0', 2, 2], wait: 3 * 3, next: 'running', move: [6, 0], center: [36, 79], sound: '004.wav', hitHold: true,
+      pic: ['0', 2, 2], wait: 5, next: 'running', move: [6, 0], center: [36, 79], sound: '004.wav', hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'addMan', B5: 'burn_run', B4: '',
+        B1: 'run_attack', B2: 'defend', B6: 'explosion', B5: 'burn_run', B4: 'ball',
       },
     },
 

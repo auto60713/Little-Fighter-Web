@@ -14,7 +14,7 @@ lf2.character.Woody = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
+        B1: 'punch', B2: 'defend', B5: 'fly_crash', B5: 'cleg', B4: 'teleport',
       },
     },
     'standing2': {
@@ -22,7 +22,7 @@ lf2.character.Woody = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
+        B1: 'punch', B2: 'defend', B5: 'fly_crash', B5: 'cleg', B4: 'teleport',
       },
     },
     'standing3': {
@@ -30,7 +30,7 @@ lf2.character.Woody = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
+        B1: 'punch', B2: 'defend', B5: 'fly_crash', B5: 'cleg', B4: 'teleport',
       },
     },
     'standing4': {
@@ -38,7 +38,7 @@ lf2.character.Woody = {
       bdy: { x: 21, y: 18, w: 43, h: 62, },
       hit: {
         R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
+        B1: 'punch', B2: 'defend', B5: 'fly_crash', B5: 'cleg', B4: 'teleport',
       },
     },
 
@@ -47,7 +47,7 @@ lf2.character.Woody = {
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
+        B1: 'punch', B2: 'defend', B5: 'fly_crash', B5: 'cleg', B4: 'teleport',
       },
     },
     'walking2': {
@@ -55,7 +55,7 @@ lf2.character.Woody = {
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
+        B1: 'punch', B2: 'defend', B5: 'fly_crash', B5: 'cleg', B4: 'teleport',
       },
     },
     'walking3': {
@@ -63,7 +63,7 @@ lf2.character.Woody = {
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
+        B1: 'punch', B2: 'defend', B5: 'fly_crash', B5: 'cleg', B4: 'teleport',
       },
     },
     'walking4': {
@@ -71,32 +71,32 @@ lf2.character.Woody = {
       bdy: { x: 28, y: 15, w: 27, h: 65, },
       hit: {
         RR: 'running', LL: 'running', U: 'jump',
-        B1: 'punch', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
+        B1: 'punch', B2: 'defend', B5: 'fly_crash', B5: 'cleg', B4: 'teleport',
       },
     },
 
     'running': {
-      pic: ['0', 2, 0], wait: 3 * 3, next: 'running2', move: [9, 0], center: [36, 80], hitHold: true, sound: '003.wav',
+      pic: ['0', 2, 0], wait: 5, next: 'running2', move: [9, 0], center: [36, 80], hitHold: true, sound: '003.wav',
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
+        B1: 'run_attack', B2: 'defend', B5: 'fly_crash', B5: 'cleg', B4: 'teleport',
       },
     },
     'running2': {
-      pic: ['0', 2, 1], wait: 3 * 3, next: 'running3', move: [9, 0], center: [41, 79], hitHold: true,
+      pic: ['0', 2, 1], wait: 5, next: 'running3', move: [9, 0], center: [41, 79], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
+        B1: 'run_attack', B2: 'defend', B5: 'fly_crash', B5: 'cleg', B4: 'teleport',
       },
     },
     'running3': {
-      pic: ['0', 2, 2], wait: 3 * 3, next: 'running', move: [9, 0], center: [40, 81], hitHold: true, sound: '004.wav',
+      pic: ['0', 2, 2], wait: 5, next: 'running', move: [9, 0], center: [40, 81], hitHold: true, sound: '004.wav',
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
-        B1: 'run_attack', B2: 'defend', B6: 'cleg', B5: 'fly_crash', B4: 'teleport',
+        B1: 'run_attack', B2: 'defend', B5: 'fly_crash', B5: 'cleg', B4: 'teleport',
       },
     },
 
@@ -387,7 +387,7 @@ lf2.character.Woody = {
     },
     'cleg9': {
       pic: ['2', 2, 8], wait: 3 * 1, next: 'cleg10', move: [5, 0], center: [38, 79],
-      itr: { x: 52, y: 17, w: 29, h: 24, move: [8, -3], effect: 'falling', vrest: 9, injury: 20, },
+      itr: { x: 52, y: 17, w: 29, h: 24, move: [5, -6], effect: 'falling', vrest: 9, injury: 20, },
       bdy: { x: 25, y: 18, w: 34, h: 58, },
     },
     'cleg10': {
@@ -399,7 +399,7 @@ lf2.character.Woody = {
       bdy: { x: 25, y: 18, w: 34, h: 58, },
     },
     'cleg12': {
-      pic: ['0', 6, 0], wait: 3 * 4, next: 999, move: [0, 0], center: [39, 79], B6: 'cleg-189', B5: 'cleg-7', sound: '012.wav',
+      pic: ['0', 6, 0], wait: 10, next: 999, move: [0, 0], center: [39, 79], B6: 'cleg-189', B5: 'cleg-7', sound: '012.wav',
       bdy: { x: 26, y: 36, w: 29, h: 44, },
     },
 

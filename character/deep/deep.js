@@ -76,7 +76,7 @@ lf2.character.Deep = {
     },
 
     'running': {
-      pic: ['0', 2, 0], wait: 7, next: 'running2', move: [6, 0], center: [32, 79], sound: '003.wav', hitHold: true,
+      pic: ['0', 2, 0], wait: 6, next: 'running2', move: [6, 0], center: [32, 79], sound: '003.wav', hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -84,7 +84,7 @@ lf2.character.Deep = {
       },
     },
     'running2': {
-      pic: ['0', 2, 1], wait: 7, next: 'running3', move: [6, 0], center: [32, 79], hitHold: true,
+      pic: ['0', 2, 1], wait: 6, next: 'running3', move: [6, 0], center: [32, 79], hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -92,7 +92,7 @@ lf2.character.Deep = {
       },
     },
     'running3': {
-      pic: ['0', 2, 2], wait: 7, next: 'running', move: [6, 0], center: [26, 79], sound: '004.wav', hitHold: true,
+      pic: ['0', 2, 2], wait: 6, next: 'running', move: [6, 0], center: [26, 79], sound: '004.wav', hitHold: true,
       bdy: { x: 25, y: 19, w: 38, h: 60, },
       hit: {
         U: 'dash',
@@ -133,17 +133,17 @@ lf2.character.Deep = {
     },
 
     'run_attack': {
-      pic: ['1', 3, 2], wait: 12, next: 'run_attack2', move: [6, 0], center: [31, 79],
+      pic: ['1', 3, 2], wait: 7, next: 'run_attack2', move: [0, 0], center: [31, 79],
       bdy: { x: 16, y: 10, w: 29, h: 68, },
     },
     'run_attack2': {
-      pic: ['1', 3, 3], wait: 6, next: 'run_attack3', move: [4, 0], center: [19, 79], sound: '007.wav',
+      pic: ['1', 3, 3], wait: 2, next: 'run_attack3', move: [3, 0], center: [19, 79], sound: '007.wav',
       itr: { x: 41, y: 4, w: 36, h: 50, move: [-3, 12], injury: 60, },
       bdy: { x: 8, y: 51, w: 38, h: 27, },
       bdy: { x: 14, y: 16, w: 27, h: 36, },
     },
     'run_attack3': {
-      pic: ['1', 3, 4], wait: 9, next: 'run_attack4', move: [0, 0], center: [14, 79],
+      pic: ['1', 3, 4], wait: 3, next: 'run_attack4', move: [0, 0], center: [14, 79],
       itr: { x: 43, y: 37, w: 40, h: 42, move: [5, 12], effect: 'falling', vrest: 15, injury: 15, },
       bdy: { x: 2, y: 57, w: 41, h: 22, },
       bdy: { x: 18, y: 26, w: 33, h: 38, },
@@ -267,7 +267,6 @@ lf2.character.Deep = {
     },
     'blast2': {
       pic: ['1', 6, 6], wait: 3, next: 'blast3', move: [0, 0], center: [15, 79], sound: '007.wav',
-      itr: { x: 44, y: 12, w: 33, h: 55, move: [10, 0], effect: 'injured', injury: 15, },
       bdy: { x: 2, y: 13, w: 35, h: 67, },
       bdy: { x: 22, y: 39, w: 44, h: 15, },
     },
@@ -303,7 +302,6 @@ lf2.character.Deep = {
     },
     'blast8': {
       pic: ['1', 1, 8], wait: 3, next: 'blast9', move: [0, 0], center: [20, 79],
-      itr: { x: 39, y: 31, w: 36, h: 48, move: [10, 0], effect: 'injured', injury: 15, },
       bdy: { x: 5, y: 15, w: 32, h: 66, },
     },
     'blast9': {
@@ -312,7 +310,7 @@ lf2.character.Deep = {
       bdy: { x: 10, y: 15, w: 32, h: 65, },
     },
     'blast10': {
-      pic: ['1', 3, 9], wait: 5, next: 999, move: [0, 0], center: [29, 79],
+      pic: ['1', 3, 9], wait: 3, next: 999, move: [0, 0], center: [29, 79],
       bdy: { x: 12, y: 17, w: 38, h: 63, },
       hit: {
         B1: 'blast11', B4: 'blast11',
@@ -320,33 +318,35 @@ lf2.character.Deep = {
     },
 
     'blast11': {
-      pic: ['1', 3, 0], wait: 3 * 1, next: 'blast12', move: [0, 0], center: [45, 79], sound: '043.wav',
+      pic: ['1', 3, 0], wait: 3, next: 'blast12', move: [0, 0], center: [45, 79], sound: '043.wav',
       bdy: { x: 32, y: 17, w: 37, h: 65, },
       bdy: { x: 19, y: 33, w: 28, h: 19, },
     },
     'blast12': {
-      pic: ['1', 3, 1], wait: 3 * 1, next: 'blast13', move: [0, 0], center: [45, 79], sound: '007.wav',
+      pic: ['1', 3, 1], wait: 3, next: 'blast13', move: [0, 0], center: [45, 79], sound: '007.wav',
       bdy: { x: 31, y: 11, w: 37, h: 70, },
       bdy: { x: 19, y: 38, w: 23, h: 22, },
     },
     'blast13': {
-      pic: ['1', 4, 0], wait: 3 * 2, next: 'blast14', move: [0, 0], center: [24, 79],
-      itr: { x: 34, y: 28, w: 42, h: 42, move: [10, 0], effect: 'injured', injury: 35, },
+      pic: ['1', 4, 0], wait: 3, next: 'blast14', move: [0, 0], center: [24, 79],
       bdy: { x: 15, y: 18, w: 38, h: 61, },
     },
     'blast14': {
-      pic: ['1', 4, 1], wait: 3 * 1, next: 'blast15', move: [0, 0], center: [25, 79],
+      pic: ['1', 4, 1], wait: 3, next: 'blast15', move: [0, 0], center: [25, 79],
       opoint: { x: 78, y: 41, frame: 'standing', },
       bdy: { x: 15, y: 18, w: 34, h: 60, },
     },
     'blast15': {
-      pic: ['1', 4, 9], wait: 3 * 2, next: 'blast16', move: [0, 0], center: [21, 79],
+      pic: ['1', 4, 9], wait: 7, next: 'blast16', move: [0, 0], center: [21, 79],
       bdy: { x: 8, y: 13, w: 38, h: 65, },
     },
     'blast16': {
-      pic: ['1', 5, 9], wait: 3 * 2, next: 999, move: [0, 0], center: [20, 78],
+      pic: ['1', 5, 9], wait: 8, next: 999, move: [0, 0], center: [20, 78],
       bdy: { x: 9, y: 12, w: 36, h: 68, },
     },
+
+
+
 
     'dash_sword': {
       pic: ['2', 2, 0], wait: 3, next: 'dash_sword2', move: [3, 0], center: [25, 78], sound: '045.wav',
@@ -570,38 +570,38 @@ lf2.derivative.Deep = {
   frame: {
 
     'standing': {
-      pic: ['ball', 0, 0], wait: 3 * 1, next: 'flying2', move: [15, 0], center: [40, 41], timeToGo: [10, 'falling'],
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [7, -4], effect: 'falling', vrest: 10, injury: 55, next: 'falling', },
+      pic: ['ball', 0, 0], wait: 3 * 1, next: 'flying2', move: [7, 0], center: [40, 41], timeToGo: [20, 'falling'],
+      itr: { x: 22, y: 17, w: 55, h: 47, move: [1, -4], effect: 'falling', vrest: 10, injury: 55, next: 'falling', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
     'flying2': {
-      pic: ['ball', 0, 1], wait: 3 * 1, next: 'flying3', move: [15, 0], center: [35, 41],
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [7, -4], effect: 'falling', vrest: 10, injury: 55, next: 'falling', },
+      pic: ['ball', 0, 1], wait: 3 * 1, next: 'flying3', move: [7, 0], center: [35, 41],
+      itr: { x: 22, y: 17, w: 55, h: 47, move: [1, -4], effect: 'falling', vrest: 10, injury: 55, next: 'shoot', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
     'flying3': {
-      pic: ['ball', 0, 2], wait: 3 * 1, next: 'flying4', move: [15, 0], center: [36, 41],
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [7, -4], effect: 'falling', vrest: 10, injury: 55, next: 'falling', },
+      pic: ['ball', 0, 2], wait: 3 * 1, next: 'flying4', move: [7, 0], center: [36, 41],
+      itr: { x: 22, y: 17, w: 55, h: 47, move: [1, -4], effect: 'falling', vrest: 10, injury: 55, next: 'shoot', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
     'flying4': {
-      pic: ['ball', 0, 3], wait: 3 * 1, next: 'flying5', move: [15, 0], center: [37, 41],
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [7, -4], effect: 'falling', vrest: 10, injury: 55, next: 'falling', },
+      pic: ['ball', 0, 3], wait: 3 * 1, next: 'flying5', move: [7, 0], center: [37, 41],
+      itr: { x: 22, y: 17, w: 55, h: 47, move: [1, -4], effect: 'falling', vrest: 10, injury: 55, next: 'shoot', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
     'flying5': {
-      pic: ['ball', 0, 2], wait: 3 * 1, next: 'flying6', move: [15, 0], center: [40, 41],
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [7, -4], effect: 'falling', vrest: 10, injury: 55, next: 'falling', },
+      pic: ['ball', 0, 2], wait: 3 * 1, next: 'flying6', move: [7, 0], center: [40, 41],
+      itr: { x: 22, y: 17, w: 55, h: 47, move: [1, -4], effect: 'falling', vrest: 10, injury: 55, next: 'shoot', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
     'flying6': {
-      pic: ['ball', 0, 1], wait: 3 * 1, next: 'standing', move: [15, 0], center: [40, 41],
-      itr: { x: 22, y: 27, w: 55, h: 27, move: [7, -4], effect: 'falling', vrest: 10, injury: 55, next: 'falling', },
+      pic: ['ball', 0, 1], wait: 3 * 1, next: 'standing', move: [7, 0], center: [40, 41],
+      itr: { x: 22, y: 17, w: 55, h: 47, move: [1, -4], effect: 'falling', vrest: 10, injury: 55, next: 'shoot', },
       bdy: { x: 22, y: 27, w: 55, h: 27, },
     },
 
     'falling': {
-      pic: ['ball', 1, 0], wait: 3 * 1, next: 'hiting2', move: [0, 0], center: [39, 41],
+      pic: ['ball', 1, 0], wait: 3 * 1, next: 'hiting2', move: [3, 0], center: [39, 41],
     },
     'hiting2': {
       pic: ['ball', 1, 1], wait: 3 * 1, next: 'hiting3', move: [0, 0], center: [37, 41],
@@ -613,6 +613,19 @@ lf2.derivative.Deep = {
       pic: ['ball', 1, 3], wait: 3 * 1, next: 1000, move: [0, 0], center: [28, 41],
     },
 
+
+    'shoot': {
+      pic: ['ball', 1, 0], wait: 3 * 1, next: 'shoot2', move: [20, 0], center: [39, 41],
+    },
+    'shoot2': {
+      pic: ['ball', 1, 1], wait: 3 * 1, next: 'shoot3', move: [0, 0], center: [37, 41],
+    },
+    'shoot3': {
+      pic: ['ball', 1, 2], wait: 3 * 1, next: 'shoot4', move: [0, 0], center: [37, 41],
+    },
+    'shoot4': {
+      pic: ['ball', 1, 3], wait: 3 * 1, next: 1000, move: [0, 0], center: [28, 41],
+    },
 
 
   }

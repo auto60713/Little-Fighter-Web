@@ -325,47 +325,52 @@ lf2.character.Henry = {
 
 
     'flute': {
-      pic: ['2', 0, 0], wait: 3 * 8, next: 'flute2', move: [0, 0], center: [36, 79], sound: '056.wav',
+      pic: ['2', 0, 0], wait: 10, next: 'flute2', move: [0, 0], center: [36, 79], sound: '056.wav',
       bdy: { x: 22, y: 8, w: 36, h: 73, },
     },
     'flute2': {
-      pic: ['2', 0, 1], wait: 3 * 0, next: 'flute3', move: [0, 0], center: [36, 79],
-      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], effect: 'falling' },
+      pic: ['2', 0, 1], wait: 10, next: 'flute3', move: [0, 0], center: [36, 79],
+      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -5], effect: 'falling' },
       bdy: { x: 22, y: 8, w: 36, h: 73, },
       hit: {
-        B6: 999, B2: 999,
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B5: '', B4: 'super_arrow',
       },
     },
     'flute3': {
-      pic: ['2', 0, 1], wait: 3 * 9, next: 'flute4', move: [0, 0], center: [36, 79], sound: '057.wav',
-      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], effect: 'falling' },
+      pic: ['2', 0, 1], wait: 20, next: 'flute4', move: [0, 0], center: [36, 79], sound: '057.wav',
+      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -5], effect: 'falling' },
       bdy: { x: 22, y: 8, w: 36, h: 73, },
       hit: {
-        B6: 999, B2: 999,
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B5: '', B4: 'super_arrow',
       },
     },
     'flute4': {
-      pic: ['2', 0, 2], wait: 3 * 27, next: 'flute5', move: [0, 0], center: [36, 79], sound: '058.wav',
-      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], effect: 'falling' },
+      pic: ['2', 0, 2], wait: 50, next: 'flute5', move: [0, 0], center: [36, 79], sound: '058.wav',
+      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -5], effect: 'falling' },
       bdy: { x: 22, y: 8, w: 36, h: 73, },
       hit: {
-        B6: 999, B2: 999,
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B5: '', B4: 'super_arrow',
       },
     },
     'flute5': {
-      pic: ['2', 0, 3], wait: 3 * 9, next: 'flute6', move: [0, 0], center: [36, 79], sound: '101.wav',
-      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], effect: 'falling' },
+      pic: ['2', 0, 3], wait: 20, next: 'flute6', move: [0, 0], center: [36, 79], sound: '101.wav',
+      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -5], effect: 'falling' },
       bdy: { x: 22, y: 8, w: 36, h: 73, },
       hit: {
-        B6: 999, B2: 999,
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B5: '', B4: 'super_arrow',
       },
     },
     'flute6': {
-      pic: ['2', 0, 0], wait: 3 * 50, next: 999, move: [0, 0], center: [36, 79], sound: '102.wav',
-      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -1], effect: 'falling' },
+      pic: ['2', 0, 0], wait: 120, next: 999, move: [0, 0], center: [36, 79], sound: '102.wav',
+      itr: { x: -184, y: -37, w: 438, h: 200, vrest: 10, injury: 10, move: [0, -5], effect: 'falling' },
       bdy: { x: 22, y: 8, w: 36, h: 73, },
       hit: {
-        B6: 999, B2: 999,
+        R: 'walking', L: 'walking', RR: 'running', LL: 'running', U: 'jump',
+        B1: 'punch', B2: 'defend', B5: '', B4: 'super_arrow',
       },
     },
 
