@@ -28,7 +28,7 @@ lf2.variousChangesFrame = (setting, frame, type, thing) => {
   else if (setting.nowwait <= 0) {
     lf2.gotoFrame(thing, setting, type, frame.next);
   }
-  // 被抓換動作
+  // 被抓換動作 (未開放)
   else if (setting.catching) {
     var enemy = lf2.findScenesIndex(setting.catching);
     var enemyFrame = enemy.frame[enemy.setting.nowframe];
@@ -178,7 +178,7 @@ lf2.SomeThingsFollowTheRole = (setting, frame, type) => {
       lf2.paintedAtFoot(setting.x, 10, 'identity', 'standing');
       // 血條
       // FIXME: 血條長度不該寫死
-      lf2.mainhpbar2.file['protaghpbarVal'].w = 820 * (setting.nowhp / setting.hp);
+      lf2.mainhpbar2.file['protaghpbar'].w = 820 * (setting.nowhp / setting.hp);
     }
 
     // 其他人
@@ -193,8 +193,9 @@ lf2.SomeThingsFollowTheRole = (setting, frame, type) => {
       lf2.paintedAtFoot(nameTagPos, 10, 'identity', 'standing2');
 
       // 血條
-      lf2.paintedAtFoot(setting.x, 20, 'otherhpbar');
-      lf2.paintedAtFoot(setting.x, 20, 'otherhpbar', 'standing2', 70 * (setting.nowhp / setting.hp));
+
+      lf2.paintedAtFoot(setting.x, 20, 'otherhpbar', 'standing2',);
+      lf2.paintedAtFoot(setting.x, 20, 'otherhpbar', 'standing', 70 * (setting.nowhp / setting.hp));
     }
 
     switch (lf2.state) {
@@ -226,7 +227,7 @@ lf2.paintedAtFoot = (x, y, name, f = 'standing', w) => {
   setting.y = lf2.mapLimit.y + y;
 
   // 血條特規
-  if (w) setting.file['otherhpbarVal'].w = w;
+  if (w) setting.file['otherhpbar'].w = w;
 
   lf2.draw(setting, frame, 'UI');
 }

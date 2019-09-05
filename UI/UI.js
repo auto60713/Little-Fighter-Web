@@ -22,6 +22,23 @@ lf2.UI.startgame = {
 };
 
 
+// 標題
+lf2.UI.title = {
+  setting: {
+    file: {
+      'title': { deputy: 'png', w: 300, h: 90 },
+    },
+  },
+  frame: {
+    'standing': { next: 'standing', pic: ['title', 10, 0], center: [0, 0], wait: 100, },
+
+    'character': { next: 'character', pic: ['title', 0, 0], center: [0, 0], wait: 100, },
+    'standing2': { next: 'standing2', pic: ['title', 1, 0], center: [0, 0], wait: 100, },
+    'map': { next: 'map', pic: ['title', 2, 0], center: [0, 0], wait: 100, },
+    'shaoguan': { next: 'shaoguan', pic: ['title', 3, 0], center: [0, 0], wait: 100, },
+  }
+};
+
 
 // 選角手
 lf2.UI.point = {
@@ -32,6 +49,7 @@ lf2.UI.point = {
     'standing': { next: 'standing', pic: ['point', 0, 0], center: [14, 18], wait: 100, },
   }
 };
+
 
 // 模式按鈕
 lf2.UI.button = {
@@ -46,20 +64,6 @@ lf2.UI.button = {
     'standing2': { next: 'standing2', pic: ['shaoguanSelection', 0, 0], center: [85, 85], wait: 100, },
   }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -90,14 +94,13 @@ lf2.UI.identity = {
 lf2.UI.protaghpbar = {
   setting: {
     file: {
-      'protaghpbarVal': { deputy: 'png', w: 123, h: 39 },
-      'protaghpbarArmor': { deputy: 'png', w: 123, h: 39 },
+      'protaghpbar': { deputy: 'png', w: 125, h: 40 },
     },
     fixedPosition: [30, 50],
   },
   frame: {
-    'standing': { next: 'standing', pic: ['protaghpbarVal', 0, 0], center: [0, 0], wait: 100, },
-    'standing2': { next: 'standing2', pic: ['protaghpbarArmor', 0, 0], center: [0, 0], wait: 100, },
+    'standing': { next: 'standing', pic: ['protaghpbar', 0, 0], center: [0, 0], wait: 100, },
+    'standing2': { next: 'standing2', pic: ['protaghpbar', 1, 0], center: [0, 0], wait: 100, },
   }
 };
 
@@ -105,13 +108,12 @@ lf2.UI.protaghpbar = {
 lf2.UI.otherhpbar = {
   setting: {
     file: {
-      'otherhpbarTank': { deputy: 'png', w: 70, h: 5 },
-      'otherhpbarVal': { deputy: 'png', w: 70, h: 5 },
+      'otherhpbar': { deputy: 'png', w: 70, h: 5 },
     },
   },
   frame: {
-    'standing': { next: 'standing', pic: ['otherhpbarTank', 0, 0], center: [35, 2], wait: 100, },
-    'standing2': { next: 'standing2', pic: ['otherhpbarVal', 0, 0], center: [35, 2], wait: 100, },
+    'standing': { next: 'standing', pic: ['otherhpbar', 0, 0], center: [35, 2], wait: 100, },
+    'standing2': { next: 'standing2', pic: ['otherhpbar', 1, 0], center: [35, 2], wait: 100, },
   }
 };
 

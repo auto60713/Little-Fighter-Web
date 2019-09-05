@@ -36,16 +36,22 @@ lf2.preparemodeSelection = () => {
     x: 250,
     y: 350,
   });
+
+  lf2.adjunction('UI', 'title', {
+    x: 10,
+    y: 10,
+    nowframe: 'standing',
+  });
 }
 
 // 準備選角畫面的東西
 lf2.prepareroleSelection = () => {
-  lf2.selectionList('character', 200);
+  lf2.selectionList('character', 120);
 }
 
 // 準備選擇地圖的東西
 lf2.preparemapSelection = () => {
-  lf2.selectionList('map', 200);
+  lf2.selectionList('map', 220);
 }
 
 // 準備格鬥模式的東西
@@ -80,7 +86,7 @@ lf2.preparebattleMode = () => {
 
 // 準備選擇副本的東西
 lf2.prepareshaoguanSelection = () => {
-  lf2.selectionList('shaoguan', 200);
+  lf2.selectionList('shaoguan', 220);
 }
 
 // 準備闖關模式的東西
@@ -161,6 +167,12 @@ lf2.selectionList = (type, w) => {
   lf2.adjunction('UI', 'point', {
     x: 250,
     y: 350,
+  });
+
+  lf2.adjunction('UI', 'title', {
+    x: 10,
+    y: 10,
+    nowframe: type,
   });
 
 }

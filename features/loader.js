@@ -38,7 +38,7 @@ lf2.portraitUI = (type, name) => {
 
   var whichFace = type == 'character' ? 'face' : `${type}face`;
 
-  var cqer = type == 'character' ? [50, 50] : [100, 75];
+  var cqer = type == 'character' ? [50, 60] : [100, 100];
 
   lf2.UI[name] = {
     setting: { file: {}, type: type },

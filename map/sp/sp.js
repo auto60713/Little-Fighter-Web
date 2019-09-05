@@ -16,6 +16,8 @@ lf2.map.sp = {
       'fire5': { deputy: 'bmp', w: 1000, h: 1000, cc: 14, c1: 8, c2: 9, },
       'fire6': { deputy: 'bmp', w: 1000, h: 1000, cc: 14, c1: 10, c2: 11, },
       'fire7': { deputy: 'bmp', w: 1000, h: 1000, cc: 14, c1: 12, c2: 13, },
+
+      'g': { deputy: 'png', w: 1000, h: 1000, cc: 14, c1: 12, c2: 13, },
     },
     limit: { x: 2400, y: 400, },
     backgroundColor: '#000000',
@@ -36,6 +38,8 @@ lf2.map.sp = {
     'fire5': { next: 'fire6', pic: ['fire5', 0, 0], wait: 3, },
     'fire6': { next: 'fire7', pic: ['fire6', 0, 0], wait: 3, },
     'fire7': { next: 'fire1', pic: ['fire7', 0, 0], wait: 3, },
+
+    'g': { next: 'g', pic: ['g', 0, 0], wait: 100, },
   },
   // 擺設 (相當於人物的setting)
   decorate: [
@@ -43,6 +47,8 @@ lf2.map.sp = {
     { nowframe: 'wall4', x: -41, y: 128, loop: [277, 9], },
     { nowframe: 'wall3', x: -57, y: 269, loop: [277, 9], },
     { nowframe: 'fire1', x: 0, y: 128, loop: [277, 9], },
+
+    { nowframe: 'g', x: 0, y: 308, loop: [800, 3], },
   ],
 }
 

@@ -3,7 +3,7 @@
 lf2.physical = (setting, frame, type, thing) => {
   if (!lf2.passOnly(['battleMode', 'shaoguanMode'], ['character', 'derivative'], type)) return;
 
-  // 被抓中
+  // 被抓中 (實驗功能 未開放)
   if (setting.catching) {
     var enemy = lf2.findScenesIndex(setting.catching);
     var enemyFrame = enemy.frame[enemy.setting.nowframe];
